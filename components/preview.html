@@ -80,28 +80,13 @@
     .hero__ctas { display: flex; gap: 24px; }
     .hero__cta {
       font-size: 14px; font-weight: 600; padding: 14px 24px;
-      border: 1px solid currentColor; border-radius: 999px;
+      border: 1px solid currentColor; border-radius: var(--lvdr-radius-md);
       transition: background 0.24s cubic-bezier(0.2,0,0,1), color 0.24s cubic-bezier(0.2,0,0,1);
       display: inline-flex; align-items: center; gap: 10px;
     }
     .hero__cta:hover { background: var(--lvdr-color-surface); color: var(--lvdr-color-ink); }
     .hero__cta--primary { background: var(--lvdr-color-brand); color: var(--lvdr-color-ink); border-color: var(--lvdr-color-brand); }
     .hero__cta--primary:hover { background: var(--lvdr-color-surface); color: var(--lvdr-color-ink); border-color: var(--lvdr-color-surface); }
-
-    .hero__scroll {
-      position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
-      font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; font-weight: 600;
-      color: rgba(255,255,255,0.5);
-      writing-mode: vertical-rl; rotate: 180deg;
-      animation: drift 2.4s infinite ease-in-out;
-    }
-    @keyframes drift { 0%,100%{transform: translate(-50%,0);} 50%{transform: translate(-50%,-10px);} }
-
-    .hero__ornament {
-      position: absolute; right: 40px; top: 50%; transform: translateY(-50%) rotate(-90deg);
-      font-size: 11px; text-transform: uppercase; letter-spacing: 0.3em; font-weight: 600;
-      color: rgba(255,255,255,0.3);
-    }
 
     /* ============ marquee ============ */
     .marquee {
@@ -312,8 +297,6 @@
       </div>
     </div>
 
-    <span class="hero__scroll">Scroll</span>
-    <span class="hero__ornament">A holding of brands — 01/∞</span>
   </section>
 
   <!-- marquee -->
