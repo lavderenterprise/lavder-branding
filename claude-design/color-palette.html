@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lavder · Color palette</title>
+  <link rel="stylesheet" href="../tokens/css/fonts.css" />
+  <link rel="stylesheet" href="../tokens/css/variables.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; padding: var(--lvdr-space-12) var(--lvdr-space-8); background: var(--lvdr-color-surface); color: var(--lvdr-color-ink); font-family: var(--lvdr-font-body); }
+    h1 { font-family: var(--lvdr-font-heading); font-weight: 700; font-size: var(--lvdr-fs-6xl); letter-spacing: var(--lvdr-ls-tight); line-height: 1.05; margin: 0 0 var(--lvdr-space-2); }
+    .lede { font-size: var(--lvdr-fs-lg); color: var(--lvdr-color-text-secondary); max-width: 60ch; margin: 0 0 var(--lvdr-space-16); }
+    h2 { font-family: var(--lvdr-font-heading); font-weight: 600; font-size: var(--lvdr-fs-3xl); letter-spacing: var(--lvdr-ls-tight); margin: var(--lvdr-space-16) 0 var(--lvdr-space-6); }
+    .eyebrow { font-size: var(--lvdr-fs-2xs); text-transform: uppercase; letter-spacing: var(--lvdr-ls-widest); color: var(--lvdr-color-brand); font-weight: 600; margin: 0 0 var(--lvdr-space-3); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--lvdr-space-4); }
+    .swatch { border-radius: var(--lvdr-radius-lg); overflow: hidden; border: 1px solid var(--lvdr-color-border-subtle); background: var(--lvdr-color-surface); }
+    .swatch__chip { height: 140px; }
+    .swatch__meta { padding: var(--lvdr-space-4); font-size: var(--lvdr-fs-sm); }
+    .swatch__name { font-weight: 600; font-size: var(--lvdr-fs-md); margin: 0 0 var(--lvdr-space-1); }
+    .swatch__token { font-family: var(--lvdr-font-mono); font-size: var(--lvdr-fs-xs); color: var(--lvdr-color-text-muted); }
+    .swatch__hex { font-family: var(--lvdr-font-mono); font-size: var(--lvdr-fs-xs); color: var(--lvdr-color-ink); margin-top: var(--lvdr-space-2); }
+    .container { max-width: var(--lvdr-container-xl); margin: 0 auto; }
+    .gradient-card { height: 180px; border-radius: var(--lvdr-radius-xl); display: flex; align-items: flex-end; padding: var(--lvdr-space-5); color: white; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p class="eyebrow">Brand system</p>
+    <h1>Color.</h1>
+    <p class="lede">Three brand colors do the work. Neutrals carry the system. Semantic colors speak only when they must.</p>
+
+    <h2>Brand</h2>
+    <div class="grid">
+      <div class="swatch"><div class="swatch__chip" style="background:#111113;"></div><div class="swatch__meta"><p class="swatch__name">Ink</p><p class="swatch__token">color.ink</p><p class="swatch__hex">#111113</p></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:#FFFFFF; border-bottom: 1px solid var(--lvdr-color-border-subtle);"></div><div class="swatch__meta"><p class="swatch__name">Surface</p><p class="swatch__token">color.surface</p><p class="swatch__hex">#FFFFFF</p></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:#F87016;"></div><div class="swatch__meta"><p class="swatch__name">Brand</p><p class="swatch__token">color.brand</p><p class="swatch__hex">#F87016</p></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:#FCA400;"></div><div class="swatch__meta"><p class="swatch__name">Brand accent</p><p class="swatch__token">color.brand-accent</p><p class="swatch__hex">#FCA400</p></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:#D05A0E;"></div><div class="swatch__meta"><p class="swatch__name">Brand dark</p><p class="swatch__token">color.brand-dark</p><p class="swatch__hex">#D05A0E</p></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:#000000;"></div><div class="swatch__meta"><p class="swatch__name">Ink pure</p><p class="swatch__token">color.ink-pure</p><p class="swatch__hex">#000000</p></div></div>
+    </div>
+
+    <h2>Neutrals</h2>
+    <div class="grid">
+      <div class="swatch"><div class="swatch__chip" style="background:#FAFAFA; border-bottom: 1px solid var(--lvdr-color-border-subtle);"></div><div class="swatch__meta"><p class="swatch__name">Neutral 50</p><p class="swatch__hex">#FAFAFA</p></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:#F4F4F5;"></div><div class="swatch__meta"><p class="swatch__name">Neutral 100</p><p class="swatch__hex">#F4F4F5</p></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:#E4E4E7;"></div><div class="swatch__meta"><p class="swatch__name">Neutral 200</p><p class="swatch__hex">#E4E4E7</p></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:#D4D4D8;"></div><div class="swatch__meta"><p class="swatch__name">Neutral 300</p><p class="swatch__hex">#D4D4D8</p></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:#A1A1AA;"></div><div class="swatch__meta"><p class="swatch__name">Neutral 400</p><p class="swatch__hex">#A1A1AA</p></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:#71717A;"></div><div class="swatch__meta"><p class="swatch__name">Neutral 500</p><p class="swatch__hex">#71717A</p></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:#52525B;"></div><div class="swatch__meta"><p class="swatch__name">Neutral 600</p><p class="swatch__hex">#52525B</p></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:#3F3F46;"></div><div class="swatch__meta"><p class="swatch__name">Neutral 700</p><p class="swatch__hex">#3F3F46</p></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:#27272A;"></div><div class="swatch__meta"><p class="swatch__name">Neutral 800</p><p class="swatch__hex">#27272A</p></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:#18181B;"></div><div class="swatch__meta"><p class="swatch__name">Neutral 900</p><p class="swatch__hex">#18181B</p></div></div>
+    </div>
+
+    <h2>Semantic</h2>
+    <div class="grid">
+      <div class="swatch"><div class="swatch__chip" style="background:#22C55E;"></div><div class="swatch__meta"><p class="swatch__name">Success</p><p class="swatch__hex">#22C55E</p></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:#EAB308;"></div><div class="swatch__meta"><p class="swatch__name">Warning</p><p class="swatch__hex">#EAB308</p></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:#EF4444;"></div><div class="swatch__meta"><p class="swatch__name">Error</p><p class="swatch__hex">#EF4444</p></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:#3B82F6;"></div><div class="swatch__meta"><p class="swatch__name">Info</p><p class="swatch__hex">#3B82F6</p></div></div>
+    </div>
+
+    <h2>Gradients</h2>
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+      <div class="gradient-card" style="background: linear-gradient(135deg,#F87016 0%,#FCA400 100%);">gradient.brand — 135° #F87016 → #FCA400</div>
+      <div class="gradient-card" style="background: linear-gradient(180deg,#111113 0%,#000000 100%);">gradient.ink — 180° #111113 → #000000</div>
+    </div>
+
+    <h2>Contrast check (AA body = 4.5:1 · AAA = 7:1)</h2>
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+      <div class="swatch" style="padding: var(--lvdr-space-5); background:#FFFFFF;"><p style="color:#111113; font-size: var(--lvdr-fs-md); margin: 0 0 var(--lvdr-space-2);">Ink on Surface</p><p class="swatch__hex">19.6:1 · AAA</p></div>
+      <div class="swatch" style="padding: var(--lvdr-space-5); background:#111113; color:#fff;"><p style="color:#fff; font-size: var(--lvdr-fs-md); margin: 0 0 var(--lvdr-space-2);">Surface on Ink</p><p style="font-family: var(--lvdr-font-mono); font-size: var(--lvdr-fs-xs); color: var(--lvdr-color-neutral-300);">19.6:1 · AAA</p></div>
+      <div class="swatch" style="padding: var(--lvdr-space-5); background:#F87016;"><p style="color:#111113; font-size: var(--lvdr-fs-md); margin: 0 0 var(--lvdr-space-2);">Ink on Brand</p><p style="font-family: var(--lvdr-font-mono); font-size: var(--lvdr-fs-xs); color: var(--lvdr-color-ink);">6.5:1 · AA body</p></div>
+      <div class="swatch" style="padding: var(--lvdr-space-5); background:#FFFFFF;"><p style="color:#F87016; font-size: var(--lvdr-fs-md); margin: 0 0 var(--lvdr-space-2);">Brand on Surface</p><p class="swatch__hex">3.0:1 · large text only</p></div>
+    </div>
+  </div>
+</body>
+</html>

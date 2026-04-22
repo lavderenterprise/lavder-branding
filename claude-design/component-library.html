@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lavder · Component library</title>
+  <link rel="stylesheet" href="../tokens/css/fonts.css" />
+  <link rel="stylesheet" href="../tokens/css/variables.css" />
+  <link rel="stylesheet" href="../components/_components.css" />
+  <style>
+    body { margin: 0; padding: var(--lvdr-space-12) var(--lvdr-space-8); background: var(--lvdr-color-surface); color: var(--lvdr-color-ink); font-family: var(--lvdr-font-body); }
+    .container { max-width: var(--lvdr-container-xl); margin: 0 auto; }
+    .eyebrow { font-size: var(--lvdr-fs-2xs); text-transform: uppercase; letter-spacing: var(--lvdr-ls-widest); color: var(--lvdr-color-brand); font-weight: 600; margin: 0 0 var(--lvdr-space-3); }
+    h1 { font-family: var(--lvdr-font-heading); font-weight: 700; font-size: var(--lvdr-fs-6xl); letter-spacing: var(--lvdr-ls-tight); line-height: 1.05; margin: 0 0 var(--lvdr-space-2); }
+    .lede { font-size: var(--lvdr-fs-lg); color: var(--lvdr-color-text-secondary); max-width: 60ch; margin: 0 0 var(--lvdr-space-12); }
+    h2 { font-family: var(--lvdr-font-heading); font-weight: 600; font-size: var(--lvdr-fs-3xl); letter-spacing: var(--lvdr-ls-tight); margin: var(--lvdr-space-16) 0 var(--lvdr-space-6); }
+    h3 { font-family: var(--lvdr-font-heading); font-weight: 500; font-size: var(--lvdr-fs-xl); margin: var(--lvdr-space-8) 0 var(--lvdr-space-3); }
+    .row { display: flex; gap: var(--lvdr-space-3); flex-wrap: wrap; align-items: center; margin-bottom: var(--lvdr-space-3); }
+    .frame { padding: var(--lvdr-space-8); border: 1px solid var(--lvdr-color-border-subtle); border-radius: var(--lvdr-radius-lg); background: var(--lvdr-color-neutral-50); margin-top: var(--lvdr-space-3); }
+    .frame--dark { background: var(--lvdr-color-ink); border-color: var(--lvdr-color-neutral-800); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--lvdr-space-5); }
+    .caption { font-family: var(--lvdr-font-mono); font-size: var(--lvdr-fs-xs); color: var(--lvdr-color-text-muted); margin: var(--lvdr-space-3) 0 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p class="eyebrow">Brand system</p>
+    <h1>Components.</h1>
+    <p class="lede">A minimum reference: buttons, cards, inputs, navigation. Composed from tokens. Not a full UI kit — a seed.</p>
+
+    <h2>Buttons</h2>
+    <h3>Variants</h3>
+    <div class="frame">
+      <div class="row">
+        <button class="lvdr-btn lvdr-btn--primary">Primary</button>
+        <button class="lvdr-btn lvdr-btn--secondary">Secondary</button>
+        <button class="lvdr-btn lvdr-btn--ghost">Ghost</button>
+        <button class="lvdr-btn lvdr-btn--primary" disabled>Disabled</button>
+      </div>
+      <p class="caption">primary bg #F87016 · fg #111113 · radius 8 · padding 12×20 · duration 150ms ease-out</p>
+    </div>
+    <h3>Sizes</h3>
+    <div class="frame">
+      <div class="row">
+        <button class="lvdr-btn lvdr-btn--primary lvdr-btn--sm">Small</button>
+        <button class="lvdr-btn lvdr-btn--primary">Default</button>
+        <button class="lvdr-btn lvdr-btn--primary lvdr-btn--lg">Large</button>
+      </div>
+    </div>
+    <h3>On dark</h3>
+    <div class="frame frame--dark">
+      <div class="row">
+        <button class="lvdr-btn lvdr-btn--primary">Primary</button>
+        <button class="lvdr-btn lvdr-btn--secondary lvdr-btn--on-dark">Secondary</button>
+        <button class="lvdr-btn lvdr-btn--ghost lvdr-btn--on-dark" style="color: #fff;">Ghost</button>
+      </div>
+    </div>
+
+    <h2>Cards</h2>
+    <div class="grid">
+      <article class="lvdr-card">
+        <p class="lvdr-card__eyebrow">Case study</p>
+        <h3 class="lvdr-card__title">From 0 to 47 sites in one year</h3>
+        <p class="lvdr-card__body">How Lavder scaled a production pipeline with AI-first tooling and a component-driven theme.</p>
+        <div class="lvdr-card__footer">
+          <span class="lvdr-badge">6 min read</span>
+          <a href="#" class="lvdr-btn lvdr-btn--ghost lvdr-btn--sm">Read →</a>
+        </div>
+      </article>
+      <article class="lvdr-card lvdr-card--feature">
+        <p class="lvdr-card__eyebrow">Product</p>
+        <h3 class="lvdr-card__title">Dolce — custom cakes</h3>
+        <p class="lvdr-card__body">Consumer app under Lavder Enterprise.</p>
+        <div class="lvdr-card__footer">
+          <span>Live</span>
+          <a href="#" class="lvdr-btn lvdr-btn--primary lvdr-btn--sm">Visit</a>
+        </div>
+      </article>
+      <article class="lvdr-card">
+        <p class="lvdr-card__eyebrow">Essay</p>
+        <h3 class="lvdr-card__title">Why one token source</h3>
+        <p class="lvdr-card__body">Moving from Figma to a typed design-token pipeline.</p>
+        <div class="lvdr-card__footer">
+          <span class="lvdr-badge">4 min</span>
+          <a href="#" class="lvdr-btn lvdr-btn--ghost lvdr-btn--sm">Read →</a>
+        </div>
+      </article>
+    </div>
+
+    <h2>Forms</h2>
+    <div class="frame">
+      <form style="max-width: 460px;">
+        <div class="lvdr-field">
+          <label class="lvdr-label" for="cl-name">Name</label>
+          <input class="lvdr-input" id="cl-name" type="text" placeholder="Jane Doe" />
+        </div>
+        <div class="lvdr-field">
+          <label class="lvdr-label" for="cl-email">Email</label>
+          <input class="lvdr-input" id="cl-email" type="email" placeholder="jane@company.com" />
+          <p class="lvdr-help">We reply within one business day.</p>
+        </div>
+        <div class="lvdr-field lvdr-field--error">
+          <label class="lvdr-label" for="cl-phone">Phone</label>
+          <input class="lvdr-input" id="cl-phone" type="tel" value="not-valid" />
+          <p class="lvdr-help">Use international format (+prefix).</p>
+        </div>
+        <div class="lvdr-field">
+          <label class="lvdr-checkbox"><input type="checkbox"> I agree to the privacy policy.</label>
+        </div>
+        <button type="submit" class="lvdr-btn lvdr-btn--primary">Send</button>
+      </form>
+    </div>
+
+    <h2>Navigation</h2>
+    <div class="frame" style="padding: 0; overflow: hidden;">
+      <nav class="lvdr-nav" style="margin: 0; max-width: none;">
+        <a href="#" class="lvdr-nav__brand">LAVDER</a>
+        <ul class="lvdr-nav__links">
+          <li><a href="#" class="lvdr-nav__link lvdr-nav__link--active">Work</a></li>
+          <li><a href="#" class="lvdr-nav__link">Services</a></li>
+          <li><a href="#" class="lvdr-nav__link">Clients</a></li>
+          <li><a href="#" class="lvdr-nav__link">About</a></li>
+        </ul>
+        <a href="#" class="lvdr-btn lvdr-btn--primary lvdr-btn--sm">Get in touch</a>
+      </nav>
+    </div>
+
+    <h2>Badges / tags</h2>
+    <div class="frame">
+      <div class="row">
+        <span class="lvdr-badge">Default</span>
+        <span class="lvdr-badge lvdr-badge--brand">Brand</span>
+        <span class="lvdr-badge lvdr-badge--success">Success</span>
+        <span class="lvdr-badge lvdr-badge--error">Error</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lavder Branding · Preview</title>
+  <link rel="stylesheet" href="../tokens/css/fonts.css" />
+  <link rel="stylesheet" href="../tokens/css/variables.css" />
+  <link rel="stylesheet" href="./_components.css" />
+  <style>
+    body { background: var(--lvdr-color-surface); color: var(--lvdr-color-text); font-family: var(--lvdr-font-body); margin: 0; }
+    .container { max-width: var(--lvdr-container-xl); margin: 0 auto; padding: var(--lvdr-space-12) var(--lvdr-space-8); }
+    .hero { padding: var(--lvdr-space-24) var(--lvdr-space-8); background: var(--lvdr-color-ink); color: var(--lvdr-color-surface); }
+    .hero__container { max-width: var(--lvdr-container-xl); margin: 0 auto; }
+    .hero__eyebrow { font-size: var(--lvdr-fs-2xs); text-transform: uppercase; letter-spacing: var(--lvdr-ls-widest); color: var(--lvdr-color-brand); font-weight: var(--lvdr-fw-semibold); margin: 0 0 var(--lvdr-space-4); }
+    .hero__title { font-family: var(--lvdr-font-heading); font-weight: var(--lvdr-fw-bold); font-size: var(--lvdr-fs-display); line-height: 1.05; letter-spacing: var(--lvdr-ls-tighter); margin: 0 0 var(--lvdr-space-6); max-width: 14ch; }
+    .hero__lead { font-size: var(--lvdr-fs-xl); color: var(--lvdr-color-neutral-300); line-height: var(--lvdr-lh-relaxed); margin: 0 0 var(--lvdr-space-8); max-width: 48ch; }
+    .hero__cta { display: flex; gap: var(--lvdr-space-3); flex-wrap: wrap; }
+
+    section { padding: var(--lvdr-space-20) var(--lvdr-space-8); }
+    .section-head { max-width: 52ch; margin: 0 0 var(--lvdr-space-12); }
+    .section-eyebrow { font-size: var(--lvdr-fs-2xs); text-transform: uppercase; letter-spacing: var(--lvdr-ls-widest); color: var(--lvdr-color-brand); font-weight: var(--lvdr-fw-semibold); margin: 0 0 var(--lvdr-space-3); }
+    .section-title { font-family: var(--lvdr-font-heading); font-weight: var(--lvdr-fw-semibold); font-size: var(--lvdr-fs-5xl); line-height: var(--lvdr-lh-tight); letter-spacing: var(--lvdr-ls-tight); margin: 0 0 var(--lvdr-space-4); }
+    .section-lead { font-size: var(--lvdr-fs-lg); color: var(--lvdr-color-text-secondary); line-height: var(--lvdr-lh-relaxed); margin: 0; }
+
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--lvdr-space-8); }
+    .stat__number { font-family: var(--lvdr-font-heading); font-weight: var(--lvdr-fw-extrabold); font-size: var(--lvdr-fs-7xl); line-height: 1; letter-spacing: var(--lvdr-ls-tight); color: var(--lvdr-color-ink); margin: 0 0 var(--lvdr-space-2); }
+    .stat__label { font-size: var(--lvdr-fs-sm); color: var(--lvdr-color-text-secondary); margin: 0; }
+
+    .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--lvdr-space-6); }
+
+    footer { padding: var(--lvdr-space-12) var(--lvdr-space-8); background: var(--lvdr-color-ink); color: var(--lvdr-color-neutral-400); font-size: var(--lvdr-fs-sm); }
+    footer a { color: var(--lvdr-color-surface); text-decoration: none; }
+    .footer-grid { max-width: var(--lvdr-container-xl); margin: 0 auto; display: flex; justify-content: space-between; gap: var(--lvdr-space-8); flex-wrap: wrap; }
+    .footer-brand { font-family: var(--lvdr-font-heading); font-weight: var(--lvdr-fw-bold); font-size: var(--lvdr-fs-xl); letter-spacing: var(--lvdr-ls-wide); text-transform: uppercase; color: var(--lvdr-color-surface); }
+  </style>
+</head>
+<body>
+  <nav class="lvdr-nav">
+    <a href="#" class="lvdr-nav__brand">LAVDER</a>
+    <ul class="lvdr-nav__links">
+      <li><a href="./buttons.html" class="lvdr-nav__link">Buttons</a></li>
+      <li><a href="./cards.html" class="lvdr-nav__link">Cards</a></li>
+      <li><a href="./forms.html" class="lvdr-nav__link">Forms</a></li>
+      <li><a href="./navigation.html" class="lvdr-nav__link">Nav</a></li>
+    </ul>
+    <a href="#" class="lvdr-btn lvdr-btn--primary lvdr-btn--sm">Get in touch</a>
+  </nav>
+
+  <header class="hero">
+    <div class="hero__container">
+      <p class="hero__eyebrow">Lavder Enterprise</p>
+      <h1 class="hero__title">Brands that hold up at scale.</h1>
+      <p class="hero__lead">We build identity systems, products, and sites for companies that can't afford to re-do them in two years.</p>
+      <div class="hero__cta">
+        <a href="#" class="lvdr-btn lvdr-btn--primary lvdr-btn--lg">See the work</a>
+        <a href="#" class="lvdr-btn lvdr-btn--secondary lvdr-btn--lg lvdr-btn--on-dark">Book a call</a>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="container" style="padding: 0;">
+      <div class="section-head">
+        <p class="section-eyebrow">By the numbers</p>
+        <h2 class="section-title">Proof of work, not claims.</h2>
+        <p class="section-lead">We've been shipping since 2019. Some numbers that matter.</p>
+      </div>
+      <div class="stats">
+        <div><p class="stat__number">47</p><p class="stat__label">Sites shipped in 2025</p></div>
+        <div><p class="stat__number">2</p><p class="stat__label">Countries, one team</p></div>
+        <div><p class="stat__number">98<span style="color: var(--lvdr-color-brand);">%</span></p><p class="stat__label">On-time delivery</p></div>
+        <div><p class="stat__number">0</p><p class="stat__label">Handoff bugs</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: var(--lvdr-color-neutral-50);">
+    <div class="container" style="padding: 0;">
+      <div class="section-head">
+        <p class="section-eyebrow">Sub-brands</p>
+        <h2 class="section-title">The companies we own.</h2>
+      </div>
+      <div class="grid-cards">
+        <article class="lvdr-card">
+          <p class="lvdr-card__eyebrow">Agency</p>
+          <h3 class="lvdr-card__title">Lavder</h3>
+          <p class="lvdr-card__body">Web &amp; marketing agency. Registered trademark. Italy + Romania.</p>
+          <div class="lvdr-card__footer">
+            <span class="lvdr-badge">Dal 2019</span>
+            <a href="https://lavder.com" class="lvdr-btn lvdr-btn--ghost lvdr-btn--sm">lavder.com →</a>
+          </div>
+        </article>
+        <article class="lvdr-card">
+          <p class="lvdr-card__eyebrow">Product</p>
+          <h3 class="lvdr-card__title">Dolce</h3>
+          <p class="lvdr-card__body">Custom cakes, on demand. Consumer app under Lavder Enterprise.</p>
+          <div class="lvdr-card__footer">
+            <span class="lvdr-badge lvdr-badge--success">Live</span>
+            <a href="#" class="lvdr-btn lvdr-btn--ghost lvdr-btn--sm">Explore →</a>
+          </div>
+        </article>
+        <article class="lvdr-card lvdr-card--feature">
+          <p class="lvdr-card__eyebrow">Coming soon</p>
+          <h3 class="lvdr-card__title">Next.</h3>
+          <p class="lvdr-card__body">A new Lavder company every year. This is the next one.</p>
+          <div class="lvdr-card__footer">
+            <span>Q3 2026</span>
+            <a href="#" class="lvdr-btn lvdr-btn--primary lvdr-btn--sm">Subscribe</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand">LAVDER</p>
+        <p style="margin-top: var(--lvdr-space-3);">Lavder Enterprise Srl. Bucharest.</p>
+      </div>
+      <nav>
+        <p style="font-size: var(--lvdr-fs-2xs); text-transform: uppercase; letter-spacing: var(--lvdr-ls-widest); color: var(--lvdr-color-neutral-500); margin: 0 0 var(--lvdr-space-3);">Components</p>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--lvdr-space-2);">
+          <li><a href="./buttons.html">Buttons</a></li>
+          <li><a href="./cards.html">Cards</a></li>
+          <li><a href="./forms.html">Forms</a></li>
+          <li><a href="./navigation.html">Navigation</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

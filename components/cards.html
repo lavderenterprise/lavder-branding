@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lavder · Cards</title>
+  <link rel="stylesheet" href="../tokens/css/fonts.css" />
+  <link rel="stylesheet" href="../tokens/css/variables.css" />
+  <link rel="stylesheet" href="./_components.css" />
+  <style>
+    body { padding: var(--lvdr-space-12); background: var(--lvdr-color-neutral-50); color: var(--lvdr-color-text); font-family: var(--lvdr-font-body); }
+    h1 { font-family: var(--lvdr-font-heading); font-weight: 700; font-size: var(--lvdr-fs-5xl); letter-spacing: var(--lvdr-ls-tight); line-height: var(--lvdr-lh-tight); margin: 0 0 var(--lvdr-space-8); }
+    h2 { font-family: var(--lvdr-font-heading); font-weight: 600; font-size: var(--lvdr-fs-2xl); margin: var(--lvdr-space-10) 0 var(--lvdr-space-4); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--lvdr-space-6); max-width: var(--lvdr-container-xl); }
+  </style>
+</head>
+<body>
+  <h1>Cards</h1>
+
+  <h2>Default</h2>
+  <div class="grid">
+    <article class="lvdr-card">
+      <p class="lvdr-card__eyebrow">Case study</p>
+      <h3 class="lvdr-card__title">From 0 to 47 sites in one year</h3>
+      <p class="lvdr-card__body">How Lavder scaled a production pipeline with AI-first tooling and a component-driven theme.</p>
+      <div class="lvdr-card__footer">
+        <span class="lvdr-badge">6 min read</span>
+        <a href="#" class="lvdr-btn lvdr-btn--ghost lvdr-btn--sm">Read →</a>
+      </div>
+    </article>
+
+    <article class="lvdr-card">
+      <p class="lvdr-card__eyebrow">Product</p>
+      <h3 class="lvdr-card__title">Dolce — custom cakes, on demand</h3>
+      <p class="lvdr-card__body">A consumer app under Lavder Enterprise. Order custom cakes, design, preview, deliver.</p>
+      <div class="lvdr-card__footer">
+        <span class="lvdr-badge lvdr-badge--success">Live</span>
+        <a href="#" class="lvdr-btn lvdr-btn--ghost lvdr-btn--sm">Visit →</a>
+      </div>
+    </article>
+
+    <article class="lvdr-card">
+      <p class="lvdr-card__eyebrow">Essay</p>
+      <h3 class="lvdr-card__title">Why we moved to a single token source</h3>
+      <p class="lvdr-card__body">Our design system used to live in Figma. Now it lives here. Why the migration was worth it.</p>
+      <div class="lvdr-card__footer">
+        <span class="lvdr-badge">4 min read</span>
+        <a href="#" class="lvdr-btn lvdr-btn--ghost lvdr-btn--sm">Read →</a>
+      </div>
+    </article>
+  </div>
+
+  <h2>Feature card (dark)</h2>
+  <div class="grid">
+    <article class="lvdr-card lvdr-card--feature">
+      <p class="lvdr-card__eyebrow">What we do</p>
+      <h3 class="lvdr-card__title">Brand. Build. Ship.</h3>
+      <p class="lvdr-card__body">One team from identity to production. No handoff, no translation gap.</p>
+      <div class="lvdr-card__footer">
+        <span>Dal 2019</span>
+        <a href="#" class="lvdr-btn lvdr-btn--primary lvdr-btn--sm">Get in touch</a>
+      </div>
+    </article>
+  </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+.DS_Store
+Thumbs.db
+
+# dependencies
+node_modules/
+.pnpm-store/
+
+# build artifacts
+dist/
+build/
+.cache/
+.parcel-cache/
+.next/
+.vite/
+
+# editors
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+
+# env
+.env
+.env.*
+!.env.example
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# macOS
+._*
+.AppleDouble
+.LSOverride
+
+# user-specific
+*.local

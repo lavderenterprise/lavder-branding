@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lavder · Navigation</title>
+  <link rel="stylesheet" href="../tokens/css/fonts.css" />
+  <link rel="stylesheet" href="../tokens/css/variables.css" />
+  <link rel="stylesheet" href="./_components.css" />
+  <style>
+    body { background: var(--lvdr-color-surface); color: var(--lvdr-color-text); font-family: var(--lvdr-font-body); margin: 0; }
+    .section-label { max-width: var(--lvdr-container-xl); margin: var(--lvdr-space-8) auto var(--lvdr-space-3); padding: 0 var(--lvdr-space-8); font-size: var(--lvdr-fs-2xs); text-transform: uppercase; letter-spacing: var(--lvdr-ls-widest); color: var(--lvdr-color-text-muted); font-weight: var(--lvdr-fw-semibold); }
+  </style>
+</head>
+<body>
+  <p class="section-label">Light header</p>
+  <nav class="lvdr-nav">
+    <a href="#" class="lvdr-nav__brand">LAVDER</a>
+    <ul class="lvdr-nav__links">
+      <li><a href="#" class="lvdr-nav__link lvdr-nav__link--active">Work</a></li>
+      <li><a href="#" class="lvdr-nav__link">Services</a></li>
+      <li><a href="#" class="lvdr-nav__link">Clients</a></li>
+      <li><a href="#" class="lvdr-nav__link">About</a></li>
+    </ul>
+    <a href="#" class="lvdr-btn lvdr-btn--primary lvdr-btn--sm">Get in touch</a>
+  </nav>
+
+  <p class="section-label">Dark header</p>
+  <nav class="lvdr-nav" style="background: var(--lvdr-color-ink); border-bottom-color: var(--lvdr-color-neutral-800);">
+    <a href="#" class="lvdr-nav__brand" style="color: var(--lvdr-color-surface);">LAVDER</a>
+    <ul class="lvdr-nav__links">
+      <li><a href="#" class="lvdr-nav__link" style="color: var(--lvdr-color-neutral-300);">Work</a></li>
+      <li><a href="#" class="lvdr-nav__link" style="color: var(--lvdr-color-neutral-300);">Services</a></li>
+      <li><a href="#" class="lvdr-nav__link" style="color: var(--lvdr-color-brand);">Clients</a></li>
+      <li><a href="#" class="lvdr-nav__link" style="color: var(--lvdr-color-neutral-300);">About</a></li>
+    </ul>
+    <a href="#" class="lvdr-btn lvdr-btn--primary lvdr-btn--sm">Get in touch</a>
+  </nav>
+</body>
+</html>

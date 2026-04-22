@@ -1,0 +1,100 @@
+// Lavder Enterprise — SCSS design tokens
+// Mirror of tokens.json for Sass-based projects.
+
+// ============ Colors ============
+$lvdr-color-ink: #111113;
+$lvdr-color-ink-pure: #000000;
+$lvdr-color-surface: #FFFFFF;
+
+$lvdr-color-brand: #F87016;
+$lvdr-color-brand-accent: #FCA400;
+$lvdr-color-brand-dark: #D05A0E;
+
+$lvdr-neutrals: (
+  50:  #FAFAFA,
+  100: #F4F4F5,
+  200: #E4E4E7,
+  300: #D4D4D8,
+  400: #A1A1AA,
+  500: #71717A,
+  600: #52525B,
+  700: #3F3F46,
+  800: #27272A,
+  900: #18181B,
+);
+
+$lvdr-semantic: (
+  success: #22C55E,
+  warning: #EAB308,
+  error:   #EF4444,
+  info:    #3B82F6,
+);
+
+// ============ Typography ============
+$lvdr-font-heading: "TWK Lausanne", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+$lvdr-font-body:    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+$lvdr-font-mono:    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+$lvdr-fw: (
+  thin: 100, extralight: 200, light: 300, regular: 400, medium: 500,
+  semibold: 600, bold: 700, extrabold: 800, black: 900,
+);
+
+$lvdr-fs: (
+  2xs: 0.6875rem, xs: 0.75rem, sm: 0.875rem, md: 1rem, lg: 1.125rem,
+  xl: 1.25rem, 2xl: 1.5rem, 3xl: 1.875rem, 4xl: 2.25rem, 5xl: 3rem,
+  6xl: 3.75rem, 7xl: 4.5rem, 8xl: 6rem,
+);
+
+$lvdr-lh: (none: 1, tight: 1.1, snug: 1.25, normal: 1.5, relaxed: 1.625, loose: 2);
+
+$lvdr-ls: (tighter: -0.04em, tight: -0.02em, normal: 0, wide: 0.02em, wider: 0.05em, widest: 0.12em);
+
+// ============ Spacing ============
+$lvdr-space: (
+  0: 0, px: 1px, 0-5: 0.125rem,
+  1: 0.25rem, 2: 0.5rem, 3: 0.75rem, 4: 1rem, 5: 1.25rem, 6: 1.5rem,
+  8: 2rem, 10: 2.5rem, 12: 3rem, 16: 4rem, 20: 5rem, 24: 6rem,
+  32: 8rem, 40: 10rem, 48: 12rem, 64: 16rem,
+);
+
+// ============ Radius ============
+$lvdr-radius: (
+  none: 0, xs: 2px, sm: 4px, md: 8px, lg: 12px, xl: 16px,
+  2xl: 24px, 3xl: 32px, full: 9999px,
+);
+
+// ============ Shadows ============
+$lvdr-shadow-xs: 0 1px 2px rgba(17, 17, 19, 0.06);
+$lvdr-shadow-sm: 0 1px 3px rgba(17, 17, 19, 0.08), 0 1px 2px rgba(17, 17, 19, 0.04);
+$lvdr-shadow-md: 0 4px 6px rgba(17, 17, 19, 0.08), 0 2px 4px rgba(17, 17, 19, 0.04);
+$lvdr-shadow-lg: 0 10px 25px rgba(17, 17, 19, 0.10), 0 4px 10px rgba(17, 17, 19, 0.06);
+$lvdr-shadow-xl: 0 20px 40px rgba(17, 17, 19, 0.14);
+$lvdr-shadow-2xl: 0 30px 60px rgba(17, 17, 19, 0.20);
+$lvdr-shadow-brand-glow: 0 0 0 6px rgba(248, 112, 22, 0.12), 0 8px 24px rgba(248, 112, 22, 0.28);
+
+// ============ Motion ============
+$lvdr-duration: (instant: 0ms, fast: 150ms, base: 240ms, slow: 400ms, slower: 640ms);
+
+$lvdr-easing-in:         cubic-bezier(0.4, 0, 1, 1);
+$lvdr-easing-out:        cubic-bezier(0, 0, 0.2, 1);
+$lvdr-easing-in-out:     cubic-bezier(0.4, 0, 0.2, 1);
+$lvdr-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+
+// ============ Layout ============
+$lvdr-breakpoints: (sm: 640px, md: 768px, lg: 1024px, xl: 1280px, 2xl: 1536px);
+$lvdr-containers:  (sm: 640px, md: 768px, lg: 1024px, xl: 1200px, 2xl: 1440px);
+$lvdr-reading-width: 72ch;
+
+// ============ Z-index ============
+$lvdr-z: (
+  base: 0, dropdown: 1000, sticky: 1020, fixed: 1030,
+  modal-backdrop: 1040, modal: 1050, popover: 1060, tooltip: 1070, toast: 1080,
+);
+
+// Helpers
+@function lvdr-space($key)    { @return map-get($lvdr-space, $key); }
+@function lvdr-radius($key)   { @return map-get($lvdr-radius, $key); }
+@function lvdr-fs($key)       { @return map-get($lvdr-fs, $key); }
+@function lvdr-fw($key)       { @return map-get($lvdr-fw, $key); }
+@function lvdr-neutral($key)  { @return map-get($lvdr-neutrals, $key); }

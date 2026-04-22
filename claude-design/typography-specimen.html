@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lavder · Typography specimen</title>
+  <link rel="stylesheet" href="../tokens/css/fonts.css" />
+  <link rel="stylesheet" href="../tokens/css/variables.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; padding: var(--lvdr-space-12) var(--lvdr-space-8); background: var(--lvdr-color-surface); color: var(--lvdr-color-ink); font-family: var(--lvdr-font-body); }
+    .container { max-width: var(--lvdr-container-xl); margin: 0 auto; }
+    .eyebrow { font-size: var(--lvdr-fs-2xs); text-transform: uppercase; letter-spacing: var(--lvdr-ls-widest); color: var(--lvdr-color-brand); font-weight: 600; margin: 0 0 var(--lvdr-space-3); }
+    section { padding: var(--lvdr-space-12) 0; border-bottom: 1px solid var(--lvdr-color-border-subtle); }
+    section:last-of-type { border: none; }
+    .section-label { font-family: var(--lvdr-font-heading); font-weight: 600; font-size: var(--lvdr-fs-3xl); letter-spacing: var(--lvdr-ls-tight); margin: 0 0 var(--lvdr-space-8); }
+    .sample + .sample { margin-top: var(--lvdr-space-5); }
+    .meta { display: block; font-family: var(--lvdr-font-mono); font-size: var(--lvdr-fs-2xs); color: var(--lvdr-color-text-muted); margin-top: var(--lvdr-space-1); }
+
+    .twk { font-family: var(--lvdr-font-heading); color: var(--lvdr-color-ink); line-height: 1.05; letter-spacing: -0.04em; }
+    .inter { font-family: var(--lvdr-font-body); color: var(--lvdr-color-ink); }
+
+    .s-display { font-size: var(--lvdr-fs-display); }
+    .s-8xl { font-size: var(--lvdr-fs-8xl); line-height: 1; letter-spacing: -0.04em; }
+    .s-7xl { font-size: var(--lvdr-fs-7xl); line-height: 1.1; letter-spacing: -0.04em; }
+    .s-6xl { font-size: var(--lvdr-fs-6xl); line-height: 1.1; letter-spacing: -0.03em; }
+    .s-5xl { font-size: var(--lvdr-fs-5xl); line-height: 1.1; letter-spacing: -0.02em; }
+    .s-4xl { font-size: var(--lvdr-fs-4xl); line-height: 1.15; letter-spacing: -0.02em; }
+    .s-3xl { font-size: var(--lvdr-fs-3xl); line-height: 1.2; letter-spacing: -0.01em; }
+    .s-2xl { font-size: var(--lvdr-fs-2xl); line-height: 1.25; }
+    .s-xl  { font-size: var(--lvdr-fs-xl); line-height: 1.4; }
+    .s-lg  { font-size: var(--lvdr-fs-lg); line-height: 1.6; }
+    .s-md  { font-size: var(--lvdr-fs-md); line-height: 1.6; }
+    .s-sm  { font-size: var(--lvdr-fs-sm); line-height: 1.5; }
+    .s-xs  { font-size: var(--lvdr-fs-xs); line-height: 1.4; }
+
+    .w-thin { font-weight: 100; } .w-light { font-weight: 300; } .w-regular { font-weight: 400; }
+    .w-medium { font-weight: 500; } .w-semibold { font-weight: 600; } .w-bold { font-weight: 700; }
+    .w-extrabold { font-weight: 800; } .w-black { font-weight: 900; }
+
+    .pangram { font-family: var(--lvdr-font-heading); font-size: var(--lvdr-fs-3xl); line-height: 1.25; margin: 0; }
+    .weights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--lvdr-space-4); }
+    .weight-card { padding: var(--lvdr-space-5); border: 1px solid var(--lvdr-color-border-subtle); border-radius: var(--lvdr-radius-md); }
+    .weight-card__number { font-family: var(--lvdr-font-heading); font-size: var(--lvdr-fs-6xl); line-height: 1; margin: 0; color: var(--lvdr-color-ink); }
+    .weight-card__label { font-family: var(--lvdr-font-mono); font-size: var(--lvdr-fs-xs); color: var(--lvdr-color-text-muted); margin: var(--lvdr-space-3) 0 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p class="eyebrow">Brand system</p>
+    <h1 class="twk" style="font-size: var(--lvdr-fs-6xl); font-weight: 700; margin: 0 0 var(--lvdr-space-2);">Typography.</h1>
+    <p class="inter s-lg" style="color: var(--lvdr-color-text-secondary); margin: 0 0 var(--lvdr-space-8); max-width: 60ch;">Two typefaces, assigned by role. One handles presence. One handles information.</p>
+
+    <section>
+      <p class="section-label">TWK Lausanne · Headings</p>
+      <p class="pangram w-bold">We build brands that hold up at scale.</p>
+      <span class="meta">TWK Lausanne · 700 bold · 30px · line-height 1.25</span>
+
+      <div class="sample">
+        <p class="twk s-display w-bold" style="margin:0;">Build once.<br>Scale forever.</p>
+        <span class="meta">display · weight 700 · clamp(3rem,8vw,7rem) · tracking −0.04em</span>
+      </div>
+
+      <div class="sample">
+        <p class="twk s-7xl w-bold" style="margin:0;">Hero headline</p>
+        <span class="meta">fs.7xl · 72px · weight 700</span>
+      </div>
+      <div class="sample">
+        <p class="twk s-5xl w-semibold" style="margin:0;">Section title</p>
+        <span class="meta">fs.5xl · 48px · weight 600</span>
+      </div>
+      <div class="sample">
+        <p class="twk s-3xl w-medium" style="margin:0;">Subsection title</p>
+        <span class="meta">fs.3xl · 30px · weight 500</span>
+      </div>
+      <div class="sample">
+        <p class="twk s-2xl w-light" style="margin:0; font-style: italic;">"The editorial voice."</p>
+        <span class="meta">fs.2xl · 24px · weight 300 italic · for pull quotes</span>
+      </div>
+    </section>
+
+    <section>
+      <p class="section-label">TWK Lausanne · Weights in production</p>
+      <div class="weights-grid">
+        <div class="weight-card"><p class="weight-card__number w-light">Aa</p><p class="weight-card__label">300 · light · display-light</p></div>
+        <div class="weight-card"><p class="weight-card__number w-regular">Aa</p><p class="weight-card__label">400 · regular</p></div>
+        <div class="weight-card"><p class="weight-card__number w-medium">Aa</p><p class="weight-card__label">500 · medium · h3 h4</p></div>
+        <div class="weight-card"><p class="weight-card__number w-semibold">Aa</p><p class="weight-card__label">600 · semibold · h2</p></div>
+        <div class="weight-card"><p class="weight-card__number w-bold">Aa</p><p class="weight-card__label">700 · bold · h1 display default</p></div>
+        <div class="weight-card"><p class="weight-card__number w-extrabold">Aa</p><p class="weight-card__label">800 · extrabold · stats</p></div>
+        <div class="weight-card"><p class="weight-card__number w-black">Aa</p><p class="weight-card__label">900 · black · display emphasis</p></div>
+      </div>
+    </section>
+
+    <section>
+      <p class="section-label">Inter · Body</p>
+      <div class="sample">
+        <p class="inter s-lg w-regular" style="max-width:60ch; margin:0;">Lavder Enterprise is a holding company founded in Italy and headquartered in Bucharest. It is the legal and strategic umbrella under which every Lavder-owned brand operates — we build, own, and scale products and service companies that share one design language.</p>
+        <span class="meta">Inter · 400 regular · 18px · line-height 1.6</span>
+      </div>
+      <div class="sample">
+        <p class="inter s-md w-regular" style="max-width:72ch; margin:0;">Default body copy. Inter 400, 16 px, line-height 1.625. This is what readers spend most of their time with. It should feel calm, legible at small sizes, and invisible as a design decision.</p>
+        <span class="meta">Inter · 400 · 16px</span>
+      </div>
+      <div class="sample">
+        <p class="inter s-sm w-regular" style="color: var(--lvdr-color-text-secondary); margin:0;">Secondary UI text — dates, metadata, helper copy, table cells.</p>
+        <span class="meta">Inter · 400 · 14px · text-secondary</span>
+      </div>
+      <div class="sample">
+        <p class="inter s-xs w-semibold" style="text-transform: uppercase; letter-spacing: 0.12em; color: var(--lvdr-color-brand); margin:0;">Eyebrow label · small caps</p>
+        <span class="meta">Inter · 600 · 12px · tracking 0.12em · brand color</span>
+      </div>
+    </section>
+
+    <section>
+      <p class="section-label">Pairing: display stat + label</p>
+      <div class="sample" style="display: flex; gap: var(--lvdr-space-8); flex-wrap: wrap;">
+        <div>
+          <p class="twk w-extrabold" style="font-size: 120px; line-height: 1; letter-spacing: -0.04em; margin: 0;">47</p>
+          <p class="inter s-sm w-medium" style="color: var(--lvdr-color-text-secondary); margin: var(--lvdr-space-2) 0 0;">Sites shipped in 2025</p>
+        </div>
+        <div>
+          <p class="twk w-extrabold" style="font-size: 120px; line-height: 1; letter-spacing: -0.04em; margin: 0;">98<span style="color: var(--lvdr-color-brand);">%</span></p>
+          <p class="inter s-sm w-medium" style="color: var(--lvdr-color-text-secondary); margin: var(--lvdr-space-2) 0 0;">On-time delivery</p>
+        </div>
+        <div>
+          <p class="twk w-extrabold" style="font-size: 120px; line-height: 1; letter-spacing: -0.04em; margin: 0;">0</p>
+          <p class="inter s-sm w-medium" style="color: var(--lvdr-color-text-secondary); margin: var(--lvdr-space-2) 0 0;">Handoff bugs</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

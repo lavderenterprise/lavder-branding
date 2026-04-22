@@ -1,0 +1,29 @@
+Copyright © Lavder Enterprise Srl. All rights reserved.
+
+This repository contains proprietary brand assets, tokens, and guidelines of
+Lavder Enterprise Srl (registered in Bucharest).
+
+Access to this repository does not grant any license to use, reproduce,
+distribute, or modify the Lavder name, the LVDR monogram, or the trade
+dress defined in these files, except:
+
+1. BY EMPLOYEES, CONTRACTORS, AND PARTNERS of Lavder Enterprise acting
+   within the scope of their engagement, for the purpose of producing work
+   on behalf of Lavder Enterprise or its sub-brands.
+
+2. BY THIRD PARTIES WITH WRITTEN PERMISSION from Lavder Enterprise (for
+   example, vendors producing approved co-branded material).
+
+THIRD-PARTY ASSETS included in this repository are governed by their own
+licenses, preserved alongside the assets:
+
+- Inter typeface — SIL Open Font License 1.1 (see assets/fonts/Inter/OFL.txt)
+- TWK Lausanne typeface — LICENSED from Dinamo Typefaces
+  (https://abcdinamo.com). A valid Dinamo license is required for any
+  deployment. Usage outside the terms of that license is prohibited.
+- Lucide icons — MIT License (if used in implementations)
+
+For licensing inquiries, contact Lavder Enterprise.
+
+Unauthorized use of the Lavder trademark and trade dress is pursued under
+EU trademark law (Regulation 2017/1001) and applicable national law.

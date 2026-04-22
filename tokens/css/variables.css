@@ -1,0 +1,189 @@
+/*
+ * Lavder Enterprise — CSS custom properties
+ * Generated view of tokens.json. All public vars are prefixed --lvdr-.
+ *
+ * Pair with fonts.css for @font-face declarations.
+ */
+
+:root {
+  /* ============ Colors — ink & surface ============ */
+  --lvdr-color-ink: #111113;
+  --lvdr-color-ink-pure: #000000;
+  --lvdr-color-surface: #FFFFFF;
+
+  /* ============ Colors — brand ============ */
+  --lvdr-color-brand: #F87016;
+  --lvdr-color-brand-accent: #FCA400;
+  --lvdr-color-brand-dark: #D05A0E;
+
+  /* ============ Colors — neutrals ============ */
+  --lvdr-color-neutral-50:  #FAFAFA;
+  --lvdr-color-neutral-100: #F4F4F5;
+  --lvdr-color-neutral-200: #E4E4E7;
+  --lvdr-color-neutral-300: #D4D4D8;
+  --lvdr-color-neutral-400: #A1A1AA;
+  --lvdr-color-neutral-500: #71717A;
+  --lvdr-color-neutral-600: #52525B;
+  --lvdr-color-neutral-700: #3F3F46;
+  --lvdr-color-neutral-800: #27272A;
+  --lvdr-color-neutral-900: #18181B;
+
+  /* ============ Colors — semantic ============ */
+  --lvdr-color-success: #22C55E;
+  --lvdr-color-warning: #EAB308;
+  --lvdr-color-error:   #EF4444;
+  --lvdr-color-info:    #3B82F6;
+
+  /* ============ Colors — text & border aliases ============ */
+  --lvdr-color-text: var(--lvdr-color-ink);
+  --lvdr-color-text-secondary: var(--lvdr-color-neutral-600);
+  --lvdr-color-text-muted: var(--lvdr-color-neutral-500);
+  --lvdr-color-text-inverse: var(--lvdr-color-surface);
+  --lvdr-color-text-brand: var(--lvdr-color-brand);
+
+  --lvdr-color-border-subtle:  var(--lvdr-color-neutral-200);
+  --lvdr-color-border-default: var(--lvdr-color-neutral-300);
+  --lvdr-color-border-strong:  var(--lvdr-color-ink);
+  --lvdr-color-border-brand:   var(--lvdr-color-brand);
+
+  /* ============ Gradients ============ */
+  --lvdr-gradient-brand: linear-gradient(135deg, var(--lvdr-color-brand) 0%, var(--lvdr-color-brand-accent) 100%);
+  --lvdr-gradient-ink:   linear-gradient(180deg, var(--lvdr-color-ink) 0%, #000000 100%);
+
+  /* ============ Typography — families ============ */
+  --lvdr-font-heading: "TWK Lausanne", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --lvdr-font-body:    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --lvdr-font-mono:    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+
+  /* ============ Typography — weights ============ */
+  --lvdr-fw-thin: 100;
+  --lvdr-fw-extralight: 200;
+  --lvdr-fw-light: 300;
+  --lvdr-fw-regular: 400;
+  --lvdr-fw-medium: 500;
+  --lvdr-fw-semibold: 600;
+  --lvdr-fw-bold: 700;
+  --lvdr-fw-extrabold: 800;
+  --lvdr-fw-black: 900;
+
+  /* ============ Typography — scale ============ */
+  --lvdr-fs-2xs: 0.6875rem;
+  --lvdr-fs-xs:  0.75rem;
+  --lvdr-fs-sm:  0.875rem;
+  --lvdr-fs-md:  1rem;
+  --lvdr-fs-lg:  1.125rem;
+  --lvdr-fs-xl:  1.25rem;
+  --lvdr-fs-2xl: 1.5rem;
+  --lvdr-fs-3xl: 1.875rem;
+  --lvdr-fs-4xl: 2.25rem;
+  --lvdr-fs-5xl: 3rem;
+  --lvdr-fs-6xl: 3.75rem;
+  --lvdr-fs-7xl: 4.5rem;
+  --lvdr-fs-8xl: 6rem;
+  --lvdr-fs-display: clamp(3rem, 8vw, 7rem);
+
+  /* ============ Typography — line-height ============ */
+  --lvdr-lh-none: 1;
+  --lvdr-lh-tight: 1.1;
+  --lvdr-lh-snug: 1.25;
+  --lvdr-lh-normal: 1.5;
+  --lvdr-lh-relaxed: 1.625;
+  --lvdr-lh-loose: 2;
+
+  /* ============ Typography — letter-spacing ============ */
+  --lvdr-ls-tighter: -0.04em;
+  --lvdr-ls-tight:   -0.02em;
+  --lvdr-ls-normal:  0;
+  --lvdr-ls-wide:    0.02em;
+  --lvdr-ls-wider:   0.05em;
+  --lvdr-ls-widest:  0.12em;
+
+  /* ============ Spacing ============ */
+  --lvdr-space-0:   0;
+  --lvdr-space-px:  1px;
+  --lvdr-space-0-5: 0.125rem;
+  --lvdr-space-1:   0.25rem;
+  --lvdr-space-2:   0.5rem;
+  --lvdr-space-3:   0.75rem;
+  --lvdr-space-4:   1rem;
+  --lvdr-space-5:   1.25rem;
+  --lvdr-space-6:   1.5rem;
+  --lvdr-space-8:   2rem;
+  --lvdr-space-10:  2.5rem;
+  --lvdr-space-12:  3rem;
+  --lvdr-space-16:  4rem;
+  --lvdr-space-20:  5rem;
+  --lvdr-space-24:  6rem;
+  --lvdr-space-32:  8rem;
+  --lvdr-space-40:  10rem;
+  --lvdr-space-48:  12rem;
+  --lvdr-space-64:  16rem;
+
+  /* ============ Radius ============ */
+  --lvdr-radius-none: 0;
+  --lvdr-radius-xs:   2px;
+  --lvdr-radius-sm:   4px;
+  --lvdr-radius-md:   8px;
+  --lvdr-radius-lg:   12px;
+  --lvdr-radius-xl:   16px;
+  --lvdr-radius-2xl:  24px;
+  --lvdr-radius-3xl:  32px;
+  --lvdr-radius-full: 9999px;
+
+  /* ============ Shadows ============ */
+  --lvdr-shadow-xs: 0 1px 2px rgba(17, 17, 19, 0.06);
+  --lvdr-shadow-sm: 0 1px 3px rgba(17, 17, 19, 0.08), 0 1px 2px rgba(17, 17, 19, 0.04);
+  --lvdr-shadow-md: 0 4px 6px rgba(17, 17, 19, 0.08), 0 2px 4px rgba(17, 17, 19, 0.04);
+  --lvdr-shadow-lg: 0 10px 25px rgba(17, 17, 19, 0.10), 0 4px 10px rgba(17, 17, 19, 0.06);
+  --lvdr-shadow-xl: 0 20px 40px rgba(17, 17, 19, 0.14);
+  --lvdr-shadow-2xl: 0 30px 60px rgba(17, 17, 19, 0.20);
+  --lvdr-shadow-brand-glow: 0 0 0 6px rgba(248, 112, 22, 0.12), 0 8px 24px rgba(248, 112, 22, 0.28);
+
+  /* ============ Motion ============ */
+  --lvdr-duration-instant: 0ms;
+  --lvdr-duration-fast:    150ms;
+  --lvdr-duration-base:    240ms;
+  --lvdr-duration-slow:    400ms;
+  --lvdr-duration-slower:  640ms;
+
+  --lvdr-easing-linear:     linear;
+  --lvdr-easing-in:         cubic-bezier(0.4, 0, 1, 1);
+  --lvdr-easing-out:        cubic-bezier(0, 0, 0.2, 1);
+  --lvdr-easing-in-out:     cubic-bezier(0.4, 0, 0.2, 1);
+  --lvdr-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+
+  /* ============ Layout ============ */
+  --lvdr-container-sm:  640px;
+  --lvdr-container-md:  768px;
+  --lvdr-container-lg:  1024px;
+  --lvdr-container-xl:  1200px;
+  --lvdr-container-2xl: 1440px;
+  --lvdr-reading-width: 72ch;
+
+  /* ============ Z-index ============ */
+  --lvdr-z-base:     0;
+  --lvdr-z-dropdown: 1000;
+  --lvdr-z-sticky:   1020;
+  --lvdr-z-fixed:    1030;
+  --lvdr-z-modal-backdrop: 1040;
+  --lvdr-z-modal:    1050;
+  --lvdr-z-popover:  1060;
+  --lvdr-z-tooltip:  1070;
+  --lvdr-z-toast:    1080;
+}
+
+/*
+ * Dark theme — flips ink/surface, keeps brand untouched.
+ * Apply by adding [data-theme="dark"] to <html> or <body>.
+ */
+[data-theme="dark"] {
+  --lvdr-color-ink:     #FFFFFF;
+  --lvdr-color-surface: #111113;
+  --lvdr-color-text: var(--lvdr-color-ink);
+  --lvdr-color-text-secondary: var(--lvdr-color-neutral-300);
+  --lvdr-color-text-muted:     var(--lvdr-color-neutral-400);
+  --lvdr-color-text-inverse:   #111113;
+  --lvdr-color-border-subtle:  var(--lvdr-color-neutral-800);
+  --lvdr-color-border-default: var(--lvdr-color-neutral-700);
+  --lvdr-color-border-strong:  #FFFFFF;
+}

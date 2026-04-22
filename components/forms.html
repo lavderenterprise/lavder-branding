@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lavder · Forms</title>
+  <link rel="stylesheet" href="../tokens/css/fonts.css" />
+  <link rel="stylesheet" href="../tokens/css/variables.css" />
+  <link rel="stylesheet" href="./_components.css" />
+  <style>
+    body { padding: var(--lvdr-space-12); background: var(--lvdr-color-surface); color: var(--lvdr-color-text); font-family: var(--lvdr-font-body); }
+    h1 { font-family: var(--lvdr-font-heading); font-weight: 700; font-size: var(--lvdr-fs-5xl); letter-spacing: var(--lvdr-ls-tight); line-height: var(--lvdr-lh-tight); margin: 0 0 var(--lvdr-space-8); }
+    form { max-width: 520px; }
+  </style>
+</head>
+<body>
+  <h1>Forms</h1>
+
+  <form>
+    <div class="lvdr-field">
+      <label class="lvdr-label" for="name">Name</label>
+      <input class="lvdr-input" id="name" type="text" placeholder="Jane Doe" />
+    </div>
+
+    <div class="lvdr-field">
+      <label class="lvdr-label" for="email">Work email</label>
+      <input class="lvdr-input" id="email" type="email" placeholder="jane@company.com" />
+      <p class="lvdr-help">We reply within one business day.</p>
+    </div>
+
+    <div class="lvdr-field lvdr-field--error">
+      <label class="lvdr-label" for="phone">Phone</label>
+      <input class="lvdr-input" id="phone" type="tel" value="+40" />
+      <p class="lvdr-help">Add country code and number.</p>
+    </div>
+
+    <div class="lvdr-field">
+      <label class="lvdr-label" for="company">Company size</label>
+      <select class="lvdr-select" id="company">
+        <option>1–10</option>
+        <option>11–50</option>
+        <option>51–200</option>
+        <option>200+</option>
+      </select>
+    </div>
+
+    <div class="lvdr-field">
+      <label class="lvdr-label" for="msg">Message</label>
+      <textarea class="lvdr-textarea" id="msg" placeholder="Tell us what you're building."></textarea>
+    </div>
+
+    <div class="lvdr-field">
+      <label class="lvdr-checkbox">
+        <input type="checkbox" /> I agree to the privacy policy.
+      </label>
+    </div>
+
+    <button type="submit" class="lvdr-btn lvdr-btn--primary lvdr-btn--lg">Send message</button>
+  </form>
+</body>
+</html>

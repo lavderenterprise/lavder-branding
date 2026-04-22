@@ -1,0 +1,105 @@
+/*
+ * Lavder Enterprise — @font-face declarations
+ * Paths are relative to the repo root. Adjust `url(...)` to your build output.
+ *
+ * TWK Lausanne is a licensed typeface from Dinamo (licensingnew.dinamo.us).
+ * A valid license is required for web deployment. Verify per project.
+ *
+ * Inter is Open Font License (OFL) — ok to ship.
+ */
+
+/* ============ TWK Lausanne ============ */
+@font-face {
+  font-family: "TWK Lausanne";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("../../assets/fonts/TWKLausanne/Web/TWKLausanne-300.woff2") format("woff2"),
+       url("../../assets/fonts/TWKLausanne/Web/TWKLausanne-300.woff")  format("woff");
+}
+@font-face {
+  font-family: "TWK Lausanne";
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("../../assets/fonts/TWKLausanne/Web/TWKLausanne-300Italic.woff2") format("woff2"),
+       url("../../assets/fonts/TWKLausanne/Web/TWKLausanne-300Italic.woff")  format("woff");
+}
+
+@font-face {
+  font-family: "TWK Lausanne";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../../assets/fonts/TWKLausanne/Web/TWKLausanne-400.woff2") format("woff2"),
+       url("../../assets/fonts/TWKLausanne/Web/TWKLausanne-400.woff")  format("woff");
+}
+@font-face {
+  font-family: "TWK Lausanne";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../../assets/fonts/TWKLausanne/Web/TWKLausanne-400Italic.woff2") format("woff2"),
+       url("../../assets/fonts/TWKLausanne/Web/TWKLausanne-400Italic.woff")  format("woff");
+}
+
+@font-face {
+  font-family: "TWK Lausanne";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../../assets/fonts/TWKLausanne/Web/TWKLausanne-500.woff2") format("woff2"),
+       url("../../assets/fonts/TWKLausanne/Web/TWKLausanne-500.woff")  format("woff");
+}
+
+@font-face {
+  font-family: "TWK Lausanne";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../../assets/fonts/TWKLausanne/Web/TWKLausanne-600.woff2") format("woff2"),
+       url("../../assets/fonts/TWKLausanne/Web/TWKLausanne-600.woff")  format("woff");
+}
+
+@font-face {
+  font-family: "TWK Lausanne";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../../assets/fonts/TWKLausanne/Web/TWKLausanne-700.woff2") format("woff2"),
+       url("../../assets/fonts/TWKLausanne/Web/TWKLausanne-700.woff")  format("woff");
+}
+
+@font-face {
+  font-family: "TWK Lausanne";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../../assets/fonts/TWKLausanne/Web/TWKLausanne-800.woff2") format("woff2"),
+       url("../../assets/fonts/TWKLausanne/Web/TWKLausanne-800.woff")  format("woff");
+}
+
+@font-face {
+  font-family: "TWK Lausanne";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("../../assets/fonts/TWKLausanne/Web/TWKLausanne-900.woff2") format("woff2"),
+       url("../../assets/fonts/TWKLausanne/Web/TWKLausanne-900.woff")  format("woff");
+}
+
+/* ============ Inter ============ */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../../assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf") format("truetype-variations");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../../assets/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf") format("truetype-variations");
+}

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lavder · Buttons</title>
+  <link rel="stylesheet" href="../tokens/css/fonts.css" />
+  <link rel="stylesheet" href="../tokens/css/variables.css" />
+  <link rel="stylesheet" href="./_components.css" />
+  <style>
+    body { padding: var(--lvdr-space-12); background: var(--lvdr-color-surface); color: var(--lvdr-color-text); font-family: var(--lvdr-font-body); }
+    h1 { font-family: var(--lvdr-font-heading); font-weight: 700; font-size: var(--lvdr-fs-5xl); letter-spacing: var(--lvdr-ls-tight); line-height: var(--lvdr-lh-tight); margin: 0 0 var(--lvdr-space-8); }
+    h2 { font-family: var(--lvdr-font-heading); font-weight: 600; font-size: var(--lvdr-fs-2xl); margin: var(--lvdr-space-10) 0 var(--lvdr-space-4); }
+    .row { display: flex; gap: var(--lvdr-space-3); flex-wrap: wrap; align-items: center; margin-bottom: var(--lvdr-space-4); }
+    .dark-demo { background: var(--lvdr-color-ink); color: var(--lvdr-color-surface); padding: var(--lvdr-space-8); border-radius: var(--lvdr-radius-lg); margin-top: var(--lvdr-space-6); }
+  </style>
+</head>
+<body>
+  <h1>Buttons</h1>
+
+  <h2>Primary</h2>
+  <div class="row">
+    <button class="lvdr-btn lvdr-btn--primary">Get started</button>
+    <button class="lvdr-btn lvdr-btn--primary" disabled>Disabled</button>
+    <a href="#" class="lvdr-btn lvdr-btn--primary">Link as button</a>
+  </div>
+
+  <h2>Secondary (outline on ink)</h2>
+  <div class="row">
+    <button class="lvdr-btn lvdr-btn--secondary">Learn more</button>
+    <button class="lvdr-btn lvdr-btn--secondary" disabled>Disabled</button>
+  </div>
+
+  <h2>Ghost</h2>
+  <div class="row">
+    <button class="lvdr-btn lvdr-btn--ghost">Cancel</button>
+    <button class="lvdr-btn lvdr-btn--ghost">View all</button>
+  </div>
+
+  <h2>Sizes</h2>
+  <div class="row">
+    <button class="lvdr-btn lvdr-btn--primary lvdr-btn--sm">Small</button>
+    <button class="lvdr-btn lvdr-btn--primary">Default</button>
+    <button class="lvdr-btn lvdr-btn--primary lvdr-btn--lg">Large</button>
+  </div>
+
+  <h2>With icon</h2>
+  <div class="row">
+    <button class="lvdr-btn lvdr-btn--primary">
+      Continue
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </button>
+    <button class="lvdr-btn lvdr-btn--secondary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+      New project
+    </button>
+  </div>
+
+  <h2>On dark surface</h2>
+  <div class="dark-demo">
+    <div class="row">
+      <button class="lvdr-btn lvdr-btn--primary">Get started</button>
+      <button class="lvdr-btn lvdr-btn--secondary lvdr-btn--on-dark">Learn more</button>
+      <button class="lvdr-btn lvdr-btn--ghost lvdr-btn--on-dark">Cancel</button>
+    </div>
+  </div>
+</body>
+</html>
