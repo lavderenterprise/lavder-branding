@@ -162,6 +162,14 @@ Icon sizes: 16 (button prefix) · 20 (nav) · 24 (cards) · 32–48 (hero).
 
 **Don'ts**: mixing icon families · gradients · shadows · rotating to invent meaning.
 
+## 9b. Layout anti-patterns
+
+- **Squared buttons, not pills.** Use `radius.md` (8 px) for every CTA. `radius.full` is for tags, avatars, and icon badges only.
+- **No vertical decorative text** (no `writing-mode: vertical-rl`, no 90° rotated labels running up the hero side).
+- **No auto-drifting scroll indicators** (no "SCROLL" label bouncing up-down in the hero).
+- **No perpetual breathing animations** on fixed ornaments.
+- **No floating off-to-the-side captions** ("01/∞", index legends, designer-thinking-aloud micro-labels).
+
 ---
 
 ## 8. Imagery

@@ -94,4 +94,6 @@ All shadow values are tuned off `rgba(17, 17, 19, X)` to match the ink tone.
 - Don't introduce off-scale spacing values.
 - Don't nest more than two radius sizes on a single surface (e.g., don't wrap an 8 px card inside a 16 px card inside a 24 px modal).
 - Don't use shadows darker than `shadow.2xl`. We are not a 2014 material-design product.
-- Don't use `radius.full` on rectangular buttons. Pills are for tags and avatars only. Buttons are `radius.md`.
+- **Buttons are squared, never pilled.** Use `radius.md` (8 px). `radius.full` is for tags, badges, avatars, and small icon-badges — never for CTAs, form controls, or anything a user would recognize as a button.
+- **No vertical decorative text** in layouts (no `writing-mode: vertical-rl`, no 90°-rotated labels running up the side of a hero). If information matters enough to print, it deserves a horizontal setting. If it doesn't, it's ornament — remove it.
+- **No floating legend boxes** (small off-to-the-side captions like *"01/∞"* or *"A holding of brands"* rotating at the edge of a hero). They read as designer-thinking-aloud, not brand presence.

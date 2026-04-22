@@ -87,3 +87,5 @@ Ship this at the top of the global stylesheet. Non-negotiable.
 - Don't use parallax on body-copy sections. It's motion-sickness fuel.
 - Don't chain more than 3 animations in sequence without user input. Autoplay sequences feel like 2012 portfolio sites.
 - Don't use "scroll-linked" animations that tie subtle layout changes to scroll position. Occasional pinned hero reveal is fine; pervasive scroll-linking is not.
+- **No auto-drifting "scroll" indicators.** A vertically-set "SCROLL" label drifting up and down in the hero is a tell of a template site. If you need to hint at scroll, the design should do it through implicit cues (a partially revealed next-section, a cut-off word) — not through a bouncing word.
+- **No perpetual hint animations in viewport-fixed positions.** Hero ornaments that pulse, drift, rotate, or breathe on a 2s loop read as nervous, not confident. Brand confidence = stillness with decisive motion on user action.

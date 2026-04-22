@@ -239,21 +239,56 @@
 
     /* ============ responsive ============ */
     @media (max-width: 960px) {
-      .hero__foot { grid-template-columns: 1fr; align-items: start; gap: 32px; }
+      .hero { padding: 100px 20px 48px; gap: 32px; }
+      .hero__display { font-size: clamp(56px, 10vw, 140px); }
+      .hero__foot { grid-template-columns: 1fr; align-items: start; gap: 28px; }
+      .hero__lede { font-size: 16px; }
+      .manifesto { padding: clamp(72px, 12vh, 120px) 20px; }
       .manifesto__container { grid-template-columns: 1fr; gap: 24px; }
+      .manifesto__body { font-size: clamp(30px, 6vw, 56px); }
+      .stats { padding: clamp(60px, 10vh, 120px) 20px; }
+      .stats__head { margin-bottom: 56px; }
       .stats__grid { grid-template-columns: 1fr 1fr; }
-      .stat--row2 { grid-template-columns: 1fr; }
-      .work__item { grid-template-columns: 40px 1fr 32px; gap: 16px; }
+      .stat--row2 { grid-template-columns: 1fr 1fr; }
+      .stats__grid > *, .stat--row2 > * { padding: 32px 20px; }
+      .stat__num { font-size: clamp(56px, 12vw, 140px); }
+      .work { padding: clamp(60px, 10vh, 120px) 20px; }
+      .work__item { grid-template-columns: 50px 1fr 32px; gap: 16px; }
       .work__desc, .work__type { display: none; }
-      .brands__grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .brands { padding: clamp(60px, 10vh, 120px) 20px; }
+      .brands__grid { grid-template-columns: 1fr; grid-template-rows: auto; min-height: auto; }
       .brand-card--feature { grid-row: auto; }
       .brand-card--info { grid-column: auto; }
-      .footer__top { grid-template-columns: 1fr; }
-      .rail__meta { gap: 12px; }
+      .brand-card { padding: 28px; min-height: 280px; }
+      .footer__top { grid-template-columns: 1fr; padding: 0 20px 48px; }
+      footer { padding: 48px 0 0; }
+      .footer__legal { padding: 20px; flex-direction: column; gap: 10px; text-align: left; }
+      .rail { padding: 16px 20px; font-size: 10px; letter-spacing: 0.1em; gap: 12px; }
+      .rail__brand { font-size: 11px; }
+      .rail__meta { gap: 14px; }
     }
     @media (max-width: 640px) {
-      .hero__ctas { flex-direction: column; align-items: start; gap: 12px; }
-      .work__head, .stats__head { flex-direction: column; align-items: start; }
+      .rail__brand { font-size: 10px; }
+      .rail__meta { font-size: 9px; gap: 10px; }
+      .rail__meta .hide-sm { display: none; }
+      .rail__meta span::before { width: 5px; height: 5px; margin-right: 6px; }
+      .hero__display { font-size: clamp(44px, 13vw, 88px); line-height: 0.95; letter-spacing: -0.04em; }
+      .hero__kicker { flex-wrap: wrap; row-gap: 6px; }
+      .hero__ctas { flex-direction: column; align-items: stretch; gap: 10px; }
+      .hero__cta { justify-content: center; padding: 16px 20px; }
+      .stats__head, .work__head { flex-direction: column; align-items: start; gap: 16px; }
+      .stats__grid, .stat--row2 { grid-template-columns: 1fr; gap: 1px; }
+      .stat__num { font-size: clamp(72px, 20vw, 120px); }
+      .manifesto__body { font-size: clamp(28px, 9vw, 44px); }
+      .stats__title, .work__title, .brands__title { font-size: clamp(30px, 7.5vw, 48px); }
+      .work__name { font-size: clamp(20px, 6vw, 28px); }
+      .work__item { grid-template-columns: 44px 1fr 28px; gap: 12px; padding: 20px 0; }
+      .work__item:hover { padding-left: 12px; padding-right: 12px; }
+      .brand-card__name { font-size: clamp(28px, 9vw, 44px); }
+      .footer__giant { font-size: clamp(72px, 28vw, 160px); }
+      .marquee { padding: 22px 0; }
+      .marquee__track { font-size: clamp(28px, 9vw, 48px); gap: 36px; }
+      .marquee__track span { gap: 36px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -271,7 +306,7 @@
     <a href="#" class="rail__brand" data-cursor="hover">LAVDER ENTERPRISE</a>
     <div class="rail__meta">
       <span>Bucharest · <span id="clock">--:--</span></span>
-      <span>© 2026</span>
+      <span class="hide-sm">© 2026</span>
     </div>
   </header>
 

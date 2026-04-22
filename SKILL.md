@@ -85,6 +85,14 @@ Use the **LVDR monogram** (single shared mark for Lavder and Lavder Enterprise).
 - Component reference: `components/preview.html`
 - Claude Design upload package: `claude-design/`
 
+## Layout anti-patterns — do not produce
+
+- **Pilled CTAs.** Buttons are squared with `radius.md` (8 px). `radius.full` only for tags / avatars / icon-badges.
+- **Vertical decorative text.** No `writing-mode: vertical-rl`, no 90°-rotated hero labels.
+- **Auto-drifting scroll indicators.** No bouncing "SCROLL" word in the hero.
+- **Perpetual breathing ornaments.** No infinite-loop motion on fixed micro-labels.
+- **Floating off-to-the-side captions.** No "01/∞", index legends, or designer-thinking-aloud micro-labels dropped at the edge of compositions.
+
 ## Red flags — stop and ask
 
 If the request would require:
