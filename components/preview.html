@@ -3,132 +3,611 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lavder Branding · Preview</title>
+  <title>Lavder — Brands that hold up at scale.</title>
   <link rel="stylesheet" href="../tokens/css/fonts.css" />
   <link rel="stylesheet" href="../tokens/css/variables.css" />
-  <link rel="stylesheet" href="./_components.css" />
+
   <style>
-    body { background: var(--lvdr-color-surface); color: var(--lvdr-color-text); font-family: var(--lvdr-font-body); margin: 0; }
-    .container { max-width: var(--lvdr-container-xl); margin: 0 auto; padding: var(--lvdr-space-12) var(--lvdr-space-8); }
-    .hero { padding: var(--lvdr-space-24) var(--lvdr-space-8); background: var(--lvdr-color-ink); color: var(--lvdr-color-surface); }
-    .hero__container { max-width: var(--lvdr-container-xl); margin: 0 auto; }
-    .hero__eyebrow { font-size: var(--lvdr-fs-2xs); text-transform: uppercase; letter-spacing: var(--lvdr-ls-widest); color: var(--lvdr-color-brand); font-weight: var(--lvdr-fw-semibold); margin: 0 0 var(--lvdr-space-4); }
-    .hero__title { font-family: var(--lvdr-font-heading); font-weight: var(--lvdr-fw-bold); font-size: var(--lvdr-fs-display); line-height: 1.05; letter-spacing: var(--lvdr-ls-tighter); margin: 0 0 var(--lvdr-space-6); max-width: 14ch; }
-    .hero__lead { font-size: var(--lvdr-fs-xl); color: var(--lvdr-color-neutral-300); line-height: var(--lvdr-lh-relaxed); margin: 0 0 var(--lvdr-space-8); max-width: 48ch; }
-    .hero__cta { display: flex; gap: var(--lvdr-space-3); flex-wrap: wrap; }
+    /* ============ base reset ============ */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    html { scroll-behavior: auto; background: var(--lvdr-color-ink); color: var(--lvdr-color-surface); }
+    body { font-family: var(--lvdr-font-body); font-feature-settings: "ss01", "ss02", "cv11"; overflow-x: hidden; cursor: none; }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { all: unset; cursor: none; }
+    ::selection { background: var(--lvdr-color-brand); color: var(--lvdr-color-ink); }
 
-    section { padding: var(--lvdr-space-20) var(--lvdr-space-8); }
-    .section-head { max-width: 52ch; margin: 0 0 var(--lvdr-space-12); }
-    .section-eyebrow { font-size: var(--lvdr-fs-2xs); text-transform: uppercase; letter-spacing: var(--lvdr-ls-widest); color: var(--lvdr-color-brand); font-weight: var(--lvdr-fw-semibold); margin: 0 0 var(--lvdr-space-3); }
-    .section-title { font-family: var(--lvdr-font-heading); font-weight: var(--lvdr-fw-semibold); font-size: var(--lvdr-fs-5xl); line-height: var(--lvdr-lh-tight); letter-spacing: var(--lvdr-ls-tight); margin: 0 0 var(--lvdr-space-4); }
-    .section-lead { font-size: var(--lvdr-fs-lg); color: var(--lvdr-color-text-secondary); line-height: var(--lvdr-lh-relaxed); margin: 0; }
+    /* re-enable cursor for touch / reduced-motion */
+    @media (pointer: coarse), (prefers-reduced-motion: reduce) {
+      body, button, a { cursor: auto; }
+      .cursor { display: none; }
+    }
 
-    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--lvdr-space-8); }
-    .stat__number { font-family: var(--lvdr-font-heading); font-weight: var(--lvdr-fw-extrabold); font-size: var(--lvdr-fs-7xl); line-height: 1; letter-spacing: var(--lvdr-ls-tight); color: var(--lvdr-color-ink); margin: 0 0 var(--lvdr-space-2); }
-    .stat__label { font-size: var(--lvdr-fs-sm); color: var(--lvdr-color-text-secondary); margin: 0; }
+    /* ============ custom cursor ============ */
+    .cursor {
+      position: fixed; top: 0; left: 0; width: 14px; height: 14px;
+      border-radius: 50%; background: var(--lvdr-color-surface);
+      mix-blend-mode: difference; pointer-events: none; z-index: 9999;
+      transform: translate(-50%, -50%); transition: width 0.3s cubic-bezier(0.2,0,0,1), height 0.3s cubic-bezier(0.2,0,0,1);
+    }
+    .cursor--hover { width: 54px; height: 54px; }
 
-    .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--lvdr-space-6); }
+    /* ============ top rail ============ */
+    .rail {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 20px 28px;
+      display: flex; justify-content: space-between; align-items: center;
+      font-family: var(--lvdr-font-body); font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      mix-blend-mode: difference; color: #fff;
+    }
+    .rail__brand { font-family: var(--lvdr-font-heading); font-weight: 700; letter-spacing: 0.08em; font-size: 13px; }
+    .rail__meta { display: flex; gap: 28px; }
+    .rail__meta span::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--lvdr-color-brand); border-radius: 50%; margin-right: 8px; vertical-align: middle; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.35;} }
 
-    footer { padding: var(--lvdr-space-12) var(--lvdr-space-8); background: var(--lvdr-color-ink); color: var(--lvdr-color-neutral-400); font-size: var(--lvdr-fs-sm); }
-    footer a { color: var(--lvdr-color-surface); text-decoration: none; }
-    .footer-grid { max-width: var(--lvdr-container-xl); margin: 0 auto; display: flex; justify-content: space-between; gap: var(--lvdr-space-8); flex-wrap: wrap; }
-    .footer-brand { font-family: var(--lvdr-font-heading); font-weight: var(--lvdr-fw-bold); font-size: var(--lvdr-fs-xl); letter-spacing: var(--lvdr-ls-wide); text-transform: uppercase; color: var(--lvdr-color-surface); }
+    /* ============ hero ============ */
+    .hero {
+      min-height: 100vh; padding: 120px 28px 60px;
+      display: grid; grid-template-rows: auto 1fr auto; gap: 40px;
+      background: var(--lvdr-color-ink); color: var(--lvdr-color-surface);
+      position: relative; overflow: hidden;
+    }
+    .hero__kicker {
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em;
+      font-weight: 600; color: var(--lvdr-color-brand); margin: 0;
+      display: flex; gap: 14px; align-items: center;
+    }
+    .hero__kicker .dot { width: 4px; height: 4px; border-radius: 50%; background: currentColor; }
+
+    .hero__display {
+      font-family: var(--lvdr-font-heading); font-weight: 700;
+      font-size: clamp(64px, 13vw, 240px);
+      line-height: 0.9; letter-spacing: -0.05em;
+      margin: 0; text-transform: none;
+      max-width: 20ch;
+    }
+    .hero__display em { font-style: italic; font-weight: 300; color: var(--lvdr-color-brand); }
+    .hero__line { display: block; overflow: hidden; }
+    .hero__line > span { display: block; }
+
+    .hero__foot {
+      display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: end;
+      padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.12);
+    }
+    .hero__lede { max-width: 44ch; font-size: 18px; line-height: 1.55; color: rgba(255,255,255,0.7); margin: 0; }
+    .hero__ctas { display: flex; gap: 24px; }
+    .hero__cta {
+      font-size: 14px; font-weight: 600; padding: 14px 24px;
+      border: 1px solid currentColor; border-radius: 999px;
+      transition: background 0.24s cubic-bezier(0.2,0,0,1), color 0.24s cubic-bezier(0.2,0,0,1);
+      display: inline-flex; align-items: center; gap: 10px;
+    }
+    .hero__cta:hover { background: var(--lvdr-color-surface); color: var(--lvdr-color-ink); }
+    .hero__cta--primary { background: var(--lvdr-color-brand); color: var(--lvdr-color-ink); border-color: var(--lvdr-color-brand); }
+    .hero__cta--primary:hover { background: var(--lvdr-color-surface); color: var(--lvdr-color-ink); border-color: var(--lvdr-color-surface); }
+
+    .hero__scroll {
+      position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; font-weight: 600;
+      color: rgba(255,255,255,0.5);
+      writing-mode: vertical-rl; rotate: 180deg;
+      animation: drift 2.4s infinite ease-in-out;
+    }
+    @keyframes drift { 0%,100%{transform: translate(-50%,0);} 50%{transform: translate(-50%,-10px);} }
+
+    .hero__ornament {
+      position: absolute; right: 40px; top: 50%; transform: translateY(-50%) rotate(-90deg);
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.3em; font-weight: 600;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ============ marquee ============ */
+    .marquee {
+      background: var(--lvdr-color-brand); color: var(--lvdr-color-ink);
+      padding: 34px 0; overflow: hidden; border-top: 1px solid rgba(0,0,0,0.08); border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    .marquee__track {
+      display: flex; gap: 60px; white-space: nowrap; will-change: transform;
+      font-family: var(--lvdr-font-heading); font-weight: 800; font-size: clamp(36px, 6vw, 84px);
+      letter-spacing: -0.02em; line-height: 1;
+    }
+    .marquee__track span { display: inline-flex; align-items: center; gap: 60px; }
+    .marquee__dot { display: inline-block; width: 12px; height: 12px; background: currentColor; border-radius: 50%; }
+
+    /* ============ manifesto ============ */
+    .manifesto {
+      background: var(--lvdr-color-neutral-50); color: var(--lvdr-color-ink);
+      padding: clamp(100px, 16vh, 180px) 28px;
+    }
+    .manifesto__container {
+      max-width: 1400px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 3fr; gap: 80px; align-items: start;
+    }
+    .manifesto__tag {
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; font-weight: 600;
+      color: var(--lvdr-color-text-muted);
+    }
+    .manifesto__body {
+      font-family: var(--lvdr-font-heading); font-weight: 400;
+      font-size: clamp(32px, 5.5vw, 88px);
+      line-height: 1.02; letter-spacing: -0.03em; margin: 0;
+    }
+    .manifesto__body em { font-style: italic; font-weight: 300; color: var(--lvdr-color-brand); }
+    .manifesto__source {
+      margin-top: 48px; font-size: 14px; color: var(--lvdr-color-text-muted); font-weight: 500;
+    }
+
+    /* ============ stats ============ */
+    .stats {
+      background: var(--lvdr-color-ink); color: var(--lvdr-color-surface);
+      padding: clamp(80px, 14vh, 160px) 28px;
+    }
+    .stats__head { max-width: 1400px; margin: 0 auto 80px; display: flex; justify-content: space-between; align-items: end; gap: 40px; }
+    .stats__eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; font-weight: 600; color: var(--lvdr-color-brand); margin: 0; }
+    .stats__title { font-family: var(--lvdr-font-heading); font-weight: 600; font-size: clamp(36px, 5vw, 72px); line-height: 1; letter-spacing: -0.03em; margin: 16px 0 0; max-width: 16ch; }
+    .stats__grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 5fr 4fr 3fr; gap: 2px; background: rgba(255,255,255,0.12); }
+    .stats__grid > * { background: var(--lvdr-color-ink); padding: 48px 32px; }
+    .stat__num {
+      font-family: var(--lvdr-font-heading); font-weight: 800;
+      font-size: clamp(80px, 14vw, 240px); line-height: 0.85; letter-spacing: -0.05em;
+      margin: 0; color: var(--lvdr-color-surface);
+    }
+    .stat__num em { font-style: normal; color: var(--lvdr-color-brand); }
+    .stat__label { font-size: 14px; color: rgba(255,255,255,0.5); margin: 16px 0 0; max-width: 20ch; line-height: 1.4; }
+    .stat__label strong { color: var(--lvdr-color-surface); display: block; font-weight: 600; font-size: 16px; margin-bottom: 4px; }
+    .stat--row2 { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; padding: 0; background: rgba(255,255,255,0.12); }
+    .stat--row2 > * { background: var(--lvdr-color-ink); padding: 48px 32px; }
+
+    /* ============ portfolio list editorial ============ */
+    .work {
+      background: var(--lvdr-color-surface); color: var(--lvdr-color-ink);
+      padding: clamp(80px, 14vh, 160px) 28px;
+    }
+    .work__head { max-width: 1400px; margin: 0 auto 64px; display: flex; justify-content: space-between; align-items: end; gap: 40px; }
+    .work__title { font-family: var(--lvdr-font-heading); font-weight: 600; font-size: clamp(40px, 6vw, 96px); line-height: 0.95; letter-spacing: -0.04em; margin: 0; }
+    .work__title em { font-weight: 300; font-style: italic; color: var(--lvdr-color-brand); }
+    .work__meta { font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; font-weight: 600; color: var(--lvdr-color-text-muted); }
+
+    .work__list { max-width: 1400px; margin: 0 auto; list-style: none; padding: 0; border-top: 1px solid var(--lvdr-color-ink); }
+    .work__item {
+      display: grid; grid-template-columns: 60px 1fr 2fr 1fr 40px;
+      gap: 24px; align-items: center;
+      padding: 28px 0; border-bottom: 1px solid var(--lvdr-color-border-subtle);
+      position: relative; overflow: hidden;
+      transition: padding 0.4s cubic-bezier(0.2,0,0,1);
+    }
+    .work__item::before {
+      content: ""; position: absolute; inset: 0; background: var(--lvdr-color-ink);
+      transform: translateY(100%); transition: transform 0.6s cubic-bezier(0.2,0,0,1);
+      z-index: 0;
+    }
+    .work__item:hover { padding-left: 20px; padding-right: 20px; }
+    .work__item:hover::before { transform: translateY(0); }
+    .work__item:hover > * { color: var(--lvdr-color-surface); z-index: 1; position: relative; }
+    .work__item:hover .work__name { color: var(--lvdr-color-brand); }
+    .work__item > * { transition: color 0.3s ease; z-index: 1; position: relative; }
+
+    .work__idx { font-family: var(--lvdr-font-mono); font-size: 13px; color: var(--lvdr-color-text-muted); font-weight: 500; }
+    .work__name { font-family: var(--lvdr-font-heading); font-size: clamp(24px, 3vw, 44px); font-weight: 500; letter-spacing: -0.02em; margin: 0; }
+    .work__desc { font-size: 15px; color: var(--lvdr-color-text-secondary); line-height: 1.4; margin: 0; max-width: 48ch; }
+    .work__type { font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; font-weight: 600; color: var(--lvdr-color-text-muted); }
+    .work__arrow { width: 32px; height: 32px; border-radius: 50%; border: 1px solid currentColor; display: grid; place-items: center; font-size: 12px; transition: transform 0.3s cubic-bezier(0.2,0,0,1); }
+    .work__item:hover .work__arrow { transform: rotate(-45deg); }
+
+    /* ============ brands bento ============ */
+    .brands {
+      background: var(--lvdr-color-neutral-50); color: var(--lvdr-color-ink);
+      padding: clamp(80px, 14vh, 160px) 28px;
+    }
+    .brands__head { max-width: 1400px; margin: 0 auto 64px; }
+    .brands__eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; font-weight: 600; color: var(--lvdr-color-brand); margin: 0; }
+    .brands__title { font-family: var(--lvdr-font-heading); font-weight: 600; font-size: clamp(36px, 5vw, 72px); line-height: 1; letter-spacing: -0.03em; margin: 16px 0 0; max-width: 18ch; }
+    .brands__grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 12px; min-height: 560px; }
+    .brand-card {
+      padding: 36px; border-radius: 20px; overflow: hidden; position: relative;
+      display: flex; flex-direction: column; justify-content: space-between;
+      transition: transform 0.5s cubic-bezier(0.2,0,0,1);
+    }
+    .brand-card:hover { transform: translateY(-6px); }
+    .brand-card--feature { grid-row: 1 / 3; background: var(--lvdr-color-ink); color: var(--lvdr-color-surface); }
+    .brand-card--dolce { background: var(--lvdr-color-brand); color: var(--lvdr-color-ink); }
+    .brand-card--soon { background: var(--lvdr-color-surface); color: var(--lvdr-color-ink); border: 1px solid var(--lvdr-color-border-subtle); }
+    .brand-card--info { background: var(--lvdr-color-neutral-900); color: var(--lvdr-color-surface); grid-column: 2 / 4; }
+    .brand-card__tag { font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; font-weight: 600; opacity: 0.6; }
+    .brand-card__name { font-family: var(--lvdr-font-heading); font-size: clamp(32px, 4vw, 72px); font-weight: 700; line-height: 1; letter-spacing: -0.03em; margin: 16px 0; }
+    .brand-card__body { font-size: 16px; line-height: 1.5; opacity: 0.8; margin: 0; max-width: 36ch; }
+    .brand-card__foot { display: flex; justify-content: space-between; align-items: end; font-size: 13px; font-weight: 500; }
+    .brand-card__foot .arrow { width: 36px; height: 36px; border-radius: 50%; border: 1px solid currentColor; display: grid; place-items: center; }
+
+    /* ============ mega wordmark footer ============ */
+    footer {
+      background: var(--lvdr-color-ink); color: var(--lvdr-color-surface);
+      padding: 60px 28px 0;
+      overflow: hidden;
+    }
+    .footer__top {
+      max-width: 1400px; margin: 0 auto; padding-bottom: 60px;
+      display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .footer__tag { font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; font-weight: 600; color: var(--lvdr-color-brand); }
+    .footer__manifesto { font-family: var(--lvdr-font-heading); font-size: 20px; line-height: 1.3; letter-spacing: -0.01em; margin: 12px 0 0; }
+    .footer__links { display: flex; flex-direction: column; gap: 10px; }
+    .footer__links a { font-size: 15px; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.08); transition: color 0.2s ease, padding-left 0.3s cubic-bezier(0.2,0,0,1); }
+    .footer__links a:hover { color: var(--lvdr-color-brand); padding-left: 12px; }
+
+    .footer__giant {
+      text-align: center; padding: 60px 0 40px;
+      font-family: var(--lvdr-font-heading); font-weight: 800;
+      font-size: clamp(80px, 22vw, 380px); line-height: 0.78;
+      letter-spacing: -0.06em; margin: 0; user-select: none;
+      background: linear-gradient(180deg, var(--lvdr-color-surface) 0%, rgba(255,255,255,0.08) 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .footer__legal {
+      max-width: 1400px; margin: 0 auto; padding: 28px 0;
+      display: flex; justify-content: space-between; gap: 24px;
+      font-size: 12px; color: rgba(255,255,255,0.45); border-top: 1px solid rgba(255,255,255,0.12);
+    }
+
+    /* ============ responsive ============ */
+    @media (max-width: 960px) {
+      .hero__foot { grid-template-columns: 1fr; align-items: start; gap: 32px; }
+      .manifesto__container { grid-template-columns: 1fr; gap: 24px; }
+      .stats__grid { grid-template-columns: 1fr 1fr; }
+      .stat--row2 { grid-template-columns: 1fr; }
+      .work__item { grid-template-columns: 40px 1fr 32px; gap: 16px; }
+      .work__desc, .work__type { display: none; }
+      .brands__grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .brand-card--feature { grid-row: auto; }
+      .brand-card--info { grid-column: auto; }
+      .footer__top { grid-template-columns: 1fr; }
+      .rail__meta { gap: 12px; }
+    }
+    @media (max-width: 640px) {
+      .hero__ctas { flex-direction: column; align-items: start; gap: 12px; }
+      .work__head, .stats__head { flex-direction: column; align-items: start; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .marquee__track, .hero__scroll { animation: none !important; }
+      * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+    }
   </style>
 </head>
-<body>
-  <nav class="lvdr-nav">
-    <a href="#" class="lvdr-nav__brand">LAVDER</a>
-    <ul class="lvdr-nav__links">
-      <li><a href="./buttons.html" class="lvdr-nav__link">Buttons</a></li>
-      <li><a href="./cards.html" class="lvdr-nav__link">Cards</a></li>
-      <li><a href="./forms.html" class="lvdr-nav__link">Forms</a></li>
-      <li><a href="./navigation.html" class="lvdr-nav__link">Nav</a></li>
-    </ul>
-    <a href="#" class="lvdr-btn lvdr-btn--primary lvdr-btn--sm">Get in touch</a>
-  </nav>
+<body data-scroll>
 
-  <header class="hero">
-    <div class="hero__container">
-      <p class="hero__eyebrow">Lavder Enterprise</p>
-      <h1 class="hero__title">Brands that hold up at scale.</h1>
-      <p class="hero__lead">We build identity systems, products, and sites for companies that can't afford to re-do them in two years.</p>
-      <div class="hero__cta">
-        <a href="#" class="lvdr-btn lvdr-btn--primary lvdr-btn--lg">See the work</a>
-        <a href="#" class="lvdr-btn lvdr-btn--secondary lvdr-btn--lg lvdr-btn--on-dark">Book a call</a>
-      </div>
+  <div class="cursor" aria-hidden="true"></div>
+
+  <!-- top rail -->
+  <header class="rail">
+    <a href="#" class="rail__brand" data-cursor="hover">LAVDER ENTERPRISE</a>
+    <div class="rail__meta">
+      <span>Bucharest · <span id="clock">--:--</span></span>
+      <span>© 2026</span>
     </div>
   </header>
 
-  <section>
-    <div class="container" style="padding: 0;">
-      <div class="section-head">
-        <p class="section-eyebrow">By the numbers</p>
-        <h2 class="section-title">Proof of work, not claims.</h2>
-        <p class="section-lead">We've been shipping since 2019. Some numbers that matter.</p>
-      </div>
-      <div class="stats">
-        <div><p class="stat__number">47</p><p class="stat__label">Sites shipped in 2025</p></div>
-        <div><p class="stat__number">2</p><p class="stat__label">Countries, one team</p></div>
-        <div><p class="stat__number">98<span style="color: var(--lvdr-color-brand);">%</span></p><p class="stat__label">On-time delivery</p></div>
-        <div><p class="stat__number">0</p><p class="stat__label">Handoff bugs</p></div>
+  <!-- hero -->
+  <section class="hero">
+    <p class="hero__kicker">
+      <span>Lavder Enterprise</span><span class="dot"></span>
+      <span>Holding · Bucharest</span><span class="dot"></span>
+      <span>Est. 2019</span>
+    </p>
+
+    <h1 class="hero__display" data-reveal>
+      <span class="hero__line"><span>Brands that</span></span>
+      <span class="hero__line"><span>hold up</span></span>
+      <span class="hero__line"><span><em>at scale.</em></span></span>
+    </h1>
+
+    <div class="hero__foot">
+      <p class="hero__lede" data-reveal-fade>A holding for companies that share one design language, one voice, one level of craft. We build, own, and scale.</p>
+      <div class="hero__ctas" data-reveal-fade>
+        <a href="#work" class="hero__cta hero__cta--primary" data-cursor="hover">Selected work <span>→</span></a>
+        <a href="#contact" class="hero__cta" data-cursor="hover">Book a call</a>
       </div>
     </div>
+
+    <span class="hero__scroll">Scroll</span>
+    <span class="hero__ornament">A holding of brands — 01/∞</span>
   </section>
 
-  <section style="background: var(--lvdr-color-neutral-50);">
-    <div class="container" style="padding: 0;">
-      <div class="section-head">
-        <p class="section-eyebrow">Sub-brands</p>
-        <h2 class="section-title">The companies we own.</h2>
-      </div>
-      <div class="grid-cards">
-        <article class="lvdr-card">
-          <p class="lvdr-card__eyebrow">Agency</p>
-          <h3 class="lvdr-card__title">Lavder</h3>
-          <p class="lvdr-card__body">Web &amp; marketing agency. Registered trademark. Italy + Romania.</p>
-          <div class="lvdr-card__footer">
-            <span class="lvdr-badge">Dal 2019</span>
-            <a href="https://lavder.com" class="lvdr-btn lvdr-btn--ghost lvdr-btn--sm">lavder.com →</a>
-          </div>
-        </article>
-        <article class="lvdr-card">
-          <p class="lvdr-card__eyebrow">Product</p>
-          <h3 class="lvdr-card__title">Dolce</h3>
-          <p class="lvdr-card__body">Custom cakes, on demand. Consumer app under Lavder Enterprise.</p>
-          <div class="lvdr-card__footer">
-            <span class="lvdr-badge lvdr-badge--success">Live</span>
-            <a href="#" class="lvdr-btn lvdr-btn--ghost lvdr-btn--sm">Explore →</a>
-          </div>
-        </article>
-        <article class="lvdr-card lvdr-card--feature">
-          <p class="lvdr-card__eyebrow">Coming soon</p>
-          <h3 class="lvdr-card__title">Next.</h3>
-          <p class="lvdr-card__body">A new Lavder company every year. This is the next one.</p>
-          <div class="lvdr-card__footer">
-            <span>Q3 2026</span>
-            <a href="#" class="lvdr-btn lvdr-btn--primary lvdr-btn--sm">Subscribe</a>
-          </div>
-        </article>
-      </div>
+  <!-- marquee -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track" id="marqueeTrack">
+      <span>Brands that hold up <span class="marquee__dot"></span> Dal 2019 <span class="marquee__dot"></span> Partner di fiducia <span class="marquee__dot"></span> 100+ clienti <span class="marquee__dot"></span> Bucharest × Milano <span class="marquee__dot"></span></span>
+      <span>Brands that hold up <span class="marquee__dot"></span> Dal 2019 <span class="marquee__dot"></span> Partner di fiducia <span class="marquee__dot"></span> 100+ clienti <span class="marquee__dot"></span> Bucharest × Milano <span class="marquee__dot"></span></span>
     </div>
-  </section>
+  </div>
 
-  <footer>
-    <div class="footer-grid">
+  <!-- manifesto -->
+  <section class="manifesto">
+    <div class="manifesto__container">
+      <p class="manifesto__tag">Manifesto · §01</p>
       <div>
-        <p class="footer-brand">LAVDER</p>
-        <p style="margin-top: var(--lvdr-space-3);">Lavder Enterprise Srl. Bucharest.</p>
+        <p class="manifesto__body" data-reveal-fade>More than an agency.<br>Your <em>trusted partner</em>.</p>
+        <p class="manifesto__source">— lavder.com, since 2019 · <em>Più che la tua agenzia web, vogliamo essere il tuo partner di fiducia.</em></p>
       </div>
-      <nav>
-        <p style="font-size: var(--lvdr-fs-2xs); text-transform: uppercase; letter-spacing: var(--lvdr-ls-widest); color: var(--lvdr-color-neutral-500); margin: 0 0 var(--lvdr-space-3);">Components</p>
-        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--lvdr-space-2);">
-          <li><a href="./buttons.html">Buttons</a></li>
-          <li><a href="./cards.html">Cards</a></li>
-          <li><a href="./forms.html">Forms</a></li>
-          <li><a href="./navigation.html">Navigation</a></li>
-        </ul>
+    </div>
+  </section>
+
+  <!-- stats -->
+  <section class="stats">
+    <div class="stats__head">
+      <div>
+        <p class="stats__eyebrow">By the numbers · 2025</p>
+        <h2 class="stats__title">Proof of work, not claims.</h2>
+      </div>
+      <p style="font-size:13px; color:rgba(255,255,255,0.5); max-width:32ch; line-height:1.5;">Selected indicators from the Lavder Enterprise operating group. Updated annually.</p>
+    </div>
+    <div class="stats__grid">
+      <div class="stat">
+        <p class="stat__num"><span data-count="47">0</span></p>
+        <p class="stat__label"><strong>Sites shipped</strong>in 2025, across the group</p>
+      </div>
+      <div class="stat">
+        <p class="stat__num"><span data-count="98">0</span><em>%</em></p>
+        <p class="stat__label"><strong>On-time delivery</strong>weighted across every project</p>
+      </div>
+      <div class="stat">
+        <p class="stat__num">+<span data-count="100">0</span></p>
+        <p class="stat__label"><strong>Clients & partners</strong>since 2019</p>
+      </div>
+      <div class="stat--row2">
+        <div class="stat"><p class="stat__num"><span data-count="2">0</span></p><p class="stat__label"><strong>Countries · one team</strong>Italy · Romania</p></div>
+        <div class="stat"><p class="stat__num"><span data-count="0">0</span></p><p class="stat__label"><strong>Handoff bugs</strong>design to production, one team</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- work list editorial -->
+  <section class="work" id="work">
+    <div class="work__head">
+      <h2 class="work__title">Selected <em>work.</em><br>2019 — 2026.</h2>
+      <p class="work__meta">47 projects · 6 services · 2 cities</p>
+    </div>
+    <ol class="work__list">
+      <li class="work__item" data-cursor="hover">
+        <span class="work__idx">01 · 2019</span>
+        <h3 class="work__name">Lavder</h3>
+        <p class="work__desc">The Web & Marketing Agency. Registered trademark. The flagship of the group.</p>
+        <span class="work__type">Agency / Flagship</span>
+        <span class="work__arrow">↗</span>
+      </li>
+      <li class="work__item" data-cursor="hover">
+        <span class="work__idx">02 · 2024</span>
+        <h3 class="work__name">Dolce</h3>
+        <p class="work__desc">Custom-cake consumer app. Design, preview, order, deliver. End-to-end built in-house.</p>
+        <span class="work__type">Product / Consumer</span>
+        <span class="work__arrow">↗</span>
+      </li>
+      <li class="work__item" data-cursor="hover">
+        <span class="work__idx">03 · 2024</span>
+        <h3 class="work__name">Lavder Theme</h3>
+        <p class="work__desc">Proprietary WordPress theme. Powers most Lavder-built production sites.</p>
+        <span class="work__type">Infrastructure / Internal</span>
+        <span class="work__arrow">↗</span>
+      </li>
+      <li class="work__item" data-cursor="hover">
+        <span class="work__idx">04 · 2025</span>
+        <h3 class="work__name">Lavder Enterprise</h3>
+        <p class="work__desc">The holding brand system. One token source, used by every sub-brand.</p>
+        <span class="work__type">Brand / Parent system</span>
+        <span class="work__arrow">↗</span>
+      </li>
+      <li class="work__item" data-cursor="hover">
+        <span class="work__idx">05 · Q3 2026</span>
+        <h3 class="work__name">[Next.]</h3>
+        <p class="work__desc">A new Lavder company every year. This is the one on deck.</p>
+        <span class="work__type">Unannounced</span>
+        <span class="work__arrow">↗</span>
+      </li>
+    </ol>
+  </section>
+
+  <!-- brands bento -->
+  <section class="brands">
+    <div class="brands__head">
+      <p class="brands__eyebrow">The companies · §02</p>
+      <h2 class="brands__title">One holding. Many brands.<br>Same standard of craft.</h2>
+    </div>
+    <div class="brands__grid">
+      <article class="brand-card brand-card--feature" data-cursor="hover">
+        <div>
+          <p class="brand-card__tag">Agency · Flagship</p>
+          <h3 class="brand-card__name">Lavder<span style="color: var(--lvdr-color-brand);">.</span></h3>
+          <p class="brand-card__body">Web & marketing agency. Registered trademark. The operating brand that started it all.</p>
+        </div>
+        <div class="brand-card__foot">
+          <span>lavder.com</span>
+          <span class="arrow">↗</span>
+        </div>
+      </article>
+
+      <article class="brand-card brand-card--dolce" data-cursor="hover">
+        <div>
+          <p class="brand-card__tag">Product · Consumer</p>
+          <h3 class="brand-card__name">Dolce</h3>
+        </div>
+        <div class="brand-card__foot">
+          <span>Cakes, custom.</span>
+          <span class="arrow">↗</span>
+        </div>
+      </article>
+
+      <article class="brand-card brand-card--soon" data-cursor="hover">
+        <div>
+          <p class="brand-card__tag">Coming · Q3 2026</p>
+          <h3 class="brand-card__name" style="color: var(--lvdr-color-neutral-400);">[Next.]</h3>
+        </div>
+        <div class="brand-card__foot">
+          <span style="color: var(--lvdr-color-text-muted);">Unannounced</span>
+        </div>
+      </article>
+
+      <article class="brand-card brand-card--info">
+        <div>
+          <p class="brand-card__tag" style="color: var(--lvdr-color-brand);">How we operate</p>
+          <p class="brand-card__body" style="font-size: 18px; max-width: 48ch; margin-top: 16px;">We don't sell services. We build and own companies. One design language, one voice, one level of craft — across every brand we put our name on.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer>
+    <div class="footer__top">
+      <div>
+        <p class="footer__tag">Get in touch</p>
+        <p class="footer__manifesto">Start a project,<br>or just say hi.</p>
+      </div>
+      <nav class="footer__links">
+        <a href="./buttons.html" data-cursor="hover">↗ Buttons</a>
+        <a href="./cards.html" data-cursor="hover">↗ Cards</a>
+        <a href="./forms.html" data-cursor="hover">↗ Forms</a>
+        <a href="./navigation.html" data-cursor="hover">↗ Navigation</a>
+        <a href="../claude-design/color-palette.html" data-cursor="hover">↗ Color palette</a>
+        <a href="../claude-design/typography-specimen.html" data-cursor="hover">↗ Typography specimen</a>
       </nav>
+      <div>
+        <p class="footer__tag">Where</p>
+        <p style="margin: 12px 0 0; font-size:14px; line-height:1.7; color:rgba(255,255,255,0.6);">Lavder Enterprise Srl<br>Bucharest, RO<br>Milano · Pistoia, IT</p>
+      </div>
+    </div>
+    <p class="footer__giant">LAVDER</p>
+    <div class="footer__legal">
+      <span>© 2026 Lavder Enterprise Srl · All rights reserved.</span>
+      <span>v0.1.0 · Brand system</span>
+      <span>Built once. Scaled forever.</span>
     </div>
   </footer>
+
+  <!-- deps -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.16/dist/lenis.min.js"></script>
+
+  <script>
+    /* ============ reduced motion guard ============ */
+    const rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ============ clock ============ */
+    const clock = document.getElementById('clock');
+    function tick() {
+      const now = new Date();
+      const buc = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Bucharest', hour: '2-digit', minute: '2-digit' }).format(now);
+      clock.textContent = buc;
+    }
+    tick(); setInterval(tick, 30000);
+
+    /* ============ custom cursor ============ */
+    if (!rm && window.matchMedia('(pointer: fine)').matches) {
+      const cur = document.querySelector('.cursor');
+      let mx = 0, my = 0, cx = 0, cy = 0;
+      window.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; });
+      function loop() {
+        cx += (mx - cx) * 0.22;
+        cy += (my - cy) * 0.22;
+        cur.style.transform = `translate(${cx}px, ${cy}px) translate(-50%, -50%)`;
+        requestAnimationFrame(loop);
+      }
+      loop();
+      document.querySelectorAll('[data-cursor="hover"]').forEach(el => {
+        el.addEventListener('mouseenter', () => cur.classList.add('cursor--hover'));
+        el.addEventListener('mouseleave', () => cur.classList.remove('cursor--hover'));
+      });
+    }
+
+    /* ============ Lenis smooth scroll ============ */
+    if (!rm) {
+      const lenis = new Lenis({ duration: 1.1, easing: (t) => 1 - Math.pow(1 - t, 4) });
+      function raf(t) { lenis.raf(t); requestAnimationFrame(raf); }
+      requestAnimationFrame(raf);
+
+      if (window.gsap && window.ScrollTrigger) {
+        gsap.registerPlugin(ScrollTrigger);
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add((time) => lenis.raf(time * 1000));
+        gsap.ticker.lagSmoothing(0);
+      }
+    }
+
+    /* ============ hero reveal ============ */
+    if (!rm && window.gsap) {
+      gsap.set('[data-reveal] .hero__line > span', { yPercent: 105 });
+      gsap.set('[data-reveal-fade]', { opacity: 0, y: 24 });
+
+      const tl = gsap.timeline({ delay: 0.2, defaults: { ease: 'expo.out' }});
+      tl.to('[data-reveal] .hero__line > span', {
+        yPercent: 0, duration: 1.2, stagger: 0.08
+      })
+      .to('[data-reveal-fade]', {
+        opacity: 1, y: 0, duration: 0.9, stagger: 0.08
+      }, '-=0.6');
+    }
+
+    /* ============ stat count-up ============ */
+    if (!rm && window.gsap && window.ScrollTrigger) {
+      document.querySelectorAll('[data-count]').forEach(el => {
+        const target = parseInt(el.dataset.count, 10);
+        const obj = { v: 0 };
+        ScrollTrigger.create({
+          trigger: el, start: 'top 85%',
+          onEnter: () => {
+            gsap.to(obj, {
+              v: target, duration: 2, ease: 'power2.out',
+              onUpdate: () => { el.textContent = Math.round(obj.v); }
+            });
+          }
+        });
+      });
+    }
+
+    /* ============ section reveals on scroll ============ */
+    if (!rm && window.gsap && window.ScrollTrigger) {
+      gsap.utils.toArray('.manifesto__body, .stats__title, .work__title, .brands__title').forEach(el => {
+        gsap.from(el, {
+          y: 40, opacity: 0, duration: 1, ease: 'expo.out',
+          scrollTrigger: { trigger: el, start: 'top 85%' }
+        });
+      });
+      gsap.utils.toArray('.work__item').forEach((el, i) => {
+        gsap.from(el, {
+          y: 20, opacity: 0, duration: 0.7, ease: 'expo.out', delay: i * 0.04,
+          scrollTrigger: { trigger: el, start: 'top 90%' }
+        });
+      });
+      gsap.utils.toArray('.brand-card').forEach((el, i) => {
+        gsap.from(el, {
+          y: 32, opacity: 0, duration: 0.9, ease: 'expo.out', delay: i * 0.08,
+          scrollTrigger: { trigger: el, start: 'top 85%' }
+        });
+      });
+    }
+
+    /* ============ marquee infinite ============ */
+    if (!rm && window.gsap) {
+      const track = document.getElementById('marqueeTrack');
+      const firstChild = track.children[0];
+      const width = firstChild.offsetWidth + 60;
+      gsap.to(track, {
+        x: -width, duration: 22, ease: 'none', repeat: -1
+      });
+    }
+
+    /* ============ giant wordmark parallax ============ */
+    if (!rm && window.gsap && window.ScrollTrigger) {
+      gsap.to('.footer__giant', {
+        letterSpacing: '-0.08em',
+        scrollTrigger: {
+          trigger: 'footer', start: 'top bottom', end: 'bottom bottom', scrub: 1
+        }
+      });
+    }
+  </script>
 </body>
 </html>
