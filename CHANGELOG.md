@@ -5,6 +5,18 @@ Format follows [Keep a Changelog](https://keepachangelog.com/), versioning follo
 
 ---
 
+## [0.2.0] — 2026-05-28
+
+### Added — Documents section
+
+- **`documents/`** — new top-level folder for branded institutional documents (preventivi, proposte, contracts, reports).
+- **`documents/README.md`** — overview, PDF render command, subfolder index.
+- **`documents/preventivi/`** — branded quote/proposal templates and conventions:
+  - `README.md` — full guide: document structure (11 sections), voice, Italian conventions (IVA esente, colons not em-dashes, parens, `+` prefix), standard CYA clauses (garanzie, esclusioni, SAL 30/40/30, proprietà), Lavder Polyglot upsell, white-label conventions, pricing rounding, Chrome-headless PDF rendering, sed-pitfall gotcha.
+  - `preventivo-template.html` — sanitized reference template with `[placeholders]`. Self-contained: tokens, fonts (relative `../../assets/fonts/`), cover, sections, totals card, garanzie/esclusioni, SAL.
+
+---
+
 ## [0.1.0] — 2026-04-22
 
 ### Added — Initial release

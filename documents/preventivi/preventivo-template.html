@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Preventivo: [Brand Progetto]</title>
+<style>
+/* ============ Fonts ============ */
+@font-face {
+  font-family: "TWK Lausanne";
+  font-weight: 400;
+  font-display: swap;
+  src: url("../../assets/fonts/TWKLausanne/Web/TWKLausanne-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "TWK Lausanne";
+  font-weight: 500;
+  font-display: swap;
+  src: url("../../assets/fonts/TWKLausanne/Web/TWKLausanne-500.woff2") format("woff2");
+}
+@font-face {
+  font-family: "TWK Lausanne";
+  font-weight: 600;
+  font-display: swap;
+  src: url("../../assets/fonts/TWKLausanne/Web/TWKLausanne-600.woff2") format("woff2");
+}
+@font-face {
+  font-family: "TWK Lausanne";
+  font-weight: 700;
+  font-display: swap;
+  src: url("../../assets/fonts/TWKLausanne/Web/TWKLausanne-700.woff2") format("woff2");
+}
+@font-face {
+  font-family: "TWK Lausanne";
+  font-weight: 800;
+  font-display: swap;
+  src: url("../../assets/fonts/TWKLausanne/Web/TWKLausanne-800.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../../assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf") format("truetype-variations");
+}
+
+/* ============ Lavder tokens ============ */
+:root {
+  --lvdr-ink: #111113;
+  --lvdr-surface: #FFFFFF;
+  --lvdr-brand: #F87016;
+  --lvdr-brand-accent: #FCA400;
+  --lvdr-brand-dark: #D05A0E;
+  --lvdr-n50: #FAFAFA;
+  --lvdr-n100: #F4F4F5;
+  --lvdr-n200: #E4E4E7;
+  --lvdr-n300: #D4D4D8;
+  --lvdr-n400: #A1A1AA;
+  --lvdr-n500: #71717A;
+  --lvdr-n600: #52525B;
+  --lvdr-n700: #3F3F46;
+  --lvdr-n800: #27272A;
+  --lvdr-n900: #18181B;
+  --lvdr-radius-md: 8px;
+  --lvdr-radius-lg: 12px;
+}
+
+/* ============ Page setup ============ */
+@page {
+  size: A4;
+  margin: 18mm 16mm 18mm 16mm;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.55;
+  color: var(--lvdr-ink);
+  background: var(--lvdr-surface);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============ Cover ============ */
+.cover {
+  page-break-after: always;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: calc(297mm - 36mm);
+}
+
+.cover-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-mark {
+  width: 38px;
+  height: auto;
+  display: block;
+}
+
+.wordmark {
+  font-family: "TWK Lausanne", sans-serif;
+  font-weight: 700;
+  font-size: 13pt;
+  letter-spacing: 0.08em;
+  color: var(--lvdr-ink);
+}
+
+.meta-top {
+  font-family: "Inter";
+  font-size: 8.5pt;
+  color: var(--lvdr-n500);
+  text-align: right;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.meta-top div { line-height: 1.6; }
+
+.cover-middle h1 {
+  font-family: "TWK Lausanne", sans-serif;
+  font-weight: 700;
+  font-size: 38pt;
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  margin: 0;
+  color: var(--lvdr-ink);
+}
+
+.cover-middle h1 .brand-word {
+  color: var(--lvdr-brand);
+}
+
+.cover-middle .lede {
+  font-family: "Inter";
+  font-size: 12pt;
+  line-height: 1.5;
+  color: var(--lvdr-n600);
+  max-width: 64ch;
+  margin: 28px 0 0 0;
+}
+
+.cover-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  border-top: 1px solid var(--lvdr-n200);
+  padding-top: 18px;
+}
+
+.cover-bottom .field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1 1 0;
+}
+
+.cover-bottom .field:nth-child(2) {
+  text-align: center;
+  align-items: center;
+}
+
+.cover-bottom .field:last-child {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.cover-bottom .label {
+  font-family: "Inter";
+  font-size: 8pt;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--lvdr-n500);
+  font-weight: 500;
+}
+
+.cover-bottom .value {
+  font-family: "TWK Lausanne", sans-serif;
+  font-weight: 500;
+  font-size: 12pt;
+  color: var(--lvdr-ink);
+}
+
+/* ============ Sections ============ */
+section {
+  margin: 0 0 28px 0;
+  page-break-inside: avoid;
+}
+
+h2 {
+  font-family: "TWK Lausanne", sans-serif;
+  font-weight: 700;
+  font-size: 18pt;
+  letter-spacing: -0.015em;
+  margin: 32px 0 14px 0;
+  color: var(--lvdr-ink);
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--lvdr-n200);
+}
+
+h3 {
+  font-family: "TWK Lausanne", sans-serif;
+  font-weight: 600;
+  font-size: 13pt;
+  letter-spacing: -0.01em;
+  margin: 18px 0 10px 0;
+  color: var(--lvdr-ink);
+}
+
+.eyebrow {
+  font-family: "Inter";
+  font-size: 8.5pt;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lvdr-n500);
+  margin: 0 0 4px 0;
+}
+
+p { margin: 0 0 10px 0; }
+
+p.lede {
+  font-size: 11pt;
+  color: var(--lvdr-n700);
+  line-height: 1.55;
+  max-width: 72ch;
+}
+
+/* ============ Tables ============ */
+table.price {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0 12px 0;
+  font-size: 9.5pt;
+}
+
+table.price thead th {
+  text-align: left;
+  font-family: "Inter";
+  font-weight: 600;
+  font-size: 8.5pt;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--lvdr-n500);
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--lvdr-ink);
+  background: var(--lvdr-surface);
+}
+
+table.price thead th:last-child {
+  text-align: right;
+}
+
+table.price tbody td {
+  padding: 10px 10px;
+  border-bottom: 1px solid var(--lvdr-n200);
+  vertical-align: top;
+  color: var(--lvdr-n800);
+  line-height: 1.45;
+}
+
+table.price tbody td:last-child {
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  color: var(--lvdr-ink);
+}
+
+table.price tr.subtotal td {
+  border-top: 1px solid var(--lvdr-ink);
+  border-bottom: none;
+  font-family: "TWK Lausanne", sans-serif;
+  font-weight: 600;
+  font-size: 11pt;
+  padding-top: 12px;
+  color: var(--lvdr-ink);
+}
+
+table.price tr.option td {
+  background: var(--lvdr-n50);
+  color: var(--lvdr-n700);
+  font-style: italic;
+}
+
+table.price tr.option td:last-child {
+  color: var(--lvdr-ink);
+  font-style: normal;
+  font-weight: 500;
+}
+
+table.price td .meta {
+  display: block;
+  font-size: 8.5pt;
+  color: var(--lvdr-n500);
+  margin-top: 2px;
+}
+
+/* ============ Total card ============ */
+.total-block {
+  margin: 24px 0;
+  padding: 20px 22px;
+  background: var(--lvdr-ink);
+  color: var(--lvdr-surface);
+  border-radius: var(--lvdr-radius-lg);
+}
+
+.total-block .total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 6px 0;
+}
+
+.total-block .total-row + .total-row {
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+.total-block .total-label {
+  font-family: "Inter";
+  font-size: 10pt;
+  color: rgba(255,255,255,0.78);
+}
+
+.total-block .total-value {
+  font-family: "TWK Lausanne", sans-serif;
+  font-weight: 600;
+  font-size: 15pt;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+
+.total-block .total-row.grand .total-label {
+  font-size: 11pt;
+  color: var(--lvdr-surface);
+  font-weight: 500;
+}
+
+.total-block .total-row.grand .total-value {
+  font-size: 22pt;
+  color: var(--lvdr-brand-accent);
+}
+
+/* ============ Note callout ============ */
+.note {
+  background: var(--lvdr-n50);
+  border-left: 2px solid var(--lvdr-brand);
+  padding: 12px 14px;
+  font-size: 9.5pt;
+  color: var(--lvdr-n700);
+  border-radius: 0 var(--lvdr-radius-md) var(--lvdr-radius-md) 0;
+  margin: 10px 0;
+  line-height: 1.55;
+}
+
+.note .note-title {
+  font-family: "TWK Lausanne", sans-serif;
+  font-weight: 600;
+  color: var(--lvdr-ink);
+  display: block;
+  margin-bottom: 4px;
+  font-size: 10pt;
+}
+
+/* ============ Definition list ============ */
+.def {
+  display: grid;
+  grid-template-columns: 28% 1fr;
+  gap: 4px 16px;
+  font-size: 9.5pt;
+  margin: 6px 0 16px 0;
+}
+
+.def dt {
+  font-family: "Inter";
+  font-weight: 600;
+  font-size: 8.5pt;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--lvdr-n500);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--lvdr-n100);
+}
+
+.def dd {
+  margin: 0;
+  padding: 8px 0;
+  color: var(--lvdr-n800);
+  border-bottom: 1px solid var(--lvdr-n100);
+}
+
+ul.tight {
+  margin: 4px 0 12px 0;
+  padding-left: 18px;
+}
+
+ul.tight li {
+  margin: 4px 0;
+  color: var(--lvdr-n800);
+  font-size: 9.5pt;
+  line-height: 1.5;
+}
+
+/* ============ Footer ============ */
+footer {
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid var(--lvdr-n200);
+  font-size: 8.5pt;
+  color: var(--lvdr-n500);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer .legal {
+  font-family: "Inter";
+}
+
+footer .lvdr-tag {
+  display: flex;
+  align-items: center;
+}
+
+footer .lvdr-tag svg {
+  width: 14px;
+  height: auto;
+  display: block;
+  fill: var(--lvdr-ink);
+}
+
+/* ============ Inline marker ============ */
+.marker-asterisk {
+  color: var(--lvdr-brand);
+  font-weight: 600;
+  font-size: 0.85em;
+}
+
+/* ============ Print niceties ============ */
+@media print {
+  section { break-inside: avoid; }
+  h2 { break-after: avoid; }
+  table.price { break-inside: auto; }
+  table.price tr { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ COVER PAGE ============ -->
+<div class="cover">
+
+  <div class="cover-top">
+    <div class="logo-row">
+      <svg class="logo-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 241.77 397.51">
+        <path d="M442,341.25V636H558.19l47.35,102.8h78.22L627,623.94s60.62-23.19,50.56-94.42-56.29-82-119.56-84.78v56.43s42.74,0,46.37,38.55c0,0,2.51,40.78-39.53,38.55H507.21v-237Z" transform="translate(-441.98 -341.25)"/>
+      </svg>
+    </div>
+    <div class="meta-top">
+      <div>Documento riservato</div>
+      <div>[GG mese AAAA]</div>
+    </div>
+  </div>
+
+  <div class="cover-middle">
+    <p class="eyebrow">Preventivo tecnico-economico</p>
+    <h1>[Headline progetto]<br><span class="brand-word">[parola accento]</span><br>[seconda riga].</h1>
+    <p class="lede">[Lede di 1-2 frasi che riassume il progetto: scope, vincoli tecnici principali, eventuali integrazioni.]</p>
+  </div>
+
+  <div class="cover-bottom">
+    <div class="field">
+      <span class="label">Destinatario</span>
+      <span class="value">[Cliente Destinatario Srl]</span>
+    </div>
+    <div class="field">
+      <span class="label">Riferimento</span>
+      <span class="value">[Capitolato / RFP / progetto]</span>
+    </div>
+    <div class="field">
+      <span class="label">Validità</span>
+      <span class="value">30 giorni</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ============ EXECUTIVE SUMMARY ============ -->
+<section>
+  <p class="eyebrow">Sintesi esecutiva</p>
+  <h2>Cosa includiamo, cosa no.</h2>
+  <p class="lede">[Sintesi esecutiva: cosa include il preventivo, su quali vincoli tecnici (es. CMS, target performance, KPI di accettazione), cosa resta a carico del Cliente (testi, traduzioni, configurazioni avanzate). Da 1 a 3 frasi, concrete e specifiche.]</p>
+</section>
+
+<!-- ============ DE PLANET ============ -->
+<section>
+  <p class="eyebrow">Sito prioritario</p>
+  <h2>[Progetto Principale]</h2>
+  <table class="price">
+    <thead>
+      <tr><th>Voce</th><th>Importo</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Sviluppo tecnico WordPress con tema personalizzato: homepage, 4 pagine tecniche, sezione azienda, catalogo vetrina, eventi/fiere, blog/news, contatti, pagine legali. <span class="marker-asterisk">**</span></td>
+        <td>2.000&nbsp;€</td>
+      </tr>
+      <tr>
+        <td>Implementazione multilingua IT/EN/ZH (WPML o Polylang Pro / [plugin multilingua], hreflang, font CJK).</td>
+        <td>750&nbsp;€</td>
+      </tr>
+      <tr>
+        <td>Ottimizzazione SEO tecnica on-page, migrazione SEO da sito attuale e mappa Redirect 301.</td>
+        <td>1.000&nbsp;€</td>
+      </tr>
+      <tr>
+        <td>Integrazione [CRM del Cliente]: collegamento API form WordPress→CRM, mapping campi (Nome, Azienda, Email, Telefono, Note), invio automatico URL/etichetta della pagina di origine, test funzionamento e documentazione tecnica.</td>
+        <td>1.300&nbsp;€</td>
+      </tr>
+      <tr>
+        <td>Ottimizzazione PageSpeed/CWV per target ≥90 mobile e desktop. <span class="marker-asterisk">*</span></td>
+        <td>1.150&nbsp;€</td>
+      </tr>
+      <tr class="subtotal">
+        <td>Subtotale [Progetto Principale]</td>
+        <td>6.200&nbsp;€</td>
+      </tr>
+      <tr class="option">
+        <td>Opzionale: sito accessibile WCAG 2.1 AA / EN 301 549 (audit completo, remediation, test screen reader e real-device, pagina dichiarazione di accessibilità).</td>
+        <td>+5.000&nbsp;€</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ PLANET EATHIC ============ -->
+<section>
+  <p class="eyebrow">Sito secondario</p>
+  <h2>[Progetto B]</h2>
+  <table class="price">
+    <thead>
+      <tr><th>Voce</th><th>Importo</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Sviluppo tecnico WordPress con tema personalizzato: homepage, sezione azienda, eventi/fiere, blog/news, contatti, pagine legali. <span class="marker-asterisk">**</span></td>
+        <td>1.150&nbsp;€</td>
+      </tr>
+      <tr>
+        <td>Catalogo prodotti in modalità vetrina B2B (custom post type, filtri, no e-commerce).</td>
+        <td>450&nbsp;€</td>
+      </tr>
+      <tr>
+        <td>Implementazione multilingua IT/EN/ZH.</td>
+        <td>550&nbsp;€</td>
+      </tr>
+      <tr>
+        <td>Ottimizzazione SEO tecnica, migrazione SEO da sito attuale e mappa Redirect 301.</td>
+        <td>700&nbsp;€</td>
+      </tr>
+      <tr>
+        <td>Ottimizzazione PageSpeed/CWV ≥90. <span class="marker-asterisk">*</span></td>
+        <td>750&nbsp;€</td>
+      </tr>
+      <tr class="subtotal">
+        <td>Subtotale [Progetto B]</td>
+        <td>3.600&nbsp;€</td>
+      </tr>
+      <tr class="option">
+        <td>Opzionale: sito accessibile WCAG 2.1 AA / EN 301 549.</td>
+        <td>+2.500&nbsp;€</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ DELON ============ -->
+<section>
+  <p class="eyebrow">Nuovo sviluppo</p>
+  <h2>[Progetto C]</h2>
+  <table class="price">
+    <thead>
+      <tr><th>Voce</th><th>Importo</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Sviluppo tecnico WordPress con tema personalizzato: homepage, sezione azienda, eventi/fiere, blog/news, contatti, pagine legali. <span class="marker-asterisk">**</span></td>
+        <td>1.150&nbsp;€</td>
+      </tr>
+      <tr>
+        <td>Catalogo prodotti in modalità vetrina B2B (custom post type, filtri, no e-commerce).</td>
+        <td>450&nbsp;€</td>
+      </tr>
+      <tr>
+        <td>Implementazione multilingua IT/EN/ZH.</td>
+        <td>550&nbsp;€</td>
+      </tr>
+      <tr>
+        <td>Ottimizzazione SEO tecnica, migrazione SEO e mappa Redirect 301.</td>
+        <td>700&nbsp;€</td>
+      </tr>
+      <tr>
+        <td>Ottimizzazione PageSpeed/CWV ≥90. <span class="marker-asterisk">*</span></td>
+        <td>750&nbsp;€</td>
+      </tr>
+      <tr class="subtotal">
+        <td>Subtotale [Progetto C]</td>
+        <td>3.600&nbsp;€</td>
+      </tr>
+      <tr class="option">
+        <td>Opzionale: sito accessibile WCAG 2.1 AA / EN 301 549.</td>
+        <td>+2.500&nbsp;€</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ INFRA ============ -->
+<section>
+  <p class="eyebrow">Infrastruttura condivisa</p>
+  <h2>Infrastruttura</h2>
+  <table class="price">
+    <thead>
+      <tr><th>Voce</th><th>Importo</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Configurazione hosting [provider hosting] (intestato al Cliente), 3 installazioni WordPress separate, 3 ambienti di staging.</td>
+        <td>250&nbsp;€</td>
+      </tr>
+      <tr>
+        <td>Gestione architettura domini e DNS [registrar / DNS] (8 domini), MX/SPF invariati per le circa 30 caselle email (zero-downtime), Redirect 301 lato server per ciascun brand.</td>
+        <td>1.150&nbsp;€</td>
+      </tr>
+      <tr>
+        <td>QA cross-browser e audit Lighthouse pre-Go-Live.</td>
+        <td>250&nbsp;€</td>
+      </tr>
+      <tr class="subtotal">
+        <td>Subtotale infrastruttura</td>
+        <td>1.650&nbsp;€</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ NOTE ============ -->
+<section>
+  <div class="note">
+    <span class="note-title">** Grafica</span>
+    Considerando che si tratta di siti istituzionali B2B, il prezzo dello sviluppo tecnico fa riferimento a una grafica meno articolata, coerente con un layout pulito orientato alla conversione e al rispetto dei KPI di performance.
+  </div>
+  <div class="note">
+    <span class="note-title">* PageSpeed e multilingua</span>
+    Le voci marcate con asterisco si riferiscono all'impiego di plugin terzi standard (WPML o Polylang Pro / [plugin multilingua]). Il prezzo si dimezza nel caso si opti per <strong>Lavder Polyglot</strong>, la nostra soluzione proprietaria di gestione multilingua. La licenza è inclusa nel primo anno; dal secondo anno il rinnovo è a 125&nbsp;€/anno per sito, con uno sconto del 20% riservato alle agenzie partner.
+  </div>
+</section>
+
+<!-- ============ TOTALE ============ -->
+<section>
+  <p class="eyebrow">Riepilogo economico</p>
+  <h2>Totale</h2>
+  <div class="total-block">
+    <div class="total-row">
+      <span class="total-label">[Progetto Principale]</span>
+      <span class="total-value">6.200&nbsp;€</span>
+    </div>
+    <div class="total-row">
+      <span class="total-label">[Progetto B]</span>
+      <span class="total-value">3.600&nbsp;€</span>
+    </div>
+    <div class="total-row">
+      <span class="total-label">[Progetto C]</span>
+      <span class="total-value">3.600&nbsp;€</span>
+    </div>
+    <div class="total-row">
+      <span class="total-label">Infrastruttura condivisa</span>
+      <span class="total-value">1.650&nbsp;€</span>
+    </div>
+    <div class="total-row grand">
+      <span class="total-label">Totale base (esente IVA)</span>
+      <span class="total-value">15.050&nbsp;€</span>
+    </div>
+    <div class="total-row">
+      <span class="total-label">+ Accessibilità (3 siti, opzionale)</span>
+      <span class="total-value">+10.000&nbsp;€</span>
+    </div>
+    <div class="total-row grand">
+      <span class="total-label">Totale con accessibilità completa</span>
+      <span class="total-value">25.050&nbsp;€</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXTRA ============ -->
+<section>
+  <p class="eyebrow">Servizi a valore aggiunto</p>
+  <h2>Extra</h2>
+  <table class="price">
+    <thead>
+      <tr><th>Voce</th><th>Importo</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Strumento custom (es. calcolatore ROI, configuratore, simulatore) (menzionato nel capitolato come funzionalità eventuale).</td>
+        <td>1.000&nbsp;€</td>
+      </tr>
+      <tr>
+        <td>Manutenzione mensile su tutti e 3 i siti: update WordPress e plugin, verifica backup, monitoring Core Web Vitals, supporto tecnico via ticket.</td>
+        <td>250&nbsp;€ / mese</td>
+      </tr>
+      <tr>
+        <td>Formazione Cliente: sessione introduttiva al back-office Gutenberg e ai workflow di pubblicazione multilingua.</td>
+        <td>Inclusa</td>
+      </tr>
+      <tr>
+        <td>Audit SEO trimestrale primo anno (4 audit + report con priorità di intervento).</td>
+        <td>750&nbsp;€ / anno</td>
+      </tr>
+      <tr>
+        <td>Retest KPI e fine-tuning a 30 e 90 giorni post-Go-Live.</td>
+        <td>500&nbsp;€</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ GARANZIE ============ -->
+<section>
+  <p class="eyebrow">Garanzie</p>
+  <h2>Cosa garantiamo.</h2>
+  <ul class="tight">
+    <li><strong>PageSpeed ≥90</strong> garantito su pagine chiave concordate (home, catalogo, contatti, 1-2 landing [Progetto Principale]) al momento del Go-Live, con cache attiva e in condizioni standard di test Google.</li>
+    <li><strong>LCP &lt;2.5s</strong> sulle stesse pagine, misurato in 4G simulata.</li>
+    <li><strong>Compatibilità browser</strong>: ultimi 2 major Chrome, Edge, Safari, Firefox e mobile equivalenti.</li>
+    <li><strong>Rendering CJK</strong>: gestione tecnica completa (font, encoding, hreflang). La revisione linguistica delle traduzioni cinesi resta a carico del Cliente.</li>
+    <li>La garanzia decade in caso di modifiche, plugin di terze parti o contenuti pesanti aggiunti dal Cliente dopo il Go-Live.</li>
+  </ul>
+</section>
+
+<!-- ============ ESCLUSIONI ============ -->
+<section>
+  <p class="eyebrow">Esclusioni</p>
+  <h2>Cosa non è compreso.</h2>
+  <ul class="tight">
+    <li><strong>Copy, testi e traduzioni</strong> in IT/EN/ZH: forniti dal Cliente già pronti per upload.</li>
+    <li><strong>Configurazione avanzata [CRM]</strong> (sequenze email, nurturing, automation): a carico della risorsa interna del Cliente, come da capitolato.</li>
+    <li><strong>Licenze commerciali</strong> (WPML, Polylang Pro, eventuali plugin a pagamento): acquisto e intestazione a carico del Cliente.</li>
+    <li><strong>Manutenzione post-Go-Live</strong>: non inclusa nel prezzo di sviluppo, disponibile come canone separato.</li>
+  </ul>
+</section>
+
+<!-- ============ TIMING ============ -->
+<section>
+  <p class="eyebrow">Tempistica e modalità</p>
+  <h2>Tempi e SAL.</h2>
+  <dl class="def">
+    <dt>Tempo stimato</dt>
+    <dd>12-15 settimane dal kickoff al Go-Live, in condizioni standard di fornitura materiali da parte del Cliente.</dd>
+
+    <dt>Avvio</dt>
+    <dd>Subordinato a ricezione completa di testi, immagini, traduzioni, accessi ([registrar / DNS], [provider hosting] se esistente, [CRM], Google Search Console del sito attuale).</dd>
+
+    <dt>SAL 30%</dt>
+    <dd>Alla firma dell'offerta. Sblocca avvio attività e consegna accessi.</dd>
+
+    <dt>SAL 40%</dt>
+    <dd>A staging approvato dal Cliente, con design firmato e integrazione [CRM] testata.</dd>
+
+    <dt>SAL 30%</dt>
+    <dd>A Go-Live, con KPI verificati sulle pagine chiave.</dd>
+
+    <dt>Proprietà</dt>
+    <dd>Codice sorgente, database, design, template e contenuti restano di esclusiva proprietà del Cliente al saldo del SAL relativo. Nessun vendor lock-in: tutte le licenze commerciali sono intestate al Cliente fin dalla produzione.</dd>
+  </dl>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="legal">LAVDER ENTERPRISE · Documento riservato a [Cliente Destinatario Srl] · Tutti gli importi sono IVA esente</div>
+  <div class="lvdr-tag">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 241.77 397.51">
+      <path d="M442,341.25V636H558.19l47.35,102.8h78.22L627,623.94s60.62-23.19,50.56-94.42-56.29-82-119.56-84.78v56.43s42.74,0,46.37,38.55c0,0,2.51,40.78-39.53,38.55H507.21v-237Z" transform="translate(-441.98 -341.25)"/>
+    </svg>
+  </div>
+</footer>
+
+</body>
+</html>
