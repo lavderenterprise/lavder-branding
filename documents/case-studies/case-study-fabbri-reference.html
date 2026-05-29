@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<title>Lavder — Caso studio: Gestionale Fabbri Arredamenti</title>
+<style>
+@font-face{font-family:"TWK";font-weight:400;src:url("file:///Users/giacomo/Claude/Lavder%20Branding/lavder-branding/assets/fonts/TWKLausanne/Web/TWKLausanne-400.woff2") format("woff2");}
+@font-face{font-family:"TWK";font-weight:500;src:url("file:///Users/giacomo/Claude/Lavder%20Branding/lavder-branding/assets/fonts/TWKLausanne/Web/TWKLausanne-500.woff2") format("woff2");}
+@font-face{font-family:"TWK";font-weight:600;src:url("file:///Users/giacomo/Claude/Lavder%20Branding/lavder-branding/assets/fonts/TWKLausanne/Web/TWKLausanne-600.woff2") format("woff2");}
+@font-face{font-family:"TWK";font-weight:700;src:url("file:///Users/giacomo/Claude/Lavder%20Branding/lavder-branding/assets/fonts/TWKLausanne/Web/TWKLausanne-700.woff2") format("woff2");}
+@font-face{font-family:"TWK";font-weight:800;src:url("file:///Users/giacomo/Claude/Lavder%20Branding/lavder-branding/assets/fonts/TWKLausanne/Web/TWKLausanne-850.woff2") format("woff2");}
+@font-face{font-family:"TWK";font-weight:900;src:url("file:///Users/giacomo/Claude/Lavder%20Branding/lavder-branding/assets/fonts/TWKLausanne/Web/TWKLausanne-950.woff2") format("woff2");}
+@font-face{font-family:"Inter";font-weight:100 900;src:url("file:///Users/giacomo/Claude/Lavder%20Branding/lavder-branding/assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf") format("truetype");}
+
+:root{
+  --ink:#0E0E10; --white:#fff;
+  --orange:#F87016; --red:#F87016; --fab:#F2222E;
+  --n50:#FAFAFA;--n100:#F4F4F5;--n200:#E7E7EA;--n300:#D4D4D8;--n400:#A1A1AA;--n500:#71717A;--n600:#52525B;--n700:#3F3F46;
+  --hd:"TWK",sans-serif; --bd:"Inter",sans-serif; --mono:ui-monospace,SFMono-Regular,Menlo,monospace;
+  --blue:#2563EB;--green:#16A34A;--amber:#D97706;--purple:#7C3AED;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+@page{size:13.333in 7.5in;margin:0;}
+html,body{background:#3F3F46;}
+body{font-family:var(--bd);color:var(--ink);}
+.s{position:relative;width:1280px;height:720px;overflow:hidden;page-break-after:always;background:#fff;}
+.s:last-child{page-break-after:auto;}
+.s.dark{background:var(--ink);color:#fff;}
+.s.orange{background:var(--orange);color:var(--ink);}
+.s.fab{--red:#F2222E;--orange:#F2222E;}
+.s.fab .card .ico,.s.fab .callout .ico,.s.fab .ico{background:#FDE7E8;}
+.pad{position:absolute;inset:0;padding:64px 72px;}
+
+/* header / footer */
+.hd{position:absolute;top:40px;left:72px;right:72px;display:flex;justify-content:space-between;align-items:center;}
+.hd .lk{display:flex;align-items:center;gap:11px;font-family:var(--hd);font-weight:700;font-size:17px;letter-spacing:-.01em;}
+.hd .lk svg{height:24px;width:auto;}
+.hd .r{font-size:13px;color:var(--n400);}
+.s.dark .hd .r{color:#6b6b70;} .s.orange .hd .r{color:rgba(14,14,16,.6);}
+.ft{position:absolute;bottom:38px;left:72px;right:72px;display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--n400);}
+.s.dark .ft{color:#5a5a5f;} .s.orange .ft{color:rgba(14,14,16,.55);}
+.ft .pg{font-variant-numeric:tabular-nums;}
+
+/* type */
+.eye{font-family:var(--bd);font-weight:600;font-size:12.5px;letter-spacing:.17em;text-transform:uppercase;color:var(--red);display:inline-flex;align-items:center;gap:10px;}
+.eye::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--red);}
+.eye.o{color:var(--orange);} .eye.o::before{background:var(--orange);}
+.chnum{font-family:var(--mono);font-size:15px;letter-spacing:.12em;color:var(--orange);}
+.s.orange .chnum{color:var(--ink);}
+.disp{font-family:var(--hd);font-weight:800;letter-spacing:-.025em;line-height:1.02;}
+.h-sec{font-family:var(--hd);font-weight:800;letter-spacing:-.022em;line-height:1.06;font-size:40px;}
+.lede{font-size:18px;line-height:1.5;color:var(--n500);}
+.s.dark .lede{color:#9a9aa0;} .s.orange .lede{color:rgba(14,14,16,.72);}
+.red{color:var(--red);} .ora{color:var(--orange);}
+
+/* ghost chapter number */
+.ghost{position:absolute;right:-8px;bottom:-104px;font-family:var(--hd);font-weight:900;font-size:440px;line-height:.8;letter-spacing:-.04em;pointer-events:none;color:rgba(255,255,255,.05);}
+.s.orange .ghost{color:rgba(14,14,16,.07);}
+
+/* browser frame */
+.bw{border-radius:13px;overflow:hidden;border:1px solid var(--n200);background:#fff;}
+.bw .bar{height:40px;display:flex;align-items:center;gap:8px;padding:0 15px;background:#fff;border-bottom:1px solid var(--n100);}
+.bw .bar i{width:11px;height:11px;border-radius:50%;background:#E2E2E6;display:block;}
+.bw .url{margin-left:10px;flex:1;background:var(--n100);border-radius:7px;height:24px;display:flex;align-items:center;padding:0 12px;font-family:var(--mono);font-size:11.5px;color:var(--n500);}
+.bw .url b{color:var(--n700);font-weight:500;}
+.bw img{display:block;width:100%;height:auto;}
+
+/* tags */
+.tags{display:flex;flex-wrap:wrap;gap:9px;}
+.tag{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;padding:8px 14px;border-radius:9px;border:1px solid var(--n200);background:#fff;color:var(--n700);}
+.tag svg{width:15px;height:15px;color:var(--red);}
+
+/* brand grid (marchi) */
+.brandgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;}
+.brandgrid div{border:1px solid var(--n200);background:var(--n50);border-radius:10px;padding:15px 16px;text-align:center;font-weight:600;font-size:14.5px;color:var(--ink);}
+.brandgrid div.more{color:var(--n400);font-weight:500;}
+
+/* fabbri chip */
+.fchip{display:flex;align-items:center;gap:13px;}
+.fchip .mk{width:46px;height:46px;border-radius:50%;background:var(--fab);color:#fff;font-family:var(--hd);font-weight:800;font-size:22px;display:flex;align-items:center;justify-content:center;}
+.fchip .t b{font-family:var(--hd);font-weight:700;font-size:21px;letter-spacing:-.01em;display:block;}
+.fchip .t span{font-size:13px;color:var(--n400);}
+
+/* big numbers */
+.bignums{display:flex;gap:0;}
+.bignums .bn{flex:1;padding-right:24px;}
+.bignums .bn .n{font-family:var(--hd);font-weight:800;font-size:78px;line-height:.9;letter-spacing:-.03em;color:var(--ink);white-space:nowrap;}
+.bignums .bn .l{margin-top:14px;font-size:15px;line-height:1.4;color:var(--n600);}
+.bignums .bn .ba{margin-top:12px;font-family:var(--mono);font-size:12.5px;color:var(--n400);}
+.bignums .bn .ba s{opacity:.7;} .bignums .bn .ba b{color:var(--ink);font-weight:600;}
+
+/* cards */
+.cards{display:grid;gap:16px;}
+.card{border:1px solid var(--n200);background:var(--n50);border-radius:14px;padding:24px 26px;}
+.card .ico{width:38px;height:38px;border-radius:10px;background:#FEEBD9;display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+.card .ico svg{width:20px;height:20px;color:var(--red);}
+.card h4{font-family:var(--hd);font-weight:700;font-size:18px;letter-spacing:-.01em;margin-bottom:9px;}
+.card p{font-size:13.5px;line-height:1.5;color:var(--n600);}
+.card ul{list-style:none;margin-top:13px;} .card ul li{position:relative;padding-left:18px;font-size:13px;color:var(--n700);margin-bottom:7px;}
+.card ul li::before{content:"";position:absolute;left:0;top:6px;width:7px;height:7px;background:var(--red);transform:rotate(45deg);}
+
+/* steps grid (ciclo vendita) */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;}
+.step{border:1px solid var(--n200);background:var(--n50);border-radius:12px;padding:17px 18px;}
+.step .nn{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--red);}
+.step b{display:block;font-family:var(--hd);font-weight:700;font-size:15.5px;margin:9px 0 5px;letter-spacing:-.01em;}
+.step span{font-size:12px;color:var(--n500);line-height:1.35;}
+.step.fin{background:#FEF1E6;border-color:#FAD9BC;}
+.step.fin b,.step.fin .nn{color:var(--red);}
+
+/* pills */
+.pillrow{display:flex;flex-wrap:wrap;gap:9px;}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;font-size:13px;font-weight:600;background:var(--n100);color:var(--n600);}
+.pill .d{width:7px;height:7px;border-radius:50%;background:var(--n400);}
+.pill.blue{background:#E8EEFE;color:var(--blue);} .pill.blue .d{background:var(--blue);}
+.pill.amber{background:#FEF1E0;color:var(--amber);} .pill.amber .d{background:var(--amber);}
+.pill.green{background:#E3F6EB;color:var(--green);} .pill.green .d{background:var(--green);}
+.pill.red{background:#FDE7E8;color:var(--fab);} .pill.red .d{background:var(--fab);}
+.pill.purple{background:#EFE8FD;color:var(--purple);} .pill.purple .d{background:var(--purple);}
+
+/* module map */
+.fam{font-family:var(--bd);font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin:0 0 12px;}
+.modgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;}
+.mod{display:flex;align-items:center;gap:11px;border:1px solid var(--n200);background:var(--n50);border-radius:10px;padding:13px 16px;font-weight:600;font-size:14.5px;color:var(--ink);}
+.mod svg{width:17px;height:17px;color:var(--red);flex:none;}
+
+/* tech cards */
+.techgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.tc{display:flex;align-items:center;gap:13px;border:1px solid var(--n200);background:var(--n50);border-radius:11px;padding:14px 16px;}
+.tc .bdg{width:34px;height:34px;border-radius:8px;background:#FEEBD9;color:var(--red);font-family:var(--mono);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;flex:none;}
+.tc b{font-family:var(--hd);font-weight:600;font-size:15px;display:block;letter-spacing:-.01em;}
+.tc span{font-size:12px;color:var(--n500);}
+
+/* callout */
+.callout{border:1px solid var(--n200);background:var(--n50);border-radius:14px;padding:22px 24px;}
+.callout.hl{display:flex;gap:14px;align-items:flex-start;}
+.callout .ico{width:36px;height:36px;border-radius:9px;background:#FEEBD9;display:flex;align-items:center;justify-content:center;flex:none;}
+.callout .ico svg{width:19px;height:19px;color:var(--red);}
+.callout h4{font-family:var(--hd);font-weight:700;font-size:17px;margin-bottom:8px;}
+.callout p{font-size:13.5px;line-height:1.5;color:var(--n600);}
+.arrow{display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.5;color:var(--n700);}
+.arrow .a{color:var(--red);font-weight:700;}
+
+ul.brief{list-style:none;}
+ul.brief li{position:relative;padding-left:24px;margin-bottom:17px;font-size:15.5px;line-height:1.5;color:var(--n700);}
+ul.brief li::before{content:"";position:absolute;left:0;top:7px;width:9px;height:9px;background:var(--red);transform:rotate(45deg);}
+ul.brief li b{color:var(--ink);font-weight:600;}
+</style>
+</head>
+<body>
+
+<!-- SVG sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.2 3-5 6-5s6 1.8 6 5"/><path d="M16 5.5a3 3 0 010 5.5M22 20c0-2.6-1.8-4.3-4-4.8"/></symbol>
+<symbol id="i-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></symbol>
+<symbol id="i-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h2.2l2.3 12.2a1.5 1.5 0 001.5 1.2h8.8a1.5 1.5 0 001.5-1.2L20 7H5.2"/></symbol>
+<symbol id="i-receipt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v18l2-1.4L9 21l2-1.4L13 21l2-1.4L17 21l2-1.4V3l-2 1.4L15 3l-2 1.4L11 3 9 4.4 7 3z"/><path d="M8 8h8M8 12h6"/></symbol>
+<symbol id="i-calclock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11V6a2 2 0 00-2-2H5a2 2 0 00-2 2v13a2 2 0 002 2h6M3 9h18M8 3v3M16 3v3"/><circle cx="18" cy="17" r="3.5"/><path d="M18 15.5V17l1 1"/></symbol>
+<symbol id="i-undo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7v6h6"/><path d="M3 13a9 9 0 119 9"/></symbol>
+<symbol id="i-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V5a2 2 0 012-2h6a2 2 0 012 2v16"/><path d="M15 9h2a2 2 0 012 2v10M3 21h18M8 7h2M8 11h2M8 15h2"/></symbol>
+<symbol id="i-pkg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/></symbol>
+<symbol id="i-boxes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l4-2 4 2-4 2zM13 8l4-2 4 2-4 2zM8 16l4-2 4 2-4 2z"/><path d="M3 8v4l4 2M11 8v4l-4 2M13 8v4l4 2M21 8v4l-4 2M8 16v4M16 16v4"/></symbol>
+<symbol id="i-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h11v9H3zM14 9h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></symbol>
+<symbol id="i-clip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h6a1 1 0 011 1v1H8V5a1 1 0 011-1z"/><path d="M8 4H6a2 2 0 00-2 2v13a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-2M8 11h8M8 15h6"/></symbol>
+<symbol id="i-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5a4 4 0 015 5l-2-2-2 2-1-1 2-2-2-2zM14 10L4 20l-1.5-1.5L13 8"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></symbol>
+<symbol id="i-dash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></symbol>
+<symbol id="i-bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M7 21V11M12 21V5M17 21v-7"/></symbol>
+<symbol id="i-store" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9l1-5h14l1 5M4 9h16v3a2 2 0 01-2 2H6a2 2 0 01-2-2zM5 14v6h14v-6"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+<symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M4 16V6a2 2 0 012-2h10"/></symbol>
+<symbol id="i-note" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/></symbol>
+<symbol id="i-calc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M8 11h.01M12 11h.01M16 11v6M8 15h.01M12 15h.01M8 18h4"/></symbol>
+<symbol id="i-trend" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8M21 7v5h-5"/></symbol>
+<symbol id="i-pct" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/><path d="M19 5L5 19"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></symbol>
+<symbol id="i-db" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></symbol>
+<symbol id="i-cube" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5zM3 8v8l9 5 9-5V8"/><path d="M9 11l3 3 4-3.5"/></symbol>
+<symbol id="i-branch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="5" r="2.2"/><circle cx="6" cy="19" r="2.2"/><circle cx="18" cy="12" r="2.2"/><path d="M6 7v10M6 12h7"/></symbol>
+<symbol id="i-cucina" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3v8M7 3v8M4 7h3M5.5 11v10M14 3c0 4 3 4 3 7v11M17 3c0 4-3 4-3 7"/></symbol>
+<symbol id="i-sofa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11V8a2 2 0 012-2h12a2 2 0 012 2v3M3 11a2 2 0 012 2v3h14v-3a2 2 0 012-2 2 2 0 012 2v5H1v-5a2 2 0 012-2z"/></symbol>
+<symbol id="i-bed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7v12M3 11h18a0 0 0 010 0v-1a3 3 0 00-3-3H9a3 3 0 00-3 3M21 19v-8"/></symbol>
+<symbol id="i-lamp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l3 8H5zM12 11v7M9 21h6"/></symbol>
+</defs></svg>
+
+<!-- ============ 01 · COVER ============ -->
+<section class="s dark">
+  <div class="hd"><div class="lk"><svg viewBox="0 0 241.77 397.51"><path d="M442,341.25V636H558.19l47.35,102.8h78.22L627,623.94s60.62-23.19,50.56-94.42-56.29-82-119.56-84.78v56.43s42.74,0,46.37,38.55c0,0,2.51,40.78-39.53,38.55H507.21v-237Z" transform="translate(-441.98 -341.25)" fill="#fff"/></svg><span>Lavder</span></div><div class="r">Caso studio · 2026</div></div>
+  <div class="pad">
+    <div style="position:absolute;left:72px;top:196px;max-width:920px;">
+      <div class="eye o">Gestionale custom per il retail dell'arredamento</div>
+      <h1 class="disp" style="font-size:82px;margin-top:30px;">Un sistema <span class="ora">unico</span>,<br>dal preventivo<br>alla fattura.</h1>
+    </div>
+    <p style="position:absolute;left:72px;bottom:130px;max-width:640px;font-size:18px;line-height:1.55;color:#9a9aa0;">Come abbiamo costruito il gestionale che fa girare due showroom, dodici brand fornitori e centinaia di ordini all'anno per <strong style="color:#fff;">Fabbri Arredamenti</strong>, Firenze.</p>
+  </div>
+  <div class="ft"><div>lavder.com</div><div>Lavder Enterprise S.R.L.</div></div>
+</section>
+
+<!-- ============ 02 · DIVIDER 01 ============ -->
+<section class="s dark">
+  <div class="hd"><div class="lk"><svg viewBox="0 0 241.77 397.51"><path d="M442,341.25V636H558.19l47.35,102.8h78.22L627,623.94s60.62-23.19,50.56-94.42-56.29-82-119.56-84.78v56.43s42.74,0,46.37,38.55c0,0,2.51,40.78-39.53,38.55H507.21v-237Z" transform="translate(-441.98 -341.25)" fill="#fff"/></svg><span>Lavder</span></div><div class="r">Gestionale Fabbri Arredamenti</div></div>
+  <div class="ghost">01</div>
+  <div class="pad">
+    <div style="position:absolute;left:72px;bottom:150px;max-width:760px;">
+      <div class="chnum">— 01 / 04</div>
+      <h2 class="disp" style="font-size:96px;margin-top:22px;">Il cliente.</h2>
+      <p class="lede" style="margin-top:22px;max-width:620px;">Capire chi è Fabbri è il modo più diretto per capire perché un gestionale fatto bene cambia tutto.</p>
+    </div>
+  </div>
+  <div class="ft"><div>Capitolo 1 · Il cliente</div><div class="pg">02 / 24</div></div>
+</section>
+
+<!-- ============ 03 · IL CLIENTE ============ -->
+<section class="s">
+  <div class="hd"><div class="lk"><svg viewBox="0 0 241.77 397.51"><path d="M442,341.25V636H558.19l47.35,102.8h78.22L627,623.94s60.62-23.19,50.56-94.42-56.29-82-119.56-84.78v56.43s42.74,0,46.37,38.55c0,0,2.51,40.78-39.53,38.55H507.21v-237Z" transform="translate(-441.98 -341.25)" fill="#0E0E10"/></svg><span>Lavder</span></div><div class="r"><img src="file:///Users/giacomo/Claude/gestionale-fabbri/attached_assets/logo-fabbri-big_1763545279420.png" style="height:21px;width:auto;display:block;"></div></div>
+  <div class="pad" style="padding-top:104px;">
+    <div style="display:grid;grid-template-columns:1fr 0.92fr;gap:60px;align-items:start;">
+      <div>
+        <div class="fchip"><img src="file:///Users/giacomo/Claude/gestionale-fabbri/attached_assets/logo-fabbri-big_1763545279420.png" style="height:50px;width:auto;" alt="Fabbri"><div class="t"><b>Fabbri Arredamenti</b><span>Firenze · dal 1965</span></div></div>
+        <h2 class="disp" style="font-size:46px;margin-top:30px;">Un negozio di<br>arredamento<br><span style="color:var(--fab);">storico di Firenze</span>.</h2>
+        <p style="font-size:16.5px;line-height:1.55;color:var(--n600);margin-top:24px;max-width:520px;">Due showroom, oltre dodici marchi partner, l'intera casa dalla cucina alla zona notte. Vendite che durano settimane, non minuti: dal sopralluogo al montaggio in casa del cliente.</p>
+        <div class="tags" style="margin-top:26px;">
+          <span class="tag"><svg><use href="#i-cucina"/></svg>Cucine</span>
+          <span class="tag"><svg><use href="#i-sofa"/></svg>Zona giorno</span>
+          <span class="tag"><svg><use href="#i-bed"/></svg>Zona notte</span>
+          <span class="tag"><svg><use href="#i-lamp"/></svg>Complementi</span>
+        </div>
+      </div>
+      <div style="padding-top:6px;">
+        <div class="fam" style="margin-bottom:16px;">Marchi partner</div>
+        <div class="brandgrid">
+          <div>Veneta Cucine</div><div>Calligaris</div><div>Tomasella</div>
+          <div>Bontempi</div><div>Nova Mobili</div><div>Cattelan</div>
+          <div>Miniforms</div><div>Saba</div><div class="more">+ altri 4</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ft"><div>fabbriarredamenti.it</div><div class="pg">03 / 24</div></div>
+</section>
+
+<!-- ============ 04 · NUMERI CHE PESANO ============ -->
+<section class="s">
+  <div class="hd"><div class="lk"><svg viewBox="0 0 241.77 397.51"><path d="M442,341.25V636H558.19l47.35,102.8h78.22L627,623.94s60.62-23.19,50.56-94.42-56.29-82-119.56-84.78v56.43s42.74,0,46.37,38.55c0,0,2.51,40.78-39.53,38.55H507.21v-237Z" transform="translate(-441.98 -341.25)" fill="#0E0E10"/></svg><span>Lavder</span></div><div class="r"><img src="file:///Users/giacomo/Claude/gestionale-fabbri/attached_assets/logo-fabbri-big_1763545279420.png" style="height:21px;width:auto;display:block;"></div></div>
+  <div class="pad" style="padding-top:104px;">
+    <div class="eye">Numeri che pesano</div>
+    <h2 class="h-sec" style="margin-top:18px;max-width:1000px;">Due punti vendita da coordinare,<br>dodici filiere da gestire in <span class="ora">parallelo</span>.</h2>
+    <div class="bignums" style="margin-top:54px;">
+      <div class="bn"><div class="n">2<span class="red">.</span></div><div class="l">Showroom: Firenze + Campi Bisenzio</div></div>
+      <div class="bn"><div class="n">12<span class="red">+</span></div><div class="l">Brand partner sul listino</div></div>
+      <div class="bn"><div class="n">9</div><div class="l">Stati che un ordine attraversa</div></div>
+      <div class="bn"><div class="n">60<span class="red">y</span></div><div class="l">Anni di mestiere alle spalle</div></div>
+    </div>
+    <p style="margin-top:56px;max-width:1040px;font-size:16px;line-height:1.55;color:var(--n600);">Lo stesso cliente può ordinare cucina, divani e camera in un unico colpo: tre brand, tre filiere, tre tempi di consegna. Tenere insieme tutto questo a mano è il problema che siamo venuti a risolvere.</p>
+  </div>
+  <div class="ft"><div>01 · Il cliente</div><div class="pg">04 / 24</div></div>
+</section>
+
+<!-- ============ 05 · DIVIDER 02 ============ -->
+<section class="s dark">
+  <div class="hd"><div class="lk"><svg viewBox="0 0 241.77 397.51"><path d="M442,341.25V636H558.19l47.35,102.8h78.22L627,623.94s60.62-23.19,50.56-94.42-56.29-82-119.56-84.78v56.43s42.74,0,46.37,38.55c0,0,2.51,40.78-39.53,38.55H507.21v-237Z" transform="translate(-441.98 -341.25)" fill="#fff"/></svg><span>Lavder</span></div><div class="r">Gestionale Fabbri Arredamenti</div></div>
+  <div class="ghost">02</div>
+  <div class="pad">
+    <div style="position:absolute;left:72px;bottom:150px;max-width:820px;">
+      <div class="chnum">— 02 / 04</div>
+      <h2 class="disp" style="font-size:96px;margin-top:22px;">Le esigenze.</h2>
+      <p class="lede" style="margin-top:22px;max-width:660px;">Quattro settimane in showroom, con i venditori, con la logistica, con i montatori. Prima di una riga di codice.</p>
+    </div>
+  </div>
+  <div class="ft"><div>Capitolo 2 · Le esigenze</div><div class="pg">05 / 24</div></div>
+</section>
+
+<!-- ============ 06 · CICLO DI VENDITA ============ -->
+<section class="s">
+  <div class="hd"><div class="lk"><svg viewBox="0 0 241.77 397.51"><path d="M442,341.25V636H558.19l47.35,102.8h78.22L627,623.94s60.62-23.19,50.56-94.42-56.29-82-119.56-84.78v56.43s42.74,0,46.37,38.55c0,0,2.51,40.78-39.53,38.55H507.21v-237Z" transform="translate(-441.98 -341.25)" fill="#0E0E10"/></svg><span>Lavder</span></div><div class="r"><img src="file:///Users/giacomo/Claude/gestionale-fabbri/attached_assets/logo-fabbri-big_1763545279420.png" style="height:21px;width:auto;display:block;"></div></div>
+  <div class="pad" style="padding-top:96px;">
+    <div class="eye">Anatomia di una vendita</div>
+    <h2 class="h-sec" style="margin-top:16px;font-size:36px;">Il ciclo di vendita di un mobile attraversa <span class="ora">nove momenti</span>.</h2>
+    <div class="steps" style="margin-top:30px;">
+      <div class="step"><div class="nn">01</div><b>Contatto cliente</b><span>Sopralluogo, idee, prima quota</span></div>
+      <div class="step"><div class="nn">02</div><b>Preventivo</b><span>PDF, sconti, IVA, email</span></div>
+      <div class="step"><div class="nn">03</div><b>Conferma</b><span>Acconto, ordine di vendita</span></div>
+      <div class="step"><div class="nn">04</div><b>Ordine fornitore</b><span>Uno o più, per filiera</span></div>
+      <div class="step"><div class="nn">05</div><b>Conferma fornitore</b><span>Tempi di consegna, stralci</span></div>
+      <div class="step"><div class="nn">06</div><b>Arrivo merce</b><span>DDT in ingresso, magazzino</span></div>
+      <div class="step"><div class="nn">07</div><b>Consegna a casa</b><span>Furgone, firma del cliente</span></div>
+      <div class="step"><div class="nn">08</div><b>Montaggio</b><span>Squadra, checklist qualità</span></div>
+      <div class="step"><div class="nn">09</div><b>Fatturazione &amp; saldo</b><span>Fattura, saldo, chiusura</span></div>
+      <div class="step fin"><div class="nn">→</div><b>Cliente fidelizzato</b><span>Storico, prossima vendita</span></div>
+    </div>
+    <p style="margin-top:30px;max-width:1040px;font-size:16px;line-height:1.55;color:var(--n600);">In ogni passaggio cambiano persone, documenti, responsabilità. Se anche solo uno vive nella testa di chi lo gestisce, il sistema è fragile.</p>
+  </div>
+  <div class="ft"><div>02 · Le esigenze</div><div class="pg">06 / 24</div></div>
+</section>
+
+<!-- ============ 07 · PUNTI DI ROTTURA ============ -->
+<section class="s">
+  <div class="hd"><div class="lk"><svg viewBox="0 0 241.77 397.51"><path d="M442,341.25V636H558.19l47.35,102.8h78.22L627,623.94s60.62-23.19,50.56-94.42-56.29-82-119.56-84.78v56.43s42.74,0,46.37,38.55c0,0,2.51,40.78-39.53,38.55H507.21v-237Z" transform="translate(-441.98 -341.25)" fill="#0E0E10"/></svg><span>Lavder</span></div><div class="r"><img src="file:///Users/giacomo/Claude/gestionale-fabbri/attached_assets/logo-fabbri-big_1763545279420.png" style="height:21px;width:auto;display:block;"></div></div>
+  <div class="pad" style="padding-top:96px;">
+    <div class="eye">Cosa abbiamo trovato</div>
+    <h2 class="h-sec" style="margin-top:16px;max-width:1040px;">Tre punti di rottura, sommati su un anno: settimane di <span class="ora">tempo perso</span>.</h2>
+    <div class="cards" style="grid-template-columns:repeat(3,1fr);margin-top:36px;">
+      <div class="card"><div class="ico"><svg><use href="#i-copy"/></svg></div><h4>Lo stesso dato, riscritto cinque volte.</h4><p>Un indirizzo di consegna, una variante prodotto: ricopiati dal preventivo all'ordine, dall'ordine al DDT, dal DDT alla fattura. Ogni copia è un errore in attesa.</p></div>
+      <div class="card"><div class="ico"><svg><use href="#i-note"/></svg></div><h4>Lo stato vive su un post-it.</h4><p>"È arrivato?" "È partito?": risposte che dipendevano dal venditore presente. Quando era con un cliente, nessuno sapeva rispondere al telefono.</p></div>
+      <div class="card"><div class="ico"><svg><use href="#i-calc"/></svg></div><h4>I report richiedevano mezza giornata.</h4><p>Margini per brand, pagamenti in scadenza, performance dei venditori: fogli Excel costruiti la sera, dati che invecchiavano in 48 ore.</p></div>
+    </div>
+  </div>
+  <div class="ft"><div>02 · Le esigenze</div><div class="pg">07 / 24</div></div>
+</section>
+
+<!-- ============ 08 · BRIEF ============ -->
+<section class="s">
+  <div class="hd"><div class="lk"><svg viewBox="0 0 241.77 397.51"><path d="M442,341.25V636H558.19l47.35,102.8h78.22L627,623.94s60.62-23.19,50.56-94.42-56.29-82-119.56-84.78v56.43s42.74,0,46.37,38.55c0,0,2.51,40.78-39.53,38.55H507.21v-237Z" transform="translate(-441.98 -341.25)" fill="#0E0E10"/></svg><span>Lavder</span></div><div class="r"><img src="file:///Users/giacomo/Claude/gestionale-fabbri/attached_assets/logo-fabbri-big_1763545279420.png" style="height:21px;width:auto;display:block;"></div></div>
+  <div class="pad" style="padding-top:104px;">
+    <div style="display:grid;grid-template-columns:0.85fr 1.15fr;gap:60px;align-items:start;">
+      <div>
+        <div class="eye">Brief, parole loro</div>
+        <h2 class="disp" style="font-size:44px;margin-top:18px;">Quello che<br>serviva <span class="ora">davvero</span>.</h2>
+        <p style="font-size:16px;line-height:1.55;color:var(--n500);margin-top:22px;max-width:380px;">Non un altro pacchetto generico da adattare in dieci mesi. Un sistema che parlasse <span class="red" style="font-style:italic;">la loro lingua</span> dal primo giorno.</p>
+      </div>
+      <ul class="brief" style="padding-top:8px;">
+        <li><b>Un posto unico dove sta tutto.</b> Dal preventivo alla fattura, senza uscire.</li>
+        <li><b>Stati chiari su ogni ordine.</b> Leggibili a colpo d'occhio, anche al telefono.</li>
+        <li><b>Documenti PDF in pochi click.</b> Preventivi, DDT, fatture, pronti da inviare.</li>
+        <li><b>Due negozi separati, una vista unica.</b> Quando serve, non sempre.</li>
+        <li><b>Sui loro server.</b> Niente cloud di terzi, niente lock-in.</li>
+        <li><b>Veloce sui dispositivi che hanno già.</b> Browser, tablet, telefono.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft"><div>02 · Le esigenze</div><div class="pg">08 / 24</div></div>
+</section>
+
+<!-- ============ 09 · DIVIDER 03 (ORANGE) ============ -->
+<section class="s dark">
+  <div class="hd"><div class="lk"><svg viewBox="0 0 241.77 397.51"><path d="M442,341.25V636H558.19l47.35,102.8h78.22L627,623.94s60.62-23.19,50.56-94.42-56.29-82-119.56-84.78v56.43s42.74,0,46.37,38.55c0,0,2.51,40.78-39.53,38.55H507.21v-237Z" transform="translate(-441.98 -341.25)" fill="#fff"/></svg><span>Lavder</span></div><div class="r">Gestionale Fabbri Arredamenti</div></div>
+  <div class="ghost">03</div>
+  <div class="pad">
+    <div style="position:absolute;left:72px;bottom:148px;max-width:880px;">
+      <img src="file:///Users/giacomo/Claude/gestionale-fabbri/attached_assets/logo-negativo_1761760397142.png" style="height:40px;width:auto;display:block;margin-bottom:28px;" alt="Fabbri Arredamenti">
+      <div class="chnum" style="color:var(--fab);">— 03 / 04</div>
+      <h2 class="disp" style="font-size:88px;margin-top:18px;">Cosa abbiamo<br>costruito.</h2>
+      <p class="lede" style="margin-top:20px;max-width:600px;">Diciotto moduli, una sola applicazione. Su misura, dal preventivo alla fattura.</p>
+    </div>
+  </div>
+  <div class="ft"><div>Capitolo 3 · La soluzione</div><div class="pg">09 / 24</div></div>
+</section>
+
+<!-- ============ 10 · IL PRODOTTO ============ -->
+<section class="s fab">
+  <div class="hd"><div class="lk"><svg viewBox="0 0 241.77 397.51"><path d="M442,341.25V636H558.19l47.35,102.8h78.22L627,623.94s60.62-23.19,50.56-94.42-56.29-82-119.56-84.78v56.43s42.74,0,46.37,38.55c0,0,2.51,40.78-39.53,38.55H507.21v-237Z" transform="translate(-441.98 -341.25)" fill="#0E0E10"/></svg><span>Lavder</span></div><div class="r"><img src="file:///Users/giacomo/Claude/gestionale-fabbri/attached_assets/logo-fabbri-big_1763545279420.png" style="height:21px;width:auto;display:block;"></div></div>
+  <div class="pad" style="padding-top:100px;">
+    <div style="display:grid;grid-template-columns:0.82fr 1.18fr;gap:54px;align-items:center;">
+      <div>
+        <div class="eye">Il prodotto</div>
+        <h2 class="disp" style="font-size:42px;margin-top:18px;">Una web-app <span class="ora">unica</span>,<br>da showroom<br>a montaggio.</h2>
+        <p style="font-size:15.5px;line-height:1.55;color:var(--n600);margin-top:20px;max-width:430px;">Stesso strumento per il venditore in negozio, il logistico in magazzino, il montatore in casa del cliente. Cambia il ruolo, non l'applicazione.</p>
+        <div style="margin-top:24px;display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;gap:13px;align-items:flex-start;"><div class="ico" style="width:38px;height:38px;border-radius:10px;background:#FEEBD9;display:flex;align-items:center;justify-content:center;flex:none;"><svg style="width:20px;height:20px;color:var(--orange);"><use href="#i-cube"/></svg></div><div><b style="font-family:var(--hd);font-size:15px;">Un sistema</b><div style="font-size:13px;color:var(--n500);">Dal contatto alla fattura, non si esce mai.</div></div></div>
+          <div style="display:flex;gap:13px;align-items:flex-start;"><div class="ico" style="width:38px;height:38px;border-radius:10px;background:#FEEBD9;display:flex;align-items:center;justify-content:center;flex:none;"><svg style="width:20px;height:20px;color:var(--red);"><use href="#i-wrench"/></svg></div><div><b style="font-family:var(--hd);font-size:15px;">Su misura</b><div style="font-size:13px;color:var(--n500);">Ogni stato, ogni campo, riflette come Fabbri lavora.</div></div></div>
+          <div style="display:flex;gap:13px;align-items:flex-start;"><div class="ico" style="width:38px;height:38px;border-radius:10px;background:#FEEBD9;display:flex;align-items:center;justify-content:center;flex:none;"><svg style="width:20px;height:20px;color:var(--red);"><use href="#i-db"/></svg></div><div><b style="font-family:var(--hd);font-size:15px;">Loro</b><div style="font-size:13px;color:var(--n500);">Gira sui loro server. I dati restano dei clienti.</div></div></div>
+        </div>
+      </div>
+      <div class="bw">
+        <div class="bar"><i></i><i></i><i></i><div class="url">gestionale.fabbriarredamenti.it<b> / dashboard</b></div></div>
+        <img src="file:///Users/giacomo/Claude/gestionale-fabbri/shots-clean/dashboard.png" alt="Dashboard">
+      </div>
+    </div>
+  </div>
+  <div class="ft"><div>03 · La soluzione</div><div class="pg">10 / 24</div></div>
+</section>
+
+<!-- ============ 11 · ARCHITETTURA ============ -->
+<section class="s fab">
+  <div class="hd"><div class="lk"><svg viewBox="0 0 241.77 397.51"><path d="M442,341.25V636H558.19l47.35,102.8h78.22L627,623.94s60.62-23.19,50.56-94.42-56.29-82-119.56-84.78v56.43s42.74,0,46.37,38.55c0,0,2.51,40.78-39.53,38.55H507.21v-237Z" transform="translate(-441.98 -341.25)" fill="#0E0E10"/></svg><span>Lavder</span></div><div class="r"><img src="file:///Users/giacomo/Claude/gestionale-fabbri/attached_assets/logo-fabbri-big_1763545279420.png" style="height:21px;width:auto;display:block;"></div></div>
+  <div class="pad" style="padding-top:92px;">
+    <h2 class="h-sec" style="font-size:38px;">Diciotto moduli, <span class="ora">quattro famiglie</span> funzionali.</h2>
+    <div style="margin-top:24px;">
+      <div class="fam">Vendite</div>
+      <div class="modgrid">
+        <div class="mod"><svg><use href="#i-users"/></svg>Clienti</div>
+        <div class="mod"><svg><use href="#i-file"/></svg>Preventivi</div>
+        <div class="mod"><svg><use href="#i-cart"/></svg>Ordini di Vendita</div>
+        <div class="mod"><svg><use href="#i-receipt"/></svg>Fatture</div>
+        <div class="mod"><svg><use href="#i-calclock"/></svg>Pagamenti</div>
+        <div class="mod"><svg><use href="#i-undo"/></svg>Note di Credito</div>
+      </div>
+    </div>
+    <div style="margin-top:18px;">
+      <div class="fam">Approvvigionamento</div>
+      <div class="modgrid">
+        <div class="mod"><svg><use href="#i-building"/></svg>Fornitori</div>
+        <div class="mod"><svg><use href="#i-pkg"/></svg>Ordini Fornitore</div>
+        <div class="mod"><svg><use href="#i-note"/></svg>Fatture Fornitore</div>
+      </div>
+    </div>
+    <div style="margin-top:18px;">
+      <div class="fam">Operazioni</div>
+      <div class="modgrid">
+        <div class="mod"><svg><use href="#i-boxes"/></svg>Magazzino</div>
+        <div class="mod"><svg><use href="#i-truck"/></svg>Consegne</div>
+        <div class="mod"><svg><use href="#i-clip"/></svg>DDT</div>
+        <div class="mod"><svg><use href="#i-wrench"/></svg>Montaggio</div>
+        <div class="mod"><svg><use href="#i-check"/></svg>Controlli Qualità</div>
+      </div>
+    </div>
+    <div style="margin-top:18px;">
+      <div class="fam">Amministrazione &amp; analisi</div>
+      <div class="modgrid">
+        <div class="mod"><svg><use href="#i-dash"/></svg>Dashboard</div>
+        <div class="mod"><svg><use href="#i-bars"/></svg>Reportistica</div>
+        <div class="mod"><svg><use href="#i-store"/></svg>Negozi</div>
+        <div class="mod"><svg><use href="#i-shield"/></svg>Utenti &amp; Ruoli</div>
+      </div>
+    </div>
+  </div>
+  <div class="ft"><div>03 · La soluzione</div><div class="pg">11 / 24</div></div>
+</section>
+
+<!-- ============ 12 · MODULO ANAGRAFICHE ============ -->
+<section class="s fab">
+  <div class="hd"><div class="lk"><svg viewBox="0 0 241.77 397.51"><path d="M442,341.25V636H558.19l47.35,102.8h78.22L627,623.94s60.62-23.19,50.56-94.42-56.29-82-119.56-84.78v56.43s42.74,0,46.37,38.55c0,0,2.51,40.78-39.53,38.55H507.21v-237Z" transform="translate(-441.98 -341.25)" fill="#0E0E10"/></svg><span>Lavder</span></div><div class="r"><img src="file:///Users/giacomo/Claude/gestionale-fabbri/attached_assets/logo-fabbri-big_1763545279420.png" style="height:21px;width:auto;display:block;"></div></div>
+  <div class="pad" style="padding-top:100px;">
+    <div style="display:grid;grid-template-columns:0.92fr 1.08fr;gap:54px;align-items:center;">
+      <div>
+        <div class="eye">Modulo anagrafiche</div>
+        <h2 class="disp" style="font-size:42px;margin-top:18px;">Il dato, scritto<br><span class="ora">una volta sola</span>.</h2>
+        <p style="font-size:15.5px;line-height:1.55;color:var(--n600);margin-top:18px;max-width:480px;">Clienti e fornitori sono il cuore: ogni preventivo, ogni ordine, ogni fattura li pesca da qui. Indirizzi multipli, condizioni commerciali, storico: tutto agganciato.</p>
+        <ul class="brief" style="margin-top:22px;">
+          <li>Dati fiscali, indirizzi di consegna multipli, contatti</li>
+          <li>Storico ordini, preventivi aperti, fatture emesse</li>
+          <li>Condizioni commerciali, sconti e listini per fornitore</li>
+          <li>Stato attivo / archiviato: niente cancellazioni distruttive</li>
+        </ul>
+      </div>
+      <div class="bw">
+        <div class="bar"><i></i><i></i><i></i><div class="url">gestionale.fabbriarredamenti.it<b> / clienti</b></div></div>
+        <img src="file:///Users/giacomo/Claude/gestionale-fabbri/shots-clean/customers.png" alt="Clienti">
+      </div>
+    </div>
+  </div>
+  <div class="ft"><div>03 · La soluzione</div><div class="pg">12 / 24</div></div>
+</section>
+
+<!-- ============ 13 · MODULO PREVENTIVI ============ -->
+<section class="s fab">
+  <div class="hd"><div class="lk"><svg viewBox="0 0 241.77 397.51"><path d="M442,341.25V636H558.19l47.35,102.8h78.22L627,623.94s60.62-23.19,50.56-94.42-56.29-82-119.56-84.78v56.43s42.74,0,46.37,38.55c0,0,2.51,40.78-39.53,38.55H507.21v-237Z" transform="translate(-441.98 -341.25)" fill="#0E0E10"/></svg><span>Lavder</span></div><div class="r"><img src="file:///Users/giacomo/Claude/gestionale-fabbri/attached_assets/logo-fabbri-big_1763545279420.png" style="height:21px;width:auto;display:block;"></div></div>
+  <div class="pad" style="padding-top:100px;">
+    <div style="display:grid;grid-template-columns:1.08fr 0.92fr;gap:54px;align-items:center;">
+      <div class="bw">
+        <div class="bar"><i></i><i></i><i></i><div class="url">gestionale.fabbriarredamenti.it<b> / preventivi</b></div></div>
+        <img src="file:///Users/giacomo/Claude/gestionale-fabbri/shots-clean/quotes.png" alt="Preventivi">
+      </div>
+      <div>
+        <div class="eye">Modulo preventivi</div>
+        <h2 class="disp" style="font-size:42px;margin-top:18px;">Dal primo numero<br>alla <span class="ora">firma</span>,<br>in un flusso.</h2>
+        <p style="font-size:15.5px;line-height:1.55;color:var(--n600);margin-top:18px;max-width:440px;">Righe libere o da listino, sconti per riga o globali, IVA configurabile, PDF brandizzato e invio email: senza uscire dal gestionale.</p>
+        <div class="fam" style="margin-top:22px;">Stati gestiti</div>
+        <div class="pillrow">
+          <span class="pill"><span class="d"></span>Bozza</span>
+          <span class="pill blue"><span class="d"></span>Inviato</span>
+          <span class="pill amber"><span class="d"></span>Approvato</span>
+          <span class="pill"><span class="d"></span>Rifiutato</span>
+          <span class="pill"><span class="d"></span>Scaduto</span>
+          <span class="pill purple"><span class="d"></span>Convertito</span>
+        </div>
+        <p style="margin-top:20px;font-size:14px;color:var(--n700);line-height:1.5;"><b class="red">Conversione in un click:</b> quando il cliente conferma, il preventivo diventa ordine di vendita senza riscrivere una riga.</p>
+      </div>
+    </div>
+  </div>
+  <div class="ft"><div>03 · La soluzione</div><div class="pg">13 / 24</div></div>
+</section>
+
+<!-- ============ 14 · MODULO ORDINI ============ -->
+<section class="s fab">
+  <div class="hd"><div class="lk"><svg viewBox="0 0 241.77 397.51"><path d="M442,341.25V636H558.19l47.35,102.8h78.22L627,623.94s60.62-23.19,50.56-94.42-56.29-82-119.56-84.78v56.43s42.74,0,46.37,38.55c0,0,2.51,40.78-39.53,38.55H507.21v-237Z" transform="translate(-441.98 -341.25)" fill="#0E0E10"/></svg><span>Lavder</span></div><div class="r"><img src="file:///Users/giacomo/Claude/gestionale-fabbri/attached_assets/logo-fabbri-big_1763545279420.png" style="height:21px;width:auto;display:block;"></div></div>
+  <div class="pad" style="padding-top:100px;">
+    <div style="display:grid;grid-template-columns:0.92fr 1.08fr;gap:54px;align-items:center;">
+      <div>
+        <div class="eye">Modulo ordini di vendita</div>
+        <h2 class="disp" style="font-size:42px;margin-top:18px;">Il modulo che<br><span class="ora">pulsa di più</span>,<br>ogni giorno.</h2>
+        <p style="font-size:15.5px;line-height:1.55;color:var(--n600);margin-top:18px;max-width:440px;">Apri la pagina la mattina e sai esattamente come va. Numero progressivo per negozio, stato a colpo d'occhio, contatori live in alto.</p>
+        <div class="fam" style="margin-top:22px;">Workflow di un ordine</div>
+        <div class="pillrow">
+          <span class="pill"><span class="d"></span>Da ordinare</span>
+          <span class="pill blue"><span class="d"></span>Ordinato</span>
+          <span class="pill amber"><span class="d"></span>Confermato</span>
+          <span class="pill green"><span class="d"></span>Arrivato</span>
+          <span class="pill red"><span class="d"></span>Consegnato</span>
+          <span class="pill purple"><span class="d"></span>Chiuso</span>
+        </div>
+        <p style="margin-top:18px;font-size:14px;color:var(--n600);line-height:1.5;"><b style="color:var(--ink);">Per stato anche:</b> Sospeso, Assistenza, Completamento, Annullato: coperti tutti i casi reali.</p>
+      </div>
+      <div class="bw">
+        <div class="bar"><i></i><i></i><i></i><div class="url">gestionale.fabbriarredamenti.it<b> / ordini-di-vendita</b></div></div>
+        <img src="file:///Users/giacomo/Claude/gestionale-fabbri/shots-clean/sales-orders.png" alt="Ordini di Vendita">
+      </div>
+    </div>
+  </div>
+  <div class="ft"><div>03 · La soluzione</div><div class="pg">14 / 24</div></div>
+</section>
+
+<!-- ============ 15 · MODULO APPROVVIGIONAMENTO ============ -->
+<section class="s fab">
+  <div class="hd"><div class="lk"><svg viewBox="0 0 241.77 397.51"><path d="M442,341.25V636H558.19l47.35,102.8h78.22L627,623.94s60.62-23.19,50.56-94.42-56.29-82-119.56-84.78v56.43s42.74,0,46.37,38.55c0,0,2.51,40.78-39.53,38.55H507.21v-237Z" transform="translate(-441.98 -341.25)" fill="#0E0E10"/></svg><span>Lavder</span></div><div class="r"><img src="file:///Users/giacomo/Claude/gestionale-fabbri/attached_assets/logo-fabbri-big_1763545279420.png" style="height:21px;width:auto;display:block;"></div></div>
+  <div class="pad" style="padding-top:100px;">
+    <div class="eye">Modulo approvvigionamento</div>
+    <h2 class="h-sec" style="margin-top:16px;max-width:1000px;">Un ordine cliente, più ordini fornitore, una sola <span class="ora">regia</span>.</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:50px;margin-top:30px;align-items:start;">
+      <div>
+        <p style="font-size:15.5px;line-height:1.55;color:var(--n600);max-width:480px;">Quando l'ordine cliente comprende prodotti di tre fornitori diversi, il sistema genera automaticamente tre ordini fornitore separati. Ognuno con la sua vita.</p>
+        <div class="fam" style="margin-top:26px;">Stati ordine fornitore</div>
+        <div class="pillrow">
+          <span class="pill"><span class="d"></span>Bozza</span>
+          <span class="pill blue"><span class="d"></span>Inviato</span>
+          <span class="pill amber"><span class="d"></span>Confermato</span>
+          <span class="pill green"><span class="d"></span>Arrivato</span>
+          <span class="pill red"><span class="d"></span>Stralcio</span>
+          <span class="pill purple"><span class="d"></span>Completato</span>
+        </div>
+      </div>
+      <div class="callout hl">
+        <div class="ico"><svg><use href="#i-branch"/></svg></div>
+        <div>
+          <h4>Lo stralcio, gestito.</h4>
+          <p>Quando un fornitore consegna solo metà della merce, il gestionale segna <b class="red">Stralcio</b>: l'ordine resta vivo, la parte mancante è tracciata, e quando arriva si chiude da sola.</p>
+          <p style="margin-top:10px;">È un dettaglio del mestiere che molti gestionali generici non capiscono. Noi sì.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ft"><div>03 · La soluzione</div><div class="pg">15 / 24</div></div>
+</section>
+
+<!-- ============ 16 · MODULO DOCUMENTI ============ -->
+<section class="s fab">
+  <div class="hd"><div class="lk"><svg viewBox="0 0 241.77 397.51"><path d="M442,341.25V636H558.19l47.35,102.8h78.22L627,623.94s60.62-23.19,50.56-94.42-56.29-82-119.56-84.78v56.43s42.74,0,46.37,38.55c0,0,2.51,40.78-39.53,38.55H507.21v-237Z" transform="translate(-441.98 -341.25)" fill="#0E0E10"/></svg><span>Lavder</span></div><div class="r"><img src="file:///Users/giacomo/Claude/gestionale-fabbri/attached_assets/logo-fabbri-big_1763545279420.png" style="height:21px;width:auto;display:block;"></div></div>
+  <div class="pad" style="padding-top:100px;">
+    <div style="display:grid;grid-template-columns:1.25fr 0.75fr;gap:50px;align-items:start;">
+      <div>
+        <div class="eye">Documenti fiscali</div>
+        <h2 class="disp" style="font-size:38px;margin-top:16px;">DDT, fatture, note di<br>credito: generate,<br><span class="ora">non compilate</span>.</h2>
+        <div class="cards" style="grid-template-columns:1fr;gap:13px;margin-top:24px;">
+          <div class="card" style="padding:16px 20px;display:flex;gap:15px;align-items:flex-start;"><div class="ico" style="margin:0;"><svg><use href="#i-clip"/></svg></div><div><h4 style="font-size:15.5px;margin-bottom:4px;">DDT</h4><p>Pesca articoli, cliente e indirizzo dall'ordine di vendita. PDF conforme, pronto per il furgone.</p></div></div>
+          <div class="card" style="padding:16px 20px;display:flex;gap:15px;align-items:flex-start;"><div class="ico" style="margin:0;"><svg><use href="#i-receipt"/></svg></div><div><h4 style="font-size:15.5px;margin-bottom:4px;">Fatture</h4><p>Collegate ai DDT. Numerazione automatica per negozio, PDF brandizzato, export per il commercialista.</p></div></div>
+          <div class="card" style="padding:16px 20px;display:flex;gap:15px;align-items:flex-start;"><div class="ico" style="margin:0;"><svg><use href="#i-undo"/></svg></div><div><h4 style="font-size:15.5px;margin-bottom:4px;">Note di Credito</h4><p>Collegate alle fatture. Storno parziale o totale, motivazione tracciata, filiera ricostruibile a ritroso.</p></div></div>
+        </div>
+        <div class="arrow" style="margin-top:20px;"><span class="a">→</span><span>Domani il commercialista chiede da dove arriva una fattura: il percorso <b>Preventivo → Ordine → DDT → Fattura</b> si ricostruisce in tre click.</span></div>
+      </div>
+      <div>
+        <div class="bw" style="max-width:300px;margin:0 auto;">
+          <div class="bar"><i></i><i></i><i></i><div class="url" style="font-size:10px;">preventivo.pdf</div></div>
+          <img src="file:///Users/giacomo/Claude/gestionale-fabbri/test-output/quote-client-page-1.png" alt="Preventivo PDF">
+        </div>
+        <div style="text-align:center;font-size:11.5px;color:var(--n400);margin-top:11px;">Preventivo cliente, generato dal sistema.</div>
+      </div>
+    </div>
+  </div>
+  <div class="ft"><div>03 · La soluzione</div><div class="pg">16 / 24</div></div>
+</section>
+
+<!-- ============ 17 · OPERAZIONI SUL CAMPO ============ -->
+<section class="s fab">
+  <div class="hd"><div class="lk"><svg viewBox="0 0 241.77 397.51"><path d="M442,341.25V636H558.19l47.35,102.8h78.22L627,623.94s60.62-23.19,50.56-94.42-56.29-82-119.56-84.78v56.43s42.74,0,46.37,38.55c0,0,2.51,40.78-39.53,38.55H507.21v-237Z" transform="translate(-441.98 -341.25)" fill="#0E0E10"/></svg><span>Lavder</span></div><div class="r"><img src="file:///Users/giacomo/Claude/gestionale-fabbri/attached_assets/logo-fabbri-big_1763545279420.png" style="height:21px;width:auto;display:block;"></div></div>
+  <div class="pad" style="padding-top:96px;">
+    <div class="eye">Operazioni sul campo</div>
+    <h2 class="h-sec" style="margin-top:16px;max-width:1040px;">L'ultimo miglio: dove la <span class="ora">reputazione</span> si costruisce o si rompe.</h2>
+    <div class="cards" style="grid-template-columns:1fr 1fr;gap:18px;margin-top:34px;">
+      <div class="card"><div class="ico"><svg><use href="#i-truck"/></svg></div><h4>Consegne</h4><p>Pianificazione del furgone, indirizzi geolocalizzati, ordine ottimale, conferma con firma del cliente al ritiro.</p><ul><li>Calendario giornaliero per squadra</li><li>Slot orari, note di accesso</li><li>POD digitale con firma</li></ul></div>
+      <div class="card"><div class="ico"><svg><use href="#i-wrench"/></svg></div><h4>Montaggio</h4><p>App mobile dedicata per i montatori. Checklist qualità per ogni installazione, foto prima/dopo, segnalazione danni.</p><ul><li>Calendario appuntamenti, ruolo "installer"</li><li>Controlli qualità configurabili</li><li>Apertura ticket assistenza in-app</li></ul></div>
+    </div>
+  </div>
+  <div class="ft"><div>03 · La soluzione</div><div class="pg">17 / 24</div></div>
+</section>
+
+<!-- ============ 18 · REPORTISTICA ============ -->
+<section class="s fab">
+  <div class="hd"><div class="lk"><svg viewBox="0 0 241.77 397.51"><path d="M442,341.25V636H558.19l47.35,102.8h78.22L627,623.94s60.62-23.19,50.56-94.42-56.29-82-119.56-84.78v56.43s42.74,0,46.37,38.55c0,0,2.51,40.78-39.53,38.55H507.21v-237Z" transform="translate(-441.98 -341.25)" fill="#0E0E10"/></svg><span>Lavder</span></div><div class="r"><img src="file:///Users/giacomo/Claude/gestionale-fabbri/attached_assets/logo-fabbri-big_1763545279420.png" style="height:21px;width:auto;display:block;"></div></div>
+  <div class="pad" style="padding-top:96px;">
+    <div style="display:grid;grid-template-columns:0.92fr 1.08fr;gap:50px;align-items:center;">
+      <div>
+        <div class="eye">Reportistica &amp; dashboard</div>
+        <h2 class="disp" style="font-size:37px;margin-top:16px;">Niente più fogli<br>Excel costruiti<br><span class="ora">la sera tardi</span>.</h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:24px;">
+          <div class="card" style="padding:15px 17px;"><div class="ico" style="width:32px;height:32px;margin-bottom:11px;"><svg style="width:17px;height:17px;"><use href="#i-trend"/></svg></div><h4 style="font-size:15px;margin-bottom:5px;">Fatturato mese</h4><p style="font-size:12.5px;">Vs. mese scorso e stesso mese anno scorso.</p></div>
+          <div class="card" style="padding:15px 17px;"><div class="ico" style="width:32px;height:32px;margin-bottom:11px;"><svg style="width:17px;height:17px;"><use href="#i-boxes"/></svg></div><h4 style="font-size:15px;margin-bottom:5px;">Magazzino</h4><p style="font-size:12.5px;">Valore stock, giacenze, rotazione lenta.</p></div>
+          <div class="card" style="padding:15px 17px;"><div class="ico" style="width:32px;height:32px;margin-bottom:11px;"><svg style="width:17px;height:17px;"><use href="#i-calclock"/></svg></div><h4 style="font-size:15px;margin-bottom:5px;">Pagamenti</h4><p style="font-size:12.5px;">Scadenzario, incassi previsti, ritardi.</p></div>
+          <div class="card" style="padding:15px 17px;"><div class="ico" style="width:32px;height:32px;margin-bottom:11px;"><svg style="width:17px;height:17px;"><use href="#i-pct"/></svg></div><h4 style="font-size:15px;margin-bottom:5px;">Margini</h4><p style="font-size:12.5px;">Per marchio, categoria, venditore.</p></div>
+        </div>
+      </div>
+      <div>
+        <div class="bw">
+          <div class="bar"><i></i><i></i><i></i><div class="url">gestionale.fabbriarredamenti.it<b> / dashboard</b></div></div>
+          <img src="file:///Users/giacomo/Claude/gestionale-fabbri/shots-clean/dashboard-dark.png" alt="Dashboard tema scuro">
+        </div>
+        <div style="text-align:center;font-size:11.5px;color:var(--n400);margin-top:11px;">Tutto in homepage, in tempo reale: tema chiaro e scuro, stessa interfaccia.</div>
+      </div>
+    </div>
+  </div>
+  <div class="ft"><div>03 · La soluzione</div><div class="pg">18 / 24</div></div>
+</section>
+
+<!-- ============ 19 · DIVIDER 04 ============ -->
+<section class="s dark">
+  <div class="hd"><div class="lk"><svg viewBox="0 0 241.77 397.51"><path d="M442,341.25V636H558.19l47.35,102.8h78.22L627,623.94s60.62-23.19,50.56-94.42-56.29-82-119.56-84.78v56.43s42.74,0,46.37,38.55c0,0,2.51,40.78-39.53,38.55H507.21v-237Z" transform="translate(-441.98 -341.25)" fill="#fff"/></svg><span>Lavder</span></div><div class="r">Gestionale Fabbri Arredamenti</div></div>
+  <div class="ghost">04</div>
+  <div class="pad">
+    <div style="position:absolute;left:72px;bottom:150px;max-width:820px;">
+      <div class="chnum">— 04 / 04</div>
+      <h2 class="disp" style="font-size:96px;margin-top:22px;">Sotto il cofano.</h2>
+      <p class="lede" style="margin-top:22px;max-width:600px;">Cinque minuti tecnici. Utili a capire perché questo sistema reggerà nel tempo.</p>
+    </div>
+  </div>
+  <div class="ft"><div>Capitolo 4 · Sotto il cofano</div><div class="pg">19 / 24</div></div>
+</section>
+
+<!-- ============ 20 · STACK ============ -->
+<section class="s">
+  <div class="hd"><div class="lk"><svg viewBox="0 0 241.77 397.51"><path d="M442,341.25V636H558.19l47.35,102.8h78.22L627,623.94s60.62-23.19,50.56-94.42-56.29-82-119.56-84.78v56.43s42.74,0,46.37,38.55c0,0,2.51,40.78-39.53,38.55H507.21v-237Z" transform="translate(-441.98 -341.25)" fill="#0E0E10"/></svg><span>Lavder</span></div><div class="r"><img src="file:///Users/giacomo/Claude/gestionale-fabbri/attached_assets/logo-fabbri-big_1763545279420.png" style="height:21px;width:auto;display:block;"></div></div>
+  <div class="pad" style="padding-top:92px;">
+    <div class="eye">Stack tecnologico</div>
+    <h2 class="h-sec" style="margin-top:16px;">Scelte solide. Manutenibili<br>per i <span class="ora">prossimi dieci anni</span>.</h2>
+    <div class="techgrid" style="margin-top:32px;">
+      <div class="tc"><div class="bdg">R</div><div><b>React 18</b><span>Interfaccia, SPA</span></div></div>
+      <div class="tc"><div class="bdg">TS</div><div><b>TypeScript</b><span>Tipizzazione end-to-end</span></div></div>
+      <div class="tc"><div class="bdg">V</div><div><b>Vite</b><span>Build &amp; dev server</span></div></div>
+      <div class="tc"><div class="bdg">TW</div><div><b>Tailwind</b><span>Design system UI</span></div></div>
+      <div class="tc"><div class="bdg">N</div><div><b>Node.js 20</b><span>Backend &amp; API</span></div></div>
+      <div class="tc"><div class="bdg">E</div><div><b>Express</b><span>Server HTTP</span></div></div>
+      <div class="tc"><div class="bdg">D</div><div><b>Drizzle ORM</b><span>Livello dati type-safe</span></div></div>
+      <div class="tc"><div class="bdg">Z</div><div><b>Zod</b><span>Validazione schema</span></div></div>
+      <div class="tc"><div class="bdg">Pg</div><div><b>PostgreSQL 16</b><span>Database relazionale</span></div></div>
+      <div class="tc"><div class="bdg" style="font-size:9px;">pdf</div><div><b>pdf-lib</b><span>Generazione PDF</span></div></div>
+      <div class="tc"><div class="bdg"><svg style="width:15px;height:15px;color:var(--red);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div><div><b>Nodemailer</b><span>Email transazionale</span></div></div>
+      <div class="tc"><div class="bdg" style="font-size:9px;">i18</div><div><b>i18next</b><span>Italiano, estensibile</span></div></div>
+    </div>
+    <p style="margin-top:32px;max-width:1060px;font-size:16px;line-height:1.55;color:var(--n600);"><b style="color:var(--ink);">Nessuna magia, nessun lock-in.</b> Lo stesso stack che fa girare i grandi prodotti SaaS che usate ogni giorno: manutenibile da qualsiasi sviluppatore serio.</p>
+  </div>
+  <div class="ft"><div>04 · Sotto il cofano</div><div class="pg">20 / 24</div></div>
+</section>
+
+<!-- ============ 21 · SICUREZZA ============ -->
+<section class="s">
+  <div class="hd"><div class="lk"><svg viewBox="0 0 241.77 397.51"><path d="M442,341.25V636H558.19l47.35,102.8h78.22L627,623.94s60.62-23.19,50.56-94.42-56.29-82-119.56-84.78v56.43s42.74,0,46.37,38.55c0,0,2.51,40.78-39.53,38.55H507.21v-237Z" transform="translate(-441.98 -341.25)" fill="#0E0E10"/></svg><span>Lavder</span></div><div class="r"><img src="file:///Users/giacomo/Claude/gestionale-fabbri/attached_assets/logo-fabbri-big_1763545279420.png" style="height:21px;width:auto;display:block;"></div></div>
+  <div class="pad" style="padding-top:92px;">
+    <div class="eye">Sicurezza &amp; infrastruttura</div>
+    <h2 class="h-sec" style="margin-top:16px;">Sui loro server. <span class="ora">I dati sono loro</span>.</h2>
+    <div class="cards" style="grid-template-columns:repeat(3,1fr);margin-top:32px;">
+      <div class="card"><div class="ico"><svg><use href="#i-cube"/></svg></div><h4 style="font-size:16.5px;">Deploy in un'ora</h4><p>Container Docker, <span class="mono" style="font-size:12px;">docker-compose up</span>. Su VPS o on-premise. Niente Kubernetes da gestire.</p></div>
+      <div class="card"><div class="ico"><svg><use href="#i-lock"/></svg></div><h4 style="font-size:16.5px;">Autenticazione locale</h4><p>Bcrypt sulle password, sessioni protette su database. Niente login social, niente OAuth da fornitori terzi.</p></div>
+      <div class="card"><div class="ico"><svg><use href="#i-shield"/></svg></div><h4 style="font-size:16.5px;">Ruoli granulari</h4><p>Admin, logistica, montatore. Ognuno vede solo quello che gli serve. Permessi configurabili nel tempo.</p></div>
+      <div class="card"><div class="ico"><svg><use href="#i-globe"/></svg></div><h4 style="font-size:16.5px;">HTTPS &amp; reverse proxy</h4><p>Nginx davanti, Let's Encrypt per i certificati. Configurazione documentata, riproducibile.</p></div>
+      <div class="card"><div class="ico"><svg><use href="#i-db"/></svg></div><h4 style="font-size:16.5px;">Backup automatici</h4><p>Dump notturni del database, retention configurabile. Restore testato, non solo sperato.</p></div>
+      <div class="card"><div class="ico"><svg><use href="#i-pkg"/></svg></div><h4 style="font-size:16.5px;">Aggiornamenti senza downtime</h4><p>Migrazioni schema gestite da Drizzle. Build, swap container, fatto. Pochi minuti, dati intatti.</p></div>
+    </div>
+  </div>
+  <div class="ft"><div>04 · Sotto il cofano</div><div class="pg">21 / 24</div></div>
+</section>
+
+<!-- ============ 22 · DIVIDER CONCLUSIONE (ORANGE) ============ -->
+<section class="s orange">
+  <div class="hd"><div class="lk"><svg viewBox="0 0 241.77 397.51"><path d="M442,341.25V636H558.19l47.35,102.8h78.22L627,623.94s60.62-23.19,50.56-94.42-56.29-82-119.56-84.78v56.43s42.74,0,46.37,38.55c0,0,2.51,40.78-39.53,38.55H507.21v-237Z" transform="translate(-441.98 -341.25)" fill="#0E0E10"/></svg><span>Lavder</span></div><div class="r">Gestionale Fabbri Arredamenti</div></div>
+  <div class="pad">
+    <div style="position:absolute;left:72px;bottom:150px;max-width:880px;">
+      <div class="chnum">— Conclusione</div>
+      <h2 class="disp" style="font-size:96px;margin-top:22px;">L'impatto.</h2>
+      <p class="lede" style="margin-top:22px;max-width:640px;">Tre numeri concreti su cosa cambia, in negozio, dal go-live in poi.</p>
+    </div>
+  </div>
+  <div class="ft"><div>Conclusione · L'impatto</div><div class="pg">22 / 24</div></div>
+</section>
+
+<!-- ============ 23 · IMPATTO ============ -->
+<section class="s">
+  <div class="hd"><div class="lk"><svg viewBox="0 0 241.77 397.51"><path d="M442,341.25V636H558.19l47.35,102.8h78.22L627,623.94s60.62-23.19,50.56-94.42-56.29-82-119.56-84.78v56.43s42.74,0,46.37,38.55c0,0,2.51,40.78-39.53,38.55H507.21v-237Z" transform="translate(-441.98 -341.25)" fill="#0E0E10"/></svg><span>Lavder</span></div><div class="r"><img src="file:///Users/giacomo/Claude/gestionale-fabbri/attached_assets/logo-fabbri-big_1763545279420.png" style="height:21px;width:auto;display:block;"></div></div>
+  <div class="pad" style="padding-top:96px;">
+    <div class="eye">Cosa cambia, dal go-live</div>
+    <h2 class="h-sec" style="margin-top:16px;font-size:46px;">Tre numeri, <span class="ora">ogni giorno</span>.</h2>
+    <div class="bignums" style="margin-top:48px;">
+      <div class="bn"><div class="n"><span class="red">−</span>66<span class="red">%</span></div><div class="l">Tempo per preparare un preventivo completo.</div><div class="ba"><s>45 min</s> → <b>~15 min</b></div></div>
+      <div class="bn"><div class="n">0<span class="red">s</span></div><div class="l">Latenza per sapere lo stato di un ordine. Tempo reale, da qualsiasi schermo.</div><div class="ba"><s>telefonata</s> → <b>click</b></div></div>
+      <div class="bn"><div class="n"><span class="red">+</span>1<span class="red">d</span></div><div class="l">Di anticipo medio sull'invio dei documenti fiscali. Stesso giorno, non a fine settimana.</div><div class="ba"><s>5-7 giorni</s> → <b>stesso giorno</b></div></div>
+    </div>
+    <p style="margin-top:50px;max-width:1060px;font-size:16px;line-height:1.55;color:var(--n600);">Tradotto in soldi: il venditore segue più clienti, i pagamenti rientrano prima, l'amministrazione recupera ore alla settimana per cose più importanti del data entry.</p>
+  </div>
+  <div class="ft"><div>Conclusione · L'impatto</div><div class="pg">23 / 24</div></div>
+</section>
+
+<!-- ============ 24 · CHIUSURA ============ -->
+<section class="s dark">
+  <div class="hd"><div class="lk"><svg viewBox="0 0 241.77 397.51"><path d="M442,341.25V636H558.19l47.35,102.8h78.22L627,623.94s60.62-23.19,50.56-94.42-56.29-82-119.56-84.78v56.43s42.74,0,46.37,38.55c0,0,2.51,40.78-39.53,38.55H507.21v-237Z" transform="translate(-441.98 -341.25)" fill="#fff"/></svg><span>Lavder</span></div><div class="r">Grazie</div></div>
+  <div class="pad">
+    <div style="position:absolute;left:72px;top:222px;">
+      <img src="file:///Users/giacomo/Claude/gestionale-fabbri/attached_assets/logo-negativo_1761760397142.png" style="height:32px;width:auto;display:block;margin-bottom:26px;" alt="Fabbri Arredamenti">
+      <div class="eye o">Fabbri Arredamenti × Lavder</div>
+      <h2 class="disp" style="font-size:78px;margin-top:22px;">Grazie.</h2>
+      <p style="font-size:18px;line-height:1.55;color:#9a9aa0;margin-top:24px;max-width:600px;">Un gestionale cucito sul mestiere di chi lo usa, dal preventivo alla posa. Costruito una volta, fatto per durare.</p>
+    </div>
+    <div style="position:absolute;left:72px;right:72px;bottom:84px;display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid rgba(255,255,255,.14);padding-top:24px;">
+      <div style="font-family:var(--hd);font-weight:700;font-size:19px;color:#fff;">lavder.com</div>
+      <div style="text-align:right;font-size:12px;letter-spacing:.05em;color:#6b6b70;line-height:1.8;text-transform:uppercase;">Lavder Enterprise S.R.L.<br>© 2026</div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

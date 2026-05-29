@@ -12,6 +12,7 @@ Each subfolder documents one document type with:
 | Folder | Document type |
 |---|---|
 | [`preventivi/`](./preventivi) | Preventivi e proposte commerciali B2B (quotes & proposals) |
+| [`case-studies/`](./case-studies) | Client case-study decks (landscape 16:9, narrative project walkthroughs) |
 
 ## Rendering to PDF
 
