@@ -10,9 +10,12 @@
  *     OUT=/abs/path/to/shots node capture-screenshots.mjs
  *   THEME=dark  ... node capture-screenshots.mjs   # second pass for dark-theme shots
  *
- * Adjust per project: puppeteer import path, the /api/auth/login payload, the route
- * list, and the localStorage theme key. executablePath = system Google Chrome (same
- * binary that renders the PDF).
+ * Adjust per project: puppeteer import path, the login step, the route list, and the
+ * theme mechanism. Login varies by stack — JSON POST /api/auth/login for SPA apps;
+ * for server-rendered apps (Laravel/Blade, Livewire) drive the HTML form instead
+ * (type #email / #password, click button[type=submit], wait for navigation). If the
+ * app has no dark theme, run only the light pass. executablePath = system Google
+ * Chrome (same binary that renders the PDF).
  */
 import puppeteer from '/Users/giacomo/Claude/gestionale-fabbri/node_modules/puppeteer/lib/esm/puppeteer/puppeteer.js';
 

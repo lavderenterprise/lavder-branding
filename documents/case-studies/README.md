@@ -10,7 +10,7 @@ A case study is **not** a sales deck. It tells the story of one project — clie
 |---|---|
 | [`README.md`](./README.md) | This playbook: structure, design system, content, conventions |
 | [`case-study-fabbri-reference.html`](./case-study-fabbri-reference.html) | The Fabbri Arredamenti deck — the canonical worked example. Copy it, adapt content + assets + client accent, re-render |
-| [`screenshots.md`](./screenshots.md) | How to produce clean product screenshots (run the app, seed realistic demo data, capture light + dark) |
+| [`screenshots.md`](./screenshots.md) | How to produce clean product screenshots (run the app, seed realistic demo data, capture light — and dark only if the app has a dark theme) |
 | [`capture-screenshots.mjs`](./capture-screenshots.mjs) | Puppeteer tool that logs in and captures the screenshots |
 
 ## Output & naming
@@ -43,14 +43,14 @@ Slide-by-slide blueprint (the Fabbri build):
 
 1. **Cover** — dark. Orange eyebrow (sector), huge headline with **one orange word**, lede naming the client, footer `lavder.com · Lavder Enterprise S.R.L.`
 2. **Divider 01 · Il cliente** — dark, ghost `01`. Branded with the client logo (see [Logo](#logo-rules)).
-3. **Chi è il cliente** — client chip (real logo + name + "città · dal ANNO"), headline, sector tags, a "MARCHI PARTNER" / context grid.
+3. **Chi è il cliente** — client chip (real logo + name + "città · dal ANNO"), headline, sector tags, a "MARCHI PARTNER" / context grid. If the client's credibility rests on an **accreditation/certification** (Accredia, ISO, CE, albo professionale), surface it as a credential badge here (SicurCert: "Accreditato ACCREDIA").
 4. **Numeri che pesano** — big inline numbers about the client (punti vendita, brand, stati ordine, anni di mestiere), each with a colored unit char.
 5. **Divider 02 · Le esigenze** — "Quattro settimane in showroom... prima di una riga di codice."
 6. **Anatomia di una vendita** — the N-step cycle as a numbered card grid, + a final highlighted "cliente fidelizzato" cell.
 7. **Cosa abbiamo trovato** — 3 pain-point cards, vivid and concrete ("lo stato vive su un post-it", "report a fine giornata").
 8. **Brief, parole loro** — the requirements in the client's own words, red-diamond bullet list.
 9. **Divider 03 · La soluzione** — branded with the client's extended logo + client accent (this chapter is the product).
-10. **Il prodotto** — overview: 3 principle mini-cards + a browser-framed screenshot.
+10. **Il prodotto** — overview: 3 principle mini-cards + a browser-framed screenshot. If the product serves **multiple portals/roles** (back-office, field, customer), name them here, show the primary portal, and give a secondary portal its own slide later (SicurCert: ufficio / tecnico / cliente).
 11. **Architettura** — "N moduli, M famiglie funzionali": a uniform module map (one 4-col grid, families stacked).
 12-18. **Un modulo per slide** — eyebrow `MODULO X`, evocative headline, short body, then bullets / colored status pills / a domain-detail callout, + a browser-framed screenshot (alternate left/right). Cover the real product modules; surface a domain detail competitors miss (for Fabbri: "lo stralcio").
 19. **Divider 04 · Sotto il cofano** — "Cinque minuti tecnici."
@@ -58,7 +58,7 @@ Slide-by-slide blueprint (the Fabbri build):
 21. **Sicurezza & infrastruttura** — 6 cards (deploy, auth, ruoli, HTTPS, backup, aggiornamenti).
 22. **Divider Conclusione · L'impatto** — orange.
 23. **I numeri dell'impatto** — 3 big numbers with a `before → after` mono annotation under each (`45 min → ~15 min`).
-24. **Grazie** — dark, client × Lavder co-brand, real contacts. No CTA.
+24. **Grazie** — dark. Brand lockup = the **client logo only**, with a "CLIENT × Lavder" caption *beneath* it — not a second Lavder logo in the body (Lavder already sits in the header). Sober contacts (`lavder.com`, `Lavder Enterprise S.R.L.`). No CTA.
 
 ## Chapter dividers
 
@@ -79,7 +79,7 @@ The signature device. Full-bleed color slide:
 This is the most important rule. The deck carries **two** brands and keeps them separate:
 
 - **Lavder orange `#F87016`** = the author / narrator. Used on the framing chapters (cover, *Il cliente*, *Le esigenze*, *Sotto il cofano*, *L'impatto*, closing): eyebrows, icons, big-number units, **one emphasized orange word per headline**, dividers' `— 0X / 04`.
-- **Client accent** (Fabbri red `#F2222E`) = the client / the product. Used on the **product chapter** (*La soluzione*) and on a few deserving client highlights elsewhere (e.g. the heritage phrase on the client slide). On those slides the eyebrows, headline emphasis, icons and callouts switch to the client color.
+- **Client accent** (Fabbri red `#F2222E`) = the client / the product. Used on the **product chapter** (*La soluzione*) and on a few deserving client highlights elsewhere (e.g. the heritage phrase on the client slide). On those slides the eyebrows, headline emphasis, icons and callouts switch to the client color. Source the **exact hex from the app itself** when you can (a Settings/theme `color_primary`, a CSS variable, the client's brand assets) instead of eyeballing it — Fabbri red `#F2222E`; SicurCert blue `#0036a3`, lifted from the app's `color_primary`.
 
 Implementation: the product slides get `class="s fab"`; a single rule re-points the CSS variables in that scope so everything inherits the client color with zero per-element edits:
 ```css
@@ -119,10 +119,11 @@ Never put a logo where it disappears (black on black, white wordmark on white).
 | **Tech cards** (`.tc`) | mono letter-badge + name + sub-label. |
 | **Callout** (`.callout`) | bordered tint box for a domain detail; `.callout.hl` adds an icon. |
 | **Eyebrow** (`.eye`) | accent dot + uppercase letterspaced label. `.eye.o` = orange variant. |
+| **Credential badge** | accreditation/certification chip on the client slide: credential logo + label ("Accreditato ACCREDIA", "ISO 9001", "Marcatura CE"). Use when a regulatory credential anchors the client's trust. |
 
 ## Screenshots
 
-Real product UI, captured clean — never default/system data. Full workflow in [`screenshots.md`](./screenshots.md). In short: run the app locally, **seed realistic demo data** (real-sounding Italian names, sensible quantities, the client's modules/states), capture every page in **light and dark** at 2× via [`capture-screenshots.mjs`](./capture-screenshots.mjs), then drop into browser frames. Light shots on white slides, dark shots on dark slides; show the same screen in both themes once to prove theme support.
+Real product UI, captured clean — never default/system data. Full workflow in [`screenshots.md`](./screenshots.md). In short: run the app locally, **seed realistic demo data** (real-sounding Italian names, sensible quantities, the client's modules/states) — prefer the app's **own seeder/factories** with the faker locale set to `it_IT`, writing a custom seeder only if none exists — then capture every page at 2× via [`capture-screenshots.mjs`](./capture-screenshots.mjs) and drop into browser frames. Capture **light**; capture **dark only if the app actually ships a dark theme** — never fake one (SicurCert has only a configurable primary color, so it's light-only). Light shots on white slides, dark shots on dark slides.
 
 ## Voice & content
 
@@ -132,6 +133,8 @@ Follows [`/brand/01-voice-tone.md`](../../brand/01-voice-tone.md). For case stud
 - **Section headers as declarative phrases**, verb-first, no buzzwords.
 - **Content types that work** (reuse the spine):
   - *Numeri che pesano* — 3-4 numbers that frame the client's complexity.
+  - *Credenziali / accreditamenti* — when a regulatory credential anchors the client's trust (Accredia, ISO, CE), state it plainly on the client slide.
+  - *Più portali / ruoli* — when the product serves multiple user types, name them and show the primary + at least one secondary portal.
   - *Anatomia di una vendita* — the real process as a numbered cycle.
   - *Cosa abbiamo trovato* — 3 concrete breakages.
   - *Brief, parole loro* — requirements in the client's words.
@@ -150,9 +153,9 @@ Follows [`/brand/01-voice-tone.md`](../../brand/01-voice-tone.md). For case stud
 ## Per-client customization checklist
 
 When adapting the reference for a new client:
-- [ ] Client name, logo files (compact + extended), city, founding year, sector tags, partner/context grid.
-- [ ] **Client accent color** — set `--fab` and the `.s.fab` overrides to the client's brand color.
-- [ ] Screenshots: re-run [`screenshots.md`](./screenshots.md) against the client's app (light + dark), update browser-frame URLs.
+- [ ] Client name, logo files (compact + extended), city, founding year, sector tags, partner/context grid, any accreditation/certification credential.
+- [ ] **Client accent color** — set `--fab` and the `.s.fab` overrides to the client's brand color; lift the exact hex from the app's own theme / `color_primary` when available.
+- [ ] Screenshots: re-run [`screenshots.md`](./screenshots.md) against the client's app (light; dark only if the app supports it), update browser-frame URLs.
 - [ ] Content: real numbers, the real sale cycle, real pain points, the real module list, a real domain detail, the real stack, real impact figures.
 - [ ] **Verify every fact** with the client before sending — locations, dates, partner names, and especially impact metrics.
 - [ ] Keep the two-brand color discipline: Lavder orange on framing, client color on the product chapter.
@@ -166,7 +169,7 @@ When adapting the reference for a new client:
   "file://$(pwd)/lavder-casestudy-<client>-YYYY-MM-DD.html"
 ```
 
-Verify by rasterizing pages (`pdftoppm -png -r 96 out.pdf page`) and eyeballing each slide: fonts embedded, images loaded, no overflow, logos visible on their backgrounds, no halos.
+Verify by rasterizing pages (`pdftoppm -png -r 96 out.pdf page`) and eyeballing each slide: fonts embedded, images loaded, no overflow, logos visible on their backgrounds, no halos. Confirm the footer page total matches the real slide count — an off-by-one (`12 / 24` on a 23-slide deck) is easy to ship.
 
 ### Gotcha — print fragmentation on tall images
 A single image taller than the page box inside a flow grid can be dropped/clipped by Chrome's paged-media engine (a slide came out blank this way). Fix: cap tall screenshots in a fixed-height framed window (`overflow:hidden`) or position hero images absolutely, so nothing exceeds 720px in normal flow.
@@ -180,3 +183,8 @@ A single image taller than the page box inside a flow grid can be dropped/clippe
 - **Do** use real, seeded demo data; **don't** ship default "Test User / Mario Rossi" screenshots.
 - **Do** keep module maps a single uniform grid; **don't** mix card widths per family.
 - **Do** print only `Lavder Enterprise S.R.L.` + `lavder.com`; **don't** add Bucharest / CUI / "Caso studio" to the closing.
+- **Do** capture dark screenshots only when the app ships a dark theme; **don't** fabricate one — light-only is fine.
+- **Do** lift the client accent from the app's own theme color; **don't** eyeball a hex.
+- **Do** put the **client logo only** on the closing with a "CLIENT × Lavder" caption beneath; **don't** add a second Lavder logo in the body.
+- **Do** reuse the app's existing seeder/factories (faker `it_IT`) and pivot away from empty portals; **don't** screenshot empty states.
+- **Do** surface a regulatory credential (Accredia/ISO/CE) on the client slide when it anchors trust; **don't** bury it.
