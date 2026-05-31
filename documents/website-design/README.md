@@ -14,6 +14,7 @@ This guide is different from `preventivi/` and `case-studies/` in one fundamenta
 | [`discovery-brief.md`](./discovery-brief.md) | Client intake template + brand extraction (and brand-express when the client has no identity) |
 | [`sources.md`](./sources.md) | Approved libraries, component kits, animation, inspiration, icons, imagery, mapped per build track |
 | [`image-generation.md`](./image-generation.md) | How to generate/source imagery so the style matches the use (real camera photo vs the fake CGI look); prompt recipes per mood/sector; Lavder ImageGen usage; vetting |
+| [`build-quality.md`](./build-quality.md) | Build-and-verify checklist: layout robustness, horizontal containment, motion/reveal robustness, responsive widths, how to verify, pre-ship checklist |
 | [`concept-ledger.md`](./concept-ledger.md) | The "seed" registry: a living record of every design's fingerprint, so no two clients get the same site |
 | `reference-corporate/` | Worked example: a **multi-page**, navigable hi-fi prototype (corporate archetype, demo client Officine Lario). Client-branded, self-contained (own `styles.css` + `app.js`, real stock images, GSAP + Lenis motion). Pages: `index.html` (home), `lavorazione.html`, `contatti.html`, `azienda.html`, plus `sitemap.html` and `wireframe.html`; `img/` holds the photos. Copy the folder per archetype |
 | `presentation-template.html` | The Lavder-branded 16:9 presentation wrapper that frames the prototype (cover, objectives, sitemap, brand direction, mockup, rationale, next steps) |
@@ -376,6 +377,7 @@ When starting a new design:
 - [ ] Feasibility checked against the chosen track.
 - [ ] Realistic copy + real/placeholder imagery (no lorem, no AI humans, no Test User).
 - [ ] Presentation wrapper assembled; revision rounds stated.
+- [ ] Ran the [build-quality checklist](./build-quality.md) (layout robustness, no horizontal overflow, reveals/motion safe, responsive at 360-1440) in a real browser.
 - [ ] After sign-off: design locked, fingerprint logged in the ledger, handoff package prepared.
 
 ## 20. Lessons (do & don't)

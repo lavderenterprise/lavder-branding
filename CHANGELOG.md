@@ -5,6 +5,16 @@ Format follows [Keep a Changelog](https://keepachangelog.com/), versioning follo
 
 ---
 
+## [0.4.1] — 2026-05-31
+
+### Added
+- **`documents/website-design/build-quality.md`** — consolidated build-and-verify checklist (layout robustness, horizontal containment, motion/reveal robustness, responsive widths, verification method, pre-ship checklist), capturing the QA lessons from the Officine Lario build. Linked from README (Files table + §19).
+
+### Fixed
+- **`reference-corporate/`** layout repairs: bento moved to a 4-column grid (a 3-col grid with a 2×2 feature left an orphan empty cell and looked unbalanced); the "Perché" overlap card now has `position:relative; z-index` so it sits above the image instead of vanishing behind it; footer lists reset their default 40 px `padding-inline-start` (were indented from their headings). Earlier in the cycle: one consistent section vertical rhythm, and horizontal-containment fixes (sr-only skip link instead of `left:-9999px`, `body{overflow-x:clip}`, `width:100%; min-width:0` containers, wrapping eyebrow). All codified in `build-quality.md` + README §8-9.
+
+---
+
 ## [0.4.0] — 2026-05-31
 
 ### Added
