@@ -47,6 +47,23 @@ Anatomy:
 - **Imperfection = realism:** *candid, lived-in, real working environment, slightly imperfect, minor wear*. Perfection reads as CGI.
 - **Negatives (almost always):** *not a 3D render, not CGI, not hyperrealistic, no plastic look, no oversaturation, no text, no logos, no watermark*. Plus, per brand, **no people** unless real people are genuinely intended, and **never fabricate AI humans** as a subject (`/brand/07-imagery.md`).
 
+## 3b. Detail standard: describe the entire frame
+
+Vague prompts produce generic AI stock. Specify the **whole composition, element by element**, in this order:
+
+1. **Medium + format**: "wide documentary photograph, 16:9".
+2. **Foreground / midground / background**: name what is in each plane and *where* ("FOREGROUND right third: a 5-axis CNC center, spindle lowered onto a clamped steel block, a coolant arc; MIDGROUND left: two machines receding; BACKGROUND: tall windows, ductwork").
+3. **The hero object**: material, finish, state, action ("freshly machined steel part, crisp milled facets, thin film of cutting oil, curled chips").
+4. **Camera + lens + angle + depth of field**: "Nikon full-frame, 24mm, chest height, slight low angle, foreground sharp / background defocused".
+5. **Light**: source, direction, quality ("cool daylight key from the windows, warm work-lamp fill, gentle directional shadows").
+6. **Color + grade**: palette and saturation ("muted steel greys and cool blues, few warm amber accents, slightly desaturated, neutral white balance").
+7. **Texture / imperfection**: "subtle sensor grain, faint vignette, lived-in, slightly imperfect".
+8. **Negatives**: the anti-CGI + brand list (see below).
+
+A good prompt is **4-8 sentences, not a phrase**. More specific = more controllable and less generic. Keep the *photographic* framing of §2-3: the detail describes a **photo**, never a "render".
+
+> Worked example (Officine Lario hero, 16:9): *"Wide cinematic documentary photograph, 16:9, interior of a working precision machine shop, shot on a Nikon full-frame DSLR with a 24mm lens at chest height with a slight low angle. FOREGROUND right third: a large enclosed 5-axis CNC machining center, glass door half open, spindle lowered onto a clamped steel block with a thin fan of cutting coolant spraying off the cutter and fine curled chips on the bed. MIDGROUND left: a row of two more CNC machines receding in perspective, control panels glowing faint amber, a yellow steel safety pillar. BACKGROUND: tall industrial windows with soft overcast daylight, exposed ceiling ductwork and a mezzanine rail, blue-grey walls. Light: cool natural daylight key, warm overhead work-lamp fill, gentle directional shadows. Color: muted steel greys and cool blues, few warm amber accents, slightly desaturated. Foreground sharp, background softly defocused, subtle sensor grain, faint vignette. Candid factory reportage, not staged, not a render, not CGI. No people, no text, no logos, no watermark."*
+
 ## 4. Words to DROP (they cause the fake look)
 
 Strike these from prompts unless you actually want a render:

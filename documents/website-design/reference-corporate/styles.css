@@ -206,8 +206,10 @@ h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.025em; lin
 @media (min-width: 640px) { .footer__bar { flex-direction: row; align-items: center; justify-content: space-between; } }
 .footer__bar .demo { color: var(--n600); }
 
-/* ---------- Reveal (visible by default; GSAP enhances) ---------- */
+/* ---------- Reveal (visible by default; .anim gate + IntersectionObserver) ---------- */
 .reveal { opacity: 1; }
+.anim .reveal, .anim .reveal-stagger > * { opacity: 0; transform: translateY(22px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+.anim .reveal.in, .anim .reveal-stagger > .in { opacity: 1; transform: none; }
 
 /* ---------- Grids / utilities ---------- */
 .grid { display: grid; gap: 24px; }
@@ -227,5 +229,71 @@ h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.025em; lin
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
-  .reveal { opacity: 1 !important; transform: none !important; }
+  .reveal, .reveal-stagger > * { opacity: 1 !important; transform: none !important; }
+  .hero__bg, .marquee__row { animation: none !important; }
 }
+
+/* ============================================================
+   Rich sections (v2): bg-image bands, hero, marquee, bento,
+   video band, overlap, immersive sector cards, pull-quote
+   ============================================================ */
+
+/* full-bleed background-image section */
+.bg-section { position: relative; isolation: isolate; color: #fff; overflow: hidden; }
+.bg-section > .bg-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.bg-section::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(14,17,22,.80), rgba(14,17,22,.66)); }
+.bg-section--left::before { background: linear-gradient(90deg, rgba(14,17,22,.92) 0%, rgba(14,17,22,.6) 52%, rgba(14,17,22,.28) 100%); }
+.bg-section .lead, .bg-section p { color: #e7ebf0; }
+.bg-section .stat__label { color: #c7cdd6; }
+
+/* HERO (full-bleed image + Ken Burns + overlay) */
+.hero { position: relative; min-height: 92svh; display: flex; align-items: center; overflow: hidden; color: #fff; isolation: isolate; }
+.hero__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; animation: kenburns 24s ease-out infinite alternate; }
+.hero::before { content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(90deg, rgba(11,14,18,.94) 0%, rgba(11,14,18,.72) 46%, rgba(11,14,18,.34) 100%); }
+@keyframes kenburns { from { transform: scale(1.05); } to { transform: scale(1.16) translate(-2%, -2%); } }
+.hero__inner { padding-block: 132px 92px; }
+.scrollcue { position: absolute; left: 0; right: 0; bottom: 22px; text-align: center; color: #fff; opacity: .65; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; }
+
+/* MARQUEE */
+.marquee { overflow: hidden; border-block: 1px solid var(--line); background: #fff; }
+.marquee__row { display: flex; width: max-content; animation: marquee 28s linear infinite; }
+.marquee__track { display: inline-flex; gap: 56px; align-items: center; padding: 18px 28px 18px 0; white-space: nowrap; }
+.marquee__track span { color: var(--n400); font-weight: 700; font-size: 16px; letter-spacing: .02em; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* oversized editorial statement */
+.statement { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.03em; line-height: 1.06; font-size: clamp(2rem, 5vw, 3.6rem); }
+
+/* BENTO */
+.bento { display: grid; gap: 16px; grid-template-columns: 1fr; }
+@media (min-width: 768px) { .bento { grid-template-columns: repeat(3, 1fr); grid-auto-rows: minmax(176px, auto); } .bento .b-feature { grid-column: span 2; grid-row: span 2; } }
+.bento .cell { border: 1px solid var(--line); border-radius: var(--r-card); padding: 26px; background: #fff; display: flex; flex-direction: column; justify-content: flex-end; transition: border-color .2s var(--ease), box-shadow .2s var(--ease), transform .2s var(--ease); }
+.bento .cell:hover { border-color: rgba(27,111,242,.4); box-shadow: 0 10px 34px rgba(20,24,29,.07); transform: translateY(-3px); }
+.bento .cell .card__ico { margin-bottom: auto; }
+.bento .b-feature { position: relative; overflow: hidden; color: #fff; border: 0; padding: 0; min-height: 320px; }
+.bento .b-feature img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
+.bento .b-feature:hover img { transform: scale(1.05); }
+.bento .b-feature .ov { position: relative; z-index: 1; margin-top: auto; padding: 30px; width: 100%; background: linear-gradient(180deg, transparent, rgba(11,14,18,.92)); }
+.bento .b-feature .ov h3 { color: #fff; }
+
+/* VIDEO media band */
+.media-band { position: relative; overflow: hidden; color: #fff; isolation: isolate; min-height: 76svh; display: flex; align-items: center; }
+.media-band video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.media-band::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(11,14,18,.55), rgba(11,14,18,.74)); }
+
+/* OVERLAP */
+@media (min-width: 1024px) { .overlap__card { margin-left: -96px; } }
+.overlap__card { background: #fff; border: 1px solid var(--line); border-radius: var(--r-card); padding: 40px; box-shadow: 0 24px 64px rgba(20,24,29,.14); }
+
+/* immersive SECTOR cards */
+.sector { position: relative; overflow: hidden; border-radius: var(--r-card); aspect-ratio: 3/4; display: block; }
+.sector img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
+.sector:hover img { transform: scale(1.06); }
+.sector .ov { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; background: linear-gradient(180deg, transparent 38%, rgba(11,14,18,.9)); }
+.sector .ov h3 { color: #fff; font-size: 1.3rem; }
+.sector .ov p { color: var(--n300); font-size: 13px; margin-top: 4px; }
+.sector .ov svg { width: 24px; height: 24px; color: #7FB0FF; }
+
+/* PULL QUOTE */
+.quote { font-family: var(--font-display); font-weight: 500; letter-spacing: -0.02em; line-height: 1.25; font-size: clamp(1.6rem, 3.4vw, 2.6rem); }

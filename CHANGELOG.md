@@ -5,6 +5,18 @@ Format follows [Keep a Changelog](https://keepachangelog.com/), versioning follo
 
 ---
 
+## [0.4.0] — 2026-05-31
+
+### Added
+- **Rich, creative layout** for `reference-corporate/`: full-bleed image-background sections (hero with Ken Burns, a stats band, a featured-case band, the CTA), a **muted autoplay video background** band (`video/machining.mp4`), a **bento** lavorazioni grid, an **overlapping** card, **immersive full-image** sector cards, an oversized editorial statement, and a keyword **marquee**. Reveals moved to a robust IntersectionObserver (with a visibility failsafe); Lenis smooth scroll; unused GSAP dependency dropped.
+- **`image-generation.md` §3b** — a hyper-detailed prompt standard (describe the whole frame: medium/format; foreground-midground-background with placement; the hero object's material/finish/action; camera + lens + angle + DOF; light direction; color/grade; texture/imperfection; negatives), with the worked Lario hero prompt.
+- **`README.md` §8** — a "distinctive devices / richness bar" standard so pages are never shipped sparse (full-bleed image/video backgrounds, bento, overlap, immersive cards, editorial type, marquee), with a per-tier minimum.
+
+### Changed
+- Regenerated the Officine Lario image set with hyper-detailed prompts, adding 16:9 background slots (hero, floor, project, CTA).
+
+---
+
 ## [0.3.2] — 2026-05-31
 
 ### Added

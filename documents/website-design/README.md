@@ -127,6 +127,18 @@ Lavder designs **section by section**, not pixel by pixel. This is deliberate: i
 
 `hero` · `value strip / USP` · `services or products grid` · `social proof (client logos, testimonials, reviews, ratings)` · `about / story` · `process / how it works` · `stats / numbers` · `gallery / portfolio` · `pricing` · `FAQ` · `lead form / contact` · `CTA band` · `footer`.
 
+**Distinctive devices (do not ship sparse).** A page must not be a stack of plain text and equal cards. Reach for these to give depth and craft; use several per page, with restraint:
+
+- **Full-bleed image-background sections** (hero + 1-2 bands): a photo behind a 60-80% ink overlay, content on top. Use for the hero, a stats band, a featured case, the final CTA.
+- **A video background** on one band (muted, autoplay, loop, `playsinline`, poster fallback): the product/process in motion. One per page, never with sound.
+- **Bento grid** instead of N equal cards: one large feature cell (with imagery) plus smaller cells.
+- **Overlap / asymmetry**: a card overlapping a bleeding image, 7/5 splits, negative margins.
+- **Immersive cards**: full-image cards with a gradient and hover zoom (sectors, work, products).
+- **Oversized editorial type** for one statement; a **logo/keyword marquee**; **image dividers** between chapters.
+- **Animated counters** for stats; tasteful scroll reveals (IntersectionObserver, always with a visible fallback so content never stays hidden).
+
+Richness bar by tier: **Tier 1** landing = a hero (image or video background) + at least 2 distinctive devices. **Tier 2** vetrina = 4+ distinctive devices across the home, imagery in most sections, no all-text folds. **Tier 3** = the full vocabulary. Every full-bleed media keeps AA-contrast text (via the overlay), honors `prefers-reduced-motion`, and stays feasible on the chosen build track.
+
 **Section thinking rules:**
 - One section, one job, one hierarchy. One h1 on the page (the hero), one primary CTA per fold.
 - Alternate rhythm: do not stack three identical card-grids in a row. Vary section shape (full-bleed vs contained, light vs dark, text-led vs image-led).

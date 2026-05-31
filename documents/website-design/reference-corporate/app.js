@@ -1,13 +1,12 @@
 /* Officine Lario prototype: interactions.
-   Rich motion (Lenis + GSAP ScrollTrigger), but fully progressive:
-   content is visible without JS, and all motion is skipped under
-   prefers-reduced-motion or if a library fails to load. See ../README.md §9.6. */
+   Robust + progressive: content is visible without JS; reveals use IntersectionObserver
+   (fires on any viewport intersection, incl. hash jumps) with a failsafe so nothing ever
+   stays hidden; all motion is skipped under prefers-reduced-motion. Lenis adds smooth scroll. */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Icons
   if (window.lucide) lucide.createIcons();
 
-  // Mobile menu (always available)
+  // Mobile menu
   const menuBtn = document.querySelector('.menu-btn');
   const menu = document.getElementById('mobileMenu');
   if (menuBtn && menu) {
@@ -15,18 +14,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const open = menu.classList.toggle('open');
       menuBtn.setAttribute('aria-expanded', String(open));
     });
-    menu.querySelectorAll('a').forEach(a =>
-      a.addEventListener('click', () => {
-        menu.classList.remove('open');
-        menuBtn.setAttribute('aria-expanded', 'false');
-      })
-    );
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      menu.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false');
+    }));
   }
 
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const hasGSAP = !!(window.gsap && window.ScrollTrigger);
 
-  // Lenis smooth scroll
+  // Lenis smooth scroll (own rAF loop; no GSAP dependency)
   let lenis = null;
   if (!reduce && window.Lenis) {
     lenis = new Lenis({ duration: 1.1, smoothWheel: true });
@@ -34,49 +29,44 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(raf);
   }
 
-  // Same-page anchor links with sticky-header offset (fixes the "broken menu" jump)
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    const sel = a.getAttribute('href');
-    if (!sel || sel.length < 2) return;
+  // Same-page anchor links with sticky-header offset (safe: if target not on page, let it navigate)
+  document.querySelectorAll('a[href*="#"]').forEach(a => {
     a.addEventListener('click', (e) => {
-      const target = document.querySelector(sel);
-      if (!target) return;
+      const href = a.getAttribute('href') || '';
+      const hash = href.slice(href.indexOf('#'));
+      if (hash.length < 2) return;
+      const target = document.querySelector(hash);
+      if (!target) return;            // anchor lives on another page -> normal navigation
       e.preventDefault();
       if (lenis) lenis.scrollTo(target, { offset: -84 });
       else target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
     });
   });
 
-  if (reduce || !hasGSAP) return; // static fallback: everything already visible
-  gsap.registerPlugin(ScrollTrigger);
-  if (lenis) { lenis.on('scroll', ScrollTrigger.update); gsap.ticker.add((t)=>lenis.raf(t*1000)); gsap.ticker.lagSmoothing(0); }
+  // Reveal on scroll (IntersectionObserver). Content is visible by default; we only hide+animate
+  // when motion is on, and a failsafe guarantees everything is shown even if observers misfire.
+  const revs = Array.from(document.querySelectorAll('.reveal, .reveal-stagger > *'));
+  if (!reduce && revs.length) {
+    document.documentElement.classList.add('anim');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+    revs.forEach(el => io.observe(el));
+    setTimeout(() => revs.forEach(el => el.classList.add('in')), 2600); // never leave content hidden
+  }
 
-  // Reveals
-  gsap.utils.toArray('.reveal').forEach(el => {
-    gsap.from(el, { opacity: 0, y: 26, duration: 0.7, ease: 'power2.out',
-      scrollTrigger: { trigger: el, start: 'top 86%' } });
-  });
-
-  // Staggered groups
-  gsap.utils.toArray('.reveal-stagger').forEach(group => {
-    gsap.from(group.children, { opacity: 0, y: 22, duration: 0.6, ease: 'power2.out', stagger: 0.08,
-      scrollTrigger: { trigger: group, start: 'top 84%' } });
-  });
-
-  // Animated counters (final value is in the HTML as a no-JS fallback)
-  gsap.utils.toArray('[data-count]').forEach(el => {
-    const end = parseFloat(el.dataset.count);
-    const dec = parseInt(el.dataset.dec || '0', 10);
-    const o = { v: 0 };
-    gsap.to(o, { v: end, duration: 1.6, ease: 'power1.out',
-      scrollTrigger: { trigger: el, start: 'top 90%' },
-      onUpdate() { el.textContent = o.v.toFixed(dec); } });
-  });
-
-  // Light hero parallax
-  const para = document.querySelector('[data-parallax]');
-  if (para) {
-    gsap.to(para, { yPercent: 12, ease: 'none',
-      scrollTrigger: { trigger: para.closest('section'), start: 'top top', end: 'bottom top', scrub: true } });
+  // Counters (IntersectionObserver + rAF). The final value is in the HTML as a no-JS fallback.
+  const counters = Array.from(document.querySelectorAll('[data-count]'));
+  if (!reduce && counters.length) {
+    const run = (el) => {
+      const end = parseFloat(el.dataset.count), dec = parseInt(el.dataset.dec || '0', 10), dur = 1500;
+      const t0 = performance.now();
+      const step = (t) => { const p = Math.min(1, (t - t0) / dur); el.textContent = (end * (1 - Math.pow(1 - p, 3))).toFixed(dec); if (p < 1) requestAnimationFrame(step); };
+      requestAnimationFrame(step);
+    };
+    const cio = new IntersectionObserver((entries) => {
+      entries.forEach(en => { if (en.isIntersecting) { run(en.target); cio.unobserve(en.target); } });
+    }, { threshold: 0.5 });
+    counters.forEach(el => cio.observe(el));
   }
 });
