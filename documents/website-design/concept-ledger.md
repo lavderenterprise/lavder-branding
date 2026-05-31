@@ -12,6 +12,7 @@ It operates the three variation mechanisms together (README §12): fixed system 
 3. Hard constraints:
    - No two of the **last 5** designs share the same `(archetype + hero-pattern + layout-signature)` triple.
    - Within the **same archetype**, vary at least the `hero-pattern` **and** the `palette-direction` from the most recent one.
+   - Vary the **section-intro** and the **signature-device** from the most recent same-archetype build. The eyebrow-with-a-dot and recurring copy tics ("fatto a mano", "X · Y") must not repeat build after build.
 4. Record the chosen combination (and what it deliberately avoids) in the discovery brief §8.
 
 **After** sign-off: append the design's fingerprint as a row below. Append-only; do not edit shipped rows.
@@ -25,6 +26,8 @@ Keep values from these sets so entries stay comparable.
 - **hero-pattern:** `split-7/5` · `full-bleed-photo` · `centered-statement` · `video-bg` · `product-hero` · `text-only` · `split-form` (hero with lead form) · `gallery-hero`
 - **layout-signature:** `asymmetric-7/5` · `centered-narrow` · `fullbleed-alternating` · `grid-heavy` · `editorial-columns` · `sidebar`
 - **palette-direction:** `light-warm` · `light-cool` · `dark` · `mono+accent` · `dual-tone` · `high-contrast`
+- **section-intro:** how sections announce themselves: `eyebrow-dot` · `numbered` · `icon-label` · `standalone-display` · `kicker-rule` · `none`. Rotate it: the dotted eyebrow is **not** a default for every build.
+- **signature-device:** the one memorable element of the build: `h-scroll-categories` · `sticky-ingredient-story` · `bento-ritual` · `marquee` · `before-after-reveal` · `overlap-editorial` · `none`. Vary it across neighbors.
 - **track:** `A` (WordPress) · `B` (Next.js) · `static`
 - **brand:** `client` (had identity) · `express` (Lavder created it)
 
@@ -34,6 +37,7 @@ Most recent first.
 
 | Date | Client | Archetype | Mood | Hero-pattern | Layout-signature | Palette | Track | Brand | Notes / link |
 |---|---|---|---|---|---|---|---|---|---|
+| 2026-05-31 | FIORÈLA (demo / reference) | ecommerce | caldo | full-bleed-photo | fullbleed-alternating | light-warm | A | express | Reference example #2, built **only** from this repo's guidelines (self-sufficiency test). Botanical cosmetics, mood **botanico materico**: prugna #6D4C7D as the single CTA accent on cream/plaster, secondary naturals (salvia / argilla / oro) for details, paper-grain texture, organic image frames, hand-drawn underline accents, soft radius (cards 16 / buttons 10), Fraunces + Nunito Sans. **section-intro = rotated** (icon-label / numbered / rule / standalone display): NO dotted eyebrow. **signature-device = `h-scroll-categories` + `sticky-ingredient-story` + `before-after-reveal` + `bento-ritual` + `marquee`**. Composition deliberately alternated and balanced (hero text-left, splits zig-zag, newsletter centered). **Full 5-page site, each long** (home 11 / shop 7 / prodotto 7 / carrello 6 / storia 10 sezioni), inner pages as rich as the home. Camera-real materico AI imagery (Lavder ImageGen, 22 shots, no faces). Diverges from Officine Lario on archetype + mood + hero-pattern + layout-signature + palette + signature-device. Multi-page: `reference-ecommerce/` (+ 5-tab navigable wireframe + wireframe-style sitemap) |
 | 2026-05-30 | Officine Lario (demo / reference) | corporate | tech | split-7/5 | asymmetric-7/5 | dark | A | express | Reference example. Precision-mechanics B2B, industrial blue accent (not Lavder orange), mixed radius (soft cards + squared buttons), AI-generated imagery (Lavder ImageGen, documentary camera-real look, hyper-detailed prompts), rich layout (full-bleed image + video backgrounds, bento, overlap, immersive cards), IntersectionObserver reveals + Lenis. Multi-page: `reference-corporate/` |
 
 <!--

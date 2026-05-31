@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="it">
+<!-- FIORÈLA (demo) · PRODOTTO (PDP) · botanico materico. CLIENT brand layer. Built from the repo guidelines. -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Siero Calendula &middot; Fior&egrave;la</title>
+  <meta name="description" content="Siero Calendula illuminante alla calendula estratta a freddo: 30 ml di formula corta per una pelle pi&ugrave; uniforme e luminosa. Vasetto ricaricabile, cruelty-free." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=5" />
+  <style>
+    /* tiny scoped helpers for the PDP buy column · materico, plum-only CTA */
+    .buy { display:flex; flex-direction:column; gap:22px; }
+    .buy .h1 { font-size:clamp(2rem,3.6vw,2.4rem); }
+    .reassure { display:grid; gap:14px; padding:18px 20px; border:1px solid var(--line); border-radius:var(--r-card); background:var(--surface); }
+    .reassure .r-i { display:flex; gap:12px; align-items:flex-start; }
+    .reassure .r-i svg { width:20px; height:20px; color:var(--plum); flex:none; margin-top:2px; }
+    .reassure .r-i b { display:block; font-size:14.5px; }
+    .reassure .r-i span { font-size:13px; color:var(--n500); }
+    .buyrow { display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+    .buyrow .btn--lg { flex:1; min-width:220px; }
+    .selector b { display:block; font-size:13px; font-weight:800; letter-spacing:.04em; color:var(--ink-2); margin-bottom:10px; }
+    .numgrid { display:grid; gap:18px; grid-template-columns:1fr; counter-reset:step; }
+    @media(min-width:640px){ .numgrid{ grid-template-columns:repeat(2,1fr);} }
+    @media(min-width:1024px){ .numgrid{ grid-template-columns:repeat(4,1fr);} }
+    .numstep { padding-top:18px; border-top:2px solid var(--line-2); }
+    .numstep .n { font-family:var(--font-display); font-weight:600; font-size:1.6rem; color:var(--plum); line-height:1; display:block; }
+    .numstep h3 { margin:10px 0 6px; }
+    .numstep p { font-size:14px; color:var(--ink-2); }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Salta al contenuto</a>
+
+  <!-- announcement -->
+  <div class="anno">Spedizione gratuita sopra <b>49&euro;</b> &middot; Campioncino omaggio in ogni ordine &middot; Cosmesi cruelty-free</div>
+
+  <!-- header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Principale">
+        <a class="brand" href="index.html" aria-label="Fiorèla home">
+          <span class="brand__mark">F</span>
+          <span class="brand__name">Fior&egrave;la</span>
+        </a>
+        <ul class="nav__links">
+          <li><a href="shop.html" aria-current="page">Shop</a></li>
+          <li><a href="index.html#ritual">Rituali</a></li>
+          <li><a href="shop.html#best">Bestseller</a></li>
+          <li><a href="storia.html">La storia</a></li>
+        </ul>
+        <div class="nav__icons">
+          <button aria-label="Cerca"><i data-lucide="search"></i></button>
+          <a href="#" aria-label="Account"><i data-lucide="user"></i></a>
+          <a href="carrello.html" aria-label="Carrello"><i data-lucide="shopping-bag"></i><span class="cartdot" data-cart-count>2</span></a>
+          <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu"><i data-lucide="menu"></i></button>
+        </div>
+      </nav>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="container"><ul>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="index.html#ritual">Rituali</a></li>
+        <li><a href="shop.html#best">Bestseller</a></li>
+        <li><a href="storia.html">La storia</a></li>
+        <li><a href="carrello.html">Carrello</a></li>
+      </ul></div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- 1 · PDP · STICKY GALLERY + BUY [DEVICE] -->
+    <section class="section section--cream">
+      <div class="container">
+        <div class="pdp">
+          <!-- media column (sticky on desktop via CSS) -->
+          <div class="pdp__media reveal">
+            <div class="pdp__main"><img data-pdp-main src="img/prod-a.jpg" alt="Siero Calendula, flacone ambrato con contagocce" /></div>
+            <div class="pdp__thumbs">
+              <button data-pdp-thumb data-src="img/prod-a.jpg" aria-current="true"><img src="img/prod-a.jpg" alt="Flacone ambrato del Siero Calendula" /></button>
+              <button data-pdp-thumb data-src="img/ing-1.jpg" aria-current="false"><img src="img/ing-1.jpg" alt="Fiori di calendula freschi, ingrediente principale" /></button>
+              <button data-pdp-thumb data-src="img/ing-2.jpg" aria-current="false"><img src="img/ing-2.jpg" alt="Camomilla e lavanda essiccate sul banco" /></button>
+              <button data-pdp-thumb data-src="img/prod-b.jpg" aria-current="false"><img src="img/prod-b.jpg" alt="Texture del siero versata su sfondo materico" /></button>
+            </div>
+          </div>
+
+          <!-- buy column (NOT sticky) -->
+          <div class="buy reveal">
+            <nav class="crumbs" aria-label="Percorso">
+              <a href="index.html">Home</a><i data-lucide="arrow-right"></i>
+              <a href="shop.html">Viso</a><i data-lucide="arrow-right"></i>
+              <span aria-current="page">Siero Calendula</span>
+            </nav>
+            <h1 class="h1">Siero Calendula</h1>
+            <div class="rating"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i> 4,9 &middot; 214 recensioni</div>
+            <p class="lead">Un siero leggero che illumina e leviga la grana, con calendula estratta a freddo, camomilla lenitiva e olio di mandorla. Si assorbe in fretta, niente alcol che secca.</p>
+            <div class="price">38&euro;</div>
+
+            <div class="selector">
+              <b>Formato</b>
+              <div data-swatch-group class="swatches">
+                <button class="swatch" aria-pressed="false">15 ml</button>
+                <button class="swatch" aria-pressed="true">30 ml</button>
+                <button class="swatch" aria-pressed="false">50 ml</button>
+              </div>
+            </div>
+
+            <div class="buyrow">
+              <div class="qty" data-qty>
+                <button data-dec aria-label="Diminuisci quantit&agrave;">-</button>
+                <span>1</span>
+                <button data-inc aria-label="Aumenta quantit&agrave;">+</button>
+              </div>
+              <button class="btn btn--primary btn--lg" data-add>Aggiungi al carrello : 38&euro;</button>
+            </div>
+
+            <div class="reassure">
+              <div class="r-i"><i data-lucide="truck"></i><div><b>Spedizione in 48h</b><span>Gratuita sopra 49&euro;, tracciata in tutta Italia</span></div></div>
+              <div class="r-i"><i data-lucide="rotate-ccw"></i><div><b>Reso entro 30 giorni</b><span>Anche a confezione aperta, se la pelle non lo gradisce</span></div></div>
+              <div class="r-i"><i data-lucide="droplet"></i><div><b>Campione omaggio</b><span>Un mini formato a sorpresa in ogni ordine</span></div></div>
+            </div>
+
+            <div class="acc">
+              <details open>
+                <summary>Descrizione <span class="ic"><i data-lucide="plus"></i></span></summary>
+                <div class="body">Il nostro siero pi&ugrave; richiesto: una texture acquosa che lascia la pelle morbida e visibilmente pi&ugrave; luminosa. La calendula calma i rossori, la camomilla riduce la sensazione di tiratura e l&apos;olio di mandorla nutre senza ungere. Adatto a tutti i tipi di pelle, comprese le pi&ugrave; sensibili.</div>
+              </details>
+              <details>
+                <summary>Ingredienti INCI <span class="ic"><i data-lucide="plus"></i></span></summary>
+                <div class="body">Aqua, Glycerin, Calendula Officinalis Flower Extract, Prunus Amygdalus Dulcis Oil, Chamomilla Recutita Flower Extract, Lavandula Angustifolia Oil, Niacinamide, Sodium Hyaluronate, Tocopherol, Citric Acid. Senza profumi sintetici, senza coloranti, senza siliconi.</div>
+              </details>
+              <details>
+                <summary>Come si usa <span class="ic"><i data-lucide="plus"></i></span></summary>
+                <div class="body">Mattina e sera, dopo la detersione e prima della crema. Scalda 3 gocce tra i polpastrelli e tampona su viso e collo ancora umidi. Per la massima resa, lascia assorbire un minuto prima del passo successivo.</div>
+              </details>
+              <details>
+                <summary>Spedizione e resi <span class="ic"><i data-lucide="plus"></i></span></summary>
+                <div class="body">Ordini elaborati in giornata se ricevuti entro le 14:00. Consegna in 48h in Italia, 3&ndash;5 giorni in UE. Reso gratuito entro 30 giorni: ti rimborsiamo l&apos;intero importo, campione incluso.</div>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 · INGREDIENT SCROLL STORY [DEVICE] · standalone display intro -->
+    <section class="section section--paper">
+      <div class="container">
+        <div class="head head--center mb-l reveal">
+          <h2 class="h2">Cosa c&apos;&egrave; <span class="draw">dentro</span></h2>
+          <p class="lead mx-auto">Tre piante, dosate per fare il loro lavoro e nient&apos;altro. Niente riempitivi, niente nomi impronunciabili.</p>
+        </div>
+        <div class="reveal-stagger">
+          <div class="ing-step reveal">
+            <div class="ph"><img src="img/ing-1.jpg" alt="Petali di calendula in infusione nell&apos;olio" /></div>
+            <div>
+              <h3 class="h3">Calendula</h3>
+              <p class="muted" style="max-width:54ch">Estratta a freddo dai fiori coltivati a pochi chilometri dal laboratorio. Calma i rossori e accompagna il rinnovo della pelle, per una grana pi&ugrave; uniforme settimana dopo settimana.</p>
+            </div>
+            <div class="pct">estratto 4%</div>
+          </div>
+          <div class="ing-step reveal">
+            <div class="ph"><img src="img/ing-2.jpg" alt="Fiori di camomilla e spighe di lavanda essiccate" /></div>
+            <div>
+              <h3 class="h3">Camomilla + Lavanda</h3>
+              <p class="muted" style="max-width:54ch">La camomilla lenisce la pelle reattiva, la lavanda dona il profumo delicato del siero: una nota erbacea naturale, mai coperta da fragranze sintetiche.</p>
+            </div>
+            <div class="pct">infuso lenitivo</div>
+          </div>
+          <div class="ing-step reveal">
+            <div class="ph"><img src="img/ing-3.jpg" alt="Mandorle e olio di mandorla su un piano di lino" /></div>
+            <div>
+              <h3 class="h3">Olio di mandorla</h3>
+              <p class="muted" style="max-width:54ch">La base che nutre e protegge il film idrolipidico senza appesantire. Ricco di acido oleico e vitamina E, lascia la pelle elastica e mai lucida.</p>
+            </div>
+            <div class="pct">base nutriente</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · BEFORE/AFTER reveal + results [DEVICE] · rule intro, slider RIGHT -->
+    <section class="section section--cream">
+      <div class="container">
+        <div class="split split--rev">
+          <div class="reveal">
+            <div class="ba" style="--pos:50%">
+              <img class="ba__before" src="img/ing-tex.jpg" alt="Grana della pelle al primo giorno di utilizzo" />
+              <img class="ba__after" src="img/ing-1.jpg" alt="Grana della pelle dopo quattro settimane di Siero Calendula" />
+              <span class="ba__line"></span>
+              <span class="ba__grip"><i data-lucide="chevrons-left-right"></i></span>
+              <span class="ba__tag l">Giorno 1</span>
+              <span class="ba__tag r">Settimana 4</span>
+              <input type="range" min="0" max="100" value="50" aria-label="Trascina per confrontare prima e dopo" />
+            </div>
+          </div>
+          <div class="stack-lg reveal">
+            <span class="krule">I risultati</span>
+            <h2 class="h2">Si vede, e si misura</h2>
+            <p class="lead">Trascina il cursore: a sinistra la pelle al primo giorno, a destra dopo quattro settimane di Siero Calendula, una applicazione mattina e sera. Su un panel di 84 persone, 9 su 10 hanno notato un colorito pi&ugrave; uniforme.</p>
+            <div class="stats" style="grid-template-columns:repeat(2,1fr);max-width:420px">
+              <div class="stat"><b data-count="89">89</b><span>% pelle pi&ugrave; luminosa</span></div>
+              <div class="stat"><b data-count="28" data-dec="0">28</b><span>giorni di test</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · COME SI USA · numbered intro + numbered grid -->
+    <section class="section section--paper2">
+      <div class="container">
+        <div class="head mb-l reveal">
+          <span class="knum"><b>04</b> Il gesto</span>
+          <h2 class="h2 mt-s">Come si usa</h2>
+          <p class="lead">Quattro passaggi, due volte al giorno. Bastano due minuti per trasformarlo in un piccolo rituale.</p>
+        </div>
+        <div class="numgrid reveal-stagger">
+          <div class="numstep"><span class="n">1</span><h3 class="h4">Detergi</h3><p>Pulisci il viso con olio o detergente solido e tampona senza strofinare.</p></div>
+          <div class="numstep"><span class="n">2</span><h3 class="h4">Applica 3 gocce</h3><p>Scalda il siero tra i polpastrelli e premilo sulla pelle ancora umida.</p></div>
+          <div class="numstep"><span class="n">3</span><h3 class="h4">Tampona</h3><p>Picchietta delicatamente su viso e collo, insistendo dove la grana &egrave; irregolare.</p></div>
+          <div class="numstep"><span class="n">4</span><h3 class="h4">Completa con crema</h3><p>Sigilla con la tua idratante per trattenere acqua e attivi pi&ugrave; a lungo.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · REVIEWS · icon-label intro -->
+    <section class="section section--white">
+      <div class="container">
+        <div class="flex-between mb-l reveal">
+          <div class="head"><span class="kick"><i data-lucide="sparkles"></i> Parola di chi lo usa</span><h2 class="h2 mt-s">4,9 / 5 su 214 recensioni</h2></div>
+          <div class="rating" style="font-size:15px"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i> 96% lo riacquisterebbe</div>
+        </div>
+        <div class="grid g-3 reveal-stagger">
+          <div class="review"><div class="stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div><p>In tre settimane la mia pelle &egrave; pi&ugrave; compatta e i rossori sulle guance si sono calmati. Texture leggerissima, perfetta sotto il trucco.</p><div class="who"><span class="av">M</span> Martina C. &middot; acquisto verificato</div></div>
+          <div class="review"><div class="stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div><p>Profumo naturale e delicato, nessuna sensazione di tiratura come con altri sieri. Il contagocce dosa benissimo le 3 gocce.</p><div class="who"><span class="av">D</span> Davide L. &middot; acquisto verificato</div></div>
+          <div class="review"><div class="stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div><p>Pelle sensibile e reattiva: &egrave; l&apos;unico siero che tollero senza arrossire. Ho gi&agrave; preso la ricarica, lo terr&ograve; in routine fissa.</p><div class="who"><span class="av">E</span> Elena V. &middot; acquisto verificato</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 · COMPLETA IL RITUALE · related products · rule intro -->
+    <section class="section section--cream">
+      <div class="container">
+        <div class="flex-between mb-l reveal">
+          <div class="head"><span class="krule">Si abbina bene con</span><h2 class="h2 mt-s">Completa il rituale</h2></div>
+          <a class="linkarrow" href="shop.html">Tutti i prodotti <i data-lucide="arrow-right"></i></a>
+        </div>
+        <div class="grid g-4 reveal-stagger">
+          <article class="product">
+            <div class="product__media"><span class="badge badge--sage">Novit&agrave;</span><button class="wish" aria-label="Salva"><i data-lucide="heart"></i></button><img src="img/prod-e.jpg" alt="Crema viso al fico d&apos;India" /></div>
+            <div class="product__b"><span class="cat-tag">Viso</span><a href="prodotto.html"><span class="nm">Crema Fico d&apos;India</span></a><span class="ds">Nutriente &middot; 50 ml</span>
+              <div class="product__row"><span class="price">42&euro;</span><button class="iconbtn" data-add aria-label="Aggiungi al carrello"><i data-lucide="plus"></i></button></div></div>
+          </article>
+          <article class="product">
+            <div class="product__media"><button class="wish" aria-label="Salva"><i data-lucide="heart"></i></button><img src="img/prod-f.jpg" alt="Tonico viso alla camomilla" /></div>
+            <div class="product__b"><span class="cat-tag">Viso</span><a href="prodotto.html"><span class="nm">Tonico Camomilla</span></a><span class="ds">Lenitivo &middot; 150 ml</span>
+              <div class="product__row"><span class="price">26&euro;</span><button class="iconbtn" data-add aria-label="Aggiungi al carrello"><i data-lucide="plus"></i></button></div></div>
+          </article>
+          <article class="product">
+            <div class="product__media"><button class="wish" aria-label="Salva"><i data-lucide="heart"></i></button><img src="img/prod-d.jpg" alt="Olio corpo alla mandorla" /></div>
+            <div class="product__b"><span class="cat-tag">Corpo</span><a href="prodotto.html"><span class="nm">Olio Mandorla</span></a><span class="ds">Elasticizzante &middot; 100 ml</span>
+              <div class="product__row"><span class="price"><s>34&euro;</s> 29&euro;</span><button class="iconbtn" data-add aria-label="Aggiungi al carrello"><i data-lucide="plus"></i></button></div></div>
+          </article>
+          <article class="product">
+            <div class="product__media"><span class="badge badge--clay">Edizione</span><button class="wish" aria-label="Salva"><i data-lucide="heart"></i></button><img src="img/prod-c.jpg" alt="Crema notte alla rosa" /></div>
+            <div class="product__b"><span class="cat-tag">Viso</span><a href="prodotto.html"><span class="nm">Crema Notte Rosa</span></a><span class="ds">Rigenerante &middot; 50 ml</span>
+              <div class="product__row"><span class="price">46&euro;</span><button class="iconbtn" data-add aria-label="Aggiungi al carrello"><i data-lucide="plus"></i></button></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 · CLOSING reassurance band · icon-label intro, centered -->
+    <section class="section section--plum">
+      <div class="container container--narrow center">
+        <div class="reveal">
+          <span class="kick" style="justify-content:center"><i data-lucide="shield-check"></i> La nostra promessa</span>
+          <h2 class="h2 mt-s">Provalo senza pensieri</h2>
+          <p class="lead mx-auto" style="color:#efe7f2">Se entro 30 giorni la tua pelle non lo ama, te lo rimborsiamo per intero, campione compreso. Formula corta, vasetto ricaricabile, mai test animali.</p>
+          <div class="hero__cta" style="justify-content:center">
+            <a class="btn btn--light btn--lg" href="#main">Aggiungi al carrello <i data-lucide="arrow-right"></i></a>
+            <a class="btn btn--onplum btn--lg" href="storia.html">Scopri il laboratorio</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a class="brand" href="index.html"><span class="brand__mark">F</span><span class="brand__name">Fior&egrave;la</span></a>
+          <p class="mt-s">Cosmesi botanica in piccoli lotti, dal lago di Como. Formule corte, vasetti ricaricabili, mai test animali.</p>
+        </div>
+        <div><h4>Shop</h4><ul><li><a href="shop.html">Viso</a></li><li><a href="shop.html">Corpo</a></li><li><a href="shop.html">Capelli</a></li><li><a href="shop.html#best">Bestseller</a></li><li><a href="shop.html">Set rituale</a></li></ul></div>
+        <div><h4>Aiuto</h4><ul><li><a href="#">Spedizioni e resi</a></li><li><a href="#">Ricariche</a></li><li><a href="storia.html">Ingredienti</a></li><li><a href="#">Contatti</a></li></ul></div>
+        <div><h4>Newsletter</h4><p style="font-size:14px;margin-bottom:12px">Il 10% sul primo ordine.</p><form class="nl nl--ink" style="max-width:none;margin:0" onsubmit="return false"><input type="email" placeholder="Email" aria-label="Email" /><button class="btn btn--primary btn--icon" type="submit" aria-label="Iscriviti"><i data-lucide="arrow-right"></i></button></form></div>
+      </div>
+      <div class="footer__bar">
+        <span>&copy; 2026 Fior&egrave;la &middot; P.IVA 0000000000 &middot; Demo Lavder</span>
+        <div class="pay"><span>VISA</span><span>MASTERCARD</span><span>PAYPAL</span><span>SATISPAY</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="app.js?v=5"></script>
+</body>
+</html>

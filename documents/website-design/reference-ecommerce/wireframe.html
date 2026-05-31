@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="it">
+<!-- FIORÈLA (demo) · WIREFRAME · low-fi, navigable across all 5 pages. Mirrors the built sections. -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wireframe · Fiorèla</title>
+  <style>
+    :root{ --g:#9aa0a6; --d:#5f6368; --l:#e3e5e8; --bg:#f4f5f6; --ink:#3a3c40; --dark:#33312e; --accent:#6D4C7D; }
+    *{ box-sizing:border-box; margin:0; }
+    body{ font-family:ui-monospace,"SF Mono",Menlo,monospace; background:var(--bg); color:var(--d); line-height:1.5; }
+    .wfbar{ position:sticky; top:0; z-index:10; background:#fff; border-bottom:1px solid var(--l); display:flex; align-items:center; gap:10px; padding:12px 18px; flex-wrap:wrap; }
+    .wfbar h1{ font-size:14px; color:var(--ink); margin-right:6px; }
+    .tab{ font-size:12px; color:var(--d); border:1px solid var(--g); border-radius:6px; padding:6px 12px; background:#fff; cursor:pointer; }
+    .tab[aria-selected=true]{ background:var(--ink); color:#fff; border-color:var(--ink); }
+    .wfbar a{ font-size:12px; color:var(--d); border:1px solid var(--g); border-radius:6px; padding:6px 12px; text-decoration:none; margin-left:auto; }
+    .note{ font-size:11px; color:var(--g); width:100%; }
+    .sheet{ max-width:1080px; margin:24px auto 70px; padding:0 16px; }
+    .meta{ font-size:11px; color:var(--g); margin-bottom:14px; }
+    .meta b{ color:var(--ink); }
+    .blk{ position:relative; background:#fff; border:1.5px dashed var(--g); border-radius:7px; padding:14px; margin-bottom:12px; }
+    .blk--soft{ background:#fbfaf8; }
+    .blk--dark{ background:var(--dark); border-color:#5b574f; }
+    .blk--accent{ background:#efe7f3; border-color:#bda9c7; }
+    .lab{ position:relative; z-index:3; display:block; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink); font-weight:700; margin-bottom:10px; }
+    .blk--dark .lab{ color:#f0eee9; }
+    .bar{ height:9px; background:var(--l); border-radius:3px; margin:6px 0; }
+    .blk--dark .bar{ background:#56524b; }
+    .bar.w70{ width:70%; } .bar.w50{ width:50%; } .bar.w40{ width:40%; } .bar.w30{ width:30%; } .bar.w85{ width:85%; }
+    .ph{ background:repeating-linear-gradient(45deg,#eceef0,#eceef0 7px,#f6f7f8 7px,#f6f7f8 14px); border:1px solid var(--l); border-radius:5px; display:grid; place-items:center; font-size:10px; color:var(--g); min-height:60px; }
+    .blk--dark .ph{ background:repeating-linear-gradient(45deg,#46433d,#46433d 7px,#3c3935 7px,#3c3935 14px); border-color:#5b574f; color:#cccac4; }
+    .row{ display:grid; gap:10px; }
+    .r2{ grid-template-columns:1fr 1fr; } .r3{ grid-template-columns:repeat(3,1fr); } .r4{ grid-template-columns:repeat(4,1fr); } .r5{ grid-template-columns:repeat(5,1fr); }
+    .split{ display:grid; grid-template-columns:1fr 1fr; gap:12px; align-items:center; }
+    .split.rev .ph{ order:2; }
+    .pill{ display:inline-block; font-size:10px; border:1px solid var(--g); border-radius:99px; padding:2px 9px; margin:2px 3px 2px 0; color:var(--d); }
+    .scrollmark{ font-size:10px; color:var(--g); text-align:right; }
+    @media(max-width:720px){ .r4,.r5{ grid-template-columns:repeat(2,1fr);} .split{ grid-template-columns:1fr;} .split.rev .ph{ order:0;} }
+    .page{ display:none; } .page.on{ display:block; }
+    .legend{ margin-top:22px; border-top:1px solid var(--l); padding-top:16px; font-size:11px; }
+    .legend b{ color:var(--ink); }
+  </style>
+</head>
+<body>
+  <div class="wfbar">
+    <h1>WIREFRAME &middot; Fior&egrave;la</h1>
+    <button class="tab" data-tab="home" aria-selected="true">Home</button>
+    <button class="tab" data-tab="shop" aria-selected="false">Shop</button>
+    <button class="tab" data-tab="prodotto" aria-selected="false">Prodotto</button>
+    <button class="tab" data-tab="carrello" aria-selected="false">Carrello</button>
+    <button class="tab" data-tab="storia" aria-selected="false">Storia</button>
+    <a href="sitemap.html">&rarr; Sitemap</a>
+    <span class="note">low-fi &middot; e-commerce &middot; botanico materico &middot; ogni pagina rispecchia le sezioni reali</span>
+  </div>
+
+  <div class="sheet">
+
+    <!-- HOME -->
+    <section class="page on" data-page="home">
+      <div class="meta"><b>Pagina:</b> Home &middot; <b>Archetipo:</b> e-commerce &middot; <b>Tier:</b> 3 &middot; <b>Mood:</b> botanico materico &middot; 11 sezioni</div>
+      <div class="blk--dark blk"><span class="lab">Announcement bar</span><div class="bar w40" style="background:#56524b"></div></div>
+      <div class="blk"><span class="lab">Nav sticky</span><div class="row" style="grid-template-columns:auto 1fr auto;align-items:center"><span class="pill">logo F</span><div style="text-align:center"><span class="pill">Shop</span><span class="pill">Rituali</span><span class="pill">Bestseller</span><span class="pill">Storia</span></div><span class="pill">cerca &middot; account &middot; carrello(2)</span></div></div>
+      <div class="blk--dark blk"><span class="lab">Hero &middot; flat-lay full-bleed + testo a SINISTRA (bilanciato)</span><div style="max-width:50%"><div class="bar w70"></div><div class="bar w85" style="height:18px"></div><div class="bar w50"></div><span class="pill" style="color:#eee;border-color:#777">Scopri la collezione</span><span class="pill" style="color:#eee;border-color:#777">Il laboratorio</span></div></div>
+      <div class="blk--soft blk"><span class="lab">Marquee valori (scorrevole) [device]</span><div class="bar w85"></div></div>
+      <div class="blk"><span class="lab">USP strip (4)</span><div class="row r4"><div class="ph">ico</div><div class="ph">ico</div><div class="ph">ico</div><div class="ph">ico</div></div></div>
+      <div class="blk--soft blk"><span class="lab">Collezioni &middot; rail scroll orizzontale [device] &middot; intro numerato 01</span><div class="row r5"><div class="ph">Viso</div><div class="ph">Corpo</div><div class="ph">Capelli</div><div class="ph">Masch.</div><div class="ph">Deterg.</div></div><div class="scrollmark">&larr; trascina &middot; frecce &rarr;</div></div>
+      <div class="blk"><span class="lab">Editorial split &middot; IMG sinistra + testo destra &middot; intro filetto</span><div class="split"><div class="ph" style="min-height:120px">IMG lab + float-card</div><div><div class="bar w50"></div><div class="bar"></div><div class="bar w70"></div><span class="pill">link &rarr;</span></div></div></div>
+      <div class="blk"><span class="lab">Bestseller grid (4) &middot; intro icona-foglia</span><div class="row r4"><div class="ph">prod+badge</div><div class="ph">prod</div><div class="ph">prod</div><div class="ph">prod</div></div></div>
+      <div class="blk--accent blk"><span class="lab">Bento &quot;rituale&quot; [device] &middot; intro display</span><div class="row" style="grid-template-columns:2fr 1fr 1fr"><div class="ph" style="min-height:120px;grid-row:span 2">IMG feature</div><div class="ph">1 deterge</div><div class="ph">2 tratta</div><div class="ph">3 idrata (wide)</div><div class="ph">3 protegge</div></div></div>
+      <div class="blk"><span class="lab">Before / after reveal [device] &middot; slider sinistra + stat</span><div class="split"><div class="ph" style="min-height:110px">slider prima|dopo</div><div><div class="bar w50"></div><div class="bar w70"></div><div class="row r2"><div class="ph">92%</div><div class="ph">4 sett.</div></div></div></div></div>
+      <div class="blk--dark blk"><span class="lab">Story split (banda scura) &middot; testo SINISTRA + IMG destra (alterna)</span><div class="split rev"><div class="ph" style="min-height:100px">IMG scaffali</div><div><div class="bar w40"></div><div class="bar w70"></div><span class="pill" style="color:#eee;border-color:#777">La nostra storia</span></div></div></div>
+      <div class="blk"><span class="lab">Recensioni (3) &middot; intro filetto</span><div class="row r3"><div class="ph">&starf; quote</div><div class="ph">&starf; quote</div><div class="ph">&starf; quote</div></div></div>
+      <div class="blk--accent blk"><span class="lab">Newsletter (banda prugna) &middot; CENTRATA (non schiacciata)</span><div style="text-align:center"><div class="bar w50" style="margin-inline:auto"></div><div class="ph" style="max-width:420px;margin:8px auto">campo email + iscriviti</div></div></div>
+      <div class="blk--dark blk"><span class="lab">Footer (4 col + pagamenti)</span><div class="row r4"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div></div>
+    </section>
+
+    <!-- SHOP -->
+    <section class="page" data-page="shop">
+      <div class="meta"><b>Pagina:</b> Shop / listing &middot; <b>Azione:</b> filtrare e aggiungere &middot; 7 sezioni</div>
+      <div class="blk"><span class="lab">Page header &middot; breadcrumb + titolo + n. prodotti</span><div class="bar w30"></div><div class="bar w50" style="height:16px"></div></div>
+      <div class="blk--soft blk"><span class="lab">Quick-nav categorie (3 card immagine)</span><div class="row r3"><div class="ph">Viso</div><div class="ph">Corpo</div><div class="ph">Capelli</div></div></div>
+      <div class="blk"><span class="lab">Toolbar filtri + ordina</span><div class="row" style="grid-template-columns:1fr auto"><div><span class="pill">Tutti</span><span class="pill">Viso</span><span class="pill">Corpo</span><span class="pill">Capelli</span><span class="pill">Maschere</span><span class="pill">Deterg.</span></div><span class="pill">ordina &darr;</span></div></div>
+      <div class="blk"><span class="lab">Griglia prodotti (9)</span><div class="row r3"><div class="ph">prod</div><div class="ph">prod</div><div class="ph">prod</div><div class="ph">prod</div><div class="ph">prod</div><div class="ph">prod</div><div class="ph">prod</div><div class="ph">prod</div><div class="ph">prod</div></div></div>
+      <div class="blk--dark blk"><span class="lab">Banda promo full-bleed &middot; &quot;ricariche -20%&quot;</span><div style="max-width:55%"><div class="bar w50"></div><div class="bar w70"></div><span class="pill" style="color:#eee;border-color:#777">CTA</span></div></div>
+      <div class="blk--soft blk"><span class="lab">Consigliati &middot; rail orizzontale [device]</span><div class="row r5"><div class="ph">prod</div><div class="ph">prod</div><div class="ph">prod</div><div class="ph">prod</div><div class="ph">prod</div></div><div class="scrollmark">&larr; frecce &rarr;</div></div>
+      <div class="blk"><span class="lab">USP reassurance (4)</span><div class="row r4"><div class="ph">ico</div><div class="ph">ico</div><div class="ph">ico</div><div class="ph">ico</div></div></div>
+      <div class="blk"><span class="lab">FAQ accordion (prima di ordinare)</span><div class="bar w85"></div><div class="bar w70"></div><div class="bar w50"></div></div>
+    </section>
+
+    <!-- PRODOTTO -->
+    <section class="page" data-page="prodotto">
+      <div class="meta"><b>Pagina:</b> Prodotto / PDP &middot; <b>Azione primaria:</b> aggiungi al carrello &middot; 7 sezioni</div>
+      <div class="blk"><span class="lab">PDP &middot; galleria STICKY + colonna acquisto [device]</span><div class="split"><div><div class="ph" style="min-height:150px">IMG sticky</div><div class="row r4" style="margin-top:8px"><div class="ph">t</div><div class="ph">t</div><div class="ph">t</div><div class="ph">t</div></div></div><div><div class="bar w30"></div><div class="bar w70" style="height:18px"></div><div class="bar w40"></div><span class="pill">15ml</span><span class="pill">30ml</span><span class="pill">50ml</span><div class="ph" style="margin-top:6px">qty + AGGIUNGI 38&euro;</div><div class="bar w50"></div><div class="bar w50"></div><div class="bar w85" style="margin-top:8px"></div><div class="scrollmark">accordion: descrizione / INCI / uso / spedizione</div></div></div></div>
+      <div class="blk--soft blk"><span class="lab">Storia ingredienti in scroll [device] (3 step + %)</span><div class="split"><div class="ph">IMG ing</div><div><div class="bar w40"></div><div class="bar w70"></div></div></div><div class="split" style="margin-top:8px"><div class="ph">IMG ing</div><div><div class="bar w40"></div><div class="bar w70"></div></div></div></div>
+      <div class="blk"><span class="lab">Before / after &quot;i risultati&quot; [device] + 2 stat</span><div class="split"><div class="ph" style="min-height:110px">slider</div><div><div class="bar w50"></div><div class="row r2"><div class="ph">89%</div><div class="ph">28gg</div></div></div></div></div>
+      <div class="blk--accent blk"><span class="lab">Come si usa (4 step numerati)</span><div class="row r4"><div class="ph">1</div><div class="ph">2</div><div class="ph">3</div><div class="ph">4</div></div></div>
+      <div class="blk"><span class="lab">Recensioni &middot; sintesi rating + 3 card</span><div class="row r3"><div class="ph">&starf;</div><div class="ph">&starf;</div><div class="ph">&starf;</div></div></div>
+      <div class="blk"><span class="lab">Completa il rituale (4 prodotti correlati)</span><div class="row r4"><div class="ph">prod</div><div class="ph">prod</div><div class="ph">prod</div><div class="ph">prod</div></div></div>
+      <div class="blk--accent blk"><span class="lab">Banda CTA finale &quot;provalo senza pensieri&quot;</span><div style="text-align:center"><div class="bar w50" style="margin-inline:auto"></div><span class="pill">CTA</span></div></div>
+    </section>
+
+    <!-- CARRELLO -->
+    <section class="page" data-page="carrello">
+      <div class="meta"><b>Pagina:</b> Carrello &middot; <b>Azione primaria:</b> vai al checkout &middot; 6 sezioni</div>
+      <div class="blk"><span class="lab">Header + barra spedizione gratuita (progress)</span><div class="bar w30"></div><div class="ph" style="min-height:14px">progress 85%</div></div>
+      <div class="blk"><span class="lab">Carrello &middot; righe (sinistra) + RIEPILOGO sticky (destra)</span><div class="split" style="grid-template-columns:1.6fr .9fr;align-items:start"><div><div class="ph" style="min-height:50px">riga: img + nome + qty + prezzo</div><div class="ph" style="min-height:50px;margin-top:8px">riga prodotto</div><div class="ph" style="min-height:50px;margin-top:8px">riga prodotto</div></div><div class="blk--soft blk" style="margin:0"><div class="bar w70"></div><div class="bar w50"></div><div class="ph">codice sconto</div><div class="bar w85" style="height:14px"></div><div class="ph" style="margin-top:6px">VAI AL CHECKOUT</div><div class="scrollmark">trust + pay chips</div></div></div></div>
+      <div class="blk--soft blk"><span class="lab">Upsell &quot;aggiungi al tuo ordine&quot; (campione / ricarica / gift)</span><div class="row r3"><div class="ph">+ campione</div><div class="ph">+ ricarica</div><div class="ph">+ gift</div></div></div>
+      <div class="blk"><span class="lab">Completa il rituale (4 prodotti)</span><div class="row r4"><div class="ph">prod</div><div class="ph">prod</div><div class="ph">prod</div><div class="ph">prod</div></div></div>
+      <div class="blk"><span class="lab">USP reassurance (4)</span><div class="row r4"><div class="ph">ico</div><div class="ph">ico</div><div class="ph">ico</div><div class="ph">ico</div></div></div>
+      <div class="blk"><span class="lab">FAQ accordion (spedizioni / resi / ricariche / sconti)</span><div class="bar w85"></div><div class="bar w50"></div></div>
+    </section>
+
+    <!-- STORIA -->
+    <section class="page" data-page="storia">
+      <div class="meta"><b>Pagina:</b> La storia / about &middot; <b>Obiettivo:</b> fiducia + valori &middot; 10 sezioni</div>
+      <div class="blk"><span class="lab">Page header + figura flat-lay</span><div class="bar w30"></div><div class="bar w70" style="height:18px"></div><div class="ph" style="min-height:60px">IMG hero</div></div>
+      <div class="blk--soft blk"><span class="lab">Manifesto (statement centrato)</span><div style="text-align:center"><div class="bar w70" style="margin-inline:auto;height:16px"></div><div class="bar w50" style="margin-inline:auto"></div></div></div>
+      <div class="blk"><span class="lab">Origine &middot; IMG sinistra + testo destra + float-card &quot;dal 2019&quot;</span><div class="split"><div class="ph" style="min-height:110px">IMG mani</div><div><div class="bar w40"></div><div class="bar w70"></div><div class="bar w50"></div></div></div></div>
+      <div class="blk--soft blk"><span class="lab">Timeline &quot;dal campo al vasetto&quot; (5 step)</span><div class="bar w70"></div><div class="bar w70"></div><div class="bar w50"></div><div class="bar w50"></div><div class="bar w40"></div></div>
+      <div class="blk"><span class="lab">Indice botanico ingredienti (3 card)</span><div class="row r3"><div class="ph">Calendula</div><div class="ph">Camomilla</div><div class="ph">Mandorla</div></div></div>
+      <div class="blk"><span class="lab">Sostenibilit&agrave; / ricariche &middot; testo sinistra + IMG destra (alterna)</span><div class="split rev"><div class="ph" style="min-height:100px">IMG laboratorio</div><div><div class="bar w40"></div><div class="bar w70"></div></div></div></div>
+      <div class="blk--dark blk"><span class="lab">Numeri (banda scura, 4 stat)</span><div class="row r4"><div class="ph">0%</div><div class="ph">32</div><div class="ph">12km</div><div class="ph">3000+</div></div></div>
+      <div class="blk"><span class="lab">Valori (3 card)</span><div class="row r3"><div class="ph">Trasparenza</div><div class="ph">Stagionalit&agrave;</div><div class="ph">Cura</div></div></div>
+      <div class="blk--soft blk"><span class="lab">Galleria / banda full-bleed</span><div class="ph" style="min-height:70px">IMG worktable</div></div>
+      <div class="blk--accent blk"><span class="lab">CTA finale &quot;scopri la collezione&quot;</span><div style="text-align:center"><span class="pill">CTA &rarr; shop</span></div></div>
+    </section>
+
+    <div class="legend">
+      <b>Legenda:</b> blocco tratteggiato = sezione &middot; <b>[device]</b> = elemento distintivo (marquee, rail h-scroll, bento, before/after, PDP sticky + storia ingredienti) &middot; banda scura/prugna = sezione full-bleed o accent &middot; le pagine sono navigabili dalla nav reale. &nbsp; <b>Build:</b> Track A &middot; WooCommerce.
+    </div>
+  </div>
+
+  <script>
+    const tabs=[...document.querySelectorAll('.tab')], pages=[...document.querySelectorAll('.page')];
+    tabs.forEach(t=>t.addEventListener('click',()=>{
+      tabs.forEach(x=>x.setAttribute('aria-selected', String(x===t)));
+      const id=t.dataset.tab; pages.forEach(p=>p.classList.toggle('on', p.dataset.page===id));
+      window.scrollTo(0,0);
+    }));
+  </script>
+</body>
+</html>

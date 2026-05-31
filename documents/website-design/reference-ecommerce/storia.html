@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="it">
+<!-- FIORÈLA (demo) · LA STORIA / about · botanico materico. CLIENT brand layer. Built from the repo guidelines. -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>La storia · Fiorèla</title>
+  <meta name="description" content="La storia di Fiorèla: cosmesi botanica fatta in piccoli lotti in un laboratorio sul lago di Como. Poche cose, pochi ingredienti riconoscibili, vasetti ricaricabili." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=5" />
+</head>
+<body>
+  <a class="skip" href="#main">Salta al contenuto</a>
+
+  <!-- announcement -->
+  <div class="anno">Spedizione gratuita sopra <b>49&euro;</b> &middot; Campioncino omaggio in ogni ordine &middot; Cosmesi cruelty-free</div>
+
+  <!-- header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Principale">
+        <a class="brand" href="index.html" aria-label="Fiorèla home">
+          <span class="brand__mark">F</span>
+          <span class="brand__name">Fior&egrave;la</span>
+        </a>
+        <ul class="nav__links">
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="index.html#ritual">Rituali</a></li>
+          <li><a href="shop.html#best">Bestseller</a></li>
+          <li><a href="storia.html" aria-current="page">La storia</a></li>
+        </ul>
+        <div class="nav__icons">
+          <button aria-label="Cerca"><i data-lucide="search"></i></button>
+          <a href="#" aria-label="Account"><i data-lucide="user"></i></a>
+          <a href="carrello.html" aria-label="Carrello"><i data-lucide="shopping-bag"></i><span class="cartdot" data-cart-count>2</span></a>
+          <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu"><i data-lucide="menu"></i></button>
+        </div>
+      </nav>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="container"><ul>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="index.html#ritual">Rituali</a></li>
+        <li><a href="shop.html#best">Bestseller</a></li>
+        <li><a href="storia.html">La storia</a></li>
+        <li><a href="carrello.html">Carrello</a></li>
+      </ul></div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- 1 · PAGE HEADER (paper) · crumbs + intro + h1 + lead + wide hero figure -->
+    <section class="phead">
+      <div class="container">
+        <div class="reveal" style="max-width:42rem">
+          <nav class="crumbs" aria-label="Percorso">
+            <a href="index.html">Home</a><i data-lucide="chevron-right"></i><span aria-current="page">La storia</span>
+          </nav>
+          <span class="kick mt-s"><i data-lucide="sprout"></i> La nostra storia</span>
+          <h1 class="h1">Dal lago, in piccoli lotti</h1>
+          <p class="lead">Fior&egrave;la &egrave; una piccola casa di cosmesi botanica nata su una sponda del lago di Como. Coltiviamo, raccogliamo e trasformiamo le nostre piante a pochi chilometri da dove le formuliamo: una filiera che si pu&ograve; raccontare per intero, senza salti.</p>
+        </div>
+      </div>
+      <div class="container container--wide mt-l reveal">
+        <div class="figure" style="aspect-ratio:21/9">
+          <img src="img/hero-2.jpg" alt="Prodotti Fiorèla disposti su intonaco grezzo con eucalipto e fiori essiccati" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 · MANIFESTO (cream) · big centered standalone statement -->
+    <section class="section section--cream">
+      <div class="container container--narrow center reveal">
+        <p class="kick" style="justify-content:center"><i data-lucide="leaf"></i> Il nostro principio</p>
+        <p class="display" style="font-size:clamp(1.9rem,4.4vw,3.2rem); line-height:1.16; letter-spacing:-0.01em; margin-top:18px; color:var(--ink)">Crediamo in <span class="accent">poche cose fatte bene</span>: formule corte, ingredienti che sai leggere, e un vasetto che torna pieno invece di finire nel cestino.</p>
+        <p class="lead mx-auto mt-m">Non inseguiamo la novit&agrave; a ogni stagione. Preferiamo perfezionare le ricette che funzionano, ridurre quello che non serve e lasciare che siano le piante a fare il lavoro. Quello che resta &egrave; cosmesi essenziale, onesta, di cui ti puoi fidare.</p>
+      </div>
+    </section>
+
+    <!-- 3 · ORIGIN split (image LEFT, lab-1.jpg) · rule intro · float-card "dal 2019" -->
+    <section class="section section--paper">
+      <div class="container">
+        <div class="split split--75">
+          <div class="split__media reveal">
+            <div class="figure figure--43"><img src="img/lab-1.jpg" alt="Mani che travasano olio botanico ambrato nelle boccette in laboratorio" /></div>
+            <div class="float-card bl"><span class="muted" style="font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase">Dal</span><div class="h4">2019</div><span class="muted" style="font-size:13px">una cucina, un&apos;idea testarda</span></div>
+          </div>
+          <div class="stack-lg reveal">
+            <span class="krule">Le origini</span>
+            <h2 class="h2">&Egrave; cominciata da una cucina sul lago</h2>
+            <p class="lead">All&apos;inizio c&apos;era solo un fornello, qualche barattolo di vetro e l&apos;ostinazione di Elena, la nostra fondatrice, di farsi una crema che la sua pelle reattiva tollerasse davvero. Calendula raccolta dietro casa, olio di mandorla, pazienza. Le prime boccette finivano alle amiche, che ne volevano ancora.</p>
+            <p>Da quella cucina siamo passati a un vecchio laboratorio affacciato sull&apos;acqua, ma il metro &egrave; rimasto lo stesso: se non lo metteremmo sulla nostra pelle, non finisce in un vasetto Fior&egrave;la.</p>
+            <a class="linkarrow" href="#ingredienti">Le piante che usiamo <i data-lucide="arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · PROCESS TIMELINE (paper2) · numbered intro · .tl 5 steps -->
+    <section class="section section--paper2">
+      <div class="container container--narrow">
+        <div class="head reveal mb-l">
+          <span class="knum"><b>05</b> passaggi</span>
+          <h2 class="h2 mt-s">Dal campo al vasetto</h2>
+          <p class="lead">Niente grandi serbatoi n&eacute; scorciatoie industriali: ogni lotto attraversa gli stessi cinque passaggi, tutti sotto lo stesso tetto.</p>
+        </div>
+        <div class="tl reveal-stagger">
+          <div class="tl__row">
+            <span class="tl__dot">1</span>
+            <div><h3 class="h3">Coltivazione</h3><p class="muted">Calendula, camomilla e lavanda crescono nei nostri filari e in due orti di vicini di cui ci fidiamo. Niente diserbanti: il terreno deve restare vivo.</p></div>
+          </div>
+          <div class="tl__row">
+            <span class="tl__dot">2</span>
+            <div><h3 class="h3">Raccolta in stagione</h3><p class="muted">Cogliamo i fiori solo quando sono al loro picco, la mattina presto. Una pianta raccolta al momento giusto vale pi&ugrave; di qualsiasi additivo.</p></div>
+          </div>
+          <div class="tl__row">
+            <span class="tl__dot">3</span>
+            <div><h3 class="h3">Estrazione a freddo</h3><p class="muted">Mettiamo i botanici in infusione negli oli senza scaldarli: cos&igrave; gli attivi restano integri e i profumi non si bruciano.</p></div>
+          </div>
+          <div class="tl__row">
+            <span class="tl__dot">4</span>
+            <div><h3 class="h3">Formulazione in piccoli lotti</h3><p class="muted">Misceliamo poche decine di vasetti alla volta, a mano, controllando colore e consistenza a ogni passaggio. Ogni etichetta porta il numero del suo lotto.</p></div>
+          </div>
+          <div class="tl__row">
+            <span class="tl__dot">5</span>
+            <div><h3 class="h3">Confezionamento ricaricabile</h3><p class="muted">Vetro e alluminio pensati per durare. Quando il prodotto finisce, rispedisci il vasetto o ordini solo la ricarica.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · INGREDIENTS (white) · standalone display intro · botanical index grid g-3 -->
+    <section class="section section--white" id="ingredienti">
+      <div class="container">
+        <div class="head head--center mb-l reveal">
+          <h2 class="h2">Un piccolo indice botanico</h2>
+          <p class="lead mx-auto">Trentadue ingredienti in tutta la collezione, scelti uno per uno. Questi tre tornano in quasi ogni formula: sono il cuore di Fior&egrave;la.</p>
+        </div>
+        <div class="grid g-3 reveal-stagger">
+          <article class="stack-sm">
+            <div class="figure figure--43"><img src="img/ing-1.jpg" alt="Goccia d'olio botanico su una foglia coperta di rugiada" /></div>
+            <span class="kick"><i data-lucide="flower"></i> Calendula</span>
+            <p class="muted">Lenitiva e riparatrice: calma rossori e pelle reattiva. La nostra pianta-firma.</p>
+          </article>
+          <article class="stack-sm">
+            <div class="figure figure--43"><img src="img/ing-2.jpg" alt="Fiori di camomilla pestati in un mortaio di pietra" /></div>
+            <span class="kick"><i data-lucide="droplet"></i> Camomilla</span>
+            <p class="muted">Distende e dona luce: utile sulle pelli stanche e soggette a tensione.</p>
+          </article>
+          <article class="stack-sm">
+            <div class="figure figure--43"><img src="img/ing-3.jpg" alt="Botanici e mandorle disposti su un telo di lino chiaro" /></div>
+            <span class="kick"><i data-lucide="sprout"></i> Mandorla</span>
+            <p class="muted">Nutre ed elasticizza: una base ricca, tollerata anche dalle pelli pi&ugrave; secche.</p>
+          </article>
+        </div>
+        <div class="center mt-l reveal"><a class="linkarrow" href="shop.html" style="justify-content:center">Vedi i prodotti che li contengono <i data-lucide="arrow-right"></i></a></div>
+      </div>
+    </section>
+
+    <!-- 6 · SUSTAINABILITY / RICARICHE split (image RIGHT this time, workbench-1.jpg) · icon-label intro -->
+    <section class="section section--cream">
+      <div class="container">
+        <div class="split split--rev">
+          <div class="split__media reveal">
+            <div class="figure figure--43"><img src="img/workbench-1.jpg" alt="Banco da lavoro dell'erborista con vasetti, imbuti e fiori essiccati" /></div>
+            <div class="float-card br"><span class="muted" style="font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase">Ricarica</span><div class="h4">&minus;20%</div><span class="muted" style="font-size:13px">rispetto al vasetto nuovo</span></div>
+          </div>
+          <div class="stack-lg reveal">
+            <span class="kick"><i data-lucide="recycle"></i> Meno spreco</span>
+            <h2 class="h2">Un vasetto che torna pieno</h2>
+            <p class="lead">Il packaging pi&ugrave; sostenibile &egrave; quello che riusi. I nostri vasetti in vetro e i tubi in alluminio nascono per essere ricaricati: scegli la ricarica e paghi meno, mentre il contenitore resta sul tuo scaffale.</p>
+            <ul class="stack-sm" style="list-style:none;padding:0">
+              <li style="display:flex;gap:10px;align-items:center"><i data-lucide="check" style="width:18px;height:18px;color:var(--sage)"></i> Filiera corta: in media 12 km dal campo al laboratorio</li>
+              <li style="display:flex;gap:10px;align-items:center"><i data-lucide="check" style="width:18px;height:18px;color:var(--sage)"></i> Spedizioni in carta riciclata, zero plastica monouso</li>
+              <li style="display:flex;gap:10px;align-items:center"><i data-lucide="check" style="width:18px;height:18px;color:var(--sage)"></i> Ritiro dei vuoti: rendi il vetro, ti scontiamo l&apos;ordine</li>
+            </ul>
+            <a class="linkarrow" href="shop.html">Scopri le ricariche <i data-lucide="arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 · STATS band (ink) · rule intro · 4 counters -->
+    <section class="section section--ink">
+      <div class="container">
+        <div class="head head--center mb-l reveal">
+          <span class="krule" style="justify-content:center">In breve</span>
+          <h2 class="h2 mt-s">Fior&egrave;la, in quattro numeri</h2>
+        </div>
+        <div class="stats reveal-stagger">
+          <div class="stat"><b data-count="0" data-dec="0">0</b><span>% test sugli animali</span></div>
+          <div class="stat"><b data-count="32">32</b><span>ingredienti in tutta la collezione</span></div>
+          <div class="stat"><b data-count="12">12</b><span>km di filiera, in media</span></div>
+          <div class="stat"><b data-count="3000">3.000</b><span>clienti che tornano</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 · VALUES (paper) · numbered intro · 3 value cards -->
+    <section class="section section--paper">
+      <div class="container">
+        <div class="head reveal mb-l">
+          <span class="knum"><b>03</b> valori</span>
+          <h2 class="h2 mt-s">Quello su cui non scendiamo a patti</h2>
+        </div>
+        <div class="grid g-3 reveal-stagger">
+          <article class="review" style="background:var(--surface)">
+            <i data-lucide="shield-check" style="width:30px;height:30px;color:var(--plum)"></i>
+            <h3 class="h3" style="margin-top:14px">Trasparenza</h3>
+            <p class="muted" style="margin-top:8px">L&apos;etichetta dice tutto, in chiaro. Niente sigle che nascondono riempitivi, niente percentuali gonfiate.</p>
+          </article>
+          <article class="review" style="background:var(--surface)">
+            <i data-lucide="sun" style="width:30px;height:30px;color:var(--plum)"></i>
+            <h3 class="h3" style="margin-top:14px">Stagionalit&agrave;</h3>
+            <p class="muted" style="margin-top:8px">Lavoriamo le piante quando la stagione le offre. Alcuni lotti sono limitati: &egrave; il prezzo, giusto, del rispetto del ciclo naturale.</p>
+          </article>
+          <article class="review" style="background:var(--surface)">
+            <i data-lucide="heart" style="width:30px;height:30px;color:var(--plum)"></i>
+            <h3 class="h3" style="margin-top:14px">Cura</h3>
+            <p class="muted" style="margin-top:8px">Ogni vasetto passa da mani che lo controllano. Se qualcosa non convince, non parte: la cura viene prima del calendario.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9 · FULL-BLEED band (bg workbench) · short caption -->
+    <section class="section bg-section bg-section--ink">
+      <img class="bg-img" src="img/workbench-1.jpg" alt="Veduta ravvicinata del banco da lavoro con fiori, oli e strumenti dell'erborista" />
+      <div class="container container--narrow center reveal">
+        <span class="kick" style="justify-content:center;color:#E9D9F0"><i data-lucide="sparkles"></i> Il laboratorio</span>
+        <p class="display" style="font-size:clamp(1.6rem,3.4vw,2.4rem);line-height:1.2;margin-top:16px;color:#fff">&laquo; Se non lo capiamo noi, non lo chiediamo alla tua pelle. &raquo;</p>
+        <p class="lead mx-auto mt-s" style="color:#efe7f2">Tutto quello che vedi qui sopra succede davvero, ogni settimana, sotto lo stesso tetto sul lago.</p>
+      </div>
+    </section>
+
+    <!-- 10 · CLOSING CTA (plum) · centered, balanced -->
+    <section class="section section--plum">
+      <div class="container container--narrow center reveal">
+        <span class="kick" style="justify-content:center"><i data-lucide="flower"></i> Inizia da qui</span>
+        <h2 class="h2 mt-s">Scopri la collezione</h2>
+        <p class="lead mx-auto" style="color:#efe7f2">Poche formule, pensate per durare e per tornare. Trova il tuo rituale e provalo: c&apos;&egrave; sempre un campioncino in regalo nel pacco.</p>
+        <div class="hero__cta" style="justify-content:center">
+          <a class="btn btn--light btn--lg" href="shop.html">Scopri la collezione <i data-lucide="arrow-right"></i></a>
+          <a class="btn btn--onplum btn--lg" href="shop.html#best">I bestseller</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a class="brand" href="index.html"><span class="brand__mark">F</span><span class="brand__name">Fior&egrave;la</span></a>
+          <p class="mt-s">Cosmesi botanica in piccoli lotti, dal lago di Como. Formule corte, vasetti ricaricabili, mai test animali.</p>
+        </div>
+        <div><h4>Shop</h4><ul><li><a href="shop.html">Viso</a></li><li><a href="shop.html">Corpo</a></li><li><a href="shop.html">Capelli</a></li><li><a href="shop.html#best">Bestseller</a></li><li><a href="shop.html">Set rituale</a></li></ul></div>
+        <div><h4>Aiuto</h4><ul><li><a href="#">Spedizioni e resi</a></li><li><a href="#">Ricariche</a></li><li><a href="storia.html">Ingredienti</a></li><li><a href="#">Contatti</a></li></ul></div>
+        <div><h4>Newsletter</h4><p style="font-size:14px;margin-bottom:12px">Il 10% sul primo ordine.</p><form class="nl nl--ink" style="max-width:none;margin:0" onsubmit="return false"><input type="email" placeholder="Email" aria-label="Email" /><button class="btn btn--primary btn--icon" type="submit" aria-label="Iscriviti"><i data-lucide="arrow-right"></i></button></form></div>
+      </div>
+      <div class="footer__bar">
+        <span>&copy; 2026 Fior&egrave;la &middot; P.IVA 0000000000 &middot; Demo Lavder</span>
+        <div class="pay"><span>VISA</span><span>MASTERCARD</span><span>PAYPAL</span><span>SATISPAY</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="app.js?v=5"></script>
+</body>
+</html>

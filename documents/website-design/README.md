@@ -16,7 +16,8 @@ This guide is different from `preventivi/` and `case-studies/` in one fundamenta
 | [`image-generation.md`](./image-generation.md) | How to generate/source imagery so the style matches the use (real camera photo vs the fake CGI look); prompt recipes per mood/sector; Lavder ImageGen usage; vetting |
 | [`build-quality.md`](./build-quality.md) | Build-and-verify checklist: layout robustness, horizontal containment, motion/reveal robustness, responsive widths, how to verify, pre-ship checklist |
 | [`concept-ledger.md`](./concept-ledger.md) | The "seed" registry: a living record of every design's fingerprint, so no two clients get the same site |
-| `reference-corporate/` | Worked example: a **multi-page**, navigable hi-fi prototype (corporate archetype, demo client Officine Lario). Client-branded, self-contained (own `styles.css` + `app.js`, real stock images, GSAP + Lenis motion). Pages: `index.html` (home), `lavorazione.html`, `contatti.html`, `azienda.html`, plus `sitemap.html` and `wireframe.html`; `img/` holds the photos. Copy the folder per archetype |
+| `reference-corporate/` | Worked example #1: a **multi-page**, navigable hi-fi prototype (corporate archetype, demo client Officine Lario). Client-branded, self-contained (own `styles.css` + `app.js`, real stock images, GSAP + Lenis motion). Pages: `index.html` (home), `lavorazione.html`, `contatti.html`, `azienda.html`, plus `sitemap.html` and `wireframe.html`; `img/` holds the photos. Copy the folder per archetype |
+| `reference-ecommerce/` | Worked example #2: an **e-commerce** hi-fi prototype (demo brand FIORÈLA, botanical cosmetics) built **only** from this folder's guidelines as a self-sufficiency test. `caldo` mood, prugna accent on cream, soft radius, Fraunces + Nunito Sans. Rich home (`index.html`): announcement bar, sticky nav + cart, full-bleed photo hero, USP strip, category cards, best-seller product grid, story split, reviews, plum newsletter band, 4-col footer. Lenis + IntersectionObserver reveals (no GSAP), camera-real AI imagery. Plus navigable `wireframe.html` and wireframe-style `sitemap.html`; `img/` holds the photos |
 | `presentation-template.html` | The Lavder-branded 16:9 presentation wrapper that frames the prototype (cover, objectives, sitemap, brand direction, mockup, rationale, next steps) |
 | `reference-corporate-home.png` | Home screenshot embedded in the presentation deck. Regenerate when the mockup changes |
 
@@ -128,10 +129,11 @@ Lavder designs **section by section**, not pixel by pixel. This is deliberate: i
 
 `hero` · `value strip / USP` · `services or products grid` · `social proof (client logos, testimonials, reviews, ratings)` · `about / story` · `process / how it works` · `stats / numbers` · `gallery / portfolio` · `pricing` · `FAQ` · `lead form / contact` · `CTA band` · `footer`.
 
-**Distinctive devices (do not ship sparse).** A page must not be a stack of plain text and equal cards. Reach for these to give depth and craft; use several per page, with restraint:
+**Distinctive devices (do not ship sparse).** A page must not be a stack of plain text and equal cards. Reach for these to give depth and craft; use several per page, with restraint. **Rotate them:** the device mix, the hero pattern and the section-intro style must change from one project to the next (check the [concept-ledger](./concept-ledger.md)). No single device or copy tic (the same `eyebrow · with-a-dot` over every section, the same stock phrasing like "fatto a mano") may become your house signature stamped on every client.
 
 - **Full-bleed image-background sections** (hero + 1-2 bands): a photo behind a 60-80% ink overlay, content on top. Use for the hero, a stats band, a featured case, the final CTA.
 - **A video background** on one band (muted, autoplay, loop, `playsinline`, poster fallback): the product/process in motion. One per page, never with sound.
+- **An auto-advancing hero / media slideshow** (2-4 photos cross-fading slowly, Ken Burns on the active layer, paused under `prefers-reduced-motion`): more life than a single hero image, at no layout cost. One subject per frame; the headline must stay readable on every slide.
 - **Bento grid** instead of N equal cards: one large feature cell (with imagery) plus smaller cells.
 - **Overlap / asymmetry**: a card overlapping a bleeding image, 7/5 splits, negative margins.
 - **Immersive cards**: full-image cards with a gradient and hover zoom (sectors, work, products).
@@ -140,9 +142,11 @@ Lavder designs **section by section**, not pixel by pixel. This is deliberate: i
 
 Richness bar by tier: **Tier 1** landing = a hero (image or video background) + at least 2 distinctive devices. **Tier 2** vetrina = 4+ distinctive devices across the home, imagery in most sections, no all-text folds. **Tier 3** = the full vocabulary. Every full-bleed media keeps AA-contrast text (via the overlay), honors `prefers-reduced-motion`, and stays feasible on the chosen build track.
 
+**Length & completeness floors (a thin page is a defect).** Build *every* primary page in the sitemap, not just the home (see §14). Section-count floor per page, footer excluded: **Tier 2 = 6+ sections**, **Tier 3 = 7-12 sections**. **No inner page is thinner than the home:** a rich home in front of half-empty listing / product / about pages is the single most common failure. Each page earns its own hero or page-header, its own imagery, and its own 2-3 distinctive devices. If a page has nothing to fill it, that is a content / IA problem to flag, not a licence to ship three short folds.
+
 **Section thinking rules:**
 - One section, one job, one hierarchy. One h1 on the page (the hero), one primary CTA per fold.
-- Alternate rhythm: do not stack three identical card-grids in a row. Vary section shape (full-bleed vs contained, light vs dark, text-led vs image-led).
+- **Vary and balance composition, section to section.** Do not stack three identical card-grids in a row, and do not give two adjacent sections the same layout. Vary section shape (full-bleed vs contained, light vs dark, text-led vs image-led) *and* alignment: alternate which side the image and the copy sit on (a left-image split is followed by a right-image split or a centered band) so the eye zig-zags down the page. **Balance every section:** content must not be jammed to one edge with an empty opposite half (a hero with all text crushed right, a newsletter band crushed left). Either fill the space, center it, or make the asymmetry deliberate and weighted: never accidental.
 - **Feasibility check (per track).** Before a section reaches hi-fi, sanity-check it against the build track. Track A: can Impreza/WPBakery build this economically, or does it need custom code that blows the budget? Track B: any heavy interaction that needs a real plan? Kill or simplify infeasible ideas now, not at handoff.
 - On **Tier 3** this phase produces a low-fi **wireframe** (grayscale, structure only) that gets its own approval gate before any visual work.
 
@@ -161,7 +165,7 @@ Do **not** decide the look unilaterally. Before building hi-fi, lock the brand-l
 - **Fonts** (any family from the **full Google Fonts library**; see [`sources.md`](./sources.md)).
 - **Imagery strategy** (real category stock, AI-generated, placeholders, or a mix).
 - **Motion level** (rich GSAP + Lenis, sober reveal + hover, or static).
-- **Pages** to build in the prototype.
+- **Pages** to build (default: **every primary page** in the sitemap; the client may scope down, but the chosen pages are each built in full, never as thin stubs).
 
 Use the `AskUserQuestion`-style flow (multiple-choice with an "other" escape for custom hex/fonts). Record the choices in the [discovery brief](./discovery-brief.md) §8 and log the resulting fingerprint in the [concept-ledger](./concept-ledger.md).
 
@@ -187,9 +191,9 @@ Use the `AskUserQuestion`-style flow (multiple-choice with an "other" escape for
 - Layer surfaces by elevation, communicate depth with shadow not random tints.
 
 ### 9.4 Components (pull, do not reinvent)
-- Build the mockup from the kits in [`sources.md`](./sources.md), restyled to the client's tokens. Do not hand-roll a button when a kit section is 90% there.
+- **Pull, then adapt: this is the creativity engine, not optional.** For every build, actively lift **at least 2-3 concrete section / layout patterns** from the kits and inspiration in [`sources.md`](./sources.md) / §13 (Preline, HyperUI, Flowbite, Aceternity, Godly, Land-book, Awwwards, etc.) and restyle them to the client. This is how output stays fresh and stops converging on the same self-generated layout. Record which patterns you pulled in the [discovery brief](./discovery-brief.md) §8. Do not hand-roll a button or a whole section when a kit is 90% there.
 - Re-skin everything to the brand layer: a pulled section must look like the client, not like the kit's demo.
-- Interaction states are part of design, not an afterthought: hover, focus-visible (always a visible ring), active, disabled, loading, empty, error.
+- Interaction states are part of design, not an afterthought: hover, focus-visible (always a visible ring), active, disabled, loading, empty, error. A hover effect must **never hide content** (an image that zooms on hover paints over un-`z-index`ed overlays like badges); accordions animate open *and* closed; rails get a themed scrollbar; inline buttons are sized to role. See [`build-quality.md`](./build-quality.md) §4.
 - Buttons are squared (`radius.md` 8 px). `radius.full` is for tags/avatars/badges only, never CTAs.
 
 ### 9.5 Imagery (craft, constant)
@@ -219,6 +223,9 @@ Run this on every mockup, regardless of client or mood. A "no" is a defect:
 - [ ] Real or realistic imagery; no AI humans; no default/system data.
 - [ ] Mobile designed, not just desktop.
 - [ ] Reduced-motion path exists for every animation.
+- [ ] **Every primary page in the sitemap is built**, each to the richness / length floor (§8); no inner page thinner than the home.
+- [ ] **Composition varies section to section and is balanced**: adjacent sections differ in layout, image / copy sides alternate, nothing is jammed to one edge with an empty half.
+- [ ] **Not a carbon copy of the last build:** device mix, hero pattern, section-intro device and copy differ from the previous fingerprint (checked against the concept-ledger); 2-3 fresh patterns pulled from the kits.
 
 ## 10. Archetypes & recipes
 
@@ -314,7 +321,7 @@ The deliverable is a **navigable hi-fi prototype** wrapped in a **light Lavder p
 **The prototype (the centerpiece):**
 - HTML/Tailwind, navigable, responsive (real desktop + mobile, not a flat image).
 - Client-branded throughout; realistic copy and imagery, no lorem/Test User.
-- Covers the home plus the key templates (e.g. a service page, a product page), not every page.
+- On Tier 2-3, covers **every primary page in the sitemap** (home + each main template: e.g. category / listing, product / PDP, cart, about / story, contact), not just the home plus a token template. Each page is built to the richness / length floor in §8, and inner pages are never thinner than the home.
 - Delivered as a link the client can open (hosted) and click through.
 
 **The presentation wrapper (Lavder-branded):**

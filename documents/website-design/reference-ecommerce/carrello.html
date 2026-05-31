@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="it">
+<!-- FIORÈLA (demo) · CARRELLO · botanico materico. CLIENT brand layer. Built from the repo guidelines. -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carrello &middot; Fior&egrave;la</title>
+  <meta name="description" content="Il tuo carrello Fior&egrave;la: rivedi i prodotti, applica un codice sconto e completa l&apos;ordine. Spedizione gratuita sopra 49&euro;, reso entro 30 giorni." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=5" />
+  <style>
+    /* scoped: small order-bump cards (reuse tokens only) */
+    .bump { background:var(--surface); border:1px solid var(--line); border-radius:var(--r-card); padding:16px; display:flex; gap:14px; align-items:center; transition:border-color .2s var(--ease), box-shadow .2s var(--ease); }
+    .bump:hover { border-color:rgba(109,76,125,.4); box-shadow:var(--sh-1); }
+    .bump .ph { width:60px; height:60px; border-radius:12px; overflow:hidden; background:var(--paper); flex:none; }
+    .bump .ph img { width:100%; height:100%; object-fit:cover; }
+    .bump .bd { flex:1; min-width:0; }
+    .bump .bd .t { font-family:var(--font-display); font-weight:600; font-size:1rem; line-height:1.2; }
+    .bump .bd .s { font-size:12.5px; color:var(--n500); }
+    .bump .bd .p { font-size:13px; font-weight:800; margin-top:3px; }
+    .bump .bd .p s { color:var(--n400); font-weight:600; margin-right:5px; }
+    .qty[data-qty] span { width:46px; text-align:center; font-weight:800; display:inline-grid; place-items:center; }
+    .summary .field { margin:14px 0; }
+    .summary .field .ig { display:flex; gap:8px; }
+    .summary .field .ig input { flex:1; }
+    .trust { display:flex; flex-direction:column; gap:9px; margin-top:16px; font-size:13px; color:var(--n500); }
+    .trust .tl { display:flex; gap:9px; align-items:center; }
+    .trust .tl svg { width:16px; height:16px; color:var(--sage); flex:none; }
+    .summary .pay { margin-top:16px; padding-top:14px; border-top:1px solid var(--line); }
+    .summary .pay span { border:1px solid var(--line-2); color:var(--n500); border-radius:5px; padding:3px 8px; font-size:10px; letter-spacing:.06em; }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Salta al contenuto</a>
+
+  <!-- announcement -->
+  <div class="anno">Spedizione gratuita sopra <b>49&euro;</b> &middot; Campioncino omaggio in ogni ordine &middot; Cosmesi cruelty-free</div>
+
+  <!-- header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Principale">
+        <a class="brand" href="index.html" aria-label="Fiorèla home">
+          <span class="brand__mark">F</span>
+          <span class="brand__name">Fior&egrave;la</span>
+        </a>
+        <ul class="nav__links">
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="index.html#ritual">Rituali</a></li>
+          <li><a href="shop.html#best">Bestseller</a></li>
+          <li><a href="storia.html">La storia</a></li>
+        </ul>
+        <div class="nav__icons">
+          <button aria-label="Cerca"><i data-lucide="search"></i></button>
+          <a href="#" aria-label="Account"><i data-lucide="user"></i></a>
+          <a href="carrello.html" aria-label="Carrello" aria-current="page"><i data-lucide="shopping-bag"></i><span class="cartdot" data-cart-count>2</span></a>
+          <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu"><i data-lucide="menu"></i></button>
+        </div>
+      </nav>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="container"><ul>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="index.html#ritual">Rituali</a></li>
+        <li><a href="shop.html#best">Bestseller</a></li>
+        <li><a href="storia.html">La storia</a></li>
+        <li><a href="carrello.html">Carrello</a></li>
+      </ul></div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- 1 · PAGE HEADER: breadcrumbs + h1 + free-shipping progress note -->
+    <section class="phead">
+      <div class="container">
+        <nav class="crumbs reveal" aria-label="Percorso">
+          <a href="index.html">Home</a> <i data-lucide="chevron-right"></i>
+          <a href="shop.html">Shop</a> <i data-lucide="chevron-right"></i>
+          <span aria-current="page">Carrello</span>
+        </nav>
+        <h1 class="h1 reveal">Il tuo carrello</h1>
+        <p class="lead reveal">Tre prodotti pronti per la spedizione. Controlla quantit&agrave; e formati, poi procedi quando vuoi: il carrello resta salvato.</p>
+        <div class="reveal" style="margin-top:22px;max-width:520px">
+          <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:800;color:var(--ink-2);margin-bottom:8px">
+            <span>Ti mancano <span style="color:var(--plum)">7&euro;</span> alla spedizione gratuita</span>
+            <span class="muted">79&euro; / 86&euro;</span>
+          </div>
+          <div class="progress"><i style="width:85%"></i></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 · CART: lines (left) + sticky summary (right). cream bg -->
+    <section class="section section--cream">
+      <div class="container">
+        <div class="cart">
+
+          <!-- LEFT: cart lines -->
+          <div class="reveal">
+            <div class="cartline">
+              <span class="ph"><img src="img/prod-a.jpg" alt="Siero illuminante alla calendula, flacone da 30 ml" /></span>
+              <div>
+                <div class="nm">Siero Calendula</div>
+                <div class="meta">Illuminante &middot; 30 ml</div>
+                <div style="display:flex;gap:16px;align-items:center;margin-top:12px">
+                  <div class="qty" data-qty>
+                    <button aria-label="Riduci quantit&agrave;"><i data-lucide="minus"></i></button>
+                    <span>1</span>
+                    <button aria-label="Aumenta quantit&agrave;"><i data-lucide="plus"></i></button>
+                  </div>
+                  <button class="rm" aria-label="Rimuovi Siero Calendula">Rimuovi</button>
+                </div>
+              </div>
+              <span class="price">38&euro;</span>
+            </div>
+
+            <div class="cartline">
+              <span class="ph"><img src="img/prod-d.jpg" alt="Olio corpo alla mandorla, flacone da 100 ml" /></span>
+              <div>
+                <div class="nm">Olio Mandorla</div>
+                <div class="meta">Elasticizzante &middot; 100 ml</div>
+                <div style="display:flex;gap:16px;align-items:center;margin-top:12px">
+                  <div class="qty" data-qty>
+                    <button aria-label="Riduci quantit&agrave;"><i data-lucide="minus"></i></button>
+                    <span>1</span>
+                    <button aria-label="Aumenta quantit&agrave;"><i data-lucide="plus"></i></button>
+                  </div>
+                  <button class="rm" aria-label="Rimuovi Olio Mandorla">Rimuovi</button>
+                </div>
+              </div>
+              <span class="price">29&euro;</span>
+            </div>
+
+            <div class="cartline">
+              <span class="ph"><img src="img/prod-g.jpg" alt="Sapone botanico alla lavanda, panetto da 110 g" /></span>
+              <div>
+                <div class="nm">Sapone Lavanda</div>
+                <div class="meta">Solido &middot; 110 g</div>
+                <div style="display:flex;gap:16px;align-items:center;margin-top:12px">
+                  <div class="qty" data-qty>
+                    <button aria-label="Riduci quantit&agrave;"><i data-lucide="minus"></i></button>
+                    <span>1</span>
+                    <button aria-label="Aumenta quantit&agrave;"><i data-lucide="plus"></i></button>
+                  </div>
+                  <button class="rm" aria-label="Rimuovi Sapone Lavanda">Rimuovi</button>
+                </div>
+              </div>
+              <span class="price">12&euro;</span>
+            </div>
+
+            <a class="linkarrow" href="shop.html" style="margin-top:24px"><i data-lucide="arrow-left"></i> Continua lo shopping</a>
+          </div>
+
+          <!-- RIGHT: sticky summary -->
+          <aside class="summary reveal" aria-label="Riepilogo ordine">
+            <h2 class="h4" style="font-size:1.3rem;margin-bottom:6px">Riepilogo</h2>
+            <div class="row"><span>Subtotale</span><span>79&euro;</span></div>
+            <div class="row"><span>Spedizione</span><span style="color:var(--sage);font-weight:800">Gratuita</span></div>
+
+            <div class="field">
+              <label for="promo">Hai un codice sconto?</label>
+              <div class="ig">
+                <input id="promo" type="text" placeholder="Inserisci il codice" autocomplete="off" />
+                <button class="btn btn--soft" type="button">Applica</button>
+              </div>
+            </div>
+
+            <div class="row total"><span>Totale</span><span>79&euro;</span></div>
+
+            <a class="btn btn--primary btn--block btn--lg" href="#" style="margin-top:18px">Vai al checkout <i data-lucide="arrow-right"></i></a>
+
+            <div class="trust">
+              <div class="tl"><i data-lucide="lock"></i> Pagamento sicuro e crittografato</div>
+              <div class="tl"><i data-lucide="rotate-ccw"></i> Reso gratuito entro 30 giorni</div>
+              <div class="tl"><i data-lucide="gift"></i> Campioncino omaggio in ogni ordine</div>
+            </div>
+
+            <div class="pay"><span>VISA</span><span>MASTERCARD</span><span>PAYPAL</span><span>SATISPAY</span></div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · ORDER BUMP: "Aggiungi al tuo ordine" small cards. paper bg -->
+    <section class="section section--paper">
+      <div class="container">
+        <div class="head mb-l reveal">
+          <span class="knum"><b>+</b> Piccoli extra</span>
+          <h2 class="h2 mt-s">Aggiungi al tuo ordine</h2>
+          <p class="lead">Tre aggiunte da abbinare in un tocco, prima di chiudere: pensate per arrivare insieme al resto.</p>
+        </div>
+        <div class="grid g-3 reveal-stagger">
+          <div class="bump">
+            <span class="ph"><img src="img/prod-i.jpg" alt="Campione omaggio di maschera all&apos;argilla" /></span>
+            <div class="bd">
+              <div class="t">Campione argilla</div>
+              <div class="s">Maschera viso &middot; 8 ml</div>
+              <div class="p">Omaggio</div>
+            </div>
+            <button class="iconbtn" data-add aria-label="Aggiungi il campione argilla all&apos;ordine"><i data-lucide="plus"></i></button>
+          </div>
+          <div class="bump">
+            <span class="ph"><img src="img/prod-a.jpg" alt="Ricarica del siero alla calendula" /></span>
+            <div class="bd">
+              <div class="t">Ricarica Siero</div>
+              <div class="s">Calendula &middot; 30 ml</div>
+              <div class="p"><s>30&euro;</s> 24&euro;</div>
+            </div>
+            <button class="iconbtn" data-add aria-label="Aggiungi la ricarica del siero all&apos;ordine"><i data-lucide="plus"></i></button>
+          </div>
+          <div class="bump">
+            <span class="ph"><img src="img/ing-3.jpg" alt="Confezione regalo in carta botanica" /></span>
+            <div class="bd">
+              <div class="t">Confezione regalo</div>
+              <div class="s">Carta &amp; nastro di lino</div>
+              <div class="p">4&euro;</div>
+            </div>
+            <button class="iconbtn" data-add aria-label="Aggiungi la confezione regalo all&apos;ordine"><i data-lucide="plus"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · RECOMMENDED: "Completa il rituale" 4 product cards. white bg (alternates) -->
+    <section class="section section--white">
+      <div class="container">
+        <div class="flex-between mb-l reveal">
+          <div class="head"><span class="kick"><i data-lucide="leaf"></i> Si abbinano bene</span><h2 class="h2 mt-s">Completa il rituale</h2></div>
+          <a class="linkarrow" href="shop.html">Vai allo shop <i data-lucide="arrow-right"></i></a>
+        </div>
+        <div class="grid g-4 reveal-stagger">
+          <article class="product">
+            <div class="product__media"><span class="badge badge--sage">Novit&agrave;</span><button class="wish" aria-label="Salva Crema Fico d&apos;India"><i data-lucide="heart"></i></button><img src="img/prod-e.jpg" alt="Crema viso al fico d&apos;India" /></div>
+            <div class="product__b"><span class="cat-tag">Viso</span><a href="prodotto.html"><span class="nm">Crema Fico d&apos;India</span></a><span class="ds">Nutriente &middot; 50 ml</span>
+              <div class="product__row"><span class="price">42&euro;</span><button class="iconbtn" data-add aria-label="Aggiungi Crema Fico d&apos;India al carrello"><i data-lucide="plus"></i></button></div></div>
+          </article>
+          <article class="product">
+            <div class="product__media"><button class="wish" aria-label="Salva Tonico Camomilla"><i data-lucide="heart"></i></button><img src="img/prod-f.jpg" alt="Tonico viso alla camomilla" /></div>
+            <div class="product__b"><span class="cat-tag">Viso</span><a href="prodotto.html"><span class="nm">Tonico Camomilla</span></a><span class="ds">Lenitivo &middot; 150 ml</span>
+              <div class="product__row"><span class="price">26&euro;</span><button class="iconbtn" data-add aria-label="Aggiungi Tonico Camomilla al carrello"><i data-lucide="plus"></i></button></div></div>
+          </article>
+          <article class="product">
+            <div class="product__media"><span class="badge badge--clay">Edizione</span><button class="wish" aria-label="Salva Crema Notte Rosa"><i data-lucide="heart"></i></button><img src="img/prod-c.jpg" alt="Crema notte alla rosa" /></div>
+            <div class="product__b"><span class="cat-tag">Viso</span><a href="prodotto.html"><span class="nm">Crema Notte Rosa</span></a><span class="ds">Rigenerante &middot; 50 ml</span>
+              <div class="product__row"><span class="price">46&euro;</span><button class="iconbtn" data-add aria-label="Aggiungi Crema Notte Rosa al carrello"><i data-lucide="plus"></i></button></div></div>
+          </article>
+          <article class="product">
+            <div class="product__media"><button class="wish" aria-label="Salva Burro Karit&eacute;"><i data-lucide="heart"></i></button><img src="img/prod-h.jpg" alt="Burro corpo al karit&eacute;" /></div>
+            <div class="product__b"><span class="cat-tag">Corpo</span><a href="prodotto.html"><span class="nm">Burro Karit&eacute;</span></a><span class="ds">Ricco &middot; 120 ml</span>
+              <div class="product__row"><span class="price">24&euro;</span><button class="iconbtn" data-add aria-label="Aggiungi Burro Karit&eacute; al carrello"><i data-lucide="plus"></i></button></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · REASSURANCE usp strip. cream bg, compact -->
+    <section class="section section--cream section--pad-sm">
+      <div class="container">
+        <div class="usp reveal-stagger">
+          <div class="usp__i"><i data-lucide="truck"></i><div><b>Spedizione 48h</b><span>Consegna rapida, gratis sopra 49&euro;</span></div></div>
+          <div class="usp__i"><i data-lucide="rotate-ccw"></i><div><b>Reso 30 giorni</b><span>Cambi idea? Te lo riprendiamo</span></div></div>
+          <div class="usp__i"><i data-lucide="shield-check"></i><div><b>Pagamenti sicuri</b><span>Transazioni crittografate</span></div></div>
+          <div class="usp__i"><i data-lucide="message-circle"></i><div><b>Assistenza umana</b><span>Scrivici, rispondiamo in giornata</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 · FAQ accordion. paper2 bg (varies from neighbors) -->
+    <section class="section section--paper2">
+      <div class="container container--narrow">
+        <div class="head head--center mb-l reveal">
+          <h2 class="h2">Prima di ordinare</h2>
+          <p class="lead mx-auto">Le domande che riceviamo pi&ugrave; spesso al banco delle spedizioni.</p>
+        </div>
+        <div class="acc reveal">
+          <details>
+            <summary>Quanto costa e quanto dura la spedizione? <span class="ic"><i data-lucide="plus"></i></span></summary>
+            <div class="body">Spediamo in 24-48 ore lavorative con corriere tracciato. La spedizione &egrave; gratuita per ordini sopra 49&euro;, altrimenti il costo &egrave; di 4,90&euro;. Ti arriva un&apos;email con il tracking appena il pacco parte dal laboratorio.</div>
+          </details>
+          <details>
+            <summary>Posso restituire un prodotto gi&agrave; aperto? <span class="ic"><i data-lucide="plus"></i></span></summary>
+            <div class="body">Hai 30 giorni per il reso. Per ragioni igieniche accettiamo indietro i cosmetici aperti solo in caso di reazione cutanea o difetto: scrivici e troviamo insieme la soluzione, sostituzione o rimborso. I prodotti integri si rendono senza domande.</div>
+          </details>
+          <details>
+            <summary>Come funzionano le ricariche? <span class="ic"><i data-lucide="plus"></i></span></summary>
+            <div class="body">Conserva il vasetto in vetro del primo acquisto e riordina solo la ricarica: costa il 20% in meno e usa molto meno packaging. La trovi sulla scheda di ogni prodotto compatibile, oppure tra gli extra qui sopra nel carrello.</div>
+          </details>
+          <details>
+            <summary>Dove inserisco il codice sconto? <span class="ic"><i data-lucide="plus"></i></span></summary>
+            <div class="body">Nel riepilogo, qui sopra: digita il codice nel campo dedicato e premi Applica. Lo sconto si aggiorna sul totale prima del checkout. I codici non si cumulano tra loro, ma valgono anche sui prodotti gi&agrave; in promozione.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a class="brand" href="index.html"><span class="brand__mark">F</span><span class="brand__name">Fior&egrave;la</span></a>
+          <p class="mt-s">Cosmesi botanica in piccoli lotti, dal lago di Como. Formule corte, vasetti ricaricabili, mai test animali.</p>
+        </div>
+        <div><h4>Shop</h4><ul><li><a href="shop.html">Viso</a></li><li><a href="shop.html">Corpo</a></li><li><a href="shop.html">Capelli</a></li><li><a href="shop.html#best">Bestseller</a></li><li><a href="shop.html">Set rituale</a></li></ul></div>
+        <div><h4>Aiuto</h4><ul><li><a href="#">Spedizioni e resi</a></li><li><a href="#">Ricariche</a></li><li><a href="storia.html">Ingredienti</a></li><li><a href="#">Contatti</a></li></ul></div>
+        <div><h4>Newsletter</h4><p style="font-size:14px;margin-bottom:12px">Il 10% sul primo ordine.</p><form class="nl nl--ink" style="max-width:none;margin:0" onsubmit="return false"><input type="email" placeholder="Email" aria-label="Email" /><button class="btn btn--primary btn--icon" type="submit" aria-label="Iscriviti"><i data-lucide="arrow-right"></i></button></form></div>
+      </div>
+      <div class="footer__bar">
+        <span>&copy; 2026 Fior&egrave;la &middot; P.IVA 0000000000 &middot; Demo Lavder</span>
+        <div class="pay"><span>VISA</span><span>MASTERCARD</span><span>PAYPAL</span><span>SATISPAY</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="app.js?v=5"></script>
+</body>
+</html>

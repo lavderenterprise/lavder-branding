@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="it">
+<!-- FIORÈLA (demo) · SHOP (product listing) · botanico materico. CLIENT brand layer. Built from the repo guidelines. -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shop &middot; Fiorèla</title>
+  <meta name="description" content="Tutta la cosmesi botanica Fiorèla: sieri, creme, oli, maschere e detergenti in piccoli lotti. Filtra per viso, corpo e capelli, con vasetti ricaricabili." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=5" />
+</head>
+<body>
+  <a class="skip" href="#main">Salta al contenuto</a>
+
+  <!-- announcement -->
+  <div class="anno">Spedizione gratuita sopra <b>49&euro;</b> &middot; Campioncino omaggio in ogni ordine &middot; Cosmesi cruelty-free</div>
+
+  <!-- header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Principale">
+        <a class="brand" href="index.html" aria-label="Fiorèla home">
+          <span class="brand__mark">F</span>
+          <span class="brand__name">Fior&egrave;la</span>
+        </a>
+        <ul class="nav__links">
+          <li><a href="shop.html" aria-current="page">Shop</a></li>
+          <li><a href="index.html#ritual">Rituali</a></li>
+          <li><a href="shop.html#best">Bestseller</a></li>
+          <li><a href="storia.html">La storia</a></li>
+        </ul>
+        <div class="nav__icons">
+          <button aria-label="Cerca"><i data-lucide="search"></i></button>
+          <a href="#" aria-label="Account"><i data-lucide="user"></i></a>
+          <a href="carrello.html" aria-label="Carrello"><i data-lucide="shopping-bag"></i><span class="cartdot" data-cart-count>2</span></a>
+          <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu"><i data-lucide="menu"></i></button>
+        </div>
+      </nav>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="container"><ul>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="index.html#ritual">Rituali</a></li>
+        <li><a href="shop.html#best">Bestseller</a></li>
+        <li><a href="storia.html">La storia</a></li>
+        <li><a href="carrello.html">Carrello</a></li>
+      </ul></div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- 1 · PAGE HEADER (.phead) · numbered intro -->
+    <section class="phead">
+      <div class="container">
+        <div class="reveal">
+          <nav class="crumbs" aria-label="Percorso">
+            <a href="index.html">Home</a> <i data-lucide="chevron-right"></i> <span aria-current="page">Shop</span>
+          </nav>
+          <span class="knum mt-s"><b>24</b> referenze in catalogo</span>
+          <h1 class="h1">Shop</h1>
+          <p class="lead">Tutta la collezione botanica, dal siero al sapone solido. Formule corte, vasetti ricaricabili e profumi che arrivano solo dagli oli essenziali. Scegli per gesto, non per scaffale.</p>
+          <p class="muted mt-s" style="font-size:14px;font-weight:700">24 prodotti &middot; aggiornati ad ogni nuovo lotto</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 · CATEGORY QUICK-NAV · standalone display intro -->
+    <section class="section section--cream">
+      <div class="container">
+        <div class="head head--center mb-l reveal">
+          <h2 class="h2">Parti da dove ti serve</h2>
+          <p class="lead mx-auto">Tre famiglie, un solo metodo. Tocca una categoria per filtrare la griglia qui sotto.</p>
+        </div>
+        <div class="grid g-3 reveal-stagger">
+          <a class="cat" href="#griglia"><img src="img/cat-viso.jpg" alt="Sieri e creme viso Fiorèla su mensola di legno chiaro" /><span class="ov"><h3 class="h3">Viso</h3><span>Sieri &amp; creme <i data-lucide="arrow-right"></i></span></span></a>
+          <a class="cat" href="#griglia"><img src="img/cat-corpo.jpg" alt="Oli e burri corpo Fiorèla accanto a fiori secchi" /><span class="ov"><h3 class="h3">Corpo</h3><span>Oli &amp; burri <i data-lucide="arrow-right"></i></span></span></a>
+          <a class="cat" href="#griglia"><img src="img/cat-capelli.jpg" alt="Olio e maschera per capelli Fiorèla con rami di rosmarino" /><span class="ov"><h3 class="h3">Capelli</h3><span>Maschere &amp; oli <i data-lucide="arrow-right"></i></span></span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · FILTERS TOOLBAR + 4 · PRODUCT GRID · rule intro -->
+    <section class="section section--white" id="griglia">
+      <div class="container">
+        <div class="head mb-l reveal">
+          <span class="krule">Il catalogo</span>
+          <h2 class="h2 mt-s">Tutti i prodotti</h2>
+        </div>
+
+        <!-- filters toolbar -->
+        <div class="toolbar mb-l reveal">
+          <div class="filters" role="group" aria-label="Filtra per categoria">
+            <button class="fchip" aria-pressed="true">Tutti</button>
+            <button class="fchip" aria-pressed="false">Viso</button>
+            <button class="fchip" aria-pressed="false">Corpo</button>
+            <button class="fchip" aria-pressed="false">Capelli</button>
+            <button class="fchip" aria-pressed="false">Maschere</button>
+            <button class="fchip" aria-pressed="false">Detergenti</button>
+          </div>
+          <label style="display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:14px;color:var(--ink-2)">
+            <i data-lucide="sliders-horizontal" style="width:18px;height:18px;color:var(--plum)"></i>
+            <span class="skip">Ordina i prodotti</span>
+            <select aria-label="Ordina i prodotti">
+              <option>Pi&ugrave; venduti</option>
+              <option>Novit&agrave;</option>
+              <option>Prezzo crescente</option>
+            </select>
+          </label>
+        </div>
+
+        <!-- product grid: all 9 products -->
+        <div class="grid g-3 reveal-stagger">
+          <article class="product">
+            <div class="product__media"><span class="badge">Bestseller</span><button class="wish" aria-label="Salva"><i data-lucide="heart"></i></button><img src="img/prod-a.jpg" alt="Siero illuminante alla calendula in flacone ambrato" /></div>
+            <div class="product__b"><span class="cat-tag">Viso</span><a href="prodotto.html"><span class="nm">Siero Calendula</span></a><span class="ds">Illuminante &middot; 30 ml</span>
+              <div class="product__row"><span class="price">38&euro;</span><button class="iconbtn" data-add aria-label="Aggiungi al carrello"><i data-lucide="plus"></i></button></div></div>
+          </article>
+          <article class="product">
+            <div class="product__media"><span class="badge badge--sage">Novit&agrave;</span><button class="wish" aria-label="Salva"><i data-lucide="heart"></i></button><img src="img/prod-e.jpg" alt="Crema viso nutriente al fico d'India in vasetto di vetro" /></div>
+            <div class="product__b"><span class="cat-tag">Viso</span><a href="prodotto.html"><span class="nm">Crema Fico d&apos;India</span></a><span class="ds">Nutriente &middot; 50 ml</span>
+              <div class="product__row"><span class="price">42&euro;</span><button class="iconbtn" data-add aria-label="Aggiungi al carrello"><i data-lucide="plus"></i></button></div></div>
+          </article>
+          <article class="product">
+            <div class="product__media"><button class="wish" aria-label="Salva"><i data-lucide="heart"></i></button><img src="img/prod-c.jpg" alt="Crema notte alla rosa in vasetto opaco" /></div>
+            <div class="product__b"><span class="cat-tag">Viso</span><a href="prodotto.html"><span class="nm">Crema Notte Rosa</span></a><span class="ds">Rigenerante &middot; 50 ml</span>
+              <div class="product__row"><span class="price">46&euro;</span><button class="iconbtn" data-add aria-label="Aggiungi al carrello"><i data-lucide="plus"></i></button></div></div>
+          </article>
+          <article class="product">
+            <div class="product__media"><button class="wish" aria-label="Salva"><i data-lucide="heart"></i></button><img src="img/prod-f.jpg" alt="Tonico alla camomilla in flacone spray trasparente" /></div>
+            <div class="product__b"><span class="cat-tag">Viso</span><a href="prodotto.html"><span class="nm">Tonico Camomilla</span></a><span class="ds">Lenitivo &middot; 150 ml</span>
+              <div class="product__row"><span class="price">26&euro;</span><button class="iconbtn" data-add aria-label="Aggiungi al carrello"><i data-lucide="plus"></i></button></div></div>
+          </article>
+          <article class="product">
+            <div class="product__media"><span class="badge badge--clay">Promo</span><button class="wish" aria-label="Salva"><i data-lucide="heart"></i></button><img src="img/prod-d.jpg" alt="Olio corpo alla mandorla in bottiglia con contagocce" /></div>
+            <div class="product__b"><span class="cat-tag">Corpo</span><a href="prodotto.html"><span class="nm">Olio Mandorla</span></a><span class="ds">Elasticizzante &middot; 100 ml</span>
+              <div class="product__row"><span class="price"><s>34&euro;</s> 29&euro;</span><button class="iconbtn" data-add aria-label="Aggiungi al carrello"><i data-lucide="plus"></i></button></div></div>
+          </article>
+          <article class="product">
+            <div class="product__media"><button class="wish" aria-label="Salva"><i data-lucide="heart"></i></button><img src="img/prod-h.jpg" alt="Burro corpo al karité in vasetto di alluminio" /></div>
+            <div class="product__b"><span class="cat-tag">Corpo</span><a href="prodotto.html"><span class="nm">Burro Karit&eacute;</span></a><span class="ds">Ricco &middot; 120 ml</span>
+              <div class="product__row"><span class="price">24&euro;</span><button class="iconbtn" data-add aria-label="Aggiungi al carrello"><i data-lucide="plus"></i></button></div></div>
+          </article>
+          <article class="product">
+            <div class="product__media"><span class="badge badge--clay">Edizione</span><button class="wish" aria-label="Salva"><i data-lucide="heart"></i></button><img src="img/prod-g.jpg" alt="Sapone solido alla lavanda con fiori essiccati" /></div>
+            <div class="product__b"><span class="cat-tag">Corpo</span><a href="prodotto.html"><span class="nm">Sapone Lavanda</span></a><span class="ds">Solido &middot; 110 g</span>
+              <div class="product__row"><span class="price">12&euro;</span><button class="iconbtn" data-add aria-label="Aggiungi al carrello"><i data-lucide="plus"></i></button></div></div>
+          </article>
+          <article class="product">
+            <div class="product__media"><button class="wish" aria-label="Salva"><i data-lucide="heart"></i></button><img src="img/prod-i.jpg" alt="Maschera all'argilla verde in vasetto di ceramica" /></div>
+            <div class="product__b"><span class="cat-tag">Maschere</span><a href="prodotto.html"><span class="nm">Maschera Argilla Verde</span></a><span class="ds">Purificante &middot; 75 ml</span>
+              <div class="product__row"><span class="price">28&euro;</span><button class="iconbtn" data-add aria-label="Aggiungi al carrello"><i data-lucide="plus"></i></button></div></div>
+          </article>
+          <article class="product">
+            <div class="product__media"><button class="wish" aria-label="Salva"><i data-lucide="heart"></i></button><img src="img/prod-b.jpg" alt="Olio per capelli al rosmarino in flacone di vetro scuro" /></div>
+            <div class="product__b"><span class="cat-tag">Capelli</span><a href="prodotto.html"><span class="nm">Olio Capelli Rosmarino</span></a><span class="ds">Fortificante &middot; 100 ml</span>
+              <div class="product__row"><span class="price">32&euro;</span><button class="iconbtn" data-add aria-label="Aggiungi al carrello"><i data-lucide="plus"></i></button></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · FULL-BLEED PROMO BAND (refill) · ink overlay over photo -->
+    <section class="section bg-section bg-section--ink">
+      <img class="bg-img" src="img/ing-3.jpg" alt="Erbe e fiori botanici disposti su un telo di lino grezzo" />
+      <div class="container">
+        <div class="stack-lg reveal" style="max-width:46ch;color:#fff">
+          <span class="kick" style="color:#E9D9F0"><i data-lucide="recycle"></i> Vasetti ricaricabili</span>
+          <h2 class="h2" style="color:#fff">Ricarica e risparmia il 20%</h2>
+          <p class="lead" style="color:#f3ece6">Tieni il vasetto in vetro, riordina solo la ricarica: meno imballaggi, meno plastica e un prezzo pi&ugrave; leggero ad ogni acquisto. Lo stesso gesto, lotto dopo lotto.</p>
+          <div class="hero__cta"><a class="btn btn--light btn--lg" href="#griglia">Scopri le ricariche <i data-lucide="arrow-right"></i></a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 · "CONSIGLIATI PER TE" horizontal-scroll rail [DEVICE] · icon-label intro -->
+    <section class="section section--paper" data-rail>
+      <div class="container">
+        <div class="flex-between mb-l reveal">
+          <div class="head">
+            <span class="kick"><i data-lucide="sparkles"></i> Pensati per te</span>
+            <h2 class="h2 mt-s">Consigliati per te</h2>
+          </div>
+          <div class="railnav">
+            <button data-rail-prev aria-label="Precedente"><i data-lucide="arrow-left"></i></button>
+            <button data-rail-next aria-label="Successivo"><i data-lucide="arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="container container--wide">
+        <div class="hrail reveal">
+          <article class="product">
+            <div class="product__media"><span class="badge">Bestseller</span><button class="wish" aria-label="Salva"><i data-lucide="heart"></i></button><img src="img/prod-a.jpg" alt="Siero illuminante alla calendula in flacone ambrato" /></div>
+            <div class="product__b"><span class="cat-tag">Viso</span><a href="prodotto.html"><span class="nm">Siero Calendula</span></a><span class="ds">Illuminante &middot; 30 ml</span>
+              <div class="product__row"><span class="price">38&euro;</span><button class="iconbtn" data-add aria-label="Aggiungi al carrello"><i data-lucide="plus"></i></button></div></div>
+          </article>
+          <article class="product">
+            <div class="product__media"><button class="wish" aria-label="Salva"><i data-lucide="heart"></i></button><img src="img/prod-f.jpg" alt="Tonico alla camomilla in flacone spray trasparente" /></div>
+            <div class="product__b"><span class="cat-tag">Viso</span><a href="prodotto.html"><span class="nm">Tonico Camomilla</span></a><span class="ds">Lenitivo &middot; 150 ml</span>
+              <div class="product__row"><span class="price">26&euro;</span><button class="iconbtn" data-add aria-label="Aggiungi al carrello"><i data-lucide="plus"></i></button></div></div>
+          </article>
+          <article class="product">
+            <div class="product__media"><span class="badge badge--clay">Promo</span><button class="wish" aria-label="Salva"><i data-lucide="heart"></i></button><img src="img/prod-d.jpg" alt="Olio corpo alla mandorla in bottiglia con contagocce" /></div>
+            <div class="product__b"><span class="cat-tag">Corpo</span><a href="prodotto.html"><span class="nm">Olio Mandorla</span></a><span class="ds">Elasticizzante &middot; 100 ml</span>
+              <div class="product__row"><span class="price"><s>34&euro;</s> 29&euro;</span><button class="iconbtn" data-add aria-label="Aggiungi al carrello"><i data-lucide="plus"></i></button></div></div>
+          </article>
+          <article class="product">
+            <div class="product__media"><button class="wish" aria-label="Salva"><i data-lucide="heart"></i></button><img src="img/prod-h.jpg" alt="Burro corpo al karité in vasetto di alluminio" /></div>
+            <div class="product__b"><span class="cat-tag">Corpo</span><a href="prodotto.html"><span class="nm">Burro Karit&eacute;</span></a><span class="ds">Ricco &middot; 120 ml</span>
+              <div class="product__row"><span class="price">24&euro;</span><button class="iconbtn" data-add aria-label="Aggiungi al carrello"><i data-lucide="plus"></i></button></div></div>
+          </article>
+          <article class="product">
+            <div class="product__media"><button class="wish" aria-label="Salva"><i data-lucide="heart"></i></button><img src="img/prod-i.jpg" alt="Maschera all'argilla verde in vasetto di ceramica" /></div>
+            <div class="product__b"><span class="cat-tag">Maschere</span><a href="prodotto.html"><span class="nm">Maschera Argilla Verde</span></a><span class="ds">Purificante &middot; 75 ml</span>
+              <div class="product__row"><span class="price">28&euro;</span><button class="iconbtn" data-add aria-label="Aggiungi al carrello"><i data-lucide="plus"></i></button></div></div>
+          </article>
+          <article class="product">
+            <div class="product__media"><button class="wish" aria-label="Salva"><i data-lucide="heart"></i></button><img src="img/prod-b.jpg" alt="Olio per capelli al rosmarino in flacone di vetro scuro" /></div>
+            <div class="product__b"><span class="cat-tag">Capelli</span><a href="prodotto.html"><span class="nm">Olio Capelli Rosmarino</span></a><span class="ds">Fortificante &middot; 100 ml</span>
+              <div class="product__row"><span class="price">32&euro;</span><button class="iconbtn" data-add aria-label="Aggiungi al carrello"><i data-lucide="plus"></i></button></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 · REASSURANCE USP strip -->
+    <section class="section section--cream section--pad-sm">
+      <div class="container">
+        <div class="usp reveal-stagger">
+          <div class="usp__i"><i data-lucide="truck"></i><div><b>Spedizione 48h</b><span>Gratuita sopra 49&euro;, tracciata</span></div></div>
+          <div class="usp__i"><i data-lucide="rotate-ccw"></i><div><b>Resi entro 30 giorni</b><span>Anche su prodotto aperto</span></div></div>
+          <div class="usp__i"><i data-lucide="shield-check"></i><div><b>Pagamenti sicuri</b><span>Carta, PayPal e Satispay</span></div></div>
+          <div class="usp__i"><i data-lucide="message-circle"></i><div><b>Consulenza pelle</b><span>Routine su misura via chat</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 · FAQ accordion · numbered intro -->
+    <section class="section section--paper2">
+      <div class="container container--narrow">
+        <div class="head mb-l reveal">
+          <span class="knum"><b>04</b> Domande frequenti</span>
+          <h2 class="h2 mt-s">Prima di ordinare</h2>
+        </div>
+        <div class="acc reveal">
+          <details open>
+            <summary>Quanto costa e quanto dura la spedizione? <span class="ic"><i data-lucide="plus"></i></span></summary>
+            <div class="body">Spediamo in tutta Italia in 48 ore lavorative con corriere tracciato. La spedizione &egrave; gratuita per ordini sopra i 49&euro;, altrimenti il contributo &egrave; di 4,90&euro;. In ogni pacco trovi un campioncino omaggio.</div>
+          </details>
+          <details>
+            <summary>Come funzionano i vasetti ricaricabili? <span class="ic"><i data-lucide="plus"></i></span></summary>
+            <div class="body">Al primo acquisto ricevi il vasetto in vetro con la sua formula. Quando finisce, riordini solo la ricarica e risparmi il 20%: il contenitore resta tuo. Cos&igrave; riduciamo imballaggi e plastica ad ogni nuovo lotto.</div>
+          </details>
+          <details>
+            <summary>Cosa c&apos;&egrave; davvero negli ingredienti? <span class="ic"><i data-lucide="plus"></i></span></summary>
+            <div class="body">Formule corte con estratti botanici riconoscibili, niente liste impronunciabili. Le profumazioni arrivano solo da oli essenziali e ogni vasetto riporta il numero del suo lotto, cos&igrave; sai sempre cosa stai usando.</div>
+          </details>
+          <details>
+            <summary>Posso fare un reso se il prodotto non fa per me? <span class="ic"><i data-lucide="plus"></i></span></summary>
+            <div class="body">S&igrave;. Hai 30 giorni per cambiare idea, anche sul prodotto gi&agrave; aperto: la pelle di ognuno &egrave; diversa e vogliamo che tu provi senza pensieri. Avvii il reso dal tuo account e ti rimborsiamo entro pochi giorni.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a class="brand" href="index.html"><span class="brand__mark">F</span><span class="brand__name">Fior&egrave;la</span></a>
+          <p class="mt-s">Cosmesi botanica in piccoli lotti, dal lago di Como. Formule corte, vasetti ricaricabili, mai test animali.</p>
+        </div>
+        <div><h4>Shop</h4><ul><li><a href="shop.html">Viso</a></li><li><a href="shop.html">Corpo</a></li><li><a href="shop.html">Capelli</a></li><li><a href="shop.html#best">Bestseller</a></li><li><a href="shop.html">Set rituale</a></li></ul></div>
+        <div><h4>Aiuto</h4><ul><li><a href="#">Spedizioni e resi</a></li><li><a href="#">Ricariche</a></li><li><a href="storia.html">Ingredienti</a></li><li><a href="#">Contatti</a></li></ul></div>
+        <div><h4>Newsletter</h4><p style="font-size:14px;margin-bottom:12px">Il 10% sul primo ordine.</p><form class="nl nl--ink" style="max-width:none;margin:0" onsubmit="return false"><input type="email" placeholder="Email" aria-label="Email" /><button class="btn btn--primary btn--icon" type="submit" aria-label="Iscriviti"><i data-lucide="arrow-right"></i></button></form></div>
+      </div>
+      <div class="footer__bar">
+        <span>&copy; 2026 Fior&egrave;la &middot; P.IVA 0000000000 &middot; Demo Lavder</span>
+        <div class="pay"><span>VISA</span><span>MASTERCARD</span><span>PAYPAL</span><span>SATISPAY</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="app.js?v=5"></script>
+</body>
+</html>
