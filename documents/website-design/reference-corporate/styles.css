@@ -204,7 +204,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.025em; lin
 .footer__grid { display: grid; gap: 40px; grid-template-columns: 1fr; }
 @media (min-width: 768px) { .footer__grid { grid-template-columns: 1.6fr 1fr 1.3fr; } }
 .footer h4 { color: #fff; font-size: 14px; font-family: var(--font-body); font-weight: 600; margin-bottom: 16px; letter-spacing: 0; }
-.footer ul { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
+.footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
 .footer a:hover { color: #fff; }
 .footer li.row { display: flex; align-items: flex-start; gap: 10px; }
 .footer li.row svg { width: 16px; height: 16px; color: var(--accent); flex: none; margin-top: 3px; }
@@ -273,7 +273,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.025em; lin
 
 /* BENTO */
 .bento { display: grid; gap: 16px; grid-template-columns: 1fr; }
-@media (min-width: 768px) { .bento { grid-template-columns: repeat(3, 1fr); grid-auto-rows: minmax(176px, auto); } .bento .b-feature { grid-column: span 2; grid-row: span 2; } }
+@media (min-width: 768px) { .bento { grid-template-columns: repeat(4, 1fr); grid-auto-rows: minmax(176px, auto); } .bento .b-feature { grid-column: span 2; grid-row: span 2; } }
 .bento .cell { border: 1px solid var(--line); border-radius: var(--r-card); padding: 26px; background: #fff; display: flex; flex-direction: column; justify-content: flex-end; transition: border-color .2s var(--ease), box-shadow .2s var(--ease), transform .2s var(--ease); }
 .bento .cell:hover { border-color: rgba(27,111,242,.4); box-shadow: 0 10px 34px rgba(20,24,29,.07); transform: translateY(-3px); }
 .bento .cell .card__ico { margin-bottom: auto; }
@@ -290,7 +290,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.025em; lin
 
 /* OVERLAP */
 @media (min-width: 1024px) { .overlap__card { margin-left: -96px; } }
-.overlap__card { background: #fff; border: 1px solid var(--line); border-radius: var(--r-card); padding: 40px; box-shadow: 0 24px 64px rgba(20,24,29,.14); }
+.overlap__card { position: relative; z-index: 2; background: #fff; border: 1px solid var(--line); border-radius: var(--r-card); padding: 40px; box-shadow: 0 24px 64px rgba(20,24,29,.14); }
 
 /* immersive SECTOR cards */
 .sector { position: relative; overflow: hidden; border-radius: var(--r-card); aspect-ratio: 3/4; display: block; }
