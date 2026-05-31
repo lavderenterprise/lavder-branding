@@ -170,6 +170,8 @@ Use the `AskUserQuestion`-style flow (multiple-choice with an "other" escape for
 - **Asymmetry over even splits:** prefer 7/5 column splits to 6/6 when content allows.
 - **Edge-to-edge or contained, never half-bleed.** A section is full-bleed (background to the viewport edge, content in container) or boxed. Not both.
 - Breakpoints: `sm 640 · md 768 · lg 1024 · xl 1280 · 2xl 1536`. Design desktop and mobile; do not ship a desktop-only mockup.
+- **One section rhythm.** Every full-width section (light, dark, and full-bleed image/video bands alike) uses the *same* vertical padding (the reference: 88 px mobile / 112 px desktop). Do **not** hand-tune `padding` per section: that is what makes a page feel broken and uneven. Heroes and feature media bands may be taller via `min-height`, but their inner content keeps the same vertical inset. Horizontal: everything lives in the 1200 px `.container` with the standard gutter, so left/right edges line up across sections.
+- **One border, one radius set.** Cards, cells and panels share a single 1 px hairline (`neutral-200` / `--line`) and the chosen radius set (here mixed: soft 14 px cards, squared 3 px buttons). Never mix border weights or radii per section. Communicate elevation with that border plus one soft shadow, not with ad-hoc outlines. See [`/brand/05-spacing-layout.md`](../../brand/05-spacing-layout.md) for the scale, radius and shadow tokens.
 
 ### 9.2 Typography (scale = craft; typefaces = brand)
 - Hierarchy, scale and tracking are constant (`/brand/04-typography.md`): a display face for headings, a clean face for body and UI, the 1.25 scale, negative tracking on large display, **12 px minimum**, all-caps max 4 words.

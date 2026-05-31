@@ -60,8 +60,13 @@ html.lenis, html.lenis body { height: auto; }
 /* ---------- Layout ---------- */
 .container { max-width: var(--container); margin-inline: auto; padding-inline: 24px; }
 @media (min-width: 1024px) { .container { padding-inline: 32px; } }
+/* One vertical rhythm for every full-width section (no per-section hand-tuning) */
 .section { padding: 88px 0; }
-@media (min-width: 1024px) { .section { padding: 112px 0; } }
+.bg-section, .media-band { padding-block: 88px; }
+@media (min-width: 1024px) {
+  .section { padding: 112px 0; }
+  .bg-section, .media-band { padding-block: 112px; }
+}
 .section--dark  { background: var(--graphite); color: #fff; }
 .section--ink   { background: var(--ink); color: #fff; }
 .section--cloud { background: var(--cloud); }
@@ -278,7 +283,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.025em; lin
 .bento .b-feature .ov h3 { color: #fff; }
 
 /* VIDEO media band */
-.media-band { position: relative; overflow: hidden; color: #fff; isolation: isolate; min-height: 76svh; display: flex; align-items: center; }
+.media-band { position: relative; overflow: hidden; color: #fff; isolation: isolate; min-height: 60svh; display: flex; align-items: center; }
 .media-band video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
 .media-band::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(11,14,18,.55), rgba(11,14,18,.74)); }
 
