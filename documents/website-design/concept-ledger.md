@@ -34,7 +34,7 @@ Most recent first.
 
 | Date | Client | Archetype | Mood | Hero-pattern | Layout-signature | Palette | Track | Brand | Notes / link |
 |---|---|---|---|---|---|---|---|---|---|
-| 2026-05-30 | Officine Lario (demo / reference) | corporate | tech | split-7/5 | asymmetric-7/5 | dark | A | express | Reference example. Precision-mechanics B2B, industrial blue accent (not Lavder orange), mixed radius (soft cards + squared buttons), real stock photos, GSAP+Lenis motion, stats-forward. Multi-page: `reference-corporate/` |
+| 2026-05-30 | Officine Lario (demo / reference) | corporate | tech | split-7/5 | asymmetric-7/5 | dark | A | express | Reference example. Precision-mechanics B2B, industrial blue accent (not Lavder orange), mixed radius (soft cards + squared buttons), AI-generated imagery (Lavder ImageGen, nanobanana), GSAP+Lenis motion, stats-forward. Multi-page: `reference-corporate/` |
 
 <!--
 EXAMPLE ROWS (illustrative only, replace with real deliveries):

@@ -5,6 +5,14 @@ Format follows [Keep a Changelog](https://keepachangelog.com/), versioning follo
 
 ---
 
+## [0.3.1] — 2026-05-31
+
+### Changed
+
+- **`documents/website-design/reference-corporate/`** — replaced the placeholder stock photos with **bespoke AI-generated imagery** produced via the Lavder ImageGen service (OpenRouter → Nano Banana / Gemini 2.5 Flash Image): hero CNC with coolant, metrology CMM, 5-axis milling, workshop, automotive gears, manufacturing facility, hydraulic valve bodies. Dark-industrial, blue-accent, no people (brand rule). Re-rendered `reference-corporate-home.png`. Removed unused stock (grinding/tubes/warehouse).
+
+---
+
 ## [0.3.0] — 2026-05-30
 
 ### Added — Website design guideline
