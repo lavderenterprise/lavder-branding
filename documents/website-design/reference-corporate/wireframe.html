@@ -1,109 +1,191 @@
 <!doctype html>
 <html lang="it">
-<!-- OFFICINE LARIO (demo) · WIREFRAME (low-fi) of the home. Tier-3 wireframe-gate artifact (README §8).
-     Deliberately grayscale + structural: approve STRUCTURE cheaply before any visual design. -->
+<!-- OFFICINE LARIO (demo) · WIREFRAME — navigable low-fi of ALL pages (Tier-3 wireframe-gate artifact, README §8). -->
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Wireframe · Home · Officine Lario</title>
+  <title>Wireframe · Officine Lario</title>
   <style>
     :root { --g:#9aa0a6; --d:#5f6368; --l:#e3e5e8; --bg:#f4f5f6; }
     * { box-sizing:border-box; margin:0; }
-    body { font-family: ui-monospace, "SF Mono", Menlo, monospace; background:var(--bg); color:var(--d); padding:32px 16px; line-height:1.5; }
-    .sheet { max-width:980px; margin:0 auto; }
-    .meta { display:flex; flex-wrap:wrap; gap:8px 18px; font-size:12px; color:var(--g); margin-bottom:18px; }
+    body { font-family: ui-monospace, "SF Mono", Menlo, monospace; background:var(--bg); color:var(--d); line-height:1.5; }
+    .wfbar { position:sticky; top:0; z-index:10; background:#fff; border-bottom:1px solid var(--l); display:flex; align-items:center; gap:16px; padding:12px 20px; flex-wrap:wrap; }
+    .wfbar h1 { font-size:14px; color:#3a3c40; }
+    .tabs { display:flex; gap:6px; flex-wrap:wrap; }
+    .tab { border:1px solid var(--g); background:#fff; color:var(--d); font:inherit; font-size:12px; padding:6px 14px; border-radius:5px; cursor:pointer; }
+    .tab.active { background:#3a3c40; color:#fff; border-color:#3a3c40; }
+    .tabnote { font-size:11px; color:var(--g); margin-left:auto; }
+    .sheet { max-width:1000px; margin:24px auto 60px; padding:0 16px; }
+    .wf-page { display:none; }
+    .wf-page.active { display:block; }
+    .meta { display:flex; flex-wrap:wrap; gap:8px 18px; font-size:11px; color:var(--g); margin-bottom:16px; }
     .meta b { color:var(--d); }
     .blk { background:#fff; border:1.5px dashed var(--g); border-radius:6px; margin-bottom:14px; padding:18px; position:relative; }
+    .blk.solid { border-style:solid; }
+    .blk.dark { background:#2f3033; border-color:#2a2c2e; }
     .blk .tag { position:absolute; top:-9px; left:14px; background:var(--bg); padding:0 8px; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--d); }
+    .blk.dark .tag { background:#2f3033; color:#cfd2d6; }
     .note { font-size:11px; color:var(--g); margin-top:8px; }
-    .bar { height:14px; background:var(--l); border-radius:3px; }
-    .bar.w70{width:70%} .bar.w50{width:50%} .bar.w40{width:40%} .bar.w30{width:30%} .bar.w85{width:85%} .bar.t{height:22px}
-    .row { display:flex; gap:12px; }
-    .col { flex:1; }
-    .box { background:repeating-linear-gradient(45deg,#eef0f2,#eef0f2 8px,#e7e9ec 8px,#e7e9ec 16px); border:1px solid var(--l); border-radius:5px; display:grid; place-items:center; color:var(--g); font-size:11px; }
-    .h { display:flex; align-items:center; justify-content:space-between; }
-    .chip { border:1px solid var(--g); border-radius:3px; padding:4px 10px; font-size:11px; color:var(--d); }
-    .pillrow { display:flex; gap:8px; flex-wrap:wrap; }
-    .stack > * + * { margin-top:8px; }
-    .grid4 { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
-    .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
-    h1 { font-size:15px; color:var(--d); margin-bottom:4px; }
+    .bar { height:13px; background:var(--l); border-radius:3px; }
+    .blk.dark .bar { background:#4a4c50; }
+    .bar.t { height:20px; } .w30{width:30%} .w40{width:40%} .w50{width:50%} .w60{width:60%} .w70{width:70%} .w85{width:85%}
+    .stack>*+*{ margin-top:8px; }
+    .row { display:flex; gap:12px; } .col { flex:1; }
+    .box { background:repeating-linear-gradient(45deg,#eef0f2,#eef0f2 9px,#e7e9ec 9px,#e7e9ec 18px); border:1px solid var(--l); border-radius:5px; display:grid; place-items:center; color:var(--g); font-size:11px; text-align:center; padding:10px; }
+    .box.dark { background:repeating-linear-gradient(45deg,#3a3c40,#3a3c40 9px,#45474b 9px,#45474b 18px); color:#cfd2d6; border-color:#2a2c2e; }
+    .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .h { display:flex; align-items:center; justify-content:space-between; gap:10px; }
+    .chip { border:1px solid var(--g); border-radius:3px; padding:4px 10px; font-size:11px; color:var(--d); white-space:nowrap; }
+    .blk.dark .chip { border-color:#5a5c60; color:#cfd2d6; }
+    .pillrow { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+    .star { color:#3a3c40; font-weight:700; }
+    @media (max-width:640px){ .grid4{grid-template-columns:repeat(2,1fr)} .grid3{grid-template-columns:1fr} .row{flex-direction:column} }
   </style>
 </head>
 <body>
-  <div class="sheet">
-    <h1>WIREFRAME · Home</h1>
-    <div class="meta"><span><b>Cliente:</b> Officine Lario (demo)</span><span><b>Pagina:</b> Home</span><span><b>Fidelity:</b> low-fi / struttura</span><span><b>Regola:</b> 1 h1 · 1 CTA primaria per fold · sezioni alternate</span></div>
-
-    <!-- NAV -->
-    <div class="blk"><span class="tag">Nav (sticky)</span>
-      <div class="h"><div class="chip">[logo] OFFICINE LARIO</div><div class="pillrow"><span class="chip">Azienda</span><span class="chip">Lavorazioni</span><span class="chip">Settori</span><span class="chip">Qualità</span><span class="chip">Contatti</span><span class="chip">★ CTA: Preventivo</span></div></div>
-      <div class="note">Mobile: hamburger → menu a tendina. CTA sempre visibile.</div>
+  <div class="wfbar">
+    <h1>WIREFRAME · Officine Lario</h1>
+    <div class="tabs" id="tabs">
+      <button class="tab active" data-p="home">Home</button>
+      <button class="tab" data-p="azienda">Azienda</button>
+      <button class="tab" data-p="lavorazione">Lavorazioni</button>
+      <button class="tab" data-p="contatti">Contatti</button>
     </div>
-
-    <!-- HERO -->
-    <div class="blk"><span class="tag">Hero (7/5 asimmetrico)</span>
-      <div class="row">
-        <div class="col stack" style="flex:7">
-          <div class="bar w30"></div>
-          <div class="bar t w85"></div><div class="bar t w70"></div>
-          <div class="bar w70"></div><div class="bar w50"></div>
-          <div class="pillrow" style="margin-top:6px"><span class="chip">★ CTA primaria</span><span class="chip">CTA secondaria</span></div>
-          <div class="bar w40" style="margin-top:6px"></div>
-        </div>
-        <div class="col box" style="flex:5; min-height:200px">IMG · foto reparto CNC</div>
-      </div>
-      <div class="note">Headline con UNA parola accent. Trust line (certificazioni) sotto i bottoni.</div>
-    </div>
-
-    <!-- LOGOS -->
-    <div class="blk"><span class="tag">Trust / loghi clienti</span>
-      <div class="grid4"><div class="box" style="height:34px">logo</div><div class="box" style="height:34px">logo</div><div class="box" style="height:34px">logo</div><div class="box" style="height:34px">logo</div></div>
-    </div>
-
-    <!-- STATS -->
-    <div class="blk"><span class="tag">Numeri (contatori)</span>
-      <div class="grid4"><div class="stack"><div class="bar t w70"></div><div class="bar w85"></div></div><div class="stack"><div class="bar t w70"></div><div class="bar w85"></div></div><div class="stack"><div class="bar t w70"></div><div class="bar w85"></div></div><div class="stack"><div class="bar t w70"></div><div class="bar w85"></div></div></div>
-      <div class="note">42+ · 1.2M · ±2µm · 60+ · count-up allo scroll.</div>
-    </div>
-
-    <!-- SERVIZI -->
-    <div class="blk"><span class="tag">Lavorazioni (4 card)</span>
-      <div class="bar w40" style="margin-bottom:12px"></div>
-      <div class="grid4">
-        <div class="box" style="height:120px">card<br>ico+titolo+testo</div><div class="box" style="height:120px">card</div><div class="box" style="height:120px">card</div><div class="box" style="height:120px">card</div>
-      </div>
-      <div class="note">CTA: "Vedi una lavorazione in dettaglio" → template lavorazione.</div>
-    </div>
-
-    <!-- WHY US -->
-    <div class="blk"><span class="tag">Perché noi (img + 3 punti)</span>
-      <div class="row">
-        <div class="col box" style="min-height:160px">IMG · sala metrologica</div>
-        <div class="col stack" style="flex:1.2"><div class="bar w40"></div><div class="bar t w70"></div><div class="bar w85"></div><div class="bar w70"></div><div class="bar w50"></div></div>
-      </div>
-    </div>
-
-    <!-- SETTORI -->
-    <div class="blk"><span class="tag">Settori (4 card foto)</span>
-      <div class="grid4"><div class="box" style="height:150px">IMG settore</div><div class="box" style="height:150px">IMG settore</div><div class="box" style="height:150px">IMG settore</div><div class="box" style="height:150px">IMG settore</div></div>
-    </div>
-
-    <!-- QUALITA -->
-    <div class="blk" style="border-style:solid; background:#2b2c2e0d"><span class="tag">Qualità (sezione scura)</span>
-      <div class="row"><div class="col stack"><div class="bar w40"></div><div class="bar t w70"></div><div class="bar w85"></div></div><div class="col grid4" style="flex:1"><div class="box" style="height:70px">cert</div><div class="box" style="height:70px">cert</div><div class="box" style="height:70px">cert</div><div class="box" style="height:70px">cert</div></div></div>
-    </div>
-
-    <!-- CTA -->
-    <div class="blk" style="border-style:solid"><span class="tag">CTA band</span>
-      <div class="h"><div class="stack" style="flex:1"><div class="bar t w70"></div><div class="bar w50"></div></div><div class="pillrow"><span class="chip">★ Caricate il disegno</span><span class="chip">Telefono</span></div></div>
-    </div>
-
-    <!-- FOOTER -->
-    <div class="blk"><span class="tag">Footer</span>
-      <div class="grid3"><div class="stack"><div class="bar w50"></div><div class="bar w85"></div></div><div class="stack"><div class="bar w40"></div><div class="bar w70"></div><div class="bar w70"></div></div><div class="stack"><div class="bar w40"></div><div class="bar w70"></div><div class="bar w70"></div></div></div>
-      <div class="note">P.IVA, indirizzo, contatti. Riga legale + nota demo.</div>
-    </div>
+    <span class="tabnote">low-fi · struttura · 1 h1 + 1 CTA primaria per fold</span>
   </div>
+
+  <div class="sheet">
+
+    <!-- ============ HOME ============ -->
+    <section class="wf-page active" data-p="home">
+      <div class="meta"><span><b>Pagina:</b> Home</span><span><b>Archetipo:</b> corporate · Tier 2</span><span><b>Fidelity:</b> low-fi</span></div>
+
+      <div class="blk solid"><span class="tag">Nav (sticky)</span>
+        <div class="h"><span class="chip">[logo] OFFICINE LARIO</span><div class="pillrow"><span class="chip">Azienda</span><span class="chip">Lavorazioni</span><span class="chip">Settori</span><span class="chip">Qualità</span><span class="chip">Contatti</span><span class="chip star">★ Preventivo</span></div></div>
+      </div>
+
+      <div class="blk dark"><span class="tag">Hero · sfondo immagine full-bleed</span>
+        <div class="box dark" style="position:absolute;inset:0;border:0;border-radius:6px;opacity:.5">IMG: reparto CNC</div>
+        <div class="stack" style="position:relative;max-width:60%">
+          <div class="bar w30"></div><div class="bar t w85"></div><div class="bar t w70"></div><div class="bar w60"></div>
+          <div class="pillrow" style="margin-top:6px"><span class="chip star">★ Richiedi preventivo</span><span class="chip">Le lavorazioni</span></div>
+          <div class="pillrow" style="margin-top:6px"><span class="chip">ISO 9001</span><span class="chip">IATF 16949</span><span class="chip">UNI EN 9100</span></div>
+        </div>
+      </div>
+
+      <div class="blk"><span class="tag">Marquee</span><div class="pillrow"><span class="chip">AUTOMOTIVE</span><span class="chip">AEROSPAZIALE</span><span class="chip">MEDICALE</span><span class="chip">OLEODINAMICA</span><span class="chip">RACING →</span></div></div>
+
+      <div class="blk"><span class="tag">Statement editoriale</span><div class="row"><div class="col stack"><div class="bar t w70"></div><div class="bar t w50"></div></div><div class="col stack"><div class="bar w85"></div><div class="bar w70"></div><div class="bar w40"></div></div></div></div>
+
+      <div class="blk dark"><span class="tag">Numeri · sfondo immagine</span>
+        <div class="box dark" style="position:absolute;inset:0;border:0;border-radius:6px;opacity:.45">IMG: officina wide</div>
+        <div class="grid4" style="position:relative"><div class="stack"><div class="bar t w70"></div><div class="bar w85"></div></div><div class="stack"><div class="bar t w70"></div><div class="bar w85"></div></div><div class="stack"><div class="bar t w70"></div><div class="bar w85"></div></div><div class="stack"><div class="bar t w70"></div><div class="bar w85"></div></div></div>
+        <div class="note" style="color:#9aa0a6">42+ · 1.2M · ±2µm · 98,6% (contatori animati)</div>
+      </div>
+
+      <div class="blk"><span class="tag">Lavorazioni · bento</span>
+        <div class="bar w40" style="margin-bottom:12px"></div>
+        <div class="grid4">
+          <div class="box" style="grid-column:span 2;grid-row:span 2;min-height:170px">IMG feature<br>Fresatura 5 assi</div>
+          <div class="box" style="min-height:80px">Tornitura CNC</div><div class="box" style="min-height:80px">Rettifica</div>
+          <div class="box" style="min-height:80px">Collaudo</div><div class="box" style="min-height:80px">Tracciabilità</div>
+        </div>
+        <div class="note">Feature 2×2 + 4 celle (griglia 4 col, riempie senza vuoti)</div>
+      </div>
+
+      <div class="blk dark"><span class="tag">Banda VIDEO full-bleed</span>
+        <div class="box dark" style="min-height:120px;border:0">VIDEO loop muto (machining.mp4) + overlay<br>titolo centrato</div>
+      </div>
+
+      <div class="blk"><span class="tag">Perché noi · immagine + card sovrapposta</span>
+        <div class="row"><div class="col box" style="min-height:160px">IMG: sala metrologica</div><div class="col stack" style="flex:1.1;background:#fff;border:1px solid var(--l);border-radius:6px;padding:16px;margin-left:-30px;box-shadow:0 8px 20px rgba(0,0,0,.06)"><div class="bar w40"></div><div class="bar t w70"></div><div class="bar w85"></div><div class="bar w70"></div><div class="bar w60"></div></div></div>
+        <div class="note">card con z-index sopra l'immagine (3 punti)</div>
+      </div>
+
+      <div class="blk"><span class="tag">Settori · 4 card immersive a tutta immagine</span>
+        <div class="grid4"><div class="box" style="min-height:150px">Automotive</div><div class="box" style="min-height:150px">Aerospaziale</div><div class="box" style="min-height:150px">Medicale</div><div class="box" style="min-height:150px">Oleodinamica</div></div>
+      </div>
+
+      <div class="blk dark"><span class="tag">Caso · sfondo immagine full-bleed</span>
+        <div class="box dark" style="position:absolute;inset:0;border:0;border-radius:6px;opacity:.45">IMG: pezzo lavorato</div>
+        <div class="stack" style="position:relative;max-width:55%"><div class="bar w30"></div><div class="bar t w70"></div><div class="bar w60"></div><div class="pillrow" style="margin-top:6px"><span class="chip">0 scarti</span><span class="chip">−40% lead</span><span class="chip">100% on-time</span></div></div>
+      </div>
+
+      <div class="blk"><span class="tag">Testimonial</span><div class="stack" style="text-align:center"><div class="bar t w85" style="margin:0 auto"></div><div class="bar t w70" style="margin:0 auto"></div><div class="bar w30" style="margin:8px auto 0"></div></div></div>
+
+      <div class="blk dark"><span class="tag">Qualità · certificazioni (sezione scura)</span>
+        <div class="row"><div class="col stack"><div class="bar w40"></div><div class="bar t w70"></div><div class="bar w85"></div></div><div class="col grid2" style="flex:1"><div class="box dark" style="min-height:64px">ISO 9001</div><div class="box dark" style="min-height:64px">IATF 16949</div><div class="box dark" style="min-height:64px">UNI EN 9100</div><div class="box dark" style="min-height:64px">PPAP/FAI</div></div></div>
+      </div>
+
+      <div class="blk dark"><span class="tag">CTA · sfondo immagine full-bleed</span>
+        <div class="box dark" style="position:absolute;inset:0;border:0;border-radius:6px;opacity:.45">IMG: coolant burst</div>
+        <div class="stack" style="position:relative;text-align:center"><div class="bar t w50" style="margin:0 auto"></div><div class="bar w40" style="margin:6px auto"></div><div class="pillrow" style="justify-content:center;margin-top:6px"><span class="chip star">★ Caricate il disegno</span><span class="chip">Telefono</span></div></div>
+      </div>
+
+      <div class="blk"><span class="tag">Footer</span><div class="grid3"><div class="stack"><div class="bar w50"></div><div class="bar w85"></div></div><div class="stack"><div class="bar w40"></div><div class="bar w70"></div><div class="bar w70"></div></div><div class="stack"><div class="bar w40"></div><div class="bar w70"></div><div class="bar w70"></div></div></div><div class="note">P.IVA · indirizzo · contatti · riga legale</div></div>
+    </section>
+
+    <!-- ============ AZIENDA ============ -->
+    <section class="wf-page" data-p="azienda">
+      <div class="meta"><span><b>Pagina:</b> Azienda</span><span><b>Obiettivo:</b> credibilità + storia</span></div>
+      <div class="blk solid"><span class="tag">Nav (sticky)</span><div class="h"><span class="chip">[logo] OFFICINE LARIO</span><span class="chip star">★ Preventivo</span></div></div>
+      <div class="blk dark"><span class="tag">Hero · sfondo immagine</span><div class="box dark" style="position:absolute;inset:0;border:0;border-radius:6px;opacity:.5">IMG: officina</div><div class="stack" style="position:relative;max-width:60%"><div class="bar w30"></div><div class="bar t w85"></div><div class="bar w60"></div></div></div>
+      <div class="blk"><span class="tag">Storia · timeline</span><div class="bar w40" style="margin-bottom:12px"></div><div class="grid4"><div class="box" style="min-height:110px">1982</div><div class="box" style="min-height:110px">1998</div><div class="box" style="min-height:110px">2010</div><div class="box" style="min-height:110px">2021</div></div></div>
+      <div class="blk"><span class="tag">Numeri</span><div class="grid4"><div class="stack"><div class="bar t w70"></div><div class="bar w85"></div></div><div class="stack"><div class="bar t w70"></div><div class="bar w85"></div></div><div class="stack"><div class="bar t w70"></div><div class="bar w85"></div></div><div class="stack"><div class="bar t w70"></div><div class="bar w85"></div></div></div></div>
+      <div class="blk"><span class="tag">Stabilimento · immagine + testo (7/5)</span><div class="row"><div class="col box" style="min-height:150px;flex:1.3">IMG: stabilimento</div><div class="col stack"><div class="bar w40"></div><div class="bar t w70"></div><div class="bar w85"></div><div class="bar w70"></div><div class="bar w60"></div></div></div></div>
+      <div class="blk"><span class="tag">Settori · 4 card</span><div class="grid4"><div class="box" style="min-height:130px">Automotive</div><div class="box" style="min-height:130px">Aerospaziale</div><div class="box" style="min-height:130px">Medicale</div><div class="box" style="min-height:130px">Oleodinamica</div></div></div>
+      <div class="blk dark"><span class="tag">CTA · sfondo immagine</span><div class="stack" style="text-align:center"><div class="bar t w50" style="margin:0 auto"></div><div class="pillrow" style="justify-content:center;margin-top:6px"><span class="chip star">★ Richiedi preventivo</span></div></div></div>
+      <div class="blk"><span class="tag">Footer</span><div class="grid3"><div class="bar w70"></div><div class="bar w50"></div><div class="bar w50"></div></div></div>
+    </section>
+
+    <!-- ============ LAVORAZIONI ============ -->
+    <section class="wf-page" data-p="lavorazione">
+      <div class="meta"><span><b>Pagina:</b> Lavorazione (template)</span><span><b>SEO:</b> una pagina per lavorazione</span></div>
+      <div class="blk solid"><span class="tag">Nav (sticky)</span><div class="h"><span class="chip">[logo] OFFICINE LARIO</span><span class="chip star">★ Preventivo</span></div></div>
+      <div class="blk dark"><span class="tag">Hero · breadcrumb + immagine</span><div class="box dark" style="position:absolute;inset:0;border:0;border-radius:6px;opacity:.5">IMG: fresatura</div><div class="stack" style="position:relative;max-width:60%"><div class="pillrow"><span class="chip">Home › Lavorazioni › Tornitura</span></div><div class="bar t w85"></div><div class="bar w60"></div><div class="pillrow" style="margin-top:6px"><span class="chip star">★ Preventivo</span><span class="chip">Specifiche</span></div></div></div>
+      <div class="blk"><span class="tag">Specifiche · 4 card</span><div class="bar w40" style="margin-bottom:12px"></div><div class="grid4"><div class="box" style="min-height:110px">Ø 320 mm</div><div class="box" style="min-height:110px">±2 µm</div><div class="box" style="min-height:110px">Ra 0.2</div><div class="box" style="min-height:110px">1 → 100k</div></div></div>
+      <div class="blk"><span class="tag">Materiali · testo + immagine (7/5)</span><div class="row"><div class="col stack"><div class="bar w40"></div><div class="bar t w70"></div><div class="bar w85"></div><div class="pillrow" style="margin-top:6px"><span class="chip">Acciai</span><span class="chip">Inox</span><span class="chip">Titanio</span><span class="chip">Alluminio</span><span class="chip">Ottone</span></div></div><div class="col box" style="min-height:150px">IMG: torneria</div></div></div>
+      <div class="blk"><span class="tag">Processo · 4 step</span><div class="grid4"><div class="box" style="min-height:100px">01 Analisi</div><div class="box" style="min-height:100px">02 Programmazione</div><div class="box" style="min-height:100px">03 Produzione</div><div class="box" style="min-height:100px">04 Collaudo</div></div></div>
+      <div class="blk dark"><span class="tag">CTA · sfondo accent</span><div class="h"><div class="bar t w40"></div><span class="chip star">★ Caricate il disegno</span></div></div>
+      <div class="blk"><span class="tag">Footer</span><div class="grid3"><div class="bar w70"></div><div class="bar w50"></div><div class="bar w50"></div></div></div>
+    </section>
+
+    <!-- ============ CONTATTI ============ -->
+    <section class="wf-page" data-p="contatti">
+      <div class="meta"><span><b>Pagina:</b> Contatti</span><span><b>Azione primaria:</b> <span class="star">★</span> form preventivo + upload disegno</span></div>
+      <div class="blk solid"><span class="tag">Nav (sticky)</span><div class="h"><span class="chip">[logo] OFFICINE LARIO</span><span class="chip star">★ Preventivo</span></div></div>
+      <div class="blk dark"><span class="tag">Hero</span><div class="stack" style="max-width:60%"><div class="bar w30"></div><div class="bar t w70"></div><div class="bar w60"></div></div></div>
+      <div class="blk"><span class="tag">Form + sidebar (7/5)</span>
+        <div class="row">
+          <div class="col stack" style="flex:1.2">
+            <div class="row"><div class="col stack"><div class="bar w40"></div><div class="box" style="height:34px">campo: Nome</div></div><div class="col stack"><div class="bar w40"></div><div class="box" style="height:34px">campo: Azienda</div></div></div>
+            <div class="row"><div class="col stack"><div class="bar w40"></div><div class="box" style="height:34px">campo: Email</div></div><div class="col stack"><div class="bar w40"></div><div class="box" style="height:34px">campo: Telefono</div></div></div>
+            <div class="bar w40"></div><div class="box" style="height:70px">campo: Descrizione</div>
+            <div class="bar w40"></div><div class="box" style="height:80px;border-style:dashed">⤓ Dropzone: carica disegno (PDF/STEP/DWG)</div>
+            <div class="pillrow"><span class="chip">☐ privacy</span><span class="chip star">★ Invia richiesta</span></div>
+          </div>
+          <div class="col stack">
+            <div class="box" style="min-height:120px;background:#fff;border:1px solid var(--l)">Card contatti<br>indirizzo · tel · email · orari</div>
+            <div class="box" style="min-height:120px">IMG: mappa</div>
+          </div>
+        </div>
+      </div>
+      <div class="blk"><span class="tag">Footer</span><div class="grid3"><div class="bar w70"></div><div class="bar w50"></div><div class="bar w50"></div></div></div>
+    </section>
+
+  </div>
+
+  <script>
+    const tabs = document.getElementById('tabs');
+    tabs.addEventListener('click', e => {
+      const b = e.target.closest('.tab'); if (!b) return;
+      const p = b.dataset.p;
+      document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t === b));
+      document.querySelectorAll('.wf-page').forEach(s => s.classList.toggle('active', s.dataset.p === p));
+      window.scrollTo(0, 0);
+    });
+  </script>
 </body>
 </html>

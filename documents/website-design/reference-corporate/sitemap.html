@@ -1,87 +1,103 @@
 <!doctype html>
 <html lang="it">
-<!-- OFFICINE LARIO (demo) · SITEMAP / architettura informativa. Deliverable di Fase 2 (README §7). -->
+<!-- OFFICINE LARIO (demo) · SITEMAP / architettura informativa, stile wireframe low-fi (README §7). -->
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sitemap · Officine Lario</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
   <style>
-    :root { --ink:#14181D; --accent:#1B6FF2; --line:#E3E8EF; --cloud:#F5F7FA; --n500:#64748B; }
+    :root { --g:#9aa0a6; --d:#5f6368; --l:#e3e5e8; --bg:#f4f5f6; --ink:#3a3c40; }
     * { box-sizing:border-box; margin:0; }
-    body { font-family:"Inter",system-ui,sans-serif; color:var(--ink); background:var(--cloud); padding:48px 24px; }
-    .wrap { max-width:1100px; margin:0 auto; }
-    .eyebrow { font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); }
-    h1 { font-family:"Space Grotesk",sans-serif; font-size:34px; letter-spacing:-.02em; margin:8px 0 4px; }
-    .sub { color:var(--n500); margin-bottom:36px; }
-    .home { display:flex; justify-content:center; margin-bottom:8px; }
-    .node { background:var(--ink); color:#fff; border-radius:12px; padding:16px 26px; text-align:center; min-width:200px; }
-    .node .k { font-family:"Space Grotesk"; font-weight:600; font-size:18px; }
-    .node .s { font-size:12px; color:#94A3B8; margin-top:4px; }
-    .connector { width:2px; height:28px; background:var(--line); margin:0 auto; }
-    .cols { display:grid; grid-template-columns:repeat(5,1fr); gap:16px; }
+    body { font-family: ui-monospace, "SF Mono", Menlo, monospace; background:var(--bg); color:var(--d); line-height:1.5; }
+    .wfbar { position:sticky; top:0; z-index:10; background:#fff; border-bottom:1px solid var(--l); display:flex; align-items:center; gap:16px; padding:12px 20px; flex-wrap:wrap; }
+    .wfbar h1 { font-size:14px; color:var(--ink); }
+    .wfbar a { font-size:12px; color:var(--d); border:1px solid var(--g); border-radius:5px; padding:6px 12px; text-decoration:none; }
+    .tabnote { font-size:11px; color:var(--g); margin-left:auto; }
+    .sheet { max-width:1080px; margin:28px auto 60px; padding:0 16px; }
+
+    .home { display:flex; justify-content:center; }
+    .node { background:#fff; border:1.5px dashed var(--g); border-radius:6px; padding:14px 18px; }
+    .node.root { border-style:solid; border-color:var(--ink); min-width:320px; text-align:center; }
+    .node .k { font-size:13px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink); font-weight:700; }
+    .node .secs { font-size:11px; color:var(--g); margin-top:8px; }
+    .connector { width:2px; height:26px; background:var(--l); margin:0 auto; }
+    .hbar { height:2px; background:var(--l); margin:0 8px; }
+
+    .cols { display:grid; grid-template-columns:repeat(5,1fr); gap:14px; }
     @media (max-width:880px){ .cols{ grid-template-columns:repeat(2,1fr);} }
-    .page { background:#fff; border:1px solid var(--line); border-radius:12px; overflow:hidden; }
-    .page > .hd { background:#fff; border-bottom:1px solid var(--line); padding:14px 16px; font-family:"Space Grotesk"; font-weight:600; display:flex; align-items:center; gap:8px; }
-    .page .dot { width:8px; height:8px; border-radius:99px; background:var(--accent); }
-    .page ul { list-style:none; padding:12px 16px; display:flex; flex-direction:column; gap:8px; }
-    .page li { font-size:13px; color:var(--n500); display:flex; gap:8px; }
-    .page li::before { content:"·"; color:var(--accent); font-weight:700; }
-    .sub-pages { padding:0 16px 14px; }
-    .sub-pages .lbl { font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#94A3B8; margin-bottom:6px; }
-    .sub-pages .sp { font-size:13px; background:var(--cloud); border:1px solid var(--line); border-radius:7px; padding:7px 10px; margin-bottom:6px; }
-    .star { color:var(--accent); }
-    .legend { display:flex; gap:20px; flex-wrap:wrap; margin-top:34px; font-size:13px; color:var(--n500); }
+    .page { background:#fff; border:1.5px dashed var(--g); border-radius:6px; overflow:hidden; }
+    .page .hd { background:#fff; border-bottom:1px dashed var(--l); padding:12px 14px; font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink); font-weight:700; display:flex; align-items:center; justify-content:space-between; }
+    .page ul { list-style:none; padding:12px 14px; display:flex; flex-direction:column; gap:7px; }
+    .page li { font-size:11px; color:var(--d); }
+    .page li::before { content:"– "; color:var(--g); }
+    .sub { padding:0 14px 14px; }
+    .sub .lbl { font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:6px; }
+    .sub .sp { font-size:11px; border:1px dashed var(--l); border-radius:4px; padding:6px 9px; margin-bottom:6px; color:var(--d); }
+    .star { color:var(--ink); font-weight:700; }
+    .util { margin-top:26px; }
+    .util .lbl, .legend .lbl { font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:8px; }
+    .util .row { display:flex; gap:10px; flex-wrap:wrap; }
+    .util .sp { font-size:11px; border:1px dashed var(--g); border-radius:4px; padding:6px 12px; color:var(--d); }
+    .legend { margin-top:26px; border-top:1px solid var(--l); padding-top:18px; display:flex; flex-wrap:wrap; gap:18px; font-size:11px; }
     .legend b { color:var(--ink); }
-    .util { margin-top:24px; display:flex; gap:10px; flex-wrap:wrap; }
-    .util .sp { font-size:12px; background:#fff; border:1px dashed var(--line); border-radius:7px; padding:7px 12px; color:var(--n500); }
+    h2.sect { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin:0 0 6px; }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <p class="eyebrow">Architettura informativa</p>
-    <h1>Sitemap · Officine Lario</h1>
-    <p class="sub">6 pagine, un percorso che converge sulla richiesta di preventivo. La stella indica l'azione primaria.</p>
+  <div class="wfbar">
+    <h1>SITEMAP · Officine Lario</h1>
+    <a href="wireframe.html">→ Wireframe</a>
+    <span class="tabnote">architettura informativa · low-fi · ★ = azione primaria</span>
+  </div>
 
-    <div class="home"><div class="node"><div class="k">Home</div><div class="s">hero · numeri · lavorazioni · perché noi · settori · qualità · CTA</div></div></div>
+  <div class="sheet">
+    <div class="home">
+      <div class="node root">
+        <div class="k">Home</div>
+        <div class="secs">hero · marquee · statement · numeri · lavorazioni (bento) · video · perché noi · settori · caso · testimonial · qualità · CTA</div>
+      </div>
+    </div>
     <div class="connector"></div>
 
     <div class="cols">
       <div class="page">
-        <div class="hd"><span class="dot"></span> Azienda</div>
-        <ul><li>Storia (timeline)</li><li>Numeri</li><li>Stabilimento</li><li>Settori</li></ul>
+        <div class="hd">Azienda</div>
+        <ul><li>Hero</li><li>Storia / timeline</li><li>Numeri</li><li>Stabilimento</li><li>Settori</li><li>CTA</li></ul>
       </div>
       <div class="page">
-        <div class="hd"><span class="dot"></span> Lavorazioni</div>
-        <ul><li>Capacità / specifiche</li><li>Materiali</li><li>Processo</li></ul>
-        <div class="sub-pages">
-          <div class="lbl">Una pagina per lavorazione (SEO)</div>
+        <div class="hd">Lavorazioni</div>
+        <ul><li>Hero + breadcrumb</li><li>Specifiche</li><li>Materiali</li><li>Processo</li><li>CTA</li></ul>
+        <div class="sub">
+          <div class="lbl">Sotto-pagine (1 per lavorazione · SEO)</div>
           <div class="sp">Tornitura CNC</div><div class="sp">Fresatura 5 assi</div><div class="sp">Rettifica</div><div class="sp">Collaudo metrologico</div>
         </div>
       </div>
       <div class="page">
-        <div class="hd"><span class="dot"></span> Settori</div>
+        <div class="hd">Settori</div>
         <ul><li>Automotive</li><li>Aerospaziale</li><li>Medicale</li><li>Oleodinamica</li></ul>
+        <div class="sub"><div class="lbl">Nota</div><div class="sp" style="border-style:solid;border-color:var(--l)">ancora su Home #settori (o pagina dedicata se i contenuti crescono)</div></div>
       </div>
       <div class="page">
-        <div class="hd"><span class="dot"></span> Qualità</div>
-        <ul><li>Certificazioni</li><li>Processo di collaudo</li><li>Tracciabilità</li></ul>
+        <div class="hd">Qualità</div>
+        <ul><li>Certificazioni</li><li>Processo di collaudo</li><li>Tracciabilità</li><li>Rapporti di prova</li></ul>
       </div>
       <div class="page">
-        <div class="hd"><span class="dot"></span> Contatti <span class="star">★</span></div>
-        <ul><li>Form preventivo</li><li>Upload disegno</li><li>Sede / mappa</li></ul>
+        <div class="hd">Contatti <span class="star">★</span></div>
+        <ul><li>Hero</li><li>Form preventivo</li><li>Upload disegno</li><li>Sede / mappa</li></ul>
+        <div class="sub"><div class="lbl">Esito</div><div class="sp" style="border-style:solid;border-color:var(--ink)">★ Offerta entro 48h</div></div>
       </div>
     </div>
 
     <div class="util">
-      <span class="sp">Privacy policy</span><span class="sp">Cookie policy</span><span class="sp">Note legali</span><span class="sp">404</span>
+      <div class="lbl">Pagine utility / legali</div>
+      <div class="row"><span class="sp">Privacy policy</span><span class="sp">Cookie policy</span><span class="sp">Note legali</span><span class="sp">404</span><span class="sp">Grazie (post-form)</span></div>
     </div>
 
     <div class="legend">
       <span><b>Nav primaria:</b> Azienda · Lavorazioni · Settori · Qualità · Contatti</span>
-      <span><b class="star">★</b> Azione primaria: richiesta preventivo + upload disegno</span>
+      <span><b class="star">★</b> Azione primaria: richiesta preventivo + upload disegno (ogni pagina porta qui)</span>
       <span><b>Lingua:</b> IT (predisposto EN)</span>
+      <span><b>Build:</b> Track A · WordPress + Impreza</span>
     </div>
   </div>
 </body>
