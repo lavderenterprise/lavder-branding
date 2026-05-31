@@ -14,7 +14,7 @@ One source of truth for colors, typography, logo, voice, motion, and component p
 | [`tokens/`](./tokens)             | Machine-readable tokens. DTCG JSON + CSS variables + SCSS + Tailwind preset. |
 | [`assets/`](./assets)             | Logos, fonts (TWK Lausanne + Inter), badges, favicons.              |
 | [`components/`](./components)     | HTML+CSS reference for buttons, cards, forms, navigation, preview.  |
-| [`documents/`](./documents)       | Branded document templates — preventivi, proposte. Render via Chrome headless to PDF. |
+| [`documents/`](./documents)       | Branded deliverable templates: preventivi, case studies, website design. Render via Chrome headless to PDF. |
 | [`claude-design/`](./claude-design) | Curated package for uploading to [Claude Design](https://claude.com/design). |
 | [`SKILL.md`](./SKILL.md)          | Claude Code skill manifest — use as an invocable skill.             |
 | [`CHANGELOG.md`](./CHANGELOG.md)  | Release log.                                                         |

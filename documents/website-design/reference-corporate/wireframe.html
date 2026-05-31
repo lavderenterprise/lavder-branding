@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="it">
+<!-- OFFICINE LARIO (demo) · WIREFRAME (low-fi) of the home. Tier-3 wireframe-gate artifact (README §8).
+     Deliberately grayscale + structural: approve STRUCTURE cheaply before any visual design. -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wireframe · Home · Officine Lario</title>
+  <style>
+    :root { --g:#9aa0a6; --d:#5f6368; --l:#e3e5e8; --bg:#f4f5f6; }
+    * { box-sizing:border-box; margin:0; }
+    body { font-family: ui-monospace, "SF Mono", Menlo, monospace; background:var(--bg); color:var(--d); padding:32px 16px; line-height:1.5; }
+    .sheet { max-width:980px; margin:0 auto; }
+    .meta { display:flex; flex-wrap:wrap; gap:8px 18px; font-size:12px; color:var(--g); margin-bottom:18px; }
+    .meta b { color:var(--d); }
+    .blk { background:#fff; border:1.5px dashed var(--g); border-radius:6px; margin-bottom:14px; padding:18px; position:relative; }
+    .blk .tag { position:absolute; top:-9px; left:14px; background:var(--bg); padding:0 8px; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--d); }
+    .note { font-size:11px; color:var(--g); margin-top:8px; }
+    .bar { height:14px; background:var(--l); border-radius:3px; }
+    .bar.w70{width:70%} .bar.w50{width:50%} .bar.w40{width:40%} .bar.w30{width:30%} .bar.w85{width:85%} .bar.t{height:22px}
+    .row { display:flex; gap:12px; }
+    .col { flex:1; }
+    .box { background:repeating-linear-gradient(45deg,#eef0f2,#eef0f2 8px,#e7e9ec 8px,#e7e9ec 16px); border:1px solid var(--l); border-radius:5px; display:grid; place-items:center; color:var(--g); font-size:11px; }
+    .h { display:flex; align-items:center; justify-content:space-between; }
+    .chip { border:1px solid var(--g); border-radius:3px; padding:4px 10px; font-size:11px; color:var(--d); }
+    .pillrow { display:flex; gap:8px; flex-wrap:wrap; }
+    .stack > * + * { margin-top:8px; }
+    .grid4 { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+    .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+    h1 { font-size:15px; color:var(--d); margin-bottom:4px; }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <h1>WIREFRAME · Home</h1>
+    <div class="meta"><span><b>Cliente:</b> Officine Lario (demo)</span><span><b>Pagina:</b> Home</span><span><b>Fidelity:</b> low-fi / struttura</span><span><b>Regola:</b> 1 h1 · 1 CTA primaria per fold · sezioni alternate</span></div>
+
+    <!-- NAV -->
+    <div class="blk"><span class="tag">Nav (sticky)</span>
+      <div class="h"><div class="chip">[logo] OFFICINE LARIO</div><div class="pillrow"><span class="chip">Azienda</span><span class="chip">Lavorazioni</span><span class="chip">Settori</span><span class="chip">Qualità</span><span class="chip">Contatti</span><span class="chip">★ CTA: Preventivo</span></div></div>
+      <div class="note">Mobile: hamburger → menu a tendina. CTA sempre visibile.</div>
+    </div>
+
+    <!-- HERO -->
+    <div class="blk"><span class="tag">Hero (7/5 asimmetrico)</span>
+      <div class="row">
+        <div class="col stack" style="flex:7">
+          <div class="bar w30"></div>
+          <div class="bar t w85"></div><div class="bar t w70"></div>
+          <div class="bar w70"></div><div class="bar w50"></div>
+          <div class="pillrow" style="margin-top:6px"><span class="chip">★ CTA primaria</span><span class="chip">CTA secondaria</span></div>
+          <div class="bar w40" style="margin-top:6px"></div>
+        </div>
+        <div class="col box" style="flex:5; min-height:200px">IMG · foto reparto CNC</div>
+      </div>
+      <div class="note">Headline con UNA parola accent. Trust line (certificazioni) sotto i bottoni.</div>
+    </div>
+
+    <!-- LOGOS -->
+    <div class="blk"><span class="tag">Trust / loghi clienti</span>
+      <div class="grid4"><div class="box" style="height:34px">logo</div><div class="box" style="height:34px">logo</div><div class="box" style="height:34px">logo</div><div class="box" style="height:34px">logo</div></div>
+    </div>
+
+    <!-- STATS -->
+    <div class="blk"><span class="tag">Numeri (contatori)</span>
+      <div class="grid4"><div class="stack"><div class="bar t w70"></div><div class="bar w85"></div></div><div class="stack"><div class="bar t w70"></div><div class="bar w85"></div></div><div class="stack"><div class="bar t w70"></div><div class="bar w85"></div></div><div class="stack"><div class="bar t w70"></div><div class="bar w85"></div></div></div>
+      <div class="note">42+ · 1.2M · ±2µm · 60+ · count-up allo scroll.</div>
+    </div>
+
+    <!-- SERVIZI -->
+    <div class="blk"><span class="tag">Lavorazioni (4 card)</span>
+      <div class="bar w40" style="margin-bottom:12px"></div>
+      <div class="grid4">
+        <div class="box" style="height:120px">card<br>ico+titolo+testo</div><div class="box" style="height:120px">card</div><div class="box" style="height:120px">card</div><div class="box" style="height:120px">card</div>
+      </div>
+      <div class="note">CTA: "Vedi una lavorazione in dettaglio" → template lavorazione.</div>
+    </div>
+
+    <!-- WHY US -->
+    <div class="blk"><span class="tag">Perché noi (img + 3 punti)</span>
+      <div class="row">
+        <div class="col box" style="min-height:160px">IMG · sala metrologica</div>
+        <div class="col stack" style="flex:1.2"><div class="bar w40"></div><div class="bar t w70"></div><div class="bar w85"></div><div class="bar w70"></div><div class="bar w50"></div></div>
+      </div>
+    </div>
+
+    <!-- SETTORI -->
+    <div class="blk"><span class="tag">Settori (4 card foto)</span>
+      <div class="grid4"><div class="box" style="height:150px">IMG settore</div><div class="box" style="height:150px">IMG settore</div><div class="box" style="height:150px">IMG settore</div><div class="box" style="height:150px">IMG settore</div></div>
+    </div>
+
+    <!-- QUALITA -->
+    <div class="blk" style="border-style:solid; background:#2b2c2e0d"><span class="tag">Qualità (sezione scura)</span>
+      <div class="row"><div class="col stack"><div class="bar w40"></div><div class="bar t w70"></div><div class="bar w85"></div></div><div class="col grid4" style="flex:1"><div class="box" style="height:70px">cert</div><div class="box" style="height:70px">cert</div><div class="box" style="height:70px">cert</div><div class="box" style="height:70px">cert</div></div></div>
+    </div>
+
+    <!-- CTA -->
+    <div class="blk" style="border-style:solid"><span class="tag">CTA band</span>
+      <div class="h"><div class="stack" style="flex:1"><div class="bar t w70"></div><div class="bar w50"></div></div><div class="pillrow"><span class="chip">★ Caricate il disegno</span><span class="chip">Telefono</span></div></div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="blk"><span class="tag">Footer</span>
+      <div class="grid3"><div class="stack"><div class="bar w50"></div><div class="bar w85"></div></div><div class="stack"><div class="bar w40"></div><div class="bar w70"></div><div class="bar w70"></div></div><div class="stack"><div class="bar w40"></div><div class="bar w70"></div><div class="bar w70"></div></div></div>
+      <div class="note">P.IVA, indirizzo, contatti. Riga legale + nota demo.</div>
+    </div>
+  </div>
+</body>
+</html>

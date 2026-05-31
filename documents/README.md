@@ -13,6 +13,7 @@ Each subfolder documents one document type with:
 |---|---|
 | [`preventivi/`](./preventivi) | Preventivi e proposte commerciali B2B (quotes & proposals) |
 | [`case-studies/`](./case-studies) | Client case-study decks (landscape 16:9, narrative project walkthroughs) |
+| [`website-design/`](./website-design) | Website design deliverables (client-branded hi-fi prototype + presentation, for pre-build approval) |
 
 ## Rendering to PDF
 

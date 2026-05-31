@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="it">
+<!-- OFFICINE LARIO (demo) · SITEMAP / architettura informativa. Deliverable di Fase 2 (README §7). -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sitemap · Officine Lario</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --ink:#14181D; --accent:#1B6FF2; --line:#E3E8EF; --cloud:#F5F7FA; --n500:#64748B; }
+    * { box-sizing:border-box; margin:0; }
+    body { font-family:"Inter",system-ui,sans-serif; color:var(--ink); background:var(--cloud); padding:48px 24px; }
+    .wrap { max-width:1100px; margin:0 auto; }
+    .eyebrow { font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); }
+    h1 { font-family:"Space Grotesk",sans-serif; font-size:34px; letter-spacing:-.02em; margin:8px 0 4px; }
+    .sub { color:var(--n500); margin-bottom:36px; }
+    .home { display:flex; justify-content:center; margin-bottom:8px; }
+    .node { background:var(--ink); color:#fff; border-radius:12px; padding:16px 26px; text-align:center; min-width:200px; }
+    .node .k { font-family:"Space Grotesk"; font-weight:600; font-size:18px; }
+    .node .s { font-size:12px; color:#94A3B8; margin-top:4px; }
+    .connector { width:2px; height:28px; background:var(--line); margin:0 auto; }
+    .cols { display:grid; grid-template-columns:repeat(5,1fr); gap:16px; }
+    @media (max-width:880px){ .cols{ grid-template-columns:repeat(2,1fr);} }
+    .page { background:#fff; border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+    .page > .hd { background:#fff; border-bottom:1px solid var(--line); padding:14px 16px; font-family:"Space Grotesk"; font-weight:600; display:flex; align-items:center; gap:8px; }
+    .page .dot { width:8px; height:8px; border-radius:99px; background:var(--accent); }
+    .page ul { list-style:none; padding:12px 16px; display:flex; flex-direction:column; gap:8px; }
+    .page li { font-size:13px; color:var(--n500); display:flex; gap:8px; }
+    .page li::before { content:"·"; color:var(--accent); font-weight:700; }
+    .sub-pages { padding:0 16px 14px; }
+    .sub-pages .lbl { font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#94A3B8; margin-bottom:6px; }
+    .sub-pages .sp { font-size:13px; background:var(--cloud); border:1px solid var(--line); border-radius:7px; padding:7px 10px; margin-bottom:6px; }
+    .star { color:var(--accent); }
+    .legend { display:flex; gap:20px; flex-wrap:wrap; margin-top:34px; font-size:13px; color:var(--n500); }
+    .legend b { color:var(--ink); }
+    .util { margin-top:24px; display:flex; gap:10px; flex-wrap:wrap; }
+    .util .sp { font-size:12px; background:#fff; border:1px dashed var(--line); border-radius:7px; padding:7px 12px; color:var(--n500); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="eyebrow">Architettura informativa</p>
+    <h1>Sitemap · Officine Lario</h1>
+    <p class="sub">6 pagine, un percorso che converge sulla richiesta di preventivo. La stella indica l'azione primaria.</p>
+
+    <div class="home"><div class="node"><div class="k">Home</div><div class="s">hero · numeri · lavorazioni · perché noi · settori · qualità · CTA</div></div></div>
+    <div class="connector"></div>
+
+    <div class="cols">
+      <div class="page">
+        <div class="hd"><span class="dot"></span> Azienda</div>
+        <ul><li>Storia (timeline)</li><li>Numeri</li><li>Stabilimento</li><li>Settori</li></ul>
+      </div>
+      <div class="page">
+        <div class="hd"><span class="dot"></span> Lavorazioni</div>
+        <ul><li>Capacità / specifiche</li><li>Materiali</li><li>Processo</li></ul>
+        <div class="sub-pages">
+          <div class="lbl">Una pagina per lavorazione (SEO)</div>
+          <div class="sp">Tornitura CNC</div><div class="sp">Fresatura 5 assi</div><div class="sp">Rettifica</div><div class="sp">Collaudo metrologico</div>
+        </div>
+      </div>
+      <div class="page">
+        <div class="hd"><span class="dot"></span> Settori</div>
+        <ul><li>Automotive</li><li>Aerospaziale</li><li>Medicale</li><li>Oleodinamica</li></ul>
+      </div>
+      <div class="page">
+        <div class="hd"><span class="dot"></span> Qualità</div>
+        <ul><li>Certificazioni</li><li>Processo di collaudo</li><li>Tracciabilità</li></ul>
+      </div>
+      <div class="page">
+        <div class="hd"><span class="dot"></span> Contatti <span class="star">★</span></div>
+        <ul><li>Form preventivo</li><li>Upload disegno</li><li>Sede / mappa</li></ul>
+      </div>
+    </div>
+
+    <div class="util">
+      <span class="sp">Privacy policy</span><span class="sp">Cookie policy</span><span class="sp">Note legali</span><span class="sp">404</span>
+    </div>
+
+    <div class="legend">
+      <span><b>Nav primaria:</b> Azienda · Lavorazioni · Settori · Qualità · Contatti</span>
+      <span><b class="star">★</b> Azione primaria: richiesta preventivo + upload disegno</span>
+      <span><b>Lingua:</b> IT (predisposto EN)</span>
+    </div>
+  </div>
+</body>
+</html>

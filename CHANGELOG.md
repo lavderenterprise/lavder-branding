@@ -5,6 +5,21 @@ Format follows [Keep a Changelog](https://keepachangelog.com/), versioning follo
 
 ---
 
+## [0.3.0] — 2026-05-30
+
+### Added — Website design guideline
+
+- **`documents/website-design/`** — playbook for designing client websites and presenting them for pre-build approval. Core principle: the mockup is **client-branded** (Lavder's own orange/TWK/monogram live only in the presentation wrapper), split into a constant Lavder craft layer plus a variable client brand layer.
+  - `README.md` — full playbook: two-layer principle, tier model (Landing / Vetrina / Complesso), two build tracks (A: WordPress Impreza + WPBakery / B: Next.js), end-to-end process with per-tier approval gates, design system applied to web (grid, type, color, components, imagery, motion, voice), 6 archetypes with recipes, 8-mood library, the concept-ledger anti-repetition mechanism, hybrid deliverable (hi-fi prototype + presentation), handoff per track, do/don't.
+  - `discovery-brief.md` — per-client intake, brand extraction, and brand-express (when the client has no identity).
+  - `sources.md` — curated component/section kits, animation (GSAP free, Lenis), inspiration galleries, icons, imagery, mapped per build track.
+  - `concept-ledger.md` — living "seed" registry of every design's fingerprint, with the anti-repetition rule that keeps the portfolio from converging on one look.
+  - `reference-corporate/` — first worked example: a **multi-page** navigable hi-fi prototype (corporate archetype, demo client Officine Lario, precision-mechanics B2B). Pages: home, lavorazione (service template, SEO), contatti (preventivo form + drawing upload), azienda (history/numbers/facility/sectors), plus `sitemap.html` and `wireframe.html`. Client-branded (industrial blue accent, mixed radius = soft cards + squared buttons, Space Grotesk + Inter, NOT Lavder orange). Self-contained own `styles.css` + `app.js` (no Tailwind CDN). **Real category stock images** (Pexels) in `img/`. **Rich motion**: Lenis smooth scroll + GSAP ScrollTrigger reveals, animated counters, hero parallax, progressive-enhancement + reduced-motion safe. Verified desktop + mobile + working menu.
+  - Process: added **design-parameters intake quiz** (README §9.0) so the look is chosen with the client (style, palette, radius, logo, fonts, imagery, motion, pages), not unilaterally. `sources.md` font pool set to the **full Google Fonts library**.
+  - `presentation-template.html` — Lavder-branded 16:9 deck (7 slides) framing the prototype. Renders to PDF via Chrome headless. `reference-corporate-home.png` is the embedded home screenshot.
+
+---
+
 ## [0.2.0] — 2026-05-28
 
 ### Added — Documents section

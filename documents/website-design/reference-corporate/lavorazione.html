@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="it">
+<!-- OFFICINE LARIO (demo) · LAVORAZIONE (service template: Tornitura CNC) · one page per lavorazione for SEO -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tornitura CNC conto terzi · Officine Lario</title>
+  <meta name="description" content="Tornitura CNC di precisione conto terzi: torni plurimandrino fino a Ø 320 mm, acciai, inox, titanio e leghe. Tolleranze al micron, lotti da prototipo a grande serie." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Vai al contenuto</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html"><span class="brand__mark">OL</span><span class="brand__name">OFFICINE LARIO</span></a>
+      <ul class="nav__links">
+        <li><a href="azienda.html">Azienda</a></li>
+        <li><a href="lavorazione.html" aria-current="page">Lavorazioni</a></li>
+        <li><a href="index.html#settori">Settori</a></li>
+        <li><a href="index.html#qualita">Qualità</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+      <a class="btn btn--primary nav__cta" href="contatti.html">Richiedi un preventivo</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Apri il menu" aria-expanded="false"><i data-lucide="menu"></i></button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu"><div class="container"><ul>
+      <li><a href="azienda.html">Azienda</a></li>
+      <li><a href="lavorazione.html">Lavorazioni</a></li>
+      <li><a href="index.html#settori">Settori</a></li>
+      <li><a href="index.html#qualita">Qualità</a></li>
+      <li><a href="contatti.html">Contatti</a></li>
+      <li><a class="btn btn--primary" href="contatti.html">Richiedi un preventivo</a></li>
+    </ul></div></div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="section--dark" style="overflow:hidden;">
+      <div class="container split" style="padding-block:64px 84px;">
+        <div>
+          <p class="muted" style="font-size:13px;"><a href="index.html" style="color:var(--n400)">Home</a> · <a href="lavorazione.html" style="color:var(--n400)">Lavorazioni</a> · <span style="color:#fff">Tornitura CNC</span></p>
+          <p class="eyebrow mt-s">Lavorazione</p>
+          <h1 class="h1" style="margin-top:16px;">Tornitura CNC <span class="accent">conto terzi</span>.</h1>
+          <p class="lead mt-m">Torni plurimandrino a controllo numerico per particolari di rivoluzione, da prototipo a grande serie. Ciclo automatizzato, qualità ripetibile, collaudo dimensionale incluso.</p>
+          <div class="mt-l" style="display:flex; flex-wrap:wrap; gap:12px;">
+            <a class="btn btn--primary" href="contatti.html">Richiedi un preventivo <i data-lucide="arrow-right"></i></a>
+            <a class="btn btn--outline" href="#specifiche">Vedi le specifiche</a>
+          </div>
+        </div>
+        <div class="figure figure--ratio-45 figure--tint reveal">
+          <img data-parallax src="img/milling.jpg" alt="Lavorazione CNC di precisione su componente metallico" style="height:118%;" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SPECS -->
+    <section class="section" id="specifiche">
+      <div class="container">
+        <div class="maxw-2 reveal"><p class="eyebrow">Capacità produttiva</p><h2 class="h2 mt-s">Le specifiche, senza giri di parole.</h2></div>
+        <div class="grid cols-4 mt-l reveal-stagger">
+          <div class="card"><div class="card__ico"><i data-lucide="circle"></i></div><h3>Ø 320 mm</h3><p>Diametro massimo tornibile, barra o fusione.</p></div>
+          <div class="card"><div class="card__ico"><i data-lucide="target"></i></div><h3>±2 µm</h3><p>Tolleranza dimensionale in produzione di serie.</p></div>
+          <div class="card"><div class="card__ico"><i data-lucide="layers"></i></div><h3>Ra 0.2</h3><p>Finitura superficiale raggiungibile con rettifica.</p></div>
+          <div class="card"><div class="card__ico"><i data-lucide="boxes"></i></div><h3>1 → 100k</h3><p>Lotti da pezzo singolo a grande serie automatizzata.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MATERIALI -->
+    <section class="section section--cloud">
+      <div class="container split">
+        <div class="reveal">
+          <p class="eyebrow">Materiali</p>
+          <h2 class="h2 mt-s">Quello che lavoriamo ogni giorno.</h2>
+          <p class="lead mt-m">Selezioniamo utensili e parametri di taglio in base al materiale, per garantire finitura e durata utensile anche sui metalli più ostici.</p>
+          <div class="mt-l" style="display:flex; flex-wrap:wrap; gap:10px;">
+            <span class="tag">Acciai da bonifica</span><span class="tag">Inox AISI 303/316</span><span class="tag">Titanio</span>
+            <span class="tag">Alluminio 7075</span><span class="tag">Ottone</span><span class="tag">Leghe nichel</span><span class="tag">Materie plastiche tecniche</span>
+          </div>
+        </div>
+        <div class="figure figure--ratio-43 reveal"><img src="img/workshop.jpg" alt="Reparto torneria con macchine a controllo numerico"></div>
+      </div>
+    </section>
+
+    <!-- PROCESSO -->
+    <section class="section">
+      <div class="container">
+        <div class="maxw-2 reveal"><p class="eyebrow">Come lavoriamo</p><h2 class="h2 mt-s">Dal disegno al pezzo collaudato.</h2></div>
+        <div class="grid cols-4 mt-l reveal-stagger">
+          <div class="card"><div class="stat__num accent" style="font-size:2rem;">01</div><h3 class="mt-s">Analisi disegno</h3><p>Fattibilità, scelta materiale e attrezzaggio. Offerta in 48 ore.</p></div>
+          <div class="card"><div class="stat__num accent" style="font-size:2rem;">02</div><h3 class="mt-s">Programmazione</h3><p>CAM e setup macchina, campione di prima articolo (FAI).</p></div>
+          <div class="card"><div class="stat__num accent" style="font-size:2rem;">03</div><h3 class="mt-s">Produzione</h3><p>Ciclo automatizzato con controllo statistico di processo.</p></div>
+          <div class="card"><div class="stat__num accent" style="font-size:2rem;">04</div><h3 class="mt-s">Collaudo & consegna</h3><p>Rapporto dimensionale CMM, tracciabilità, spedizione puntuale.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section--accent">
+      <div class="container" style="padding-block:60px; display:flex; flex-wrap:wrap; gap:24px; align-items:center; justify-content:space-between;">
+        <h2 class="h2" style="color:#fff;">Un disegno da quotare? Partiamo da lì.</h2>
+        <a class="btn btn--light" href="contatti.html"><i data-lucide="upload"></i> Caricate il disegno</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div><a class="brand" href="index.html"><span class="brand__mark">OL</span><span class="brand__name">OFFICINE LARIO</span></a><p class="mt-m" style="font-size:14px; max-width:34ch;">Subfornitura meccanica di precisione dal 1982.</p></div>
+        <div><h4>Navigazione</h4><ul><li><a href="azienda.html">Azienda</a></li><li><a href="lavorazione.html">Lavorazioni</a></li><li><a href="index.html#settori">Settori</a></li><li><a href="index.html#qualita">Qualità</a></li><li><a href="contatti.html">Contatti</a></li></ul></div>
+        <div><h4>Contatti</h4><ul><li class="row"><i data-lucide="map-pin"></i> Via dell'Industria 14, 25040 Brescia (BS)</li><li class="row"><i data-lucide="phone"></i> 030 123 4567</li><li class="row"><i data-lucide="mail"></i> info@officinelario.example</li></ul></div>
+      </div>
+      <div class="footer__bar"><p>© 2026 Officine Lario S.r.l. · P.IVA IT 01234567890</p><p class="demo">Mockup dimostrativo Lavder · azienda e dati fittizi</p></div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

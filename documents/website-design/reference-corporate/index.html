@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="it">
+<!-- OFFICINE LARIO (demo, fictional) · HOME · CLIENT-branded prototype. See ../README.md -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Officine Lario · Lavorazioni meccaniche di precisione dal 1982</title>
+  <meta name="description" content="Subfornitura meccanica di precisione dal 1982. Tornitura e fresatura CNC a 5 assi, rettifica, collaudo metrologico certificato ISO 9001 e IATF 16949." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Vai al contenuto</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html"><span class="brand__mark">OL</span><span class="brand__name">OFFICINE LARIO</span></a>
+      <ul class="nav__links">
+        <li><a href="azienda.html">Azienda</a></li>
+        <li><a href="lavorazione.html">Lavorazioni</a></li>
+        <li><a href="index.html#settori" aria-current="page">Settori</a></li>
+        <li><a href="index.html#qualita">Qualità</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+      <a class="btn btn--primary nav__cta" href="contatti.html">Richiedi un preventivo</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Apri il menu" aria-expanded="false"><i data-lucide="menu"></i></button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="container">
+        <ul>
+          <li><a href="azienda.html">Azienda</a></li>
+          <li><a href="lavorazione.html">Lavorazioni</a></li>
+          <li><a href="index.html#settori">Settori</a></li>
+          <li><a href="index.html#qualita">Qualità</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+          <li><a class="btn btn--primary" href="contatti.html">Richiedi un preventivo</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="section--dark" style="position:relative; overflow:hidden;">
+      <div class="container split" style="padding-block:72px 92px;">
+        <div>
+          <p class="eyebrow">Subfornitura meccanica di precisione</p>
+          <h1 class="h1" style="margin-top:20px;">Tolleranze al <span class="accent">micron</span>, consegne al giorno esatto.</h1>
+          <p class="lead mt-m">Dal 1982 lavoriamo componenti critici per automotive, aerospaziale e medicale. Tornitura e fresatura CNC a 5 assi, rettifica, collaudo metrologico certificato su ogni lotto.</p>
+          <div class="mt-l" style="display:flex; flex-wrap:wrap; gap:12px;">
+            <a class="btn btn--primary" href="contatti.html">Richiedi un preventivo <i data-lucide="arrow-right"></i></a>
+            <a class="btn btn--outline" href="lavorazione.html">Le nostre lavorazioni</a>
+          </div>
+          <p class="mt-l muted" style="display:flex; flex-wrap:wrap; gap:8px 20px; font-size:14px;">
+            <span style="display:inline-flex; align-items:center; gap:8px;"><i data-lucide="badge-check" style="width:16px;color:var(--accent)"></i> ISO 9001:2015</span>
+            <span style="display:inline-flex; align-items:center; gap:8px;"><i data-lucide="badge-check" style="width:16px;color:var(--accent)"></i> IATF 16949</span>
+            <span style="display:inline-flex; align-items:center; gap:8px;"><i data-lucide="factory" style="width:16px;color:var(--accent)"></i> Stabilimento 4.200 m²</span>
+          </p>
+        </div>
+        <div class="figure figure--ratio-45 figure--tint reveal">
+          <img data-parallax src="img/hero-cnc.jpg" alt="Centro di lavoro CNC in funzione con getto di refrigerante" style="height:118%;" />
+          <span class="figure__cap"><i data-lucide="circle-dot"></i> Reparto produzione · centro CNC</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST LOGOS -->
+    <section style="border-bottom:1px solid var(--line);">
+      <div class="container" style="padding-block:40px;">
+        <p class="eyebrow muted" style="justify-content:center; display:flex;">Fornitore qualificato per</p>
+        <div class="grid cols-4 mt-m reveal-stagger" style="opacity:.75;">
+          <div class="figure" style="height:36px; background:#EDF1F7;"></div>
+          <div class="figure" style="height:36px; background:#EDF1F7;"></div>
+          <div class="figure" style="height:36px; background:#EDF1F7;"></div>
+          <div class="figure" style="height:36px; background:#EDF1F7;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="section section--cloud" id="azienda">
+      <div class="container">
+        <div class="stats reveal-stagger">
+          <div class="stat"><div class="stat__num"><span data-count="42" data-dec="0">42</span><span class="accent">+</span></div><p class="stat__label">Anni di attività, dal 1982</p></div>
+          <div class="stat"><div class="stat__num"><span data-count="1.2" data-dec="1">1.2</span><span class="accent">M</span></div><p class="stat__label">Pezzi prodotti all'anno</p></div>
+          <div class="stat"><div class="stat__num"><span class="accent">±</span><span data-count="2" data-dec="0">2</span><span class="accent">µm</span></div><p class="stat__label">Tolleranza in produzione</p></div>
+          <div class="stat"><div class="stat__num"><span data-count="60" data-dec="0">60</span><span class="accent">+</span></div><p class="stat__label">Clienti attivi in 4 settori</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LAVORAZIONI -->
+    <section class="section">
+      <div class="container">
+        <div class="maxw-2 reveal">
+          <p class="eyebrow">Cosa facciamo</p>
+          <h2 class="h2 mt-s">Quattro reparti, un solo standard.</h2>
+          <p class="lead mt-m">Dal grezzo al pezzo collaudato, senza passaggi esterni. Il controllo del processo resta tutto in casa.</p>
+        </div>
+        <div class="grid cols-4 mt-l reveal-stagger">
+          <article class="card"><div class="card__ico"><i data-lucide="rotate-3d"></i></div><h3>Tornitura CNC</h3><p>Torni plurimandrino fino a Ø 320 mm, barre e fusioni. Cicli automatizzati per grandi lotti.</p></article>
+          <article class="card"><div class="card__ico"><i data-lucide="box"></i></div><h3>Fresatura 5 assi</h3><p>Geometrie complesse in continuo, da prototipo a serie. Programmazione CAM dedicata.</p></article>
+          <article class="card"><div class="card__ico"><i data-lucide="disc-3"></i></div><h3>Rettifica</h3><p>Rettifica cilindrica e in piano per finiture Ra 0.2 e accoppiamenti critici.</p></article>
+          <article class="card"><div class="card__ico"><i data-lucide="ruler"></i></div><h3>Collaudo metrologico</h3><p>CMM in sala climatizzata, rapporto dimensionale su ogni lotto e tracciabilità completa.</p></article>
+        </div>
+        <p class="mt-l reveal"><a class="btn btn--ink" href="lavorazione.html">Vedi una lavorazione in dettaglio <i data-lucide="arrow-right"></i></a></p>
+      </div>
+    </section>
+
+    <!-- WHY US -->
+    <section class="section section--cloud">
+      <div class="container split split--rev">
+        <div class="figure figure--ratio-43 reveal">
+          <img src="img/precision.jpg" alt="Mandrino CNC che lavora un componente metallico di precisione" />
+          <span class="figure__cap"><i data-lucide="image"></i> Sala metrologica climatizzata</span>
+        </div>
+        <div class="reveal">
+          <p class="eyebrow">Perché Officine Lario</p>
+          <h2 class="h2 mt-s">La precisione è un processo, non un colpo di fortuna.</h2>
+          <ul class="mt-l stack-lg" style="list-style:none;">
+            <li style="display:flex; gap:16px;"><i data-lucide="repeat" style="width:24px;color:var(--accent);flex:none"></i><div><h3 class="h3">Ripetibilità garantita</h3><p class="muted mt-s">Lo stesso pezzo, identico, dal primo all'ultimo del lotto. Controllo statistico di processo su ogni serie.</p></div></li>
+            <li style="display:flex; gap:16px;"><i data-lucide="git-branch" style="width:24px;color:var(--accent);flex:none"></i><div><h3 class="h3">Tracciabilità completa</h3><p class="muted mt-s">Dalla colata al collaudo: ogni componente è risalibile a materiale, macchina e operatore.</p></div></li>
+            <li style="display:flex; gap:16px;"><i data-lucide="calendar-check" style="width:24px;color:var(--accent);flex:none"></i><div><h3 class="h3">Puntualità contrattuale</h3><p class="muted mt-s">Consegne pianificate al giorno: il 98,6% degli ordini esce nella data concordata.</p></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SETTORI -->
+    <section class="section" id="settori">
+      <div class="container">
+        <div class="reveal" style="display:flex; flex-wrap:wrap; gap:16px; align-items:flex-end; justify-content:space-between;">
+          <div class="maxw-2"><p class="eyebrow">Settori serviti</p><h2 class="h2 mt-s">Dove un errore non è un'opzione.</h2></div>
+          <a class="btn btn--ink" href="contatti.html">Parlate con un tecnico <i data-lucide="arrow-right"></i></a>
+        </div>
+        <div class="grid cols-4 mt-l reveal-stagger">
+          <div class="figure figure--ratio-34 figure--card-overlay"><img src="img/engine.jpg" alt="Ingranaggi e distribuzione di un motore automobilistico"><div class="overlay"><i data-lucide="car-front"></i><h3>Automotive</h3><p>Componenti motore e trasmissione, IATF 16949.</p></div></div>
+          <div class="figure figure--ratio-34 figure--card-overlay"><img src="img/facility.jpg" alt="Impianto industriale per produzione di precisione"><div class="overlay"><i data-lucide="plane"></i><h3>Aerospaziale</h3><p>Particolari critici, standard UNI EN 9100.</p></div></div>
+          <div class="figure figure--ratio-34 figure--card-overlay"><img src="img/milling.jpg" alt="Fresatura CNC di precisione su componente metallico"><div class="overlay"><i data-lucide="heart-pulse"></i><h3>Medicale</h3><p>Acciai e titanio, finiture biocompatibili.</p></div></div>
+          <div class="figure figure--ratio-34 figure--card-overlay"><img src="img/pistons.jpg" alt="Pistoni e bielle di un gruppo meccanico"><div class="overlay"><i data-lucide="gauge"></i><h3>Oleodinamica</h3><p>Corpi valvola e raccordi ad alta pressione.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUALITA -->
+    <section class="section section--dark" id="qualita">
+      <div class="container split">
+        <div class="reveal">
+          <p class="eyebrow">Qualità & certificazioni</p>
+          <h2 class="h2 mt-s">Ogni lotto esce con il suo certificato.</h2>
+          <p class="lead mt-m">Il sistema qualità è verificato da enti terzi accreditati. I rapporti di collaudo accompagnano la merce e restano archiviati per dieci anni.</p>
+        </div>
+        <div class="grid cols-2 reveal-stagger">
+          <div class="cert"><i data-lucide="shield-check"></i><b>ISO 9001:2015</b><span>Gestione qualità</span></div>
+          <div class="cert"><i data-lucide="shield-check"></i><b>IATF 16949</b><span>Automotive</span></div>
+          <div class="cert"><i data-lucide="shield-check"></i><b>UNI EN 9100</b><span>Aerospaziale</span></div>
+          <div class="cert"><i data-lucide="file-check-2"></i><b>PPAP / FAI</b><span>Su richiesta</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section--accent">
+      <div class="container" style="padding-block:64px; display:flex; flex-wrap:wrap; gap:28px; align-items:center; justify-content:space-between;">
+        <div class="maxw-2">
+          <h2 class="h2" style="color:#fff;">Avete un disegno tecnico? Inviatecelo.</h2>
+          <p class="mt-s" style="color:#EAF1FF; font-size:1.0625rem;">Ricevete un'offerta tecnica entro 48 ore lavorative, con fattibilità e tempi.</p>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:12px;">
+          <a class="btn btn--light" href="contatti.html"><i data-lucide="upload"></i> Caricate il disegno</a>
+          <a class="btn btn--outline" href="tel:+390301234567"><i data-lucide="phone"></i> 030 123 4567</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a class="brand" href="index.html"><span class="brand__mark">OL</span><span class="brand__name">OFFICINE LARIO</span></a>
+          <p class="mt-m" style="font-size:14px; max-width:34ch;">Subfornitura meccanica di precisione dal 1982. Tornitura e fresatura CNC, rettifica, collaudo metrologico certificato.</p>
+        </div>
+        <div>
+          <h4>Navigazione</h4>
+          <ul>
+            <li><a href="azienda.html">Azienda</a></li>
+            <li><a href="lavorazione.html">Lavorazioni</a></li>
+            <li><a href="index.html#settori">Settori</a></li>
+            <li><a href="index.html#qualita">Qualità</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contatti</h4>
+          <ul>
+            <li class="row"><i data-lucide="map-pin"></i> Via dell'Industria 14, 25040 Brescia (BS)</li>
+            <li class="row"><i data-lucide="phone"></i> 030 123 4567</li>
+            <li class="row"><i data-lucide="mail"></i> info@officinelario.example</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bar">
+        <p>© 2026 Officine Lario S.r.l. · P.IVA IT 01234567890 · Cap. soc. 100.000 € i.v.</p>
+        <p class="demo">Mockup dimostrativo Lavder · azienda e dati fittizi</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="it">
+<!--
+  LAVDER WEBSITE DESIGN · PRESENTATION WRAPPER (template)
+  16:9 deck that FRAMES the client-branded prototype for sign-off. UNLIKE the prototype, this
+  surface IS Lavder-branded (orange #F87016, TWK Lausanne, LVDR monogram). See README §1 and §14.
+
+  Filled with the demo client (Officine Lario, fictional) so it renders as a complete example.
+  To reuse: swap the client name, objectives, sitemap, brand-direction swatches, the home
+  screenshot (reference-corporate-home.png), and the rationale. Fonts load from the repo via
+  relative paths; render to PDF with the Chrome-headless command at the bottom of README §21.
+-->
+<head>
+  <meta charset="utf-8" />
+  <title>Lavder · Proposta di design · Officine Lario</title>
+  <style>
+    @font-face { font-family:"TWK Lausanne"; src:url("../../assets/fonts/TWKLausanne/Web/TWKLausanne-600.woff2") format("woff2"); font-weight:600; font-style:normal; font-display:swap; }
+    @font-face { font-family:"TWK Lausanne"; src:url("../../assets/fonts/TWKLausanne/Web/TWKLausanne-700.woff2") format("woff2"); font-weight:700; font-style:normal; font-display:swap; }
+    @font-face { font-family:"TWK Lausanne"; src:url("../../assets/fonts/TWKLausanne/Web/TWKLausanne-800.woff2") format("woff2"); font-weight:800; font-style:normal; font-display:swap; }
+    @font-face { font-family:"Inter"; src:url("../../assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf") format("truetype"); font-weight:100 900; font-style:normal; font-display:swap; }
+
+    :root{
+      --ink:#111113; --surface:#fff; --brand:#F87016; --accent:#FCA400;
+      --n50:#FAFAFA; --n100:#F4F4F5; --n200:#E4E4E7; --n400:#A1A1AA; --n500:#71717A; --n600:#52525B; --n700:#3F3F46; --n800:#27272A;
+    }
+    *{box-sizing:border-box; margin:0; padding:0;}
+    @page{ size:13.333in 7.5in; margin:0; }
+    html,body{ background:var(--n200); }
+    body{ font-family:"Inter",system-ui,sans-serif; color:var(--ink); -webkit-font-smoothing:antialiased; }
+
+    .slide{ position:relative; width:1280px; height:720px; overflow:hidden; page-break-after:always; background:var(--surface); }
+    .slide:last-child{ page-break-after:auto; }
+    .pad{ position:absolute; inset:0; padding:84px 96px; display:flex; flex-direction:column; }
+
+    .dark{ background:var(--ink); color:var(--surface); }
+    .soft{ background:var(--n50); }
+
+    h1,h2,h3,.disp{ font-family:"TWK Lausanne",system-ui,sans-serif; letter-spacing:-0.025em; }
+    .eyebrow{ font-size:13px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:var(--brand); display:flex; align-items:center; gap:10px; }
+    .eyebrow::before{ content:""; width:7px; height:7px; border-radius:9999px; background:var(--brand); display:inline-block; }
+    .o{ color:var(--brand); }
+
+    .footer{ position:absolute; left:96px; right:96px; bottom:46px; display:flex; align-items:center; justify-content:space-between; font-size:13px; color:var(--n500); }
+    .dark .footer{ color:var(--n400); }
+    .mono{ width:15px; height:auto; }
+
+    /* Browser frame */
+    .bw{ border:1px solid var(--n200); border-radius:13px; overflow:hidden; background:#fff; }
+    .dark .bw{ border-color:#2a2a2e; }
+    .bw .bar{ display:flex; align-items:center; gap:8px; padding:11px 14px; background:var(--n100); border-bottom:1px solid var(--n200); }
+    .dark .bw .bar{ background:#1c1c20; border-bottom-color:#2a2a2e; }
+    .dot{ width:11px; height:11px; border-radius:9999px; }
+    .url{ margin-left:12px; font-size:12px; color:var(--n600); background:#fff; border:1px solid var(--n200); border-radius:7px; padding:4px 12px; font-family:ui-monospace,monospace; }
+    .dark .url{ background:#0e0e10; color:var(--n400); border-color:#2a2a2e; }
+
+    .card{ border:1px solid var(--n200); border-radius:14px; padding:26px 28px; }
+    .dark .card{ border-color:#2a2a2e; background:rgba(255,255,255,.03); }
+
+    .sw{ height:78px; border-radius:11px; display:flex; align-items:flex-end; padding:12px; font-size:12px; font-family:ui-monospace,monospace; }
+  </style>
+</head>
+<body>
+
+  <!-- ===== 1 · COVER ===== -->
+  <section class="slide dark">
+    <div class="pad" style="justify-content:space-between;">
+      <div style="display:flex; align-items:center; justify-content:space-between;">
+        <svg class="mono" style="width:18px; color:#fff;" viewBox="0 0 241.77 397.51" fill="none"><path fill="currentColor" d="M442,341.25V636H558.19l47.35,102.8h78.22L627,623.94s60.62-23.19,50.56-94.42-56.29-82-119.56-84.78v56.43s42.74,0,46.37,38.55c0,0,2.51,40.78-39.53,38.55H507.21v-237Z" transform="translate(-441.98 -341.25)"/></svg>
+        <span style="font-size:13px; letter-spacing:0.12em; text-transform:uppercase; color:var(--n400);">Documento riservato · 2026</span>
+      </div>
+      <div>
+        <p class="eyebrow">Proposta di design · Presentazione</p>
+        <h1 style="font-weight:800; font-size:74px; line-height:1.04; margin-top:22px; max-width:18ch;">Il vostro nuovo sito, <span class="o">sezione per sezione</span>.</h1>
+        <p style="font-size:19px; color:var(--n400); margin-top:26px; max-width:60ch; line-height:1.6;">Un prototipo navigabile, non un'immagine. Lo percorriamo insieme: struttura, contenuti, identità. Da approvare prima di costruirlo.</p>
+      </div>
+      <div style="display:flex; gap:64px; border-top:1px solid #2a2a2e; padding-top:24px;">
+        <div><p style="font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--n500);">Cliente</p><p style="font-size:17px; margin-top:6px;">Officine Lario S.r.l.</p></div>
+        <div><p style="font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--n500);">Archetipo</p><p style="font-size:17px; margin-top:6px;">Corporate · vetrina B2B</p></div>
+        <div><p style="font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--n500);">Build</p><p style="font-size:17px; margin-top:6px;">WordPress · Impreza</p></div>
+      </div>
+    </div>
+    <div class="footer"><span>lavder.com</span><span>Lavder Enterprise S.R.L.</span></div>
+  </section>
+
+  <!-- ===== 2 · OBIETTIVI ===== -->
+  <section class="slide">
+    <div class="pad">
+      <p class="eyebrow">Da dove siamo partiti</p>
+      <h2 style="font-weight:700; font-size:48px; margin-top:18px; max-width:20ch;">Il design risponde ai vostri obiettivi, non al gusto.</h2>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:46px;">
+        <div class="card">
+          <p class="eyebrow" style="color:var(--n500);">Obiettivo</p>
+          <p style="font-size:21px; font-weight:600; margin-top:14px; line-height:1.35;">Generare richieste di preventivo qualificate da uffici acquisti.</p>
+        </div>
+        <div class="card">
+          <p class="eyebrow" style="color:var(--n500);">Pubblico</p>
+          <p style="font-size:21px; font-weight:600; margin-top:14px; line-height:1.35;">Buyer e uffici tecnici B2B, automotive e aerospaziale.</p>
+        </div>
+        <div class="card">
+          <p class="eyebrow" style="color:var(--n500);">Successo</p>
+          <p style="font-size:21px; font-weight:600; margin-top:14px; line-height:1.35;">Più disegni tecnici ricevuti, ciclo di contatto più corto.</p>
+        </div>
+      </div>
+      <div style="margin-top:34px; background:var(--n50); border-left:2px solid var(--brand); border-radius:0 10px 10px 0; padding:20px 26px;">
+        <p style="font-size:16px; color:var(--n700);">Azione primaria del sito: <strong>“Richiedi un preventivo / Caricate il disegno”</strong>. Tutto il percorso porta lì.</p>
+      </div>
+    </div>
+    <div class="footer"><span>lavder.com</span><span>02 · Obiettivi</span></div>
+  </section>
+
+  <!-- ===== 3 · SITEMAP ===== -->
+  <section class="slide soft">
+    <div class="pad">
+      <p class="eyebrow">Architettura del sito</p>
+      <h2 style="font-weight:700; font-size:48px; margin-top:18px;">Sei pagine, un percorso che converge.</h2>
+      <div style="display:flex; align-items:flex-start; gap:18px; margin-top:48px;">
+        <div style="background:var(--ink); color:#fff; border-radius:12px; padding:20px 26px; min-width:200px;">
+          <p style="font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--brand);">Home</p>
+          <p style="font-size:20px; font-weight:600; margin-top:6px; font-family:'TWK Lausanne';">Home</p>
+          <p style="font-size:13px; color:var(--n400); margin-top:8px; line-height:1.5;">hero · numeri · lavorazioni · settori · qualità · CTA</p>
+        </div>
+        <div style="align-self:center; color:var(--n400); font-size:24px;">→</div>
+        <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:14px; flex:1;">
+          <div class="card" style="background:#fff; padding:18px 18px;"><p style="font-weight:600; font-size:16px;">Azienda</p><p style="font-size:12px; color:var(--n500); margin-top:6px;">storia, numeri, stabilimento</p></div>
+          <div class="card" style="background:#fff; padding:18px 18px;"><p style="font-weight:600; font-size:16px;">Lavorazioni</p><p style="font-size:12px; color:var(--n500); margin-top:6px;">4 reparti, una pagina ciascuno (SEO)</p></div>
+          <div class="card" style="background:#fff; padding:18px 18px;"><p style="font-weight:600; font-size:16px;">Settori</p><p style="font-size:12px; color:var(--n500); margin-top:6px;">automotive, aerospace, medicale, oleodinamica</p></div>
+          <div class="card" style="background:#fff; padding:18px 18px;"><p style="font-weight:600; font-size:16px;">Qualità</p><p style="font-size:12px; color:var(--n500); margin-top:6px;">certificazioni, collaudo</p></div>
+          <div class="card" style="background:#fff; padding:18px 18px; border-color:var(--brand);"><p style="font-weight:600; font-size:16px;">Contatti</p><p style="font-size:12px; color:var(--n500); margin-top:6px;">form preventivo + upload disegno</p></div>
+        </div>
+      </div>
+      <p style="font-size:15px; color:var(--n500); margin-top:40px; max-width:78ch; line-height:1.6;">Ogni lavorazione ha la sua pagina per posizionarsi su ricerche specifiche (“tornitura CNC conto terzi”). Ogni pagina ha una sola chiamata all'azione, sempre la stessa.</p>
+    </div>
+    <div class="footer"><span>lavder.com</span><span>03 · Sitemap</span></div>
+  </section>
+
+  <!-- ===== 4 · BRAND DIRECTION ===== -->
+  <section class="slide">
+    <div class="pad">
+      <p class="eyebrow">Direzione visiva</p>
+      <h2 style="font-weight:700; font-size:48px; margin-top:18px;">L'identità del sito è la vostra, non la nostra.</h2>
+      <div style="display:grid; grid-template-columns:1.3fr 1fr; gap:40px; margin-top:44px;">
+        <div>
+          <p style="font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--n500); margin-bottom:14px;">Palette</p>
+          <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px;">
+            <div class="sw" style="background:#0E1116; color:#9aa3af;">#0E1116</div>
+            <div class="sw" style="background:#1B6FF2; color:#dbeafe;">#1B6FF2</div>
+            <div class="sw" style="background:#F5F7FA; color:#71717A; border:1px solid var(--n200);">#F5F7FA</div>
+            <div class="sw" style="background:#14181D; color:#9aa3af;">#14181D</div>
+          </div>
+          <p style="font-size:14px; color:var(--n600); margin-top:16px; line-height:1.6;">Grafite industriale + un solo accent blu. Il blu dice precisione e fiducia, non moda. Nessun arancio: questo non è un sito Lavder, è il sito di Officine Lario.</p>
+        </div>
+        <div>
+          <p style="font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--n500); margin-bottom:14px;">Tipografia</p>
+          <div class="card">
+            <p style="font-family:'Space Grotesk','TWK Lausanne'; font-size:34px; font-weight:700; letter-spacing:-.02em;">Space Grotesk</p>
+            <p style="font-size:13px; color:var(--n500); margin-top:2px;">Display · titoli, numeri</p>
+            <hr style="border:none; border-top:1px solid var(--n200); margin:18px 0;">
+            <p style="font-size:24px; font-weight:500;">Inter</p>
+            <p style="font-size:13px; color:var(--n500); margin-top:2px;">Testo · UI, paragrafi</p>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:14px; color:var(--n500); margin-top:30px;">Direzione creata da Lavder in fase di discovery (il cliente non aveva un'identità digitale definita). Da validare con voi.</p>
+    </div>
+    <div class="footer"><span>lavder.com</span><span>04 · Direzione visiva</span></div>
+  </section>
+
+  <!-- ===== 5 · LA HOME (mockup) ===== -->
+  <section class="slide soft">
+    <div class="pad" style="padding:64px 96px;">
+      <div style="display:flex; align-items:flex-end; justify-content:space-between;">
+        <div>
+          <p class="eyebrow">Il prototipo · Home</p>
+          <h2 style="font-weight:700; font-size:40px; margin-top:14px;">Navigabile, responsive, con contenuti reali.</h2>
+        </div>
+        <p style="font-size:14px; color:var(--n500); max-width:34ch; text-align:right; line-height:1.5;">Apribile dal vivo su desktop e mobile. Qui la home in cornice.</p>
+      </div>
+      <div class="bw" style="margin-top:26px; box-shadow:0 18px 50px rgba(17,17,19,.13);">
+        <div class="bar">
+          <span class="dot" style="background:#ff5f57;"></span><span class="dot" style="background:#febc2e;"></span><span class="dot" style="background:#28c840;"></span>
+          <span class="url">officinelario.it</span>
+        </div>
+        <div style="height:392px; overflow:hidden;">
+          <img src="reference-corporate-home.png" alt="Home del sito Officine Lario: hero scuro con titolo, numeri e chiamata all'azione" style="width:100%; display:block; object-fit:cover; object-position:top;" />
+        </div>
+      </div>
+    </div>
+    <div class="footer"><span>lavder.com</span><span>05 · Home</span></div>
+  </section>
+
+  <!-- ===== 6 · SCELTE DI DESIGN ===== -->
+  <section class="slide dark">
+    <div class="pad">
+      <p class="eyebrow">Perché così</p>
+      <h2 style="font-weight:700; font-size:48px; margin-top:18px; color:#fff;">Cinque scelte, tutte al servizio del preventivo.</h2>
+      <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:20px 56px; margin-top:46px;">
+        <div style="display:flex; gap:16px;"><span class="disp o" style="font-size:26px; font-weight:800;">01</span><p style="font-size:17px; color:var(--n200); line-height:1.55;"><strong style="color:#fff;">Mood tech industriale.</strong> Scuro, sobrio, tecnico: parla la lingua di chi compra lavorazioni meccaniche.</p></div>
+        <div style="display:flex; gap:16px;"><span class="disp o" style="font-size:26px; font-weight:800;">02</span><p style="font-size:17px; color:var(--n200); line-height:1.55;"><strong style="color:#fff;">Numeri in primo piano.</strong> 42 anni, ±2µm, 98,6% puntualità: la credibilità B2B passa dai dati.</p></div>
+        <div style="display:flex; gap:16px;"><span class="disp o" style="font-size:26px; font-weight:800;">03</span><p style="font-size:17px; color:var(--n200); line-height:1.55;"><strong style="color:#fff;">Un solo accent, una sola CTA.</strong> Il blu segna sempre e solo l'azione. Niente rumore.</p></div>
+        <div style="display:flex; gap:16px;"><span class="disp o" style="font-size:26px; font-weight:800;">04</span><p style="font-size:17px; color:var(--n200); line-height:1.55;"><strong style="color:#fff;">Qualità come prova.</strong> Le certificazioni hanno una sezione dedicata: per questo settore valgono oro.</p></div>
+        <div style="display:flex; gap:16px;"><span class="disp o" style="font-size:26px; font-weight:800;">05</span><p style="font-size:17px; color:var(--n200); line-height:1.55;"><strong style="color:#fff;">Accessibilità e velocità nel design.</strong> Contrasto AA, focus visibili, animazioni rispettose: non un ritocco finale.</p></div>
+      </div>
+    </div>
+    <div class="footer"><span>lavder.com</span><span>06 · Scelte di design</span></div>
+  </section>
+
+  <!-- ===== 7 · PROSSIMI PASSI / GRAZIE ===== -->
+  <section class="slide dark">
+    <div class="pad" style="justify-content:space-between;">
+      <div>
+        <p class="eyebrow">Come procediamo</p>
+        <h2 style="font-weight:700; font-size:48px; margin-top:18px; color:#fff; max-width:20ch;">Dall'approvazione alla messa online.</h2>
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:46px;">
+          <div class="card"><p class="disp o" style="font-size:24px; font-weight:800;">1</p><p style="font-weight:600; color:#fff; margin-top:10px;">Revisioni</p><p style="font-size:14px; color:var(--n400); margin-top:6px; line-height:1.5;">Due round inclusi su questo prototipo. Feedback consolidato per round.</p></div>
+          <div class="card"><p class="disp o" style="font-size:24px; font-weight:800;">2</p><p style="font-weight:600; color:#fff; margin-top:10px;">Approvazione</p><p style="font-size:14px; color:var(--n400); margin-top:6px; line-height:1.5;">La firma del design sblocca lo sviluppo e il SAL di staging.</p></div>
+          <div class="card"><p class="disp o" style="font-size:24px; font-weight:800;">3</p><p style="font-weight:600; color:#fff; margin-top:10px;">Sviluppo</p><p style="font-size:14px; color:var(--n400); margin-top:6px; line-height:1.5;">Build su WordPress + Impreza, fedele al prototipo approvato.</p></div>
+        </div>
+      </div>
+      <div style="border-top:1px solid #2a2a2e; padding-top:26px; display:flex; align-items:center; justify-content:space-between;">
+        <div>
+          <p class="disp" style="font-size:30px; font-weight:700; color:#fff;">Grazie.</p>
+          <p style="font-size:15px; color:var(--n400); margin-top:6px;">Restiamo a disposizione per la revisione.</p>
+        </div>
+        <svg style="width:22px; color:#fff;" viewBox="0 0 241.77 397.51" fill="none"><path fill="currentColor" d="M442,341.25V636H558.19l47.35,102.8h78.22L627,623.94s60.62-23.19,50.56-94.42-56.29-82-119.56-84.78v56.43s42.74,0,46.37,38.55c0,0,2.51,40.78-39.53,38.55H507.21v-237Z" transform="translate(-441.98 -341.25)"/></svg>
+      </div>
+    </div>
+    <div class="footer"><span>lavder.com</span><span>Lavder Enterprise S.R.L.</span></div>
+  </section>
+
+</body>
+</html>
+<!--
+RENDER:
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+  --headless --disable-gpu --no-pdf-header-footer \
+  --print-to-pdf="lavder-design-officinelario-2026-05-30.pdf" \
+  "file://$(pwd)/presentation-template.html"
+-->
