@@ -177,7 +177,7 @@ Use the `AskUserQuestion`-style flow (multiple-choice with an "other" escape for
 
 ### 9.5 Imagery (craft, constant)
 - **Real over rendered** (`/brand/07-imagery.md`): real people, spaces, products. Use Unsplash/Pexels as *placeholders* in the mockup, then swap for the client's real assets before build.
-- **AI-generated imagery:** follow [`image-generation.md`](./image-generation.md). Prompt for *photography* (medium + camera + lens + available light + grain), **not** "photorealistic/ultra-detailed" — the latter yields a fake CGI sheen. Style follows the use; vet every image; never fabricate AI humans.
+- **AI-generated imagery:** follow [`image-generation.md`](./image-generation.md). Prompt for *photography* (medium + camera + lens + available light + grain), **not** "photorealistic/ultra-detailed" (that yields a fake CGI sheen). Style follows the use; vet every image; never fabricate AI humans.
 - **Never AI-generated humans.** AI illustration is acceptable; AI people are not.
 - One subject per frame, negative space is content, high contrast / low saturation.
 - Alt text for every meaningful image; `alt=""` for decorative. No "image of...".
