@@ -13,6 +13,7 @@ This guide is different from `preventivi/` and `case-studies/` in one fundamenta
 | [`README.md`](./README.md) | This playbook: principle, process, tiers, tracks, design system, archetypes, moods, deliverable |
 | [`discovery-brief.md`](./discovery-brief.md) | Client intake template + brand extraction (and brand-express when the client has no identity) |
 | [`sources.md`](./sources.md) | Approved libraries, component kits, animation, inspiration, icons, imagery, mapped per build track |
+| [`image-generation.md`](./image-generation.md) | How to generate/source imagery so the style matches the use (real camera photo vs the fake CGI look); prompt recipes per mood/sector; Lavder ImageGen usage; vetting |
 | [`concept-ledger.md`](./concept-ledger.md) | The "seed" registry: a living record of every design's fingerprint, so no two clients get the same site |
 | `reference-corporate/` | Worked example: a **multi-page**, navigable hi-fi prototype (corporate archetype, demo client Officine Lario). Client-branded, self-contained (own `styles.css` + `app.js`, real stock images, GSAP + Lenis motion). Pages: `index.html` (home), `lavorazione.html`, `contatti.html`, `azienda.html`, plus `sitemap.html` and `wireframe.html`; `img/` holds the photos. Copy the folder per archetype |
 | `presentation-template.html` | The Lavder-branded 16:9 presentation wrapper that frames the prototype (cover, objectives, sitemap, brand direction, mockup, rationale, next steps) |
@@ -176,6 +177,7 @@ Use the `AskUserQuestion`-style flow (multiple-choice with an "other" escape for
 
 ### 9.5 Imagery (craft, constant)
 - **Real over rendered** (`/brand/07-imagery.md`): real people, spaces, products. Use Unsplash/Pexels as *placeholders* in the mockup, then swap for the client's real assets before build.
+- **AI-generated imagery:** follow [`image-generation.md`](./image-generation.md). Prompt for *photography* (medium + camera + lens + available light + grain), **not** "photorealistic/ultra-detailed" — the latter yields a fake CGI sheen. Style follows the use; vet every image; never fabricate AI humans.
 - **Never AI-generated humans.** AI illustration is acceptable; AI people are not.
 - One subject per frame, negative space is content, high contrast / low saturation.
 - Alt text for every meaningful image; `alt=""` for decorative. No "image of...".

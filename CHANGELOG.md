@@ -5,6 +5,16 @@ Format follows [Keep a Changelog](https://keepachangelog.com/), versioning follo
 
 ---
 
+## [0.3.2] — 2026-05-31
+
+### Added
+- **`documents/website-design/image-generation.md`** — imagery guideline: style follows use; how to prompt for authentic **camera photography** instead of the hyperreal/CGI "fake" look (name the medium + camera + lens + available light + grain + imperfection; drop "photorealistic/ultra-detailed/8k/render"); recipes per mood/sector; Lavder ImageGen usage; vetting; the Officine Lario before/after. Linked from README §9.5.
+
+### Changed
+- **`reference-corporate/`** — regenerated the imagery with the corrected camera-real recipe (documentary DSLR, available factory light, subtle grain) so it reads as real factory photography, not a render. Re-rendered `reference-corporate-home.png`.
+
+---
+
 ## [0.3.1] — 2026-05-31
 
 ### Changed
