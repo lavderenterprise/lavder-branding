@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="it">
+<!-- BRIO (demo) · HOME · studio creativo, mood bold-dark / espressivo. CLIENT brand layer. Built from the repo guidelines. -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brio &middot; Studio creativo di branding e design</title>
+  <meta name="description" content="Brio &egrave; uno studio creativo: diamo forma a marchi, identit&agrave; visive, packaging e siti per chi ha qualcosa da dire. Branding, art direction e digitale." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=1" />
+</head>
+<body>
+  <a class="skip" href="#main">Salta al contenuto</a>
+
+  <!-- header (verbatim across pages; aria-current per page) -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Principale">
+        <a class="brand" href="index.html" aria-label="Brio home">
+          <span class="brand__mark">B</span>
+          <span class="brand__name">Brio</span>
+        </a>
+        <ul class="nav__links">
+          <li><a href="index.html#lavori" aria-current="page">Lavori</a></li>
+          <li><a href="index.html#studio">Studio</a></li>
+          <li><a href="index.html#contatti">Contatti</a></li>
+        </ul>
+        <a class="btn btn--primary btn--sm nav__cta" href="index.html#contatti">Iniziamo</a>
+        <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu"><i data-lucide="menu"></i></button>
+      </nav>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="container"><ul>
+        <li><a href="index.html#lavori">Lavori</a></li>
+        <li><a href="index.html#studio">Studio</a></li>
+        <li><a href="index.html#contatti">Contatti</a></li>
+      </ul></div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- 1 · HERO (text-only: the type IS the hero) -->
+    <section class="hero">
+      <span class="hero__glyph" aria-hidden="true">B</span>
+      <div class="container">
+        <div class="hero__inner">
+          <h1 class="hero__statement reveal" data-hero-words>Diamo forma<br />alle <span class="accent">idee</span>.</h1>
+          <p class="hero__desc reveal">Siamo uno studio creativo. Costruiamo marchi, identit&agrave; visive e prodotti digitali per chi non vuole somigliare a nessun altro.</p>
+          <div class="hero__links reveal">
+            <a class="bigline" href="index.html#lavori">Lavori <i data-lucide="arrow-down-right"></i></a>
+            <a class="bigline" href="index.html#contatti">Contatti <i data-lucide="arrow-up-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 · INTRO + 3 stat counters -->
+    <section class="section section--bg2 section--pad-sm">
+      <div class="container">
+        <div class="split split--64">
+          <p class="introline reveal">Una squadra piccola e ostinata. <span class="accent">Pochi clienti</span>, seguiti dalla strategia all&apos;ultimo pixel.</p>
+          <dl class="stats reveal-stagger" style="margin:0">
+            <div class="stat"><b><span data-count="140">140</span><span class="u">+</span></b><span>Progetti firmati</span></div>
+            <div class="stat"><b><span data-count="60">60</span><span class="u">+</span></b><span>Clienti, in Italia e fuori</span></div>
+            <div class="stat"><b><span data-count="11">11</span></b><span>Anni a dare forma alle idee</span></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · LAVORI SELEZIONATI · project GRID with hover-reveal [SIGNATURE]
+         Grid plan (2 col, dense): #01 TALL(col1,r1-2) + #02(c2,r1) + #03(c2,r2) +
+         #04 WIDE(r3) + #05(c1,r4) + #06(c2,r4) = 8 cells = 4 full rows. No orphan. -->
+    <section class="section section--bg" id="lavori">
+      <div class="container">
+        <div class="flex-between mb-l reveal">
+          <div class="head">
+            <span class="counter"><b>01</b> Lavori selezionati</span>
+            <h2 class="h2" style="margin-top:18px">Una manciata di<br />cose di cui andiamo fieri</h2>
+          </div>
+          <a class="linkarrow" href="index.html#evidenza">Tutti i progetti <i data-lucide="arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="container container--wide">
+        <div class="work-grid reveal-stagger">
+          <a class="work work--tall" href="progetto.html">
+            <img src="img/work-1.jpg" alt="Poster tipografico appeso al muro dello studio" />
+            <span class="work__num">01</span>
+            <span class="work__cap"><span class="work__cat">Art direction</span><span class="work__title">Festival Tipo</span></span>
+          </a>
+          <a class="work" href="progetto.html">
+            <img src="img/work-2.jpg" alt="Cancelleria e biglietti da visita di un marchio" />
+            <span class="work__num">02</span>
+            <span class="work__cap"><span class="work__cat">Branding</span><span class="work__title">Maison Ardo</span></span>
+          </a>
+          <a class="work" href="progetto.html">
+            <img src="img/work-3.jpg" alt="Scatola di packaging su fondo neutro" />
+            <span class="work__num">03</span>
+            <span class="work__cap"><span class="work__cat">Packaging</span><span class="work__title">Sorso Tonica</span></span>
+          </a>
+          <a class="work work--wide" href="progetto.html">
+            <img src="img/work-4.jpg" alt="Doppia pagina di una rivista aperta" />
+            <span class="work__num">04</span>
+            <span class="work__cap"><span class="work__cat">Editoriale</span><span class="work__title">Rivista Controra, dodici numeri</span></span>
+          </a>
+          <a class="work" href="progetto.html">
+            <img src="img/work-5.jpg" alt="Poster con stampa a gradiente" />
+            <span class="work__num">05</span>
+            <span class="work__cap"><span class="work__cat">Identit&agrave; visiva</span><span class="work__title">Nodo Collettivo</span></span>
+          </a>
+          <a class="work" href="progetto.html">
+            <img src="img/work-1.jpg" alt="Manifesto tipografico per una mostra" />
+            <span class="work__num">06</span>
+            <span class="work__cap"><span class="work__cat">Web</span><span class="work__title">Atlante Studio</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · IN EVIDENZA · horizontal-scroll rail [SIGNATURE] (drag + arrows + themed coral scrollbar) -->
+    <section class="section section--bg2" id="evidenza" data-rail>
+      <div class="container">
+        <div class="rail-head mb-l reveal">
+          <div class="head">
+            <span class="counter"><b>02</b> In evidenza</span>
+            <h2 class="h2" style="margin-top:18px">Trascina e curiosa</h2>
+          </div>
+          <div class="railnav">
+            <button data-rail-prev aria-label="Precedente"><i data-lucide="arrow-left"></i></button>
+            <button data-rail-next aria-label="Successivo"><i data-lucide="arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="container container--wide">
+        <div class="hrail reveal">
+          <a class="railcard" href="progetto.html"><img src="img/work-5.jpg" alt="Poster a gradiente stampato per Nodo Collettivo" /><span class="railcard__ov"><span class="work__cat">Identit&agrave; visiva</span><h3 class="h3">Nodo Collettivo</h3></span></a>
+          <a class="railcard" href="progetto.html"><img src="img/work-2.jpg" alt="Sistema di cancelleria per Maison Ardo" /><span class="railcard__ov"><span class="work__cat">Branding</span><h3 class="h3">Maison Ardo</h3></span></a>
+          <a class="railcard" href="progetto.html"><img src="img/work-3.jpg" alt="Linea di packaging per Sorso Tonica" /><span class="railcard__ov"><span class="work__cat">Packaging</span><h3 class="h3">Sorso Tonica</h3></span></a>
+          <a class="railcard" href="progetto.html"><img src="img/work-4.jpg" alt="Impaginato editoriale della rivista Controra" /><span class="railcard__ov"><span class="work__cat">Editoriale</span><h3 class="h3">Controra</h3></span></a>
+          <a class="railcard" href="progetto.html"><img src="img/work-1.jpg" alt="Manifesto tipografico per Festival Tipo" /><span class="railcard__ov"><span class="work__cat">Art direction</span><h3 class="h3">Festival Tipo</h3></span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · SERVIZI · big-type list [SIGNATURE] -->
+    <section class="section section--bg" id="servizi">
+      <div class="container">
+        <div class="head mb-l reveal">
+          <span class="counter"><b>03</b> Cosa facciamo</span>
+          <h2 class="h2" style="margin-top:18px">Cinque modi<br />di dare forma alle idee</h2>
+        </div>
+        <ul class="svc reveal">
+          <li class="svc__row">
+            <span class="svc__num">01</span>
+            <span class="svc__name">Branding &amp; identit&agrave; visiva</span>
+            <span class="svc__tags">Naming, logo, sistema, linee guida</span>
+          </li>
+          <li class="svc__row">
+            <span class="svc__num">02</span>
+            <span class="svc__name">Siti &amp; digitale</span>
+            <span class="svc__tags">Design, prototipi, sviluppo, CMS</span>
+          </li>
+          <li class="svc__row">
+            <span class="svc__num">03</span>
+            <span class="svc__name">Packaging</span>
+            <span class="svc__tags">Struttura, etichette, finiture, stampa</span>
+          </li>
+          <li class="svc__row">
+            <span class="svc__num">04</span>
+            <span class="svc__name">Art direction</span>
+            <span class="svc__tags">Concept, styling, shooting, campagne</span>
+          </li>
+          <li class="svc__row">
+            <span class="svc__num">05</span>
+            <span class="svc__name">Motion</span>
+            <span class="svc__tags">Sigle, animazioni, social, video</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6 · CLIENT / KEYWORD marquee [SIGNATURE] -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Maison Ardo</span><span>Sorso</span><span>Controra</span><span>Nodo</span><span>Festival Tipo</span><span>Atlante</span><span>Officina Vera</span><span>Bottega Sud</span>
+        <span>Maison Ardo</span><span>Sorso</span><span>Controra</span><span>Nodo</span><span>Festival Tipo</span><span>Atlante</span><span>Officina Vera</span><span>Bottega Sud</span>
+      </div>
+    </div>
+
+    <!-- 7 · STUDIO teaser (split, image RIGHT) -->
+    <section class="section section--bg2" id="studio">
+      <div class="container">
+        <div class="split split--46">
+          <div class="stack-lg reveal">
+            <span class="counter"><b>04</b> Lo studio</span>
+            <h2 class="h2">Niente fronzoli,<br />molta sostanza</h2>
+            <p class="lead">Brio nasce a Bologna nel 2015. Siamo in sette: strateghi, designer e un paio di teste curiose che disegnano, scrivono e tengono insieme i progetti. Lavoriamo con poche aziende per volta, cos&igrave; possiamo entrare davvero nel merito.</p>
+            <p class="lead">Crediamo che un buon progetto parta da una domanda onesta: cosa vuoi dire, e a chi. Il resto &egrave; mestiere.</p>
+            <a class="bigline" href="index.html#contatti">Conosciamoci <i data-lucide="arrow-up-right"></i></a>
+          </div>
+          <div class="split__media reveal">
+            <div class="figure figure--43"><img src="img/studio.jpg" alt="Dettaglio di una scrivania dello studio con strumenti di lavoro" /></div>
+            <div class="studio-badge"><b>2015</b><span>Dallo studio di Bologna, in tutta Italia</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 · CONTATTI CTA band (coral) -->
+    <section class="section section--coral" id="contatti">
+      <div class="container container--narrow cta-band">
+        <div class="reveal">
+          <h2 class="h1">Lavoriamo<br />insieme.</h2>
+          <p class="lead mx-auto" style="margin-bottom:30px">Hai un marchio da costruire o da rimettere a fuoco. Raccontaci dove vuoi arrivare: rispondiamo entro un paio di giorni.</p>
+          <a class="cta-mail" href="mailto:ciao@brio.studio">ciao@brio.studio</a>
+          <div style="margin-top:34px"><a class="btn btn--oncoral btn--lg" href="mailto:ciao@brio.studio">Scrivici due righe <i data-lucide="arrow-right"></i></a></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- footer (verbatim across pages) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a class="brand" href="index.html"><span class="brand__mark">B</span><span class="brand__name">Brio</span></a>
+          <p class="footer__big">Diamo forma<br />alle <span class="accent">idee</span>.</p>
+        </div>
+        <div><h4>Studio</h4><ul><li><a href="index.html#lavori">Lavori</a></li><li><a href="index.html#studio">Studio</a></li><li><a href="index.html#servizi">Servizi</a></li><li><a href="index.html#contatti">Contatti</a></li></ul></div>
+        <div><h4>Servizi</h4><ul><li><a href="index.html#servizi">Branding</a></li><li><a href="index.html#servizi">Siti &amp; digitale</a></li><li><a href="index.html#servizi">Packaging</a></li><li><a href="index.html#servizi">Art direction</a></li></ul></div>
+        <div>
+          <h4>Scrivici</h4>
+          <p style="margin-bottom:14px">Via Indipendenza 24, Bologna<br /><a href="mailto:ciao@brio.studio">ciao@brio.studio</a></p>
+          <div class="footer__social">
+            <a href="#" aria-label="Instagram di Brio"><i data-lucide="instagram"></i></a>
+            <a href="#" aria-label="Behance di Brio"><i data-lucide="dribbble"></i></a>
+            <a href="#" aria-label="LinkedIn di Brio"><i data-lucide="linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bar">
+        <span>&copy; 2026 Brio Studio &middot; P.IVA 0000000000 &middot; Demo Lavder</span>
+        <span>Bologna &middot; Italia</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="app.js?v=1"></script>
+</body>
+</html>

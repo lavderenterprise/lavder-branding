@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="it">
+<!-- OSTERIA DEL BORGO (demo) · CONTATTI / PRENOTA · locale / hospitality · heritage / Made-in-Italy. CLIENT brand layer. -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contatti e prenotazioni &middot; Osteria del Borgo</title>
+  <meta name="description" content="Prenota un tavolo all'Osteria del Borgo, trova orari, telefono e indirizzo in Via del Borgo 12 a Greve in Chianti. Organizziamo anche cene private ed eventi." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Mulish:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=1" />
+</head>
+<body>
+  <a class="skip" href="#main">Salta al contenuto</a>
+
+  <div class="anno">Aperti a pranzo e cena, gioved&igrave; &middot; domenica &middot; Cucina del territorio dal <b>1958</b> &middot; Prenotazione consigliata</div>
+
+  <!-- header (verbatim) -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Principale">
+        <a class="brand" href="index.html" aria-label="Osteria del Borgo, home">
+          <span class="brand__mark">B</span>
+          <span class="brand__name">Osteria del Borgo<small>dal 1958</small></span>
+        </a>
+        <ul class="nav__links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="index.html#storia">La storia</a></li>
+          <li><a href="contatti.html" aria-current="page">Contatti</a></li>
+        </ul>
+        <div class="nav__cta">
+          <a class="btn btn--cta" href="contatti.html#prenota"><i data-lucide="utensils-crossed"></i> Prenota un tavolo</a>
+        </div>
+        <button class="menu-btn" aria-label="Apri il menu" aria-expanded="false" aria-controls="mobileMenu"><i data-lucide="menu"></i></button>
+      </nav>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="container">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="index.html#storia">La storia</a></li>
+          <li><a href="contatti.html" aria-current="page">Contatti</a></li>
+        </ul>
+        <a class="btn btn--cta btn--block" href="contatti.html#prenota"><i data-lucide="utensils-crossed"></i> Prenota un tavolo</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- 1 · PAGE HEADER -->
+    <section class="phead">
+      <div class="container">
+        <nav class="crumbs reveal" aria-label="Percorso">
+          <a href="index.html">Home</a> <i data-lucide="chevron-right"></i> <span>Contatti</span>
+        </nav>
+        <h1 class="h1 reveal">Prenota &amp; trovaci</h1>
+        <p class="lead reveal">Due righe e ci pensiamo noi a tenerti il tavolo. Per qualsiasi cosa &middot; un&apos;allergia, un compleanno, un tavolo grande &middot; scrivici o chiamaci: rispondiamo volentieri.</p>
+      </div>
+    </section>
+
+    <!-- 2 · RESERVATION form (left) + orari & contatti (right) · numbered 01 -->
+    <section class="section section--cream" id="prenota">
+      <div class="container">
+        <div class="split">
+          <div class="reveal">
+            <span class="snum"><b>01</b><i></i> Prenota online</span>
+            <h2 class="h2 mt-s mb-l">Richiedi un tavolo</h2>
+            <form class="formcard" data-reserve novalidate>
+              <div class="formgrid formgrid--2">
+                <div class="field"><label for="c-data">Data</label><input type="date" id="c-data" name="data" required /></div>
+                <div class="field"><label for="c-ora">Ora</label>
+                  <select id="c-ora" name="ora" required>
+                    <option value="">Scegli</option>
+                    <option>12:30</option><option>13:00</option><option>13:30</option><option>14:00</option>
+                    <option>19:30</option><option>20:00</option><option>20:30</option><option>21:00</option><option>21:30</option>
+                  </select>
+                </div>
+                <div class="field"><label for="c-pers">Persone</label>
+                  <select id="c-pers" name="persone" required>
+                    <option value="">Scegli</option>
+                    <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>Pi&ugrave; di 8</option>
+                  </select>
+                </div>
+                <div class="field"><label for="c-tel">Telefono</label><input type="tel" id="c-tel" name="telefono" placeholder="Per la conferma" required /></div>
+                <div class="field"><label for="c-nome">Nome</label><input type="text" id="c-nome" name="nome" placeholder="A nome di" required /></div>
+                <div class="field"><label for="c-mail">Email</label><input type="email" id="c-mail" name="email" placeholder="La tua email" /></div>
+                <div class="field fg-span2"><label for="c-note">Note (allergie, occasioni, seggiolone&hellip;)</label><textarea id="c-note" name="note" placeholder="Raccontaci pure"></textarea></div>
+              </div>
+              <button class="btn btn--cta btn--block btn--lg mt-m" type="submit"><i data-lucide="utensils-crossed"></i> Invia la richiesta</button>
+              <p class="formnote">Demo: nessun dato viene inviato. Ti ricontattiamo entro qualche ora negli orari di apertura.</p>
+              <p class="note mt-s" data-reserve-msg hidden><i data-lucide="check-circle-2"></i> Grazie! Abbiamo ricevuto la tua richiesta: ti contattiamo a breve per confermare data, ora e numero di coperti.</p>
+            </form>
+          </div>
+
+          <div class="stack-lg reveal">
+            <span class="snum"><b>02</b><i></i> Quando &amp; come</span>
+            <h2 class="h2">Orari e contatti</h2>
+            <ul class="orari">
+              <li><span class="d">Luned&igrave; &middot; Marted&igrave;</span><span class="t closed">Chiuso</span></li>
+              <li><span class="d">Mercoled&igrave;</span><span class="t">19:30 &middot; 22:30</span></li>
+              <li><span class="d">Gioved&igrave; &middot; Venerd&igrave;</span><span class="t">12:30 &middot; 14:30 &nbsp;|&nbsp; 19:30 &middot; 22:30</span></li>
+              <li><span class="d">Sabato</span><span class="t">12:30 &middot; 15:00 &nbsp;|&nbsp; 19:30 &middot; 23:00</span></li>
+              <li><span class="d">Domenica</span><span class="t">12:30 &middot; 15:00</span></li>
+            </ul>
+            <ul class="info">
+              <li><span class="ic"><i data-lucide="phone"></i></span><div><b>Telefono</b><span><a href="tel:+390550000000">055 000 0000</a> &middot; anche WhatsApp</span></div></li>
+              <li><span class="ic"><i data-lucide="mail"></i></span><div><b>Email</b><span><a href="mailto:ciao@osteriadelborgo.it">ciao@osteriadelborgo.it</a></span></div></li>
+              <li><span class="ic"><i data-lucide="map-pin"></i></span><div><b>Indirizzo</b><span>Via del Borgo 12, Greve in Chianti (FI)</span></div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · DOVE SIAMO: styled map placeholder + indicazioni · numbered 03 -->
+    <section class="section section--cream2" id="mappa">
+      <div class="container">
+        <div class="head mb-l reveal">
+          <span class="snum"><b>03</b><i></i> Dove siamo</span>
+          <h2 class="h2 mt-s">Nel cuore del borgo</h2>
+        </div>
+        <div class="split split--75">
+          <div class="reveal">
+            <div class="mapbox">
+              <div class="mapbox__pin">
+                <span class="dot"><i data-lucide="map-pin"></i></span>
+                <b>Mappa &middot; Via del Borgo 12</b>
+                <span>50022 Greve in Chianti (FI) &middot; Toscana</span>
+              </div>
+            </div>
+          </div>
+          <div class="stack-lg reveal">
+            <h3 class="h3" style="color:var(--olive)">Come arrivare</h3>
+            <ul class="ticks">
+              <li><i data-lucide="car"></i> In auto: usciamo dalla SR222 (Chiantigiana), siamo in piazza, dietro la torre.</li>
+              <li><i data-lucide="parking-circle"></i> Parcheggio gratuito a 100 m, in Piazza del Mercato.</li>
+              <li><i data-lucide="bus"></i> In bus: linea per Greve da Firenze, fermata Piazza Matteotti.</li>
+              <li><i data-lucide="footprints"></i> A piedi: due minuti dalla piazza principale del paese.</li>
+            </ul>
+            <a class="btn btn--olive" href="#" target="_blank" rel="noopener"><i data-lucide="navigation"></i> Apri le indicazioni</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · EVENTI PRIVATI teaser (accordion) · numbered 04 -->
+    <section class="section section--cream">
+      <div class="container container--narrow">
+        <div class="head head--center mb-l reveal">
+          <span class="snum"><b>04</b><i></i> Occasioni speciali</span>
+          <h2 class="h2 mt-s">Cene private ed eventi</h2>
+          <p class="lead mx-auto mt-s">Compleanni, pranzi di lavoro, una cena tra amici a porte chiuse: la sala &egrave; tutta vostra, il men&ugrave; lo costruiamo insieme.</p>
+        </div>
+        <div class="reveal">
+          <details>
+            <summary>Si pu&ograve; affittare tutta la sala? <span class="ic"><i data-lucide="plus"></i></span></summary>
+            <div class="body"><p>S&igrave;: dal luned&igrave; al mercoled&igrave; possiamo riservare l&apos;intera osteria (fino a 48 coperti) per il tuo evento. Negli altri giorni teniamo volentieri una parte di sala per i gruppi pi&ugrave; numerosi. Scrivici con data e numero di persone e troviamo la soluzione.</p></div>
+          </details>
+          <details>
+            <summary>Come funziona il men&ugrave; per i gruppi? <span class="ic"><i data-lucide="plus"></i></span></summary>
+            <div class="body"><p>Per i tavoli oltre le otto persone proponiamo un men&ugrave; concordato a prezzo fisso: tu ci dici budget e preferenze, noi lo costruiamo con i piatti di stagione. Gestiamo senza problemi vegetariani, allergie e bambini, basta avvisarci qualche giorno prima.</p></div>
+          </details>
+          <details>
+            <summary>Fate anche catering fuori sede? <span class="ic"><i data-lucide="plus"></i></span></summary>
+            <div class="body"><p>Per piccoli eventi nel raggio del borgo, s&igrave;: matrimoni in campagna, vendemmie, feste in cantina. Raccontaci di che cosa hai bisogno e ti facciamo un preventivo su misura, sempre con i nostri prodotti del territorio.</p></div>
+          </details>
+          <details>
+            <summary>Quanto prima conviene prenotare? <span class="ic"><i data-lucide="plus"></i></span></summary>
+            <div class="body"><p>Per i tavoli normali del fine settimana ti consigliamo qualche giorno di anticipo. Per eventi privati e cene di gruppo, due o tre settimane ci permettono di organizzare al meglio la spesa e il men&ugrave;.</p></div>
+          </details>
+        </div>
+        <div class="center mt-l reveal">
+          <a class="btn btn--cta btn--lg" href="mailto:ciao@osteriadelborgo.it"><i data-lucide="mail"></i> Scrivici per un evento</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · CTA band (bordeaux) · numbered 05 -->
+    <section class="section section--bord">
+      <div class="container container--narrow center">
+        <div class="reveal">
+          <span class="snum" style="justify-content:center"><b>05</b><i></i> A presto</span>
+          <h2 class="h2 mt-s">Ti aspettiamo a tavola</h2>
+          <p class="lead mx-auto mt-s">Che sia un pranzo di lavoro o una domenica in famiglia, da noi trovi sempre la stessa cosa: cucina vera e tempo per stare.</p>
+          <div class="hero__cta" style="justify-content:center">
+            <a class="btn btn--light btn--lg" href="#prenota"><i data-lucide="utensils-crossed"></i> Prenota un tavolo</a>
+            <a class="btn btn--onbord btn--lg" href="menu.html">Guarda il menu</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- footer (verbatim) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a class="brand" href="index.html"><span class="brand__mark">B</span><span class="brand__name">Osteria del Borgo<small>dal 1958</small></span></a>
+          <p class="mt-s">Trattoria di cucina del territorio: pasta fatta in casa, prodotti dei nostri contadini e una tavola dove ci si siede senza fretta.</p>
+          <div class="footer__social">
+            <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+            <a href="#" aria-label="Scrivici una mail"><i data-lucide="mail"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4>Esplora</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="index.html#storia">La storia</a></li>
+            <li><a href="contatti.html" aria-current="page">Contatti</a></li>
+            <li><a href="contatti.html#prenota">Prenota un tavolo</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Orari</h4>
+          <ul>
+            <li>Mer: 19:30 &middot; 22:30</li>
+            <li>Gio &middot; Ven: pranzo e cena</li>
+            <li>Sab: 12:30 &middot; 23:00</li>
+            <li>Dom: solo pranzo</li>
+            <li>Lun &middot; Mar: chiuso</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Dove siamo</h4>
+          <div class="footer__contact">
+            <a href="#mappa"><i data-lucide="map-pin"></i> Via del Borgo 12, Greve in Chianti (FI)</a>
+            <a href="tel:+390550000000"><i data-lucide="phone"></i> 055 000 0000</a>
+            <a href="mailto:ciao@osteriadelborgo.it"><i data-lucide="mail"></i> ciao@osteriadelborgo.it</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bar">
+        <span>&copy; 2026 Osteria del Borgo &middot; P.IVA 00000000000 &middot; Demo Lavder</span>
+        <span>Cucina del territorio dal 1958</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="app.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="it">
+<!-- OSTERIA DEL BORGO (demo) · HOME · locale / hospitality · heritage / Made-in-Italy. CLIENT brand layer. Built from the repo guidelines. -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Osteria del Borgo &middot; Cucina del territorio dal 1958</title>
+  <meta name="description" content="Osteria del Borgo: trattoria di cucina del territorio dal 1958. Pasta fatta in casa, prodotti km0 e una cantina di vini naturali. Prenota un tavolo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Mulish:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=1" />
+</head>
+<body>
+  <a class="skip" href="#main">Salta al contenuto</a>
+
+  <!-- announcement -->
+  <div class="anno">Aperti a pranzo e cena, gioved&igrave; &middot; domenica &middot; Cucina del territorio dal <b>1958</b> &middot; Prenotazione consigliata</div>
+
+  <!-- header (verbatim across pages) -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Principale">
+        <a class="brand" href="index.html" aria-label="Osteria del Borgo, home">
+          <span class="brand__mark">B</span>
+          <span class="brand__name">Osteria del Borgo<small>dal 1958</small></span>
+        </a>
+        <ul class="nav__links">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="index.html#storia">La storia</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+        </ul>
+        <div class="nav__cta">
+          <a class="btn btn--cta" href="contatti.html#prenota"><i data-lucide="utensils-crossed"></i> Prenota un tavolo</a>
+        </div>
+        <button class="menu-btn" aria-label="Apri il menu" aria-expanded="false" aria-controls="mobileMenu"><i data-lucide="menu"></i></button>
+      </nav>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="container">
+        <ul>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="index.html#storia">La storia</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+        </ul>
+        <a class="btn btn--cta btn--block" href="contatti.html#prenota"><i data-lucide="utensils-crossed"></i> Prenota un tavolo</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- 1 · GALLERY HERO (signature): photo collage + name / claim / CTA, balanced -->
+    <section class="hero">
+      <div class="container container--wide">
+        <div class="hero__inner">
+          <div class="hero__copy reveal">
+            <span class="hero__eyebrow"><i data-lucide="wheat"></i> Trattoria &middot; cucina del territorio</span>
+            <h1 class="h1">Osteria del Borgo</h1>
+            <p class="hero__claim">Cucina del territorio dal 1958: pasta tirata a mano, prodotti dei nostri contadini e una tavola dove ci si siede senza fretta.</p>
+            <div class="hero__cta">
+              <a class="btn btn--cta btn--lg" href="contatti.html#prenota"><i data-lucide="utensils-crossed"></i> Prenota un tavolo</a>
+              <a class="btn btn--outline btn--lg" href="menu.html">Guarda il menu</a>
+            </div>
+            <div class="hero__meta">
+              <div><b>1958</b> dalla prima sala</div>
+              <div><b>km0</b> orto e cantina</div>
+              <div><b>3</b> generazioni in cucina</div>
+            </div>
+          </div>
+          <div class="hero__collage reveal">
+            <div class="gframe g-main">
+              <img src="img/hero1.jpg" alt="Tagliatelle fresche al rag&ugrave; viste dall'alto, appena impiattate" />
+              <span class="gtag">Le tagliatelle della casa</span>
+            </div>
+            <div class="gframe g-a">
+              <img src="img/interior.jpg" alt="Sala dell'osteria con tavoli in legno e luce calda" />
+            </div>
+            <div class="gframe g-b">
+              <img src="img/dish-a.jpg" alt="Risotto mantecato servito in un piatto fondo" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 · MANIFESTO (intro: cucina del territorio, km0) · numbered 01 -->
+    <section class="section section--cream2">
+      <div class="container container--narrow center">
+        <div class="reveal">
+          <span class="snum"><b>01</b><i></i> Chi siamo</span>
+          <h2 class="h2 mt-s">Una cucina che parte<br />dall&apos;<span class="serif-it">orto</span>, non dal listino</h2>
+          <p class="lead mx-auto mt-s">Da tre generazioni cuciniamo quello che la stagione porta in tavola: verdure raccolte la mattina, paste tirate a mano, carni e formaggi dei produttori del nostro borgo. Niente menu infiniti: pochi piatti, fatti come si deve, scritti ogni giorno sulla lavagna.</p>
+          <hr class="drule drule--center mt-m" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · I NOSTRI PIATTI (featured dishes with prices) · numbered 02 -->
+    <section class="section section--cream">
+      <div class="container">
+        <div class="flex-between mb-l reveal">
+          <div class="head">
+            <span class="snum"><b>02</b><i></i> I nostri piatti</span>
+            <h2 class="h2 mt-s">Dalla lavagna di oggi</h2>
+          </div>
+          <a class="linkarrow" href="menu.html">Tutto il menu <i data-lucide="arrow-right"></i></a>
+        </div>
+        <div class="grid g-4 reveal-stagger">
+          <article class="dish">
+            <div class="dish__media"><span class="dish__tag">Primo</span><img src="img/hero1.jpg" alt="Tagliatelle al rag&ugrave; di carne tirate a mano" /></div>
+            <div class="dish__b">
+              <span class="ct">Pasta fatta in casa</span>
+              <span class="nm">Tagliatelle al rag&ugrave; bianco</span>
+              <span class="ds">Sfoglia tirata a mattarello, rag&ugrave; di vitello e maiale cotto otto ore, una grattata di parmigiano 30 mesi.</span>
+              <div class="dish__row"><span class="price">14&euro;</span><span class="muted" style="font-size:13px;font-weight:700">disponibile oggi</span></div>
+            </div>
+          </article>
+          <article class="dish">
+            <div class="dish__media"><span class="dish__tag dish__tag--gold">Stagione</span><img src="img/dish-a.jpg" alt="Risotto mantecato cremoso in un piatto bianco" /></div>
+            <div class="dish__b">
+              <span class="ct">Primo del giorno</span>
+              <span class="nm">Risotto alle erbe di campo</span>
+              <span class="ds">Carnaroli mantecato con erbe spontanee raccolte dietro l&apos;orto, burro d&apos;alpeggio e un filo d&apos;olio nuovo.</span>
+              <div class="dish__row"><span class="price">15&euro;</span><span class="muted" style="font-size:13px;font-weight:700">vegetariano</span></div>
+            </div>
+          </article>
+          <article class="dish">
+            <div class="dish__media"><span class="dish__tag dish__tag--bord">La casa</span><img src="img/dish-b.jpg" alt="Tagliata di manzo al sangue affettata su un tagliere" /></div>
+            <div class="dish__b">
+              <span class="ct">Secondo di carne</span>
+              <span class="nm">Tagliata di fassona</span>
+              <span class="ds">Razza piemontese del nostro allevatore, scottata e affettata, rucola dell&apos;orto e scaglie di grana.</span>
+              <div class="dish__row"><span class="price">22&euro;</span><span class="muted" style="font-size:13px;font-weight:700">al sangue</span></div>
+            </div>
+          </article>
+          <article class="dish">
+            <div class="dish__media"><span class="dish__tag dish__tag--gold">Dolce</span><img src="img/dish-c.jpg" alt="Tiramis&ugrave; al cucchiaio servito in coppetta" /></div>
+            <div class="dish__b">
+              <span class="ct">Fatto in casa</span>
+              <span class="nm">Tiramis&ugrave; della nonna</span>
+              <span class="ds">La ricetta di sempre: savoiardi inzuppati nel caff&egrave; della moka, crema al mascarpone e cacao amaro.</span>
+              <div class="dish__row"><span class="price">7&euro;</span><span class="muted" style="font-size:13px;font-weight:700">al cucchiaio</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · LA NOSTRA STORIA split (image LEFT, since 1958) · numbered 03 -->
+    <section class="section section--cream2" id="storia">
+      <div class="container">
+        <div class="split split--75">
+          <div class="split__media reveal">
+            <div class="figure figure--43"><img src="img/interior.jpg" alt="Sala storica dell'osteria con tavoli apparecchiati e pareti in pietra" /></div>
+            <div class="float-card br">
+              <span class="lab">Aperta dal</span>
+              <div class="big">1958</div>
+              <span class="sub">Tre generazioni della stessa famiglia</span>
+            </div>
+          </div>
+          <div class="stack-lg reveal">
+            <span class="snum"><b>03</b><i></i> La nostra storia</span>
+            <h2 class="h2">Dal 1958, sempre<br />nella stessa sala</h2>
+            <p class="lead">Nonna Pia apr&igrave; l&apos;osteria con sei tavoli e una cucina a legna. Oggi in cucina c&apos;&egrave; suo nipote, ma il patto &egrave; lo stesso: comprare dai vicini, cucinare di stagione, far sentire chi entra come a casa di amici.</p>
+            <ul class="ticks">
+              <li><i data-lucide="hand-platter"></i> Pasta e dolci fatti in casa ogni mattina</li>
+              <li><i data-lucide="map-pin"></i> Fornitori entro pochi chilometri dal borgo</li>
+              <li><i data-lucide="flame"></i> Forno e griglia ancora a legna</li>
+            </ul>
+            <a class="linkarrow" href="contatti.html">Vieni a trovarci <i data-lucide="arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · HERITAGE NUMBERS band (olive-dark, data-count) · numbered 04 -->
+    <section class="section section--olive">
+      <div class="container">
+        <div class="head head--center mb-l reveal">
+          <span class="snum"><b>04</b><i></i> In cifre</span>
+          <h2 class="h2 mt-s">Quasi settant&apos;anni a tavola</h2>
+        </div>
+        <div class="stats reveal-stagger">
+          <div class="stat"><b><span data-count="66">66</span></b><span>anni di osteria</span></div>
+          <div class="stat"><b><span data-count="48">48</span></b><span>coperti in sala</span></div>
+          <div class="stat"><b><span data-count="23">23</span></b><span>fornitori locali</span></div>
+          <div class="stat"><b><span data-count="9">9</span><span class="suf">+</span></b><span>piatti scritti ogni giorno</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 · GLI INGREDIENTI split (image RIGHT, alternates from §4) · numbered 05 -->
+    <section class="section section--cream">
+      <div class="container">
+        <div class="split split--rev">
+          <div class="split__media reveal">
+            <div class="figure figure--32"><img src="img/ingredients.jpg" alt="Verdure, erbe e ortaggi di stagione disposti su un piano di lavoro" /></div>
+          </div>
+          <div class="stack-lg reveal">
+            <span class="snum"><b>05</b><i></i> Gli ingredienti</span>
+            <h2 class="h2">Conosciamo per nome<br />chi ci rifornisce</h2>
+            <p class="lead">L&apos;olio del frantoio in collina, le uova del Carlo, le verdure del nostro orto dietro la sala. Compriamo poco e spesso, cos&igrave; in tavola arriva solo quello che &egrave; davvero di stagione: per questo il menu cambia ogni settimana.</p>
+            <ul class="ticks">
+              <li><i data-lucide="sprout"></i> Orto di casa per verdure ed erbe spontanee</li>
+              <li><i data-lucide="milk"></i> Latticini e uova da piccole cascine vicine</li>
+              <li><i data-lucide="grape"></i> Cantina di vini naturali del territorio</li>
+            </ul>
+            <a class="linkarrow" href="menu.html#vini">Scopri la cantina <i data-lucide="arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 · GALLERY strip (horizontal rail) · numbered 06 -->
+    <section class="section section--cream2" data-rail>
+      <div class="container">
+        <div class="flex-between mb-l reveal">
+          <div class="head">
+            <span class="snum"><b>06</b><i></i> In sala e in cucina</span>
+            <h2 class="h2 mt-s">Uno sguardo da noi</h2>
+          </div>
+          <div class="railnav">
+            <button data-rail-prev aria-label="Foto precedente"><i data-lucide="arrow-left"></i></button>
+            <button data-rail-next aria-label="Foto successiva"><i data-lucide="arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="container container--wide">
+        <div class="hrail reveal">
+          <figure class="gphoto"><img src="img/interior.jpg" alt="La sala dell'osteria con luce calda al tramonto" /><figcaption class="cap"><i data-lucide="armchair"></i> La sala</figcaption></figure>
+          <figure class="gphoto"><img src="img/hero1.jpg" alt="Tagliatelle fresche pronte da servire" /><figcaption class="cap"><i data-lucide="utensils"></i> La pasta del giorno</figcaption></figure>
+          <figure class="gphoto"><img src="img/wine.jpg" alt="Calice di vino rosso con pane casereccio" /><figcaption class="cap"><i data-lucide="wine"></i> Vino e pane</figcaption></figure>
+          <figure class="gphoto"><img src="img/ingredients.jpg" alt="Verdure di stagione appena raccolte" /><figcaption class="cap"><i data-lucide="carrot"></i> Dall'orto</figcaption></figure>
+          <figure class="gphoto"><img src="img/dish-b.jpg" alt="Tagliata di carne affettata sul tagliere" /><figcaption class="cap"><i data-lucide="beef"></i> Dalla griglia</figcaption></figure>
+          <figure class="gphoto"><img src="img/dish-c.jpg" alt="Tiramis&ugrave; fatto in casa" /><figcaption class="cap"><i data-lucide="cake-slice"></i> I dolci</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 · PRENOTA reservation band (bordeaux CTA) with short form · numbered 07 -->
+    <section class="section section--bord" id="prenota">
+      <div class="container">
+        <div class="split">
+          <div class="reveal">
+            <span class="snum"><b>07</b><i></i> Prenota</span>
+            <h2 class="h2 mt-s">Tieniti un tavolo</h2>
+            <p class="lead mt-s">Siamo una sala piccola e ci teniamo a darti il tempo giusto: lasciaci due righe e ti richiamiamo per confermare. Per gruppi oltre le otto persone, scrivici e organizziamo il men&ugrave;.</p>
+            <ul class="ticks mt-s">
+              <li><i data-lucide="phone"></i> Preferisci la voce? <a href="tel:+390550000000" style="font-weight:700;text-decoration:underline">055 000 0000</a></li>
+              <li><i data-lucide="clock"></i> Pranzo 12:30 &middot; 14:30 &nbsp; Cena 19:30 &middot; 22:30</li>
+            </ul>
+          </div>
+          <div class="reveal">
+            <form class="formcard" data-reserve novalidate>
+              <div class="formgrid formgrid--2">
+                <div class="field"><label for="r-data">Data</label><input type="date" id="r-data" name="data" required /></div>
+                <div class="field"><label for="r-ora">Ora</label>
+                  <select id="r-ora" name="ora" required>
+                    <option value="">Scegli</option>
+                    <option>12:30</option><option>13:00</option><option>13:30</option>
+                    <option>19:30</option><option>20:00</option><option>20:30</option><option>21:00</option>
+                  </select>
+                </div>
+                <div class="field"><label for="r-pers">Persone</label>
+                  <select id="r-pers" name="persone" required>
+                    <option value="">Scegli</option>
+                    <option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option>
+                  </select>
+                </div>
+                <div class="field"><label for="r-tel">Telefono</label><input type="tel" id="r-tel" name="telefono" placeholder="Il tuo numero" required /></div>
+                <div class="field fg-span2"><label for="r-nome">Nome</label><input type="text" id="r-nome" name="nome" placeholder="A nome di" required /></div>
+              </div>
+              <button class="btn btn--cta btn--block btn--lg mt-m" type="submit"><i data-lucide="utensils-crossed"></i> Richiedi il tavolo</button>
+              <p class="formnote">Demo: nessun dato viene inviato. Ti ricontatteremo per la conferma.</p>
+              <p class="note mt-s" data-reserve-msg hidden><i data-lucide="check-circle-2"></i> Grazie! Abbiamo ricevuto la tua richiesta: ti chiamiamo a breve per confermare il tavolo.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9 · ORARI teaser · numbered 08 -->
+    <section class="section section--cream">
+      <div class="container">
+        <div class="split">
+          <div class="stack-lg reveal">
+            <span class="snum"><b>08</b><i></i> Quando siamo aperti</span>
+            <h2 class="h2">Orari della settimana</h2>
+            <p class="lead">Cuciniamo a pranzo e a cena dal gioved&igrave; alla domenica. Luned&igrave; e marted&igrave; siamo al mercato e in cantina: la sala riposa.</p>
+            <a class="btn btn--olive" href="contatti.html"><i data-lucide="map-pin"></i> Orari e come arrivare</a>
+          </div>
+          <div class="reveal">
+            <ul class="orari">
+              <li><span class="d">Luned&igrave; &middot; Marted&igrave;</span><span class="t closed">Chiuso</span></li>
+              <li><span class="d">Mercoled&igrave;</span><span class="t">19:30 &middot; 22:30</span></li>
+              <li><span class="d">Gioved&igrave; &middot; Venerd&igrave;</span><span class="t">12:30 &middot; 14:30 &nbsp;|&nbsp; 19:30 &middot; 22:30</span></li>
+              <li><span class="d">Sabato</span><span class="t">12:30 &middot; 15:00 &nbsp;|&nbsp; 19:30 &middot; 23:00</span></li>
+              <li><span class="d">Domenica</span><span class="t">12:30 &middot; 15:00</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- footer (verbatim across pages) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a class="brand" href="index.html"><span class="brand__mark">B</span><span class="brand__name">Osteria del Borgo<small>dal 1958</small></span></a>
+          <p class="mt-s">Trattoria di cucina del territorio: pasta fatta in casa, prodotti dei nostri contadini e una tavola dove ci si siede senza fretta.</p>
+          <div class="footer__social">
+            <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+            <a href="#" aria-label="Scrivici una mail"><i data-lucide="mail"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4>Esplora</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="index.html#storia">La storia</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+            <li><a href="contatti.html#prenota">Prenota un tavolo</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Orari</h4>
+          <ul>
+            <li>Mer: 19:30 &middot; 22:30</li>
+            <li>Gio &middot; Ven: pranzo e cena</li>
+            <li>Sab: 12:30 &middot; 23:00</li>
+            <li>Dom: solo pranzo</li>
+            <li>Lun &middot; Mar: chiuso</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Dove siamo</h4>
+          <div class="footer__contact">
+            <a href="#mappa"><i data-lucide="map-pin"></i> Via del Borgo 12, Greve in Chianti (FI)</a>
+            <a href="tel:+390550000000"><i data-lucide="phone"></i> 055 000 0000</a>
+            <a href="mailto:ciao@osteriadelborgo.it"><i data-lucide="mail"></i> ciao@osteriadelborgo.it</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bar">
+        <span>&copy; 2026 Osteria del Borgo &middot; P.IVA 00000000000 &middot; Demo Lavder</span>
+        <span>Cucina del territorio dal 1958</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="app.js?v=1"></script>
+</body>
+</html>

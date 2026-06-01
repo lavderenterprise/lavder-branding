@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="it">
+<!-- SCADENZA (demo) · LANDING / lead-gen · single long page · Tier 1. CLIENT brand layer.
+     Mood: conversion-first, modern friendly SaaS. Built ONLY from this repo's guidelines.
+     Craft layer reused from the e-commerce reference (tokens, container, reveal, accordion,
+     bento span math, footer ul reset, sr-only skip via clip, sticky CTA without overflow).
+     Skin is its own: high-contrast white/ink + electric indigo, Plus Jakarta Sans, soft 12px
+     radius, centered-statement hero, HTML/CSS product UI mocks (no photos for the product). -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scadenza &middot; Mai pi&ugrave; una scadenza dimenticata</title>
+  <meta name="description" content="Scadenza tiene insieme scadenze fiscali, fatture e tasse dei freelance italiani: promemoria automatici, calendario fiscale, alert F24 e IVA. Prova gratis 14 giorni, nessuna carta richiesta." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=1" />
+</head>
+<body>
+  <a class="skip" href="#main">Salta al contenuto</a>
+
+  <!-- 1 · STICKY NAV -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Principale">
+        <a class="brand" href="index.html" aria-label="Scadenza home">
+          <span class="brand__mark"><i data-lucide="calendar-check-2"></i></span>
+          <span class="brand__name">Scadenza</span>
+        </a>
+        <ul class="nav__links">
+          <li><a href="#funzioni">Funzioni</a></li>
+          <li><a href="#prezzi">Prezzi</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <div class="nav__cta">
+          <a class="login" href="#">Accedi</a>
+          <a class="btn btn--primary btn--sm" href="#prezzi">Prova gratis</a>
+        </div>
+        <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu"><i data-lucide="menu"></i></button>
+      </nav>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="container"><ul>
+        <li><a href="#funzioni">Funzioni</a></li>
+        <li><a href="#prezzi">Prezzi</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#">Accedi</a></li>
+        <li><a class="btn btn--primary btn--block" href="#prezzi">Prova gratis 14 giorni</a></li>
+      </ul></div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- 2 · HERO (centered-statement + HTML/CSS product UI mock) -->
+    <section class="hero">
+      <img class="hero__bg" src="img/texture.jpg" alt="" aria-hidden="true" />
+      <div class="container">
+        <div class="hero__top reveal">
+          <span class="pill-badge"><i data-lucide="sparkles"></i> Pensato per i freelance italiani</span>
+          <h1 class="h1">Mai pi&ugrave; una scadenza<br />dimenticata</h1>
+          <p class="lead">Scadenza tiene insieme le tue scadenze fiscali, le fatture e le tasse in un posto solo. Tu lavori: ai promemoria al momento giusto pensiamo noi.</p>
+          <div class="hero__cta">
+            <a class="btn btn--primary btn--lg" href="#prezzi">Prova gratis 14 giorni <i data-lucide="arrow-right"></i></a>
+            <a class="btn btn--outline btn--lg" href="#demo"><i data-lucide="play"></i> Guarda la demo</a>
+          </div>
+          <div class="hero__reassure"><span class="reassure"><i data-lucide="check-circle-2"></i> Nessuna carta richiesta &middot; 14 giorni gratis</span></div>
+        </div>
+
+        <!-- product UI mock: "Scadenze in arrivo", 4 rows -->
+        <div class="hero__mock reveal">
+          <div class="ui" role="img" aria-label="Schermata dell'app Scadenza con l'elenco delle scadenze in arrivo: F24 IVA trimestrale in scadenza, fattura cliente pagata, contributi INPS in scadenza, bollo auto scaduto.">
+            <div class="ui__bar" aria-hidden="true">
+              <span class="ui__dots"><i></i><i></i><i></i></span>
+              <span class="ui__title">Scadenze in arrivo</span>
+              <span class="ui__chip">Giugno</span>
+            </div>
+            <div class="ui__body" aria-hidden="true">
+              <div class="srow">
+                <span class="datechip"><b>16</b><span>giu</span></span>
+                <span class="srow__main"><b>F24 &middot; IVA trimestrale</b><span>Modello F24 &middot; Q1 2026</span></span>
+                <span class="srow__end"><span class="amount">1.240&euro;</span><span class="status status--warn">In scadenza</span></span>
+              </div>
+              <div class="srow">
+                <span class="datechip"><b>18</b><span>giu</span></span>
+                <span class="srow__main"><b>Fattura n. 042 &middot; Studio Vela</b><span>Saldo progetto sito web</span></span>
+                <span class="srow__end"><span class="amount">2.800&euro;</span><span class="status status--ok">Pagata</span></span>
+              </div>
+              <div class="srow">
+                <span class="datechip"><b>20</b><span>giu</span></span>
+                <span class="srow__main"><b>Contributi INPS</b><span>Gestione separata &middot; acconto</span></span>
+                <span class="srow__end"><span class="amount">680&euro;</span><span class="status status--warn">In scadenza</span></span>
+              </div>
+              <div class="srow">
+                <span class="datechip"><b>02</b><span>giu</span></span>
+                <span class="srow__main"><b>Bollo auto</b><span>Regione Lombardia</span></span>
+                <span class="srow__end"><span class="amount">184&euro;</span><span class="status status--bad">Scaduta</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · LOGO MARQUEE (signature device) -->
+    <div class="lqwrap">
+      <div class="container">
+        <p class="lqlabel">Usato da 2.000+ freelance e studi in tutta Italia</p>
+      </div>
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span><i data-lucide="square-asterisk"></i> Studio Vela</span>
+          <span><i data-lucide="hexagon"></i> Bottega Nord</span>
+          <span><i data-lucide="triangle"></i> Mauri &amp; Conti</span>
+          <span><i data-lucide="circle-dot"></i> Atelier 17</span>
+          <span><i data-lucide="diamond"></i> Pixela</span>
+          <span><i data-lucide="square"></i> Officina Fiscale</span>
+          <span><i data-lucide="square-asterisk"></i> Studio Vela</span>
+          <span><i data-lucide="hexagon"></i> Bottega Nord</span>
+          <span><i data-lucide="triangle"></i> Mauri &amp; Conti</span>
+          <span><i data-lucide="circle-dot"></i> Atelier 17</span>
+          <span><i data-lucide="diamond"></i> Pixela</span>
+          <span><i data-lucide="square"></i> Officina Fiscale</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 · PROBLEMA / SOLUZIONE (3 pain points) -->
+    <section class="section section--white">
+      <div class="container">
+        <div class="head head--center mb-l reveal">
+          <h2 class="h2">Gestire le scadenze a memoria<br />prima o poi si paga</h2>
+          <p class="lead mx-auto">Una multa, un interesse di mora, un cliente che non paga. I tre buchi pi&ugrave; comuni in cui cadono i freelance &middot; e come Scadenza li chiude.</p>
+        </div>
+        <div class="cards reveal-stagger">
+          <article class="card">
+            <span class="card__ic"><i data-lucide="alarm-clock-off"></i></span>
+            <h3 class="h3">Scadenze fiscali perse</h3>
+            <p>F24 dimenticato, acconto saltato, ravvedimento da pagare. Una distrazione e arrivano sanzioni e interessi.</p>
+            <span class="fix"><i data-lucide="check"></i> Promemoria con 7 giorni di anticipo</span>
+          </article>
+          <article class="card">
+            <span class="card__ic"><i data-lucide="receipt-text"></i></span>
+            <h3 class="h3">Fatture in ritardo</h3>
+            <p>Non ricordi chi ti deve pagare e da quanto. Cos&igrave; il sollecito parte tardi e l&apos;incasso slitta di mesi.</p>
+            <span class="fix"><i data-lucide="check"></i> Solleciti pronti al giorno giusto</span>
+          </article>
+          <article class="card">
+            <span class="card__ic"><i data-lucide="table-2"></i></span>
+            <h3 class="h3">Fogli Excel infiniti</h3>
+            <p>Tre file, due app e un&apos;agenda di carta. Nessuno parla con l&apos;altro e ogni mese ricominci da capo.</p>
+            <span class="fix"><i data-lucide="check"></i> Tutto in un&apos;unica vista chiara</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · FUNZIONI · feature BENTO (4-col: feature 2x2 + four 1x1 = two full rows) -->
+    <section class="section section--wash" id="funzioni">
+      <div class="container">
+        <div class="head head--center mb-l reveal">
+          <h2 class="h2">Tutto quello che ti serve<br />per non perdere un colpo</h2>
+          <p class="lead mx-auto">Promemoria intelligenti, calendario fiscale italiano gi&agrave; pronto e i tuoi conti sempre allineati. Senza fogli di calcolo.</p>
+        </div>
+        <div class="bento reveal">
+          <!-- feature 2x2: promemoria automatici, with a mini UI snippet -->
+          <div class="b-feat">
+            <div class="b-feat__head">
+              <span class="cell__ic"><i data-lucide="bell-ring"></i></span>
+              <h3 class="h3">Promemoria automatici</h3>
+              <p>Email e notifiche al momento giusto: 7 giorni prima, il giorno stesso e un avviso se hai saltato. Decidi tu il ritmo, noi non ti molliamo.</p>
+            </div>
+            <div class="minisnip" aria-hidden="true">
+              <div class="minisnip__hd"><b>Prossimi avvisi</b><span>3 attivi</span></div>
+              <div class="minirow"><span class="dt">16<br>giu</span><span class="lb">F24 &middot; IVA trimestrale</span><span class="pl" style="background:var(--warn)"></span></div>
+              <div class="minirow"><span class="dt">20<br>giu</span><span class="lb">Contributi INPS</span><span class="pl" style="background:var(--warn)"></span></div>
+              <div class="minirow"><span class="dt">30<br>giu</span><span class="lb">Diritto camerale</span><span class="pl" style="background:var(--indigo)"></span></div>
+            </div>
+          </div>
+          <!-- four 1x1 -->
+          <div>
+            <span class="cell__ic"><i data-lucide="calendar-days"></i></span>
+            <h4 class="h4">Calendario fiscale italiano</h4>
+            <p>Tutte le scadenze nazionali gi&agrave; caricate e aggiornate, dal forfettario alla partita IVA ordinaria.</p>
+          </div>
+          <div>
+            <span class="cell__ic"><i data-lucide="badge-euro"></i></span>
+            <h4 class="h4">Alert F24 e IVA</h4>
+            <p>Avvisi dedicati per F24, IVA e acconti, con l&apos;importo stimato accanto a ogni scadenza.</p>
+          </div>
+          <div>
+            <span class="cell__ic"><i data-lucide="refresh-cw"></i></span>
+            <h4 class="h4">Sincronizzazione</h4>
+            <p>Collega Google Calendar e la tua email: le scadenze compaiono dove guardi gi&agrave; ogni giorno.</p>
+          </div>
+          <div>
+            <span class="cell__ic"><i data-lucide="bar-chart-3"></i></span>
+            <h4 class="h4">Report mensili</h4>
+            <p>Quanto hai pagato, quanto incassi e cosa arriva il mese prossimo, in un colpo d&apos;occhio.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 · COME FUNZIONA (3 numbered steps) -->
+    <section class="section section--white">
+      <div class="container">
+        <div class="head head--center mb-l reveal">
+          <h2 class="h2">Pronto in tre minuti</h2>
+          <p class="lead mx-auto">Niente migrazioni infinite n&eacute; commercialista al telefono. Colleghi, importi e da l&igrave; in poi ci pensa Scadenza.</p>
+        </div>
+        <div class="steps steps--line reveal-stagger">
+          <div class="step">
+            <span class="step__n">1</span>
+            <h3 class="h3">Collega</h3>
+            <p>Crea l&apos;account e scegli il tuo regime: forfettario, ordinario o studio. Bastano pochi clic.</p>
+          </div>
+          <div class="step">
+            <span class="step__n">2</span>
+            <h3 class="h3">Importa</h3>
+            <p>Sincronizza il calendario e carica le fatture: trasciniamo dentro le scadenze al posto tuo.</p>
+          </div>
+          <div class="step">
+            <span class="step__n">3</span>
+            <h3 class="h3">Rilassati</h3>
+            <p>Ricevi gli avvisi al momento giusto e apri l&apos;app solo quando serve. Il resto &egrave; automatico.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 · FULL-WIDTH PRODUCT MOCK BAND (larger dashboard: month calendar + scadenze) -->
+    <section class="section section--tint" id="demo">
+      <div class="container">
+        <div class="head head--center mb-l reveal">
+          <h2 class="h2">Una vista, tutto sotto controllo</h2>
+          <p class="lead mx-auto">Il calendario del mese con i giorni che contano evidenziati, e accanto le prossime scadenze con stato e importo.</p>
+        </div>
+        <div class="dash reveal">
+          <div class="dash__win" role="img" aria-label="Cruscotto di Scadenza: calendario di giugno 2026 con i giorni delle scadenze evidenziati, e a fianco l'elenco delle prossime scadenze con stato e importo.">
+            <div class="dash__top" aria-hidden="true">
+              <span class="ui__dots"><i></i><i></i><i></i></span>
+              <span class="ui__title">Cruscotto</span>
+              <span class="dash__seg"><span>Lista</span><span class="on">Mese</span><span>Anno</span></span>
+            </div>
+            <div class="dash__grid" aria-hidden="true">
+              <div class="cal">
+                <div class="cal__hd">
+                  <b>Giugno 2026</b>
+                  <span class="cal__nav"><i><i data-lucide="chevron-left"></i></i><i><i data-lucide="chevron-right"></i></i></span>
+                </div>
+                <div class="cal__dow"><span>L</span><span>M</span><span>M</span><span>G</span><span>V</span><span>S</span><span>D</span></div>
+                <div class="cal__days">
+                  <span class="mut">26</span><span class="mut">27</span><span class="mut">28</span><span class="mut">29</span><span class="mut">30</span><span class="mut">31</span><span>1</span>
+                  <span class="has bad">2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+                  <span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span>
+                  <span class="has warn">16</span><span class="today">17</span><span class="has">18</span><span>19</span><span class="has warn">20</span><span>21</span><span>22</span>
+                  <span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span>
+                  <span class="has">30</span><span class="mut">1</span><span class="mut">2</span><span class="mut">3</span><span class="mut">4</span><span class="mut">5</span><span class="mut">6</span>
+                </div>
+              </div>
+              <div class="dash__side">
+                <p class="ttl">Prossime scadenze</p>
+                <div class="dchip">
+                  <span class="dt"><b>16</b><span>giu</span></span>
+                  <span class="mn"><b>F24 &middot; IVA trimestrale</b><span>1.240&euro;</span></span>
+                  <span class="status status--warn">In scadenza</span>
+                </div>
+                <div class="dchip">
+                  <span class="dt"><b>18</b><span>giu</span></span>
+                  <span class="mn"><b>Fattura n. 042</b><span>2.800&euro; &middot; Studio Vela</span></span>
+                  <span class="status status--ok">Pagata</span>
+                </div>
+                <div class="dchip">
+                  <span class="dt"><b>20</b><span>giu</span></span>
+                  <span class="mn"><b>Contributi INPS</b><span>680&euro;</span></span>
+                  <span class="status status--warn">In scadenza</span>
+                </div>
+                <div class="dchip">
+                  <span class="dt"><b>30</b><span>giu</span></span>
+                  <span class="mn"><b>Diritto camerale</b><span>53&euro;</span></span>
+                  <span class="status status--ok">Pianificata</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 · TESTIMONIANZE (initials, no photos) -->
+    <section class="section section--white">
+      <div class="container">
+        <div class="head head--center mb-l reveal">
+          <h2 class="h2">Chi lo usa dorme<br />sonni pi&ugrave; tranquilli</h2>
+        </div>
+        <div class="quotes reveal-stagger">
+          <figure class="quote">
+            <span class="stars" aria-label="5 stelle su 5"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></span>
+            <blockquote><p>&laquo;Prima vivevo con l&apos;ansia dell&apos;F24. Ora ricevo l&apos;avviso una settimana prima e pago in cinque minuti. Non ho pi&ugrave; preso una sanzione.&raquo;</p></blockquote>
+            <figcaption class="who"><span class="av">GR</span><span><b>Giulia Rossi</b><span>Graphic designer, Bologna</span></span></figcaption>
+          </figure>
+          <figure class="quote">
+            <span class="stars" aria-label="5 stelle su 5"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></span>
+            <blockquote><p>&laquo;Seguo trenta clienti e tenevo tutto su Excel. Con Scadenza vedo le scadenze di ognuno in una schermata: ho recuperato un&apos;intera giornata al mese.&raquo;</p></blockquote>
+            <figcaption class="who"><span class="av">MC</span><span><b>Marco Conti</b><span>Commercialista, Milano</span></span></figcaption>
+          </figure>
+          <figure class="quote">
+            <span class="stars" aria-label="5 stelle su 5"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></span>
+            <blockquote><p>&laquo;I solleciti automatici mi hanno cambiato il flusso di cassa. I clienti pagano prima perch&eacute; il promemoria parte sempre al momento giusto, senza che io ci pensi.&raquo;</p></blockquote>
+            <figcaption class="who"><span class="av">SF</span><span><b>Sara Ferraro</b><span>Consulente marketing, Napoli</span></span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9 · PREZZI (HTML pricing table, 3 tiers, Pro highlighted) -->
+    <section class="section section--wash" id="prezzi">
+      <div class="container">
+        <div class="head head--center mb-l reveal">
+          <h2 class="h2">Un prezzo onesto,<br />nessuna sorpresa</h2>
+          <p class="lead mx-auto">Inizia gratis e passa a un piano superiore solo quando ti serve. Disdici quando vuoi, in due clic.</p>
+        </div>
+        <div class="pricing reveal-stagger">
+          <!-- Free -->
+          <div class="tier">
+            <span class="tier__name">Free</span>
+            <span class="tier__price"><b>0&euro;</b><span>per sempre</span></span>
+            <span class="tier__sub">Per iniziare a fare ordine.</span>
+            <ul class="tier__list">
+              <li><i data-lucide="check"></i> Fino a 10 scadenze attive</li>
+              <li><i data-lucide="check"></i> Promemoria via email</li>
+              <li><i data-lucide="check"></i> Calendario fiscale italiano</li>
+              <li class="off"><i data-lucide="minus"></i> Solleciti fatture</li>
+              <li class="off"><i data-lucide="minus"></i> Report mensili</li>
+            </ul>
+            <a class="btn btn--outline btn--block" href="#">Inizia gratis</a>
+          </div>
+          <!-- Pro (highlighted) -->
+          <div class="tier tier--hl">
+            <span class="tier__tag">Pi&ugrave; scelto</span>
+            <span class="tier__name">Pro</span>
+            <span class="tier__price"><b>9&euro;</b><span>/mese</span></span>
+            <span class="tier__sub">Per il freelance che fa sul serio.</span>
+            <ul class="tier__list">
+              <li><i data-lucide="check"></i> Scadenze illimitate</li>
+              <li><i data-lucide="check"></i> Promemoria email e notifiche</li>
+              <li><i data-lucide="check"></i> Alert F24, IVA e contributi</li>
+              <li><i data-lucide="check"></i> Solleciti fatture automatici</li>
+              <li><i data-lucide="check"></i> Sincronizzazione calendario</li>
+              <li><i data-lucide="check"></i> Report mensili</li>
+            </ul>
+            <a class="btn btn--primary btn--block" href="#">Prova gratis 14 giorni</a>
+          </div>
+          <!-- Studio -->
+          <div class="tier">
+            <span class="tier__name">Studio</span>
+            <span class="tier__price"><b>29&euro;</b><span>/mese</span></span>
+            <span class="tier__sub">Per chi gestisce pi&ugrave; clienti.</span>
+            <ul class="tier__list">
+              <li><i data-lucide="check"></i> Tutto del piano Pro</li>
+              <li><i data-lucide="check"></i> Fino a 50 clienti</li>
+              <li><i data-lucide="check"></i> Vista multi-cliente</li>
+              <li><i data-lucide="check"></i> 3 collaboratori inclusi</li>
+              <li><i data-lucide="check"></i> Supporto prioritario</li>
+            </ul>
+            <a class="btn btn--outline btn--block" href="#">Prova gratis 14 giorni</a>
+          </div>
+        </div>
+        <p class="center mt-m"><span class="reassure"><i data-lucide="shield-check"></i> Pagamenti sicuri &middot; nessun vincolo &middot; disdici quando vuoi</span></p>
+      </div>
+    </section>
+
+    <!-- 10 · FAQ accordion (signature device · 5 Q) -->
+    <section class="section section--white" id="faq">
+      <div class="container">
+        <div class="head head--center mb-l reveal">
+          <h2 class="h2">Domande frequenti</h2>
+        </div>
+        <div class="faq reveal">
+          <details>
+            <summary>Come funziona la prova gratuita? <span class="ic"><i data-lucide="plus"></i></span></summary>
+            <div class="body">Hai 14 giorni con tutte le funzioni del piano Pro, senza inserire alcuna carta di credito. Alla fine decidi tu: se non attivi un piano a pagamento, l&apos;account passa in automatico al piano Free e non paghi nulla.</div>
+          </details>
+          <details>
+            <summary>I miei dati sono al sicuro? <span class="ic"><i data-lucide="plus"></i></span></summary>
+            <div class="body">S&igrave;. I dati sono cifrati in transito e a riposo, salvati su server nell&apos;Unione Europea e ne fai un backup quotidiano. Non vendiamo n&eacute; cediamo a terzi le tue informazioni: sono tue e puoi esportarle o cancellarle quando vuoi.</div>
+          </details>
+          <details>
+            <summary>Posso disdire in qualsiasi momento? <span class="ic"><i data-lucide="plus"></i></span></summary>
+            <div class="body">Certo. Disdici dal pannello in due clic, senza chiamate n&eacute; email. Il piano resta attivo fino alla fine del periodo gi&agrave; pagato, poi non ti viene addebitato pi&ugrave; nulla. Nessun vincolo e nessuna penale.</div>
+          </details>
+          <details>
+            <summary>Gestisce la fatturazione elettronica? <span class="ic"><i data-lucide="plus"></i></span></summary>
+            <div class="body">Scadenza non emette le fatture elettroniche al posto tuo: per quello continui a usare il tuo gestionale o l&apos;Agenzia delle Entrate. Noi teniamo traccia di scadenze e incassi, e ti avvisiamo quando una fattura sta per scadere o resta da saldare.</div>
+          </details>
+          <details>
+            <summary>Che supporto ricevo? <span class="ic"><i data-lucide="plus"></i></span></summary>
+            <div class="body">Tutti i piani hanno il supporto via email in italiano, con risposta entro un giorno lavorativo. Con il piano Studio passi al supporto prioritario e a una chat dedicata per te e i tuoi collaboratori.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 · FINAL CTA BAND (indigo) -->
+    <section class="section section--indigo cta-band" data-stickybar-stop>
+      <div class="container container--narrow reveal">
+        <h2 class="h2">Inizia oggi a dormire<br />sonni tranquilli</h2>
+        <p class="lead mx-auto">Bastano tre minuti per impostare le tue scadenze. Da domani ci pensa Scadenza.</p>
+        <div class="hero__cta">
+          <a class="btn btn--light btn--lg" href="#">Prova gratis 14 giorni <i data-lucide="arrow-right"></i></a>
+          <a class="btn btn--onindigo btn--lg" href="#demo">Guarda la demo</a>
+        </div>
+        <div class="center"><span class="reassure"><i data-lucide="check-circle-2"></i> Nessuna carta richiesta &middot; disdici quando vuoi</span></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 12 · FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a class="brand" href="index.html"><span class="brand__mark"><i data-lucide="calendar-check-2"></i></span><span class="brand__name">Scadenza</span></a>
+          <p>Le tue scadenze fiscali, le fatture e le tasse in un posto solo. Pensato per i freelance e gli studi italiani.</p>
+          <div class="footer__social">
+            <a href="#" aria-label="Sito di Scadenza"><i data-lucide="globe"></i></a>
+            <a href="#" aria-label="Scadenza sui social"><i data-lucide="at-sign"></i></a>
+            <a href="#" aria-label="Scrivici via email"><i data-lucide="mail"></i></a>
+          </div>
+        </div>
+        <div><h4>Prodotto</h4><ul><li><a href="#funzioni">Funzioni</a></li><li><a href="#prezzi">Prezzi</a></li><li><a href="#demo">Demo</a></li><li><a href="#">Novit&agrave;</a></li></ul></div>
+        <div><h4>Risorse</h4><ul><li><a href="#">Guida fiscale</a></li><li><a href="#">Calendario scadenze</a></li><li><a href="#faq">FAQ</a></li><li><a href="#">Blog</a></li></ul></div>
+        <div><h4>Legale</h4><ul><li><a href="#">Privacy</a></li><li><a href="#">Termini</a></li><li><a href="#">Cookie</a></li><li><a href="#">Contatti</a></li></ul></div>
+      </div>
+      <div class="footer__bar">
+        <span>&copy; 2026 Scadenza &middot; P.IVA 00000000000 &middot; Demo Lavder</span>
+        <span class="legal"><a href="#">Privacy</a><a href="#">Termini</a><a href="#">Cookie</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- STICKY BOTTOM CTA (appears after the hero, hides near the final CTA · cannot overflow) -->
+  <div class="stickybar" data-stickybar>
+    <div class="container">
+      <div class="stickybar__in">
+        <div class="stickybar__t">
+          <b>Prova Scadenza gratis</b>
+          <span>14 giorni, nessuna carta richiesta</span>
+        </div>
+        <a class="btn btn--primary" href="#prezzi">Inizia ora <i data-lucide="arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="app.js?v=1"></script>
+</body>
+</html>

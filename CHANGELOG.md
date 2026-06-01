@@ -5,6 +5,22 @@ Format follows [Keep a Changelog](https://keepachangelog.com/), versioning follo
 
 ---
 
+## [0.6.0] - 2026-06-01
+
+### Added
+- **Four new archetype worked examples**, completing the set of 6. Each has a deliberately distinct concept-ledger fingerprint (archetype, mood, hero-pattern, layout-signature, palette, signature-device all vary):
+  - **`documents/website-design/reference-servizi/`** : Studio Legale Vittori (servizi). Editoriale/authoritative, mono + burgundy `#7A2E33`, Spectral + Inter, split-form hero, practice-areas index, process steps, FAQ. 3 pages + wireframe-style sitemap.
+  - **`documents/website-design/reference-locale/`** : Osteria del Borgo (locale/hospitality). Heritage, dual-tone cream + olive, bordeaux `#6E2B2B` CTA, DM Serif Display + Mulish, gallery-hero collage, menu price-lists, photo gallery, reservation + orari. 3 pages + sitemap.
+  - **`documents/website-design/reference-landing/`** : Scadenza (landing/SaaS). Conversion-first, high-contrast white/ink + electric indigo `#4F46E5`, Plus Jakarta Sans. Single long page (Tier 1) with HTML/CSS product UI mocks, logo marquee, feature bento, pricing table, FAQ, sticky CTA.
+  - **`documents/website-design/reference-portfolio/`** : Brio (portfolio/creative). Bold-dark, near-black `#0E0E10` + coral `#FF6A4D`, Space Grotesk (oversized) + Inter, text-only typographic hero, project hover-reveal grid, h-scroll rail, big-type services, marquee. 2 pages (home + project case study) + sitemap.
+  - Each is self-contained (own `styles.css`/`app.js`) and built on the shared craft layer (`build-quality.md`): horizontal containment, one section rhythm, reveal failsafe + reduced-motion, hover-overlay `z-index`, clean grid fills, animated accordions, themed scrollbars, buttons sized by role. People-free imagery via Lavder ImageGen (19 shots). DOM-verified containment at 390 and 1280, built in parallel by subagents.
+
+### Changed
+- **`documents/website-design/concept-ledger.md`** : 4 fingerprint rows added; all 6 archetypes now logged, each with a unique hero-pattern and mood.
+- **`documents/website-design/README.md`** : Files table lists the 4 new reference folders.
+
+---
+
 ## [0.5.0] - 2026-05-31
 
 ### Added

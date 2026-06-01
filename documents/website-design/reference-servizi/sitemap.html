@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="it">
+<!-- STUDIO LEGALE VITTORI (demo) · SITEMAP / architettura informativa servizi, stile wireframe low-fi. -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sitemap &middot; Studio Legale Vittori</title>
+  <style>
+    :root { --g:#9aa0a6; --d:#5f6368; --l:#e3e5e8; --bg:#f4f5f6; --ink:#3a3c40; --acc:#7A2E33; }
+    * { box-sizing:border-box; margin:0; }
+    body { font-family: ui-monospace, "SF Mono", Menlo, monospace; background:var(--bg); color:var(--d); line-height:1.5; }
+    .wfbar { position:sticky; top:0; z-index:10; background:#fff; border-bottom:1px solid var(--l); display:flex; align-items:center; gap:16px; padding:12px 20px; flex-wrap:wrap; }
+    .wfbar h1 { font-size:14px; color:var(--ink); }
+    .wfbar a { font-size:12px; color:var(--d); border:1px solid var(--g); border-radius:5px; padding:6px 12px; text-decoration:none; }
+    .tabnote { font-size:11px; color:var(--g); margin-left:auto; }
+    .sheet { max-width:1080px; margin:28px auto 60px; padding:0 16px; }
+    .home { display:flex; justify-content:center; }
+    .node { background:#fff; border:1.5px dashed var(--g); border-radius:6px; padding:14px 18px; }
+    .node.root { border-style:solid; border-color:var(--ink); min-width:360px; text-align:center; }
+    .node .k { font-size:13px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink); font-weight:700; }
+    .node .secs { font-size:11px; color:var(--g); margin-top:8px; }
+    .connector { width:2px; height:26px; background:var(--l); margin:0 auto; }
+    .cols { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+    @media (max-width:880px){ .cols{ grid-template-columns:repeat(2,1fr);} }
+    .page { background:#fff; border:1.5px dashed var(--g); border-radius:6px; overflow:hidden; }
+    .page.primary { border-color:var(--acc); }
+    .page .hd { background:#fff; border-bottom:1px dashed var(--l); padding:12px 14px; font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink); font-weight:700; display:flex; align-items:center; justify-content:space-between; }
+    .page.primary .hd { color:var(--acc); }
+    .page ul { list-style:none; padding:12px 14px; display:flex; flex-direction:column; gap:7px; }
+    .page li { font-size:11px; color:var(--d); }
+    .page li::before { content:"\00b7 "; color:var(--g); font-weight:700; }
+    .sub { padding:0 14px 14px; }
+    .sub .lbl { font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:6px; }
+    .sub .sp { font-size:11px; border:1px dashed var(--l); border-radius:4px; padding:6px 9px; margin-bottom:6px; color:var(--d); }
+    .star { color:var(--acc); font-weight:700; }
+    .util { margin-top:26px; }
+    .util .lbl { font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:8px; }
+    .util .row { display:flex; gap:10px; flex-wrap:wrap; }
+    .util .sp { font-size:11px; border:1px dashed var(--g); border-radius:4px; padding:6px 12px; color:var(--d); }
+    .crossnote { margin-top:18px; font-size:11px; color:var(--d); border-left:3px solid var(--acc); padding:8px 0 8px 12px; background:#fff; border-radius:0 4px 4px 0; }
+    .crossnote b { color:var(--ink); }
+    .legend { margin-top:26px; border-top:1px solid var(--l); padding-top:18px; display:flex; flex-wrap:wrap; gap:18px; font-size:11px; }
+    .legend b { color:var(--ink); }
+    .legend .star { color:var(--acc); }
+  </style>
+</head>
+<body>
+  <div class="wfbar">
+    <h1>SITEMAP &middot; Studio Legale Vittori</h1>
+    <a href="index.html">&rarr; Home</a>
+    <span class="tabnote">architettura informativa &middot; servizi &middot; &#9733; = azione primaria</span>
+  </div>
+
+  <div class="sheet">
+    <div class="home">
+      <div class="node root">
+        <div class="k">Home</div>
+        <div class="secs">hero split-form &middot; trust strip &middot; aree di attivit&agrave; &middot; come lavoriamo &middot; manifesto &middot; lo studio &middot; FAQ &middot; CTA consulenza</div>
+      </div>
+    </div>
+    <div class="connector"></div>
+
+    <div class="cols">
+      <div class="page">
+        <div class="hd">Lo studio</div>
+        <ul><li>Chi siamo</li><li>Storia (dal 1994)</li><li>Valori</li><li>Approccio</li><li>Numeri</li></ul>
+        <div class="sub">
+          <div class="lbl">Le sedi</div>
+          <div class="sp">Milano</div><div class="sp">Como</div>
+        </div>
+      </div>
+      <div class="page">
+        <div class="hd">Aree di attivit&agrave;</div>
+        <ul><li>Indice 6 materie</li></ul>
+        <div class="sub">
+          <div class="lbl">Materie</div>
+          <div class="sp">Diritto civile</div>
+          <div class="sp">Societario e d&apos;impresa</div>
+          <div class="sp">Immobiliare</div>
+          <div class="sp">Diritto di famiglia</div>
+          <div class="sp">Lavoro</div>
+          <div class="sp">Penale</div>
+        </div>
+      </div>
+      <div class="page primary">
+        <div class="hd">Contatti <span class="star">&#9733;</span></div>
+        <ul><li>Modulo consulenza</li><li>Recapiti / PEC</li><li>Orari di studio</li><li>Mappa sedi</li><li>FAQ</li></ul>
+        <div class="sub">
+          <div class="lbl">&rarr; Richiedi consulenza</div>
+          <div class="sp" style="border-style:solid;border-color:var(--acc)">&#9733; nome &middot; email &middot; area &middot; sede &middot; messaggio &middot; invio</div>
+        </div>
+      </div>
+      <div class="page">
+        <div class="hd">Come lavoriamo</div>
+        <ul><li>1 &middot; Primo incontro</li><li>2 &middot; Analisi</li><li>3 &middot; Strategia</li><li>4 &middot; Assistenza</li></ul>
+        <div class="sub"><div class="lbl">Ancora in Home</div><div class="sp">#metodo</div></div>
+      </div>
+    </div>
+
+    <div class="util">
+      <div class="lbl">Pagine utility / legali</div>
+      <div class="row"><span class="sp">Privacy policy</span><span class="sp">Cookie policy</span><span class="sp">Note legali</span><span class="sp">Informativa GDPR</span><span class="sp">404</span></div>
+    </div>
+
+    <div class="crossnote">
+      <b>Nota cross-link:</b> ogni area di attivit&agrave; e ogni sezione (studio, metodo, FAQ) converge sul modulo <b>Richiedi consulenza</b> (in Home come card e come pagina Contatti). Il pulsante primario in header e nelle CTA band rimanda sempre a <b>contatti.html</b>.
+    </div>
+
+    <div class="legend">
+      <span><b>Nav primaria:</b> Studio &middot; Aree di attivit&agrave; &middot; Come lavoriamo &middot; Lo studio &middot; Contatti</span>
+      <span><b class="star">&#9733;</b> Azione primaria: richiesta di consulenza</span>
+      <span><b>Lingua:</b> IT (predisposto EN)</span>
+      <span><b>Build:</b> Track A &middot; WordPress</span>
+    </div>
+  </div>
+</body>
+</html>

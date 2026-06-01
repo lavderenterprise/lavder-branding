@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="it">
+<!-- STUDIO LEGALE VITTORI (demo) · HOME · servizi · editoriale / authoritative. CLIENT brand layer. Built from the repo guidelines. -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Studio Legale Vittori &middot; Avvocati a Milano e Como</title>
+  <meta name="description" content="Studio legale a Milano e Como: assistenza e consulenza in diritto civile, societario, immobiliare, di famiglia, del lavoro e penale. Richiedete una prima consulenza." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=1" />
+</head>
+<body>
+  <a class="skip" href="#main">Salta al contenuto</a>
+
+  <!-- announcement -->
+  <div class="anno">Prima consulenza su appuntamento &middot; Sedi a <b>Milano</b> e <b>Como</b> &middot; <a href="contatti.html">Richiedete un incontro</a></div>
+
+  <!-- ===== HEADER (write once, copy verbatim on every page; set aria-current) ===== -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Principale">
+        <a class="brand" href="index.html" aria-label="Studio Legale Vittori, home">
+          <span class="brand__mark">V</span>
+          <span class="brand__name">Vittori<small>Studio Legale</small></span>
+        </a>
+        <ul class="nav__links">
+          <li><a href="index.html" aria-current="page">Studio</a></li>
+          <li><a href="studio.html#aree">Aree di attivit&agrave;</a></li>
+          <li><a href="index.html#metodo">Come lavoriamo</a></li>
+          <li><a href="studio.html">Lo studio</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+        </ul>
+        <div class="nav__right">
+          <span class="nav__phone"><i data-lucide="phone"></i> +39 02 7600 0000</span>
+          <a class="btn btn--primary btn--sm" href="contatti.html">Richiedi consulenza</a>
+          <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu"><i data-lucide="menu"></i></button>
+        </div>
+      </nav>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="container"><ul>
+        <li><a href="index.html" aria-current="page">Studio</a></li>
+        <li><a href="studio.html#aree">Aree di attivit&agrave;</a></li>
+        <li><a href="index.html#metodo">Come lavoriamo</a></li>
+        <li><a href="studio.html">Lo studio</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+      <a class="btn btn--primary btn--block" href="contatti.html">Richiedi una consulenza</a></div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- 1 · HERO (split-form: authoritative statement left, consult card right) -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero__inner">
+          <div class="hero__copy reveal">
+            <span class="kicker">Avvocati &middot; Milano e Como</span>
+            <h1 class="h1">Tutela legale, con<br /><span class="accent">chiarezza</span> e misura.</h1>
+            <p class="lead">Affianchiamo imprese, famiglie e privati nelle questioni che contano davvero. Un linguaggio comprensibile, una strategia definita e un interlocutore unico per tutto il percorso.</p>
+            <div class="hero__cta">
+              <a class="btn btn--primary btn--lg" href="contatti.html">Richiedi una consulenza <i data-lucide="arrow-right"></i></a>
+              <a class="btn btn--outline btn--lg" href="studio.html#aree">Le aree di attivit&agrave;</a>
+            </div>
+            <div class="hero__assure">
+              <div><i data-lucide="shield-check"></i> Riservatezza garantita</div>
+              <div><i data-lucide="message-square-text"></i> Risposta entro 24 ore</div>
+              <div><i data-lucide="map-pin"></i> Due sedi in Lombardia</div>
+            </div>
+          </div>
+
+          <div class="consult-card reveal" id="consulenza">
+            <div class="consult-card__head">
+              <h2 class="h3">Richiedi una consulenza</h2>
+              <p>Descriveteci la vostra situazione: vi ricontatteremo per fissare un primo incontro, senza impegno.</p>
+            </div>
+            <form class="form-grid cols-2" data-consult-form onsubmit="return false">
+              <div class="field span-2">
+                <label for="h-nome">Nome e cognome</label>
+                <input id="h-nome" type="text" name="nome" placeholder="Es. Marco Bianchi" autocomplete="name" required />
+              </div>
+              <div class="field">
+                <label for="h-email">Email</label>
+                <input id="h-email" type="email" name="email" placeholder="nome@email.it" autocomplete="email" required />
+              </div>
+              <div class="field">
+                <label for="h-area">Area</label>
+                <select id="h-area" name="area">
+                  <option value="">Seleziona&hellip;</option>
+                  <option>Diritto civile</option>
+                  <option>Societario e d&apos;impresa</option>
+                  <option>Immobiliare</option>
+                  <option>Diritto di famiglia</option>
+                  <option>Diritto del lavoro</option>
+                  <option>Penale</option>
+                </select>
+              </div>
+              <div class="field span-2">
+                <label for="h-msg">Come possiamo aiutarvi</label>
+                <textarea id="h-msg" name="messaggio" placeholder="Una breve descrizione della questione" required></textarea>
+              </div>
+              <button class="btn btn--primary btn--block span-2" type="submit">Invia la richiesta <i data-lucide="send"></i></button>
+            </form>
+            <p class="consult-note" data-form-msg hidden><i data-lucide="check-circle-2"></i> Grazie: la vostra richiesta &egrave; stata registrata. Vi risponderemo al pi&ugrave; presto.</p>
+            <p class="consult-note"><i data-lucide="lock"></i> I dati sono trattati con la massima riservatezza, ai sensi del GDPR e del segreto professionale.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 · TRUST STRIP (4 numbers, data-count) -->
+    <section class="section section--paper section--pad-sm">
+      <div class="container">
+        <div class="trust reveal">
+          <div class="trust__i"><b><span data-count="30">30</span><span class="suff">+</span></b><span>Anni di attivit&agrave;</span></div>
+          <div class="trust__i"><b><span data-count="1200">1200</span><span class="suff">+</span></b><span>Cause seguite</span></div>
+          <div class="trust__i"><b><span data-count="640">640</span><span class="suff">+</span></b><span>Clienti assistiti</span></div>
+          <div class="trust__i"><b><span data-count="2">2</span></b><span>Sedi in Lombardia</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · AREE DI ATTIVITÀ index (6 cards, hairline grid) -->
+    <section class="section section--white" id="aree">
+      <div class="container">
+        <div class="flex-between mb-l reveal">
+          <div class="head">
+            <span class="kicker">Aree di attivit&agrave;</span>
+            <h2 class="h2">Materie nelle quali assistiamo i nostri clienti</h2>
+          </div>
+          <a class="linkarrow" href="studio.html#aree">Tutte le aree <i data-lucide="arrow-right"></i></a>
+        </div>
+        <div class="areas reveal-stagger">
+          <article class="area">
+            <span class="area__no">01</span>
+            <span class="area__ic"><i data-lucide="scale"></i></span>
+            <h3>Diritto civile</h3>
+            <p>Contratti, responsabilit&agrave;, recupero crediti e contenzioso. Dalla trattativa stragiudiziale al giudizio.</p>
+            <a class="area__link" href="studio.html#aree" aria-label="Diritto civile, scopri di pi&ugrave;"></a>
+            <span class="linkarrow">Scopri di pi&ugrave; <i data-lucide="arrow-right"></i></span>
+          </article>
+          <article class="area">
+            <span class="area__no">02</span>
+            <span class="area__ic"><i data-lucide="building-2"></i></span>
+            <h3>Societario e d&apos;impresa</h3>
+            <p>Costituzione, governance, operazioni straordinarie e contrattualistica commerciale per le aziende.</p>
+            <a class="area__link" href="studio.html#aree" aria-label="Diritto societario, scopri di pi&ugrave;"></a>
+            <span class="linkarrow">Scopri di pi&ugrave; <i data-lucide="arrow-right"></i></span>
+          </article>
+          <article class="area">
+            <span class="area__no">03</span>
+            <span class="area__ic"><i data-lucide="home"></i></span>
+            <h3>Immobiliare</h3>
+            <p>Compravendite, locazioni, condominio e diritti reali. Due diligence e assistenza nel rogito.</p>
+            <a class="area__link" href="studio.html#aree" aria-label="Diritto immobiliare, scopri di pi&ugrave;"></a>
+            <span class="linkarrow">Scopri di pi&ugrave; <i data-lucide="arrow-right"></i></span>
+          </article>
+          <article class="area">
+            <span class="area__no">04</span>
+            <span class="area__ic"><i data-lucide="users"></i></span>
+            <h3>Diritto di famiglia</h3>
+            <p>Separazioni, divorzi, affidamento e successioni, con un approccio attento alle persone coinvolte.</p>
+            <a class="area__link" href="studio.html#aree" aria-label="Diritto di famiglia, scopri di pi&ugrave;"></a>
+            <span class="linkarrow">Scopri di pi&ugrave; <i data-lucide="arrow-right"></i></span>
+          </article>
+          <article class="area">
+            <span class="area__no">05</span>
+            <span class="area__ic"><i data-lucide="briefcase"></i></span>
+            <h3>Diritto del lavoro</h3>
+            <p>Assistenza a datori e lavoratori: contratti, licenziamenti, vertenze e contenzioso giuslavoristico.</p>
+            <a class="area__link" href="studio.html#aree" aria-label="Diritto del lavoro, scopri di pi&ugrave;"></a>
+            <span class="linkarrow">Scopri di pi&ugrave; <i data-lucide="arrow-right"></i></span>
+          </article>
+          <article class="area">
+            <span class="area__no">06</span>
+            <span class="area__ic"><i data-lucide="gavel"></i></span>
+            <h3>Penale</h3>
+            <p>Difesa e assistenza nel procedimento penale, anche in materia di reati d&apos;impresa e colpa professionale.</p>
+            <a class="area__link" href="studio.html#aree" aria-label="Diritto penale, scopri di pi&ugrave;"></a>
+            <span class="linkarrow">Scopri di pi&ugrave; <i data-lucide="arrow-right"></i></span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · COME LAVORIAMO (4 numbered process steps) -->
+    <section class="section section--paper2" id="metodo">
+      <div class="container">
+        <div class="head head--center mb-l reveal">
+          <span class="kicker kicker--center">Come lavoriamo</span>
+          <h2 class="h2">Un percorso ordinato, dal primo incontro alla soluzione</h2>
+          <p class="lead mx-auto">Ogni mandato segue lo stesso metodo: capire bene prima di agire, definire una strategia e accompagnarvi fino alla chiusura.</p>
+        </div>
+        <div class="steps reveal-stagger">
+          <div class="step">
+            <span class="step__no">1</span>
+            <h3>Primo incontro</h3>
+            <p>Vi ascoltiamo, inquadriamo la questione e vi diciamo con franchezza cosa &egrave; possibile fare.</p>
+          </div>
+          <div class="step">
+            <span class="step__no">2</span>
+            <h3>Analisi</h3>
+            <p>Studiamo documenti e atti, valutiamo rischi e tempi e prepariamo un quadro chiaro delle opzioni.</p>
+          </div>
+          <div class="step">
+            <span class="step__no">3</span>
+            <h3>Strategia</h3>
+            <p>Concordiamo con voi la linea da seguire, in via stragiudiziale o giudiziale, e un preventivo trasparente.</p>
+          </div>
+          <div class="step">
+            <span class="step__no">4</span>
+            <h3>Assistenza</h3>
+            <p>Vi seguiamo passo dopo passo, con aggiornamenti puntuali e un referente unico fino alla conclusione.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · MANIFESTO band (ink-dark, principle about clarity / trust) -->
+    <section class="section section--ink">
+      <div class="container">
+        <div class="split split--58">
+          <div class="reveal">
+            <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+            <span class="kicker">Il nostro principio</span>
+          </div>
+          <div class="reveal">
+            <p class="bigquote">Un buon avvocato non &egrave; quello che usa le parole pi&ugrave; difficili, ma quello che vi mette nelle condizioni di <span class="accent">decidere con consapevolezza</span>.</p>
+            <div class="quote-by"><span class="ln" aria-hidden="true"></span> Avv. Elena Vittori &middot; socia fondatrice</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 · LO STUDIO teaser split (image LEFT, text RIGHT) -->
+    <section class="section section--paper">
+      <div class="container">
+        <div class="split split--75">
+          <div class="split__media reveal">
+            <div class="framed-accent">
+              <div class="figure figure--43"><img src="img/office.jpg" alt="Studio legale con boiserie in noce e volumi giuridici sugli scaffali" /></div>
+            </div>
+            <div class="float-card br">
+              <span class="lbl">Dal</span>
+              <div class="big">1994</div>
+              <span class="sm">Tre generazioni di professionisti</span>
+            </div>
+          </div>
+          <div class="stack-lg reveal">
+            <span class="kicker">Lo studio</span>
+            <h2 class="h2">Una squadra stabile, al vostro fianco nel tempo</h2>
+            <p class="lead">Nato a Milano nel 1994, lo Studio Legale Vittori riunisce avvocati con esperienza consolidata nel contenzioso e nella consulenza d&apos;impresa. Crediamo nei rapporti di lungo periodo: molti dei nostri clienti ci accompagnano da oltre vent&apos;anni.</p>
+            <ul class="checklist">
+              <li><span class="ic"><i data-lucide="check"></i></span><span><b>Un referente unico</b> per ogni pratica, dall&apos;inizio alla fine</span></li>
+              <li><span class="ic"><i data-lucide="check"></i></span><span><b>Preventivi chiari</b> concordati prima di avviare l&apos;incarico</span></li>
+              <li><span class="ic"><i data-lucide="check"></i></span><span><b>Riservatezza assoluta</b> su ogni informazione affidataci</span></li>
+            </ul>
+            <a class="linkarrow" href="studio.html">Conoscete lo studio <i data-lucide="arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 · FAQ accordion (4 Q) -->
+    <section class="section section--white">
+      <div class="container container--narrow">
+        <div class="head head--center mb-l reveal">
+          <span class="kicker kicker--center">Domande frequenti</span>
+          <h2 class="h2">Le risposte che ci chiedono pi&ugrave; spesso</h2>
+        </div>
+        <div class="reveal">
+          <details>
+            <summary>Quanto costa una consulenza? Come funziona il preventivo? <span class="ic"><i data-lucide="plus"></i></span></summary>
+            <div class="body"><p>La prima consulenza serve a inquadrare la questione e si svolge su appuntamento. Al termine, se decidete di affidarci l&apos;incarico, vi proponiamo un preventivo scritto e concordato, basato sul valore e sulla complessit&agrave; della pratica e sui parametri forensi vigenti. Nessuna attivit&agrave; viene avviata prima della vostra approvazione.</p></div>
+          </details>
+          <details>
+            <summary>Quanto tempo richiede una pratica? <span class="ic"><i data-lucide="plus"></i></span></summary>
+            <div class="body"><p>Dipende dalla materia e dalla via scelta. Una definizione stragiudiziale pu&ograve; richiedere poche settimane, mentre un giudizio segue i tempi dell&apos;autorit&agrave; competente. Fin dal primo incontro vi diamo una stima realistica e vi aggiorniamo a ogni passaggio rilevante, senza creare aspettative non fondate.</p></div>
+          </details>
+          <details>
+            <summary>La prima consulenza &egrave; impegnativa? <span class="ic"><i data-lucide="plus"></i></span></summary>
+            <div class="body"><p>No. La richiesta di consulenza non comporta alcun obbligo di conferire un mandato. &Egrave; il momento in cui valutiamo insieme se e come possiamo esservi utili: se riteniamo che la questione non rientri nelle nostre competenze, ve lo diciamo con chiarezza e, dove possibile, vi indirizziamo.</p></div>
+          </details>
+          <details>
+            <summary>Come trattate la riservatezza dei dati? <span class="ic"><i data-lucide="plus"></i></span></summary>
+            <div class="body"><p>Ogni informazione che ci affidate &egrave; coperta dal segreto professionale e trattata nel rispetto del GDPR. I documenti sono conservati in modo sicuro e condivisi solo con i professionisti incaricati della vostra pratica. Su richiesta forniamo l&apos;informativa completa sul trattamento dei dati.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 · CONSULT CTA band (burgundy) -->
+    <section class="section section--bord">
+      <div class="container">
+        <div class="ctaband reveal">
+          <div>
+            <span class="kicker">Parliamone</span>
+            <h2 class="h2" style="margin-top:16px">Avete una questione da affrontare? Il primo passo &egrave; un incontro.</h2>
+            <p class="lead" style="margin-top:14px">Raccontateci la vostra situazione: vi ricontatteremo per fissare una prima consulenza nella sede a voi pi&ugrave; comoda, a Milano o a Como.</p>
+          </div>
+          <div class="acts">
+            <a class="btn btn--onbord btn--lg" href="contatti.html">Richiedi una consulenza <i data-lucide="arrow-right"></i></a>
+            <a class="btn btn--onink btn--lg" href="tel:+390276000000"><i data-lucide="phone"></i> 02 7600 0000</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER (write once, copy verbatim on every page) ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a class="brand" href="index.html"><span class="brand__mark">V</span><span class="brand__name">Vittori<small>Studio Legale</small></span></a>
+          <p class="mt-s">Studio legale a Milano e Como. Assistenza e consulenza in diritto civile, societario, immobiliare, di famiglia, del lavoro e penale.</p>
+          <div class="contact-line"><i data-lucide="phone"></i> +39 02 7600 0000</div>
+          <div class="contact-line"><i data-lucide="mail"></i> studio@studiovittori.it</div>
+        </div>
+        <div><h4>Aree di attivit&agrave;</h4><ul>
+          <li><a href="studio.html#aree">Diritto civile</a></li>
+          <li><a href="studio.html#aree">Societario e d&apos;impresa</a></li>
+          <li><a href="studio.html#aree">Immobiliare</a></li>
+          <li><a href="studio.html#aree">Diritto di famiglia</a></li>
+          <li><a href="studio.html#aree">Lavoro e penale</a></li>
+        </ul></div>
+        <div><h4>Lo studio</h4><ul>
+          <li><a href="studio.html">Chi siamo</a></li>
+          <li><a href="studio.html#valori">Valori</a></li>
+          <li><a href="index.html#metodo">Come lavoriamo</a></li>
+          <li><a href="studio.html#sedi">Le sedi</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+        </ul></div>
+        <div><h4>Sedi</h4>
+          <div class="contact-line"><i data-lucide="map-pin"></i> Via Manzoni 18, 20121 Milano</div>
+          <div class="contact-line"><i data-lucide="map-pin"></i> Via Vittorio Emanuele 9, 22100 Como</div>
+          <div class="contact-line"><i data-lucide="clock"></i> Lun&ndash;Ven 9:00&ndash;19:00</div>
+        </div>
+      </div>
+      <div class="footer__bar">
+        <span>&copy; 2026 Studio Legale Vittori &middot; P.IVA 00000000000 &middot; Demo Lavder</span>
+        <div class="legal">
+          <a href="#">Privacy policy</a>
+          <a href="#">Cookie policy</a>
+          <a href="#">Note legali</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="app.js?v=1"></script>
+</body>
+</html>

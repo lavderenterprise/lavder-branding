@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="it">
+<!-- OSTERIA DEL BORGO (demo) · SITEMAP / architettura informativa locale-hospitality, stile wireframe low-fi. -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sitemap &middot; Osteria del Borgo</title>
+  <style>
+    :root { --g:#9aa0a6; --d:#5f6368; --l:#e3e5e8; --bg:#f4f5f6; --ink:#3a3c40; }
+    * { box-sizing:border-box; margin:0; }
+    body { font-family: ui-monospace, "SF Mono", Menlo, monospace; background:var(--bg); color:var(--d); line-height:1.5; }
+    .wfbar { position:sticky; top:0; z-index:10; background:#fff; border-bottom:1px solid var(--l); display:flex; align-items:center; gap:16px; padding:12px 20px; flex-wrap:wrap; }
+    .wfbar h1 { font-size:14px; color:var(--ink); }
+    .wfbar a { font-size:12px; color:var(--d); border:1px solid var(--g); border-radius:5px; padding:6px 12px; text-decoration:none; }
+    .tabnote { font-size:11px; color:var(--g); margin-left:auto; }
+    .sheet { max-width:1080px; margin:28px auto 60px; padding:0 16px; }
+    .home { display:flex; justify-content:center; }
+    .node { background:#fff; border:1.5px dashed var(--g); border-radius:6px; padding:14px 18px; }
+    .node.root { border-style:solid; border-color:var(--ink); min-width:340px; text-align:center; }
+    .node .k { font-size:13px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink); font-weight:700; }
+    .node .secs { font-size:11px; color:var(--g); margin-top:8px; }
+    .connector { width:2px; height:26px; background:var(--l); margin:0 auto; }
+    .cols { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+    @media (max-width:880px){ .cols{ grid-template-columns:repeat(2,1fr);} }
+    .page { background:#fff; border:1.5px dashed var(--g); border-radius:6px; overflow:hidden; }
+    .page .hd { background:#fff; border-bottom:1px dashed var(--l); padding:12px 14px; font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink); font-weight:700; display:flex; align-items:center; justify-content:space-between; }
+    .page ul { list-style:none; padding:12px 14px; display:flex; flex-direction:column; gap:7px; margin:0; }
+    .page li { font-size:11px; color:var(--d); }
+    .page li::before { content:"\00b7 "; color:var(--g); font-weight:700; }
+    .sub { padding:0 14px 14px; }
+    .sub .lbl { font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:6px; }
+    .sub .sp { font-size:11px; border:1px dashed var(--l); border-radius:4px; padding:6px 9px; margin-bottom:6px; color:var(--d); }
+    .star { color:var(--ink); font-weight:700; }
+    .util { margin-top:26px; }
+    .util .lbl { font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:8px; }
+    .util .row { display:flex; gap:10px; flex-wrap:wrap; }
+    .util .sp { font-size:11px; border:1px dashed var(--g); border-radius:4px; padding:6px 12px; color:var(--d); }
+    .legend { margin-top:26px; border-top:1px solid var(--l); padding-top:18px; display:flex; flex-wrap:wrap; gap:18px; font-size:11px; }
+    .legend b { color:var(--ink); }
+  </style>
+</head>
+<body>
+  <div class="wfbar">
+    <h1>SITEMAP &middot; Osteria del Borgo</h1>
+    <span class="tabnote">architettura informativa &middot; locale / hospitality &middot; &#9733; = azione primaria</span>
+  </div>
+
+  <div class="sheet">
+    <div class="home">
+      <div class="node root">
+        <div class="k">Home</div>
+        <div class="secs">gallery-hero &middot; manifesto &middot; i nostri piatti &middot; la storia (1958) &middot; numeri (band) &middot; ingredienti &middot; gallery rail &middot; prenota (form) &middot; orari</div>
+      </div>
+    </div>
+    <div class="connector"></div>
+
+    <div class="cols">
+      <div class="page">
+        <div class="hd">Menu</div>
+        <ul><li>Antipasti</li><li>Primi (pasta fatta in casa)</li><li>Secondi</li><li>Contorni</li><li>Dolci</li><li>Vini / cantina</li></ul>
+        <div class="sub">
+          <div class="lbl">In evidenza</div>
+          <div class="sp">Menu degustazione</div>
+          <div class="sp">Nota allergeni</div>
+          <div class="sp" style="border-style:solid;border-color:var(--l)">&#9733; CTA prenota</div>
+        </div>
+      </div>
+      <div class="page">
+        <div class="hd">Contatti / Prenota <span class="star">&#9733;</span></div>
+        <ul><li>Form prenotazione</li><li>Orari settimanali</li><li>Telefono / email</li></ul>
+        <div class="sub">
+          <div class="lbl">Dove siamo</div>
+          <div class="sp">Mappa &middot; indicazioni</div>
+          <div class="lbl" style="margin-top:8px">Occasioni</div>
+          <div class="sp" style="border-style:solid;border-color:var(--ink)">&#9733; Eventi privati &middot; gruppi</div>
+        </div>
+      </div>
+      <div class="page">
+        <div class="hd">La storia</div>
+        <ul><li>Dal 1958</li><li>La famiglia / la sala</li><li>Cucina del territorio</li></ul>
+        <div class="sub"><div class="lbl">Ancora in Home</div><div class="sp">#storia &middot; #ingredienti</div></div>
+      </div>
+      <div class="page">
+        <div class="hd">Gallery</div>
+        <ul><li>Sala &amp; cucina</li><li>Piatti del giorno</li><li>Orto &amp; cantina</li></ul>
+        <div class="sub"><div class="lbl">Ancora in Home</div><div class="sp">rail orizzontale (drag + frecce)</div></div>
+      </div>
+    </div>
+
+    <div class="util">
+      <div class="lbl">Pagine utility / legali</div>
+      <div class="row"><span class="sp">Privacy policy</span><span class="sp">Cookie policy</span><span class="sp">Informativa allergeni</span><span class="sp">Conferma prenotazione</span><span class="sp">404</span></div>
+    </div>
+
+    <div class="legend">
+      <span><b>Nav primaria:</b> Home &middot; Menu &middot; La storia &middot; Contatti &middot; (Prenota un tavolo)</span>
+      <span><b class="star">&#9733;</b> Azione primaria: prenotazione (home / menu / contatti &rarr; form &rarr; conferma)</span>
+      <span><b>Lingua:</b> IT (predisposto EN)</span>
+      <span><b>Build:</b> Track A &middot; Impreza Pro</span>
+    </div>
+  </div>
+</body>
+</html>

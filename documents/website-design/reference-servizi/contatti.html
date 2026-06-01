@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="it">
+<!-- STUDIO LEGALE VITTORI (demo) · CONTATTI · servizi · editoriale / authoritative. CLIENT brand layer. -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contatti &middot; Studio Legale Vittori</title>
+  <meta name="description" content="Richiedete una consulenza allo Studio Legale Vittori. Sedi a Milano e Como, recapiti, orari di studio e modulo di contatto. Risposta entro 24 ore." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=1" />
+</head>
+<body>
+  <a class="skip" href="#main">Salta al contenuto</a>
+
+  <!-- announcement -->
+  <div class="anno">Prima consulenza su appuntamento &middot; Sedi a <b>Milano</b> e <b>Como</b> &middot; <a href="contatti.html">Richiedete un incontro</a></div>
+
+  <!-- ===== HEADER (verbatim) ===== -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Principale">
+        <a class="brand" href="index.html" aria-label="Studio Legale Vittori, home">
+          <span class="brand__mark">V</span>
+          <span class="brand__name">Vittori<small>Studio Legale</small></span>
+        </a>
+        <ul class="nav__links">
+          <li><a href="index.html">Studio</a></li>
+          <li><a href="studio.html#aree">Aree di attivit&agrave;</a></li>
+          <li><a href="index.html#metodo">Come lavoriamo</a></li>
+          <li><a href="studio.html">Lo studio</a></li>
+          <li><a href="contatti.html" aria-current="page">Contatti</a></li>
+        </ul>
+        <div class="nav__right">
+          <span class="nav__phone"><i data-lucide="phone"></i> +39 02 7600 0000</span>
+          <a class="btn btn--primary btn--sm" href="contatti.html">Richiedi consulenza</a>
+          <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu"><i data-lucide="menu"></i></button>
+        </div>
+      </nav>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="container"><ul>
+        <li><a href="index.html">Studio</a></li>
+        <li><a href="studio.html#aree">Aree di attivit&agrave;</a></li>
+        <li><a href="index.html#metodo">Come lavoriamo</a></li>
+        <li><a href="studio.html">Lo studio</a></li>
+        <li><a href="contatti.html" aria-current="page">Contatti</a></li>
+      </ul>
+      <a class="btn btn--primary btn--block" href="contatti.html">Richiedi una consulenza</a></div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- 1 · PAGE HEADER -->
+    <section class="phead">
+      <div class="container">
+        <nav class="crumbs" aria-label="Percorso"><a href="index.html">Home</a> <i data-lucide="chevron-right"></i> <span>Contatti</span></nav>
+        <span class="kicker" style="margin-top:18px">Parliamone</span>
+        <h1 class="h1">Richiedi una consulenza</h1>
+        <p class="lead">Compilate il modulo o contattateci direttamente: vi risponderemo entro 24 ore per fissare un primo incontro nella sede a voi pi&ugrave; comoda.</p>
+      </div>
+    </section>
+
+    <!-- 2 · FORM (left) + CONTATTI / SEDI (right) split -->
+    <section class="section section--paper">
+      <div class="container">
+        <div class="split split--58" style="align-items:start">
+          <!-- form -->
+          <div class="consult-card reveal" style="box-shadow:none">
+            <div class="consult-card__head">
+              <h2 class="h3">Scriveteci la vostra situazione</h2>
+              <p>I campi contrassegnati sono necessari per ricontattarvi. Nessuna attivit&agrave; viene avviata senza il vostro consenso.</p>
+            </div>
+            <form class="form-grid cols-2" data-consult-form onsubmit="return false">
+              <div class="field">
+                <label for="c-nome">Nome e cognome</label>
+                <input id="c-nome" type="text" name="nome" placeholder="Es. Marco Bianchi" autocomplete="name" required />
+              </div>
+              <div class="field">
+                <label for="c-tel">Telefono</label>
+                <input id="c-tel" type="tel" name="telefono" placeholder="+39 &hellip;" autocomplete="tel" />
+              </div>
+              <div class="field">
+                <label for="c-email">Email</label>
+                <input id="c-email" type="email" name="email" placeholder="nome@email.it" autocomplete="email" required />
+              </div>
+              <div class="field">
+                <label for="c-area">Area di interesse</label>
+                <select id="c-area" name="area">
+                  <option value="">Seleziona&hellip;</option>
+                  <option>Diritto civile</option>
+                  <option>Societario e d&apos;impresa</option>
+                  <option>Immobiliare</option>
+                  <option>Diritto di famiglia</option>
+                  <option>Diritto del lavoro</option>
+                  <option>Penale</option>
+                  <option>Altro</option>
+                </select>
+              </div>
+              <div class="field span-2">
+                <label for="c-sede">Sede preferita</label>
+                <select id="c-sede" name="sede">
+                  <option>Milano</option>
+                  <option>Como</option>
+                  <option>Indifferente / da remoto</option>
+                </select>
+              </div>
+              <div class="field span-2">
+                <label for="c-msg">Descrizione della questione</label>
+                <textarea id="c-msg" name="messaggio" placeholder="Raccontateci in poche righe di cosa avete bisogno" required></textarea>
+              </div>
+              <button class="btn btn--primary btn--block span-2 btn--lg" type="submit">Invia la richiesta <i data-lucide="send"></i></button>
+            </form>
+            <p class="consult-note" data-form-msg hidden><i data-lucide="check-circle-2"></i> Grazie: la vostra richiesta &egrave; stata registrata. Vi risponderemo entro 24 ore.</p>
+            <p class="consult-note"><i data-lucide="lock"></i> Inviando la richiesta acconsentite al trattamento dei dati per essere ricontattati, nel rispetto del GDPR e del segreto professionale.</p>
+          </div>
+
+          <!-- contatti / sedi -->
+          <div class="reveal">
+            <span class="kicker">Recapiti diretti</span>
+            <h2 class="h2 mt-s mb-m">Preferite parlarne subito?</h2>
+            <div class="stack-sm" style="margin-bottom:36px">
+              <div class="ctile">
+                <span class="ctile__ic"><i data-lucide="phone"></i></span>
+                <div><h4>Telefono</h4><p><a href="tel:+390276000000">+39 02 7600 0000</a></p></div>
+              </div>
+              <div class="ctile">
+                <span class="ctile__ic"><i data-lucide="mail"></i></span>
+                <div><h4>Email</h4><p><a href="mailto:studio@studiovittori.it">studio@studiovittori.it</a></p></div>
+              </div>
+              <div class="ctile">
+                <span class="ctile__ic"><i data-lucide="at-sign"></i></span>
+                <div><h4>PEC</h4><p><a href="mailto:studiovittori@pec.it">studiovittori@pec.it</a></p></div>
+              </div>
+            </div>
+
+            <span class="kicker">Le sedi</span>
+            <div class="grid g-2 mt-m" style="gap:18px">
+              <div class="vcard" style="padding:24px">
+                <span class="vcard__ic"><i data-lucide="map-pin"></i></span>
+                <h3 style="font-size:1.18rem">Milano</h3>
+                <p style="font-size:14px">Via Manzoni 18<br />20121 Milano (MI)<br /><span class="muted">+39 02 7600 0000</span></p>
+              </div>
+              <div class="vcard" style="padding:24px">
+                <span class="vcard__ic"><i data-lucide="map-pin"></i></span>
+                <h3 style="font-size:1.18rem">Como</h3>
+                <p style="font-size:14px">Via Vittorio Emanuele II 9<br />22100 Como (CO)<br /><span class="muted">+39 031 240 000</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · ORARI + MAP placeholder split -->
+    <section class="section section--white">
+      <div class="container">
+        <div class="split" style="align-items:start">
+          <div class="reveal">
+            <span class="kicker">Orari di studio</span>
+            <h2 class="h2 mt-s mb-m">Quando ci trovate</h2>
+            <p class="lead mb-m">Riceviamo su appuntamento per dedicare a ogni incontro il tempo necessario. Fuori orario, lasciateci un messaggio: vi richiamiamo noi.</p>
+            <div class="hours">
+              <div class="row"><span>Luned&igrave; &ndash; Gioved&igrave;</span><span>9:00 &ndash; 19:00</span></div>
+              <div class="row"><span>Venerd&igrave;</span><span>9:00 &ndash; 17:00</span></div>
+              <div class="row closed"><span>Sabato</span><span>Su appuntamento</span></div>
+              <div class="row closed"><span>Domenica e festivi</span><span>Chiuso</span></div>
+            </div>
+            <p class="tag-line mt-m"><i data-lucide="info"></i> La sede di Como riceve il marted&igrave; e il gioved&igrave;.</p>
+          </div>
+          <div class="reveal">
+            <span class="kicker">Dove siamo</span>
+            <h2 class="h2 mt-s mb-m">Sede di Milano</h2>
+            <div class="mapbox" role="img" aria-label="Mappa segnaposto della sede di Milano in Via Manzoni 18">
+              <span class="pin"><i data-lucide="map-pin"></i></span>
+              <b>Mappa &middot; Via Manzoni 18, Milano</b>
+              <span>In zona Montenapoleone, a pochi passi dalla fermata M3 Montenapoleone</span>
+            </div>
+            <a class="linkarrow mt-m" href="studio.html#sedi">Vedi entrambe le sedi <i data-lucide="arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · FAQ accordion (reuse a couple) -->
+    <section class="section section--paper2">
+      <div class="container container--narrow">
+        <div class="head head--center mb-l reveal">
+          <span class="kicker kicker--center">Prima di scrivere</span>
+          <h2 class="h2">Qualche risposta utile</h2>
+        </div>
+        <div class="reveal">
+          <details>
+            <summary>La prima consulenza &egrave; impegnativa? <span class="ic"><i data-lucide="plus"></i></span></summary>
+            <div class="body"><p>No. La richiesta di consulenza non comporta alcun obbligo di conferire un mandato. &Egrave; il momento in cui valutiamo insieme se e come possiamo esservi utili: se la questione non rientra nelle nostre competenze, ve lo diciamo con chiarezza e, dove possibile, vi indirizziamo.</p></div>
+          </details>
+          <details>
+            <summary>Quanto costa? Come funziona il preventivo? <span class="ic"><i data-lucide="plus"></i></span></summary>
+            <div class="body"><p>Dopo il primo incontro, se decidete di affidarci l&apos;incarico, vi proponiamo un preventivo scritto e concordato, basato sul valore e sulla complessit&agrave; della pratica e sui parametri forensi vigenti. Nessuna attivit&agrave; viene avviata prima della vostra approvazione.</p></div>
+          </details>
+          <details>
+            <summary>Posso essere seguito da remoto? <span class="ic"><i data-lucide="plus"></i></span></summary>
+            <div class="body"><p>S&igrave;. Dove la materia lo consente, gestiamo incontri e aggiornamenti in videochiamata e scambiamo documenti per via telematica in modo sicuro. Indicate la preferenza nel modulo: organizziamo l&apos;incontro nella modalit&agrave; pi&ugrave; comoda per voi.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · CTA band (burgundy) -->
+    <section class="section section--bord">
+      <div class="container">
+        <div class="ctaband reveal">
+          <div>
+            <span class="kicker">Risposta entro 24 ore</span>
+            <h2 class="h2" style="margin-top:16px">Avete fretta? Chiamateci direttamente</h2>
+            <p class="lead" style="margin-top:14px">Per le questioni urgenti, un colpo di telefono &egrave; spesso il modo pi&ugrave; rapido per orientarsi sul da farsi.</p>
+          </div>
+          <div class="acts">
+            <a class="btn btn--onbord btn--lg" href="tel:+390276000000"><i data-lucide="phone"></i> 02 7600 0000</a>
+            <a class="btn btn--onink btn--lg" href="mailto:studio@studiovittori.it"><i data-lucide="mail"></i> Scrivici</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER (verbatim) ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a class="brand" href="index.html"><span class="brand__mark">V</span><span class="brand__name">Vittori<small>Studio Legale</small></span></a>
+          <p class="mt-s">Studio legale a Milano e Como. Assistenza e consulenza in diritto civile, societario, immobiliare, di famiglia, del lavoro e penale.</p>
+          <div class="contact-line"><i data-lucide="phone"></i> +39 02 7600 0000</div>
+          <div class="contact-line"><i data-lucide="mail"></i> studio@studiovittori.it</div>
+        </div>
+        <div><h4>Aree di attivit&agrave;</h4><ul>
+          <li><a href="studio.html#aree">Diritto civile</a></li>
+          <li><a href="studio.html#aree">Societario e d&apos;impresa</a></li>
+          <li><a href="studio.html#aree">Immobiliare</a></li>
+          <li><a href="studio.html#aree">Diritto di famiglia</a></li>
+          <li><a href="studio.html#aree">Lavoro e penale</a></li>
+        </ul></div>
+        <div><h4>Lo studio</h4><ul>
+          <li><a href="studio.html">Chi siamo</a></li>
+          <li><a href="studio.html#valori">Valori</a></li>
+          <li><a href="index.html#metodo">Come lavoriamo</a></li>
+          <li><a href="studio.html#sedi">Le sedi</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+        </ul></div>
+        <div><h4>Sedi</h4>
+          <div class="contact-line"><i data-lucide="map-pin"></i> Via Manzoni 18, 20121 Milano</div>
+          <div class="contact-line"><i data-lucide="map-pin"></i> Via Vittorio Emanuele 9, 22100 Como</div>
+          <div class="contact-line"><i data-lucide="clock"></i> Lun&ndash;Ven 9:00&ndash;19:00</div>
+        </div>
+      </div>
+      <div class="footer__bar">
+        <span>&copy; 2026 Studio Legale Vittori &middot; P.IVA 00000000000 &middot; Demo Lavder</span>
+        <div class="legal">
+          <a href="#">Privacy policy</a>
+          <a href="#">Cookie policy</a>
+          <a href="#">Note legali</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="app.js?v=1"></script>
+</body>
+</html>
