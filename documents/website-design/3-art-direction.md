@@ -30,6 +30,36 @@ Spend the motion budget on high-impact moments. A single well-choreographed page
 **Detail and finish : the studio signals.**
 Decorative hairline rules with a center ornament, a wax-seal or stamp motif, a custom cursor (when it serves and does not hurt usability), grain overlays, considered focus states, real shadows with warm tint, a marquee in the display face, leader-dotted lists instead of plain rows. These small, deliberate touches are what separate "designed" from "assembled."
 
+## Structure : randomize the skeleton (never default to the vertical stack)
+
+The single fastest tell that a site was generated is the same canonical skeleton every time: hero (eyebrow + headline + two buttons + image on the right), then a manifesto, a card rail, three equal cards, a dark band, a split, a CTA band, a footer. A studio chooses a structure that fits the brief. We force that by **randomizing the site-structure per project** from a pool, then rotating it against the [concept-ledger](./concept-ledger.md) so it never repeats. The structure sits ABOVE the hero-pattern: it is the whole-page skeleton, not just how the opener behaves.
+
+The pool (all of these are in play; the project picks among them):
+- **canonical-stack** : the vertical section stack. Fine for plain utilitarian briefs; the one to avoid by default, because it is the AI tell.
+- **horizontal-lookbook** : the page scrolls sideways; sections are panels that slide past, like a printed catalogue or a gallery wall.
+- **immersive-scroll** : full-viewport sections, scroll-snapping, a detail that pins (sticky) while content advances beside it.
+- **brutalist-index** : a numbered list or table of items with hover-preview, exposed grid lines, oversized type, almost no chrome.
+- **editorial-broken-grid** : overlapping, asymmetric, off-axis magazine spreads; the grid is stressed and broken, not stacked.
+- **sidebar-canvas** : a fixed sidebar (brand / nav / filters / live total) beside a scrolling canvas; a two-pane layout.
+- **draggable-canvas** : a freeform draggable or map-like exploration (dial 4 only, Track B).
+- **sticky-narrative** : a pinned visual with content stepping beside it; scroll-telling.
+
+How to pick it (the randomization, mandatory): seed from the project (brand name + a counter), filter the pool to what fits the archetype and the push dial, then **exclude the structure used by the last one or two projects** (read the ledger). Higher dials unlock the more experimental structures; dial 1 to 2 may legitimately land on a refined canonical-stack, but only if the ledger neighbor was not also canonical. Record the chosen `site-structure` on the ledger row. The same skeleton two builds running is a defect. The whole point: the operator does not get to fall back on a favorite template, and neither does the model.
+
+## Break the sections, not just the skeleton
+
+Even with a non-canonical skeleton, the page fails if every section is the same contained, centered, stacked block. Each page needs **deliberate rupture**:
+- At least one or two sections (more at dial 3 to 4) must **break the container**: full-bleed content that genuinely runs edge to edge (content included, not just a full-bleed background with the text back in the 1200 px box), a broken or overlapping grid, an asymmetric off-axis layout, a horizontal-scroll panel, an oversized element that bleeds off the canvas.
+- Do **not** default to "centered headline + centered paragraph in a narrow column" for the quiet sections. An over-narrow centered measure floating in huge side gutters reads as a broken layout, not as elegance. If a statement is centered, give it a comfortable measure and a real composition (an oversize pull-quote that spans the width, a two-column split, type set large), never a thin column lost in padding.
+- Vary the rupture so no two adjacent sections share a composition.
+
+## Alignment is a decision
+
+Misaligned content is an instant amateur / AI tell. Every block aligns to something on purpose:
+- In a multi-column split, choose the vertical alignment deliberately (top, center, or baseline). Never leave a text column at `align-items:end` so it sinks to the bottom of its row next to a taller form. Default text to top or center, matched to its neighbour.
+- Horizontal: left edges line up to the grid; center only when the whole composition is centered.
+- Optical over mathematical when they disagree (large display type, icons). Check that headings, rules and CTAs share a left edge down the page.
+
 ## Calibrate, then write it down
 
 Translate the above into a short **art-direction note** in the brief, so Steps 4 and 5 execute against a fixed target:

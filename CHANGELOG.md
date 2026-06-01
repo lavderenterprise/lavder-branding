@@ -5,6 +5,18 @@ Format follows [Keep a Changelog](https://keepachangelog.com/), versioning follo
 
 ---
 
+## [0.8.0] - 2026-06-01
+
+### Changed
+- **Hardened the pipeline with stronger projecting layers** (a build kept reading as AI despite the pipeline):
+  - `3-art-direction.md`: a **randomized site-structure pool** (8 skeletons, `canonical-stack` avoided by default, rotated on the ledger so the same skeleton never repeats); a **break-the-sections mandate** (every page needs deliberate container-breaking rupture, no all-centered-stacked layout, no over-narrow centered text floating in big gutters); an **alignment-is-a-decision** rule (no accidental bottom-align, deliberate vertical/horizontal alignment).
+  - `4-elements.md`: the real-library-elements step is now a **hard gate** : 3 to 5 distinctive elements must be actually pulled live from uiverse / HeroUI / CodePen (MIT) and re-skinned, logged by source; hand-rolled lookalikes do not count ("where are the library elements?" must have a concrete answer).
+  - `6-anti-ai.md`: banned the **decorative gradient hairlines / faded rules** sprinkled everywhere, the over-narrow centered text block, and required at least one container-breaking section per page.
+  - `fonts.md`: rebuilt as a **comprehensive 2026 catalogue by category** (workhorse / geometric sans, text serif, didone, elegant + expressive display, slab, mono) with famous and niche options and a **selection method** (choose by role and brand, prefer famous but try niche, pair by contrast, rotate). Banned the AI-elegant default reflex (Fraunces / Prata / Jost) on top of Inter / Poppins / Montserrat.
+  - `concept-ledger.md`: added the `site-structure` fingerprint.
+
+---
+
 ## [0.7.0] - 2026-06-01
 
 ### Changed

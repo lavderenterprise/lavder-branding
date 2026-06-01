@@ -23,6 +23,7 @@ Keep values from these sets so entries stay comparable.
 
 - **archetype:** `ecommerce` · `corporate` · `servizi` · `locale` · `landing` · `portfolio`
 - **mood:** `editoriale` · `conversion` · `bold-dark` · `caldo` · `heritage` · `tech` · `lusso` · `clinico`
+- **site-structure:** the whole-page skeleton (above the hero-pattern), randomized per project from the pool: `canonical-stack` · `horizontal-lookbook` · `immersive-scroll` · `brutalist-index` · `editorial-broken-grid` · `sidebar-canvas` · `draggable-canvas` · `sticky-narrative`. Avoid `canonical-stack` by default; never repeat the last one or two builds. See 3-art-direction.md.
 - **hero-pattern:** `split-7/5` · `full-bleed-photo` · `centered-statement` · `video-bg` · `product-hero` · `text-only` · `split-form` (hero with lead form) · `gallery-hero`
 - **layout-signature:** `asymmetric-7/5` · `centered-narrow` · `fullbleed-alternating` · `grid-heavy` · `editorial-columns` · `sidebar`
 - **palette-direction:** `light-warm` · `light-cool` · `dark` · `mono+accent` · `dual-tone` · `high-contrast`

@@ -64,4 +64,8 @@ ELEMENTS:
   signature : <the dial-3/4 interaction, vetted from codepen>
 ```
 
-Gate to pass before Step 5: every pulled element is re-skinned to the brand and logged for anti-repeat, and the borrow is curated (a few strong parts, not a pile). If everything was grabbed from the top of each list, redo the pull: that is how sites converge on the same look.
+Gate to pass before Step 5 (HARD, no exceptions): the build must contain **real, recognisable elements actually taken from the libraries** (uiverse / HeroUI / CodePen), not lookalikes. Hand-rolling a plain button and calling it "the uiverse button" does not count and is the exact failure to avoid. Concretely:
+- **Pull them live** with the connected browser (uiverse elements are MIT / open-source, made for reuse): open the element, take its real HTML + CSS, paste it in, then re-skin the colors / radius / type to the brand tokens (keep its distinctive structure and motion).
+- **At least 3 to 5 distinctive elements** must visibly come from the libraries (e.g. an unusual button, a card with a real hover/interaction, a characterful loader or toggle, a background/cursor effect, a gallery interaction). They should be things you would not have generated yourself.
+- **Log each** on the ledger row: category : source : author/slug (for MIT attribution and anti-repeat). The same element is not reused two builds running.
+- If you cannot point to specific pulled elements with their source, the gate fails: go back and actually pull them. "Where are the library elements?" must always have a concrete answer.

@@ -26,6 +26,10 @@ A dedicated hunt for the tells that scream "a machine made this." Run it on ever
 
 ## Layout and motion tells
 
+- **No decorative gradient hairlines or faded rules sprinkled everywhere.** The little fading gold or grey line tucked under every eyebrow and beside every heading is a classic AI tic. Use real structure instead (a full solid rule, a number, a generous gap, type hierarchy) or nothing. One deliberate ornament for the signature is fine; the same faded line on every section is not.
+- **No over-narrow centered text floating in huge side gutters.** A statement clamped to roughly 30ch and centered with big empty padding reads as a broken layout, not as elegance. Give centered text a comfortable measure and a real composition (an oversize pull-quote spanning the width, a two-column split, large type), per 3-art-direction.
+- **At least one section must break the container** (full-bleed content edge to edge, broken/overlapping grid, asymmetry): a page that is only stacked centered boxes is the canonical AI page even with nice fonts.
+
 - **No flat solid-color backgrounds by default.** Carry atmosphere (light, grain, texture, gradient mesh) per the art-direction note, unless flatness is the deliberate statement.
 - **No everything-rounded, everything-centered.** Uniform large radius on every element and centered everything is a template signature. Vary alignment and shape with intent.
 - **No perpetual meaningless motion.** No bouncing scroll-down arrow on a loop, no breathing pulse on decorative elements for no reason. One orchestrated load and purposeful reveals instead. (A single atmospheric element that serves the mood, like a candle glow at dial 3 to 4, is allowed.)
