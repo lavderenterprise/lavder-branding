@@ -2,7 +2,7 @@
 
 The "seed" registry. A living record of the **fingerprint** of every website design Lavder ships, so the next one deliberately diverges. This is how a systematic, AI-leveraged practice avoids the failure mode where every client gets the same site.
 
-It operates the three variation mechanisms together (README §12): fixed system + variable skin, sector-guided variants, and an occasional unique concept. The ledger is what makes them add up across the portfolio instead of drifting toward one house look.
+It operates the three variation mechanisms together (see the README pipeline): fixed system + variable skin, sector-guided variants, and an occasional unique concept. The ledger is what makes them add up across the portfolio instead of drifting toward one house look.
 
 ## The rule
 
@@ -13,7 +13,7 @@ It operates the three variation mechanisms together (README §12): fixed system 
    - No two of the **last 5** designs share the same `(archetype + hero-pattern + layout-signature)` triple.
    - Within the **same archetype**, vary at least the `hero-pattern` **and** the `palette-direction` from the most recent one.
    - Vary the **section-intro** and the **signature-device** from the most recent same-archetype build. The eyebrow-with-a-dot and recurring copy tics ("fatto a mano", "X · Y") must not repeat build after build.
-4. Record the chosen combination (and what it deliberately avoids) in the discovery brief §8.
+4. Record the chosen combination (and what it deliberately avoids) in the brief (Step 1) and the research direction note (Step 2).
 
 **After** sign-off: append the design's fingerprint as a row below. Append-only; do not edit shipped rows.
 
@@ -28,6 +28,9 @@ Keep values from these sets so entries stay comparable.
 - **palette-direction:** `light-warm` · `light-cool` · `dark` · `mono+accent` · `dual-tone` · `high-contrast`
 - **section-intro:** how sections announce themselves: `eyebrow-dot` · `numbered` · `icon-label` · `standalone-display` · `kicker-rule` · `none`. Rotate it: the dotted eyebrow is **not** a default for every build.
 - **signature-device:** the one memorable element of the build: `h-scroll-categories` · `sticky-ingredient-story` · `bento-ritual` · `marquee` · `before-after-reveal` · `overlap-editorial` · `none`. Vary it across neighbors.
+- **push-dial:** `1 Sober` · `2 Refined` · `3 Expressive` · `4 Extreme` (the graphic-push level chosen at intake).
+- **fonts:** the display + body pairing (from `fonts.md`), rotated so it never repeats across consecutive builds.
+- **elements:** the notable parts pulled (uiverse / HeroUI / CodePen), logged so the next build reaches for different ones (the element-ledger).
 - **track:** `A` (WordPress) · `B` (Next.js) · `static`
 - **brand:** `client` (had identity) · `express` (Lavder created it)
 

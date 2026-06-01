@@ -1,13 +1,13 @@
 # Image generation
 
 How to produce imagery for a client website design, whether shot, sourced, or AI-generated (via
-[Lavder ImageGen](./sources.md#ai-image-generation-lavder-imagegen)). The cardinal rule, from
+[Lavder ImageGen](https://github.com/lavderenterprise/lavder-imagegen)). The cardinal rule, from
 [`/brand/07-imagery.md`](../../brand/07-imagery.md): **real over rendered**. Even an AI-generated image
 must read as *a photograph taken for this client*, not as generic AI art.
 
 ## 1. Style follows use
 
-There is no single image look. The right style is dictated by **archetype × mood × sector** (README §10-11),
+There is no single image look. The right style is dictated by **archetype × mood × sector** (see 1-intake.md + 3-art-direction.md),
 the same way the layout is. The images must belong to *that client's world*:
 
 - A precision-mechanics B2B supplier wants honest **documentary factory photography**.
@@ -15,7 +15,7 @@ the same way the layout is. The images must belong to *that client's world*:
 - A clinic or studio wants **calm, clean, bright** light.
 - An e-commerce product wants clean **product photography**.
 
-Decide the photographic register in the design-parameters quiz (README §9.0, "imagery"), and keep it
+Decide the photographic register in the design-parameters quiz (intake "imagery strategy", 1-intake.md), and keep it
 **consistent across the whole set** so the site looks shot by one photographer.
 
 ## 2. The realism dial, and the AI trap
@@ -86,7 +86,7 @@ Pick the row, fill the subject. "Say this" goes into the prompt; "drop" is what 
 
 ## 6. Technical (with Lavder ImageGen)
 
-- **Tool:** Lavder ImageGen, `POST /v1/images/generate` (default model `nanobanana` = Gemini 2.5 Flash Image). API/CLI in [`sources.md`](./sources.md#ai-image-generation-lavder-imagegen).
+- **Tool:** Lavder ImageGen, `POST /v1/images/generate` (default model `nanobanana` = Gemini 2.5 Flash Image). API/CLI in the lavder-imagegen repo.
 - **Aspect per slot** (match the figure to avoid heavy cover-cropping): hero side panel `4:5`, landscape feature `4:3` / `16:9`, sector/portrait cards `3:4`, full-bleed hero `16:9`. Pass `aspect_ratio` per image.
 - **Batch the set** in one `jobs[]` call (one prompt + aspect + filename per image) so the whole set is generated together and stays consistent.
 - **Output → site:** convert to optimized WebP/JPG, drop into `reference-<archetype>/img/` under the **slot filename** (e.g. `hero-cnc.jpg`); if the name matches, no HTML edit is needed.

@@ -5,6 +5,18 @@ Format follows [Keep a Changelog](https://keepachangelog.com/), versioning follo
 
 ---
 
+## [0.7.0] - 2026-06-01
+
+### Changed
+- **`documents/website-design/` rewritten from scratch into a staged pipeline** (was a long README plus scattered docs). It now runs as ordered layers, each with a gate that must pass before the next: `1-intake` (now including a **graphic-push dial**: Sober / Refined / Expressive / Extreme that calibrates the whole job), `2-research` (a **mandatory web-research pass before any code**: study the best studios for this brief, build a moodboard, diverge from the ledger), `3-art-direction` (a studio-grade art-direction layer: commit to one bold point of view + a named signature moment, atmosphere over flat color, dominant + sharp color, type as a lead actor, deliberate grid-breaks, one orchestrated load), `4-elements` (a **500+ element library** across uiverse / HeroUI / CodePen / kits with a **randomization protocol** so parts never repeat), `5-build` (build order + one coherent spacing system + rich, complete pages), `6-anti-ai` (a checklist that strips the AI tells: em-dash, animated counters, markdown-looking blocks, canonical fonts, cliche layouts), `7-quality` (the craft floor), `8-deliverable`. The README is the pipeline master (two layers: craft floor + art-direction ceiling).
+- **New `fonts.md`**: a rotating library of non-canonical Google Font pairings by mood, banning Inter / Roboto / Arial / Poppins / Montserrat and Space Grotesk as a reflex.
+- **`concept-ledger.md`** extended with `push-dial`, `fonts` and `elements` fingerprint fields (the element-ledger feeds anti-repeat).
+
+### Removed
+- `discovery-brief.md`, `sources.md`, `build-quality.md`, folded into `1-intake`, `4-elements` and `7-quality` respectively.
+
+---
+
 ## [0.6.0] - 2026-06-01
 
 ### Added
