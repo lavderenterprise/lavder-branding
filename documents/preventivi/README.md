@@ -31,43 +31,78 @@ Every preventivo follows this section order. Sections may be omitted only when t
 8. **Garanzie** — `ul.tight`, "Cosa garantiamo."
 9. **Esclusioni** — `ul.tight`, "Cosa non è compreso."
 10. **Tempi e SAL** — definition list (`dl.def`) grid 28% / 1fr
-11. **Footer** — rendered via CSS `@page @bottom-center` so it appears at the **bottom of every page** automatically (not as a body element):
-    - Text: `LAVDER ENTERPRISE SRL  ·  Documento riservato a [Cliente]  ·  Tutti gli importi sono IVA esente`
-    - Font: Inter 8pt, color `--lvdr-n500`, letter-spacing 0.02em
-    - Implementation example:
+11. **Footer** — `<footer>` HTML at the end of body. Appears **only on the last page**, with a top border ("bordino") above:
+    - Text: `LAVDER ENTERPRISE SRL · Documento riservato a [Cliente] · Tutti gli importi sono IVA esente`
+    - Bordino: `border-top: 1px solid var(--lvdr-n200); padding-top: 16px`
+    - Logo monogram on the right (SVG, ~14px)
+    - **Positioning to actual page bottom**: see "Bottom positioning" section below
+    - **Legal entity**: always "LAVDER ENTERPRISE SRL" (with "SRL"), never just "LAVDER ENTERPRISE"
 
-    ```css
-    @page {
-      size: A4;
-      margin: 18mm 16mm 22mm 16mm; /* extra bottom margin to host the footer */
-      @bottom-center {
-        content: "LAVDER ENTERPRISE SRL  ·  Documento riservato a [Cliente]  ·  Tutti gli importi sono IVA esente";
-        font-family: "Inter", sans-serif;
-        font-size: 8pt;
-        color: #71717A;
-        letter-spacing: 0.02em;
-        padding-top: 6mm;
-      }
-    }
-    ```
+## Bottom positioning (footer + cover-bottom)
 
-    Do **not** put the footer in the body as a `<footer>` element — it would not sit at the bottom of the last page reliably.
+Chrome's print rendering does **not** reliably honor `flex`/`grid` with explicit heights to push elements to the bottom of their respective pages. After many experiments, two practical patterns that work:
 
-## Cover page layout — bottom strip positioning
-
-The cover must use a **grid layout with explicit height** to push the bottom strip (Destinatario · Riferimento · Validità) to the actual bottom of page 1. Flex with `justify-content: space-between` is unreliable for print rendering.
+### Cover-bottom strip on page 1 — `position: absolute`
 
 ```css
-.cover {
-  page-break-after: always;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  min-height: 257mm; /* A4 height (297mm) minus top margin (18mm) minus bottom margin (22mm) */
-  height: 257mm;
+.cover-bottom {
+  /* Normal visual styles (flex layout for the 3 fields, border-top, padding-top, etc.) */
+  position: absolute;
+  bottom: 18mm; /* matches @page bottom margin */
+  left: 16mm;   /* matches @page left margin */
+  right: 16mm;
 }
 ```
 
-The middle row (`1fr`) absorbs all remaining vertical space, pushing `cover-bottom` (last row, `auto`) to the actual bottom of the cover.
+Without a `position: relative` ancestor, the absolute element is positioned relative to the page (initial containing block). Chrome shows it only on page 1 because the `.cover` has `page-break-after: always` and does not extend past page 1. The `bottom: 18mm` anchors it just above the page's bottom margin; `left`/`right: 16mm` respect horizontal margins.
+
+### Footer at bottom of last page — fixed-height spacer before the footer
+
+```html
+<main>
+  <!-- all sections -->
+</main>
+
+<div class="footer-spacer"></div>
+
+<footer>
+  <div class="legal">LAVDER ENTERPRISE SRL · ...</div>
+  <svg>...</svg>
+</footer>
+```
+
+```css
+.footer-spacer {
+  height: 135mm; /* tune per document — see calibration below */
+}
+
+footer {
+  page-break-inside: avoid;
+  padding-top: 16px;
+  border-top: 1px solid var(--lvdr-n200);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* etc. */
+}
+```
+
+Spacer calibration:
+1. Render the PDF without the spacer (or with a guess like 100mm).
+2. Open page N (the last page) and observe how far the footer sits above the bottom margin.
+3. Measure the gap in mm.
+4. Set `.footer-spacer { height: <gap>mm }`.
+5. Re-render and adjust by ±5mm if needed.
+
+For most preventivi documents, the spacer ends up between 100mm and 160mm depending on how much content runs onto the last page.
+
+### What does NOT work in Chrome print
+
+- `display: flex; justify-content: space-between` on a parent with explicit height: ignored.
+- `min-height: 100vh` on body, with `flex-grow: 1` on a middle wrapper: works for single-page docs only.
+- `@page :last { @bottom-center { ... } }`: Chrome does not support `:last`.
+- `position: running()` + `element()`: limited support in Chrome.
+- `position: fixed; bottom: 0`: shows the element on **every** page, not just the last.
 
 ## Voice and language
 
