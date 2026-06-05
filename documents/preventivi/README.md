@@ -42,36 +42,39 @@ Every preventivo follows this section order. Sections may be omitted only when t
 
 Chrome's print rendering is hostile to "place this element at the bottom of its page". Neither `flex space-between`, `grid 1fr`, `min-height` alone, `@page :last`, `position: fixed`, nor `position: running()` work reliably on their own. The combination below — **flex on .cover + flex-grow on cover-middle for vertical centering + position: absolute on cover-bottom + fixed-height spacer before footer** — is what works.
 
-### Cover (page 1)
+### Cover (page 1) — final, tested
+
+After many iterations, this is the only setup that reliably anchors the cover-bottom strip to the actual bottom of page 1 **and** keeps the H1+lede in their natural upper-area position (matching the original De Planet layout):
 
 ```css
 .cover {
   page-break-after: always;
-  display: flex;
-  flex-direction: column;
-  min-height: 261mm;
+  /* No flex, no grid, no explicit height/min-height — Chrome's print engine ignores them for .cover */
 }
 
 .cover-middle {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  margin-top: 60mm; /* push H1+lede down from the logo (mimics De Planet's space-between rhythm) */
 }
 
 .cover-bottom {
-  /* Normal visual styles (flex layout for the 3 fields, border-top, padding-top, etc.) */
+  /* Normal visual styles (internal flex for the 3 fields, border-top, padding-top, gap, etc.) */
   position: absolute;
-  bottom: 18mm; /* matches @page bottom margin */
-  left: 16mm;   /* matches @page left margin */
+  bottom: 0;
+  left: 16mm;
   right: 16mm;
 }
 ```
 
-Why this works:
-- `.cover` with `flex column + min-height: 261mm` aims to fill the full page (Chrome doesn't always respect min-height fully, but it helps).
-- `.cover-middle` with `flex-grow: 1 + justify-content: center` **vertically centers** H1 + lede in the available space between cover-top and cover-bottom. Without this, the H1+lede would stack at the very top of the page (which the brand designer will call "rotta").
-- `.cover-bottom` with `position: absolute; bottom: 18mm` is removed from flow and anchored to the initial containing block (the page). Chrome shows it **only on page 1** because `.cover` has `page-break-after: always` and the containing block lifecycle is tied to the parent.
+Why it works:
+- `.cover-middle` with `margin-top: 60mm` visually simulates the De Planet `justify-content: space-between` rhythm (H1 in the upper-middle area, not glued to the logo). Tune the value (typically 50–80mm) based on how dense `.cover-top` is.
+- `.cover-bottom` with `position: absolute; bottom: 0` is removed from flow and anchored to the initial containing block (the page content area). Chrome shows it **only on page 1** because `.cover` has `page-break-after: always`, and the absolute-positioned child's rendering lifecycle is tied to the parent's pages. `bottom: 0` places it exactly at the bottom of the content area, right above the `@page` bottom margin — the user will read this as "real footer / pie di pagina".
+
+### What NOT to do (failure modes learned the hard way)
+
+- **Do not** apply `display: flex; flex-direction: column; justify-content: space-between; min-height: 261mm` to `.cover`. It works for long documents (e.g. De Planet, 7 pages) but Chrome ignores `min-height` for shorter documents and the cover-bottom ends up halfway down page 1.
+- **Do not** apply `display: flex` + `flex-grow: 1` + `justify-content: center` to `.cover-middle`. It moves H1 to the visual center of the page, which the client reads as "the style has changed / page is broken".
+- **Do not** use explicit `height: 261mm` on `.cover` — Chrome ignores it in print.
+- **Do not** use `bottom: 18mm` on `.cover-bottom` — the client reads it as "not at the bottom of the page". Use `bottom: 0`.
 
 ### Footer (last page)
 
