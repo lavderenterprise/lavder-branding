@@ -66,7 +66,15 @@
 /* ============ Page setup ============ */
 @page {
   size: A4;
-  margin: 18mm 16mm 18mm 16mm;
+  margin: 18mm 16mm 22mm 16mm;
+  @bottom-center {
+    content: "LAVDER ENTERPRISE SRL  ·  Documento riservato a [Cliente]  ·  Tutti gli importi sono IVA esente";
+    font-family: "Inter", sans-serif;
+    font-size: 8pt;
+    color: #71717A;
+    letter-spacing: 0.02em;
+    padding-top: 6mm;
+  }
 }
 
 * { box-sizing: border-box; }
@@ -85,10 +93,10 @@ html, body {
 /* ============ Cover ============ */
 .cover {
   page-break-after: always;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: calc(297mm - 36mm);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 257mm;
+  height: 257mm;
 }
 
 .cover-top {
@@ -787,15 +795,11 @@ footer .lvdr-tag svg {
   </dl>
 </section>
 
-<!-- ============ FOOTER ============ -->
-<footer>
-  <div class="legal">LAVDER ENTERPRISE · Documento riservato a [Cliente Destinatario Srl] · Tutti gli importi sono IVA esente</div>
-  <div class="lvdr-tag">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 241.77 397.51">
-      <path d="M442,341.25V636H558.19l47.35,102.8h78.22L627,623.94s60.62-23.19,50.56-94.42-56.29-82-119.56-84.78v56.43s42.74,0,46.37,38.55c0,0,2.51,40.78-39.53,38.55H507.21v-237Z" transform="translate(-441.98 -341.25)"/>
-    </svg>
-  </div>
-</footer>
+<!--
+  Footer (LAVDER ENTERPRISE SRL · Documento riservato a [Cliente] · IVA esente)
+  is rendered via @page @bottom-center in the CSS above, on every page.
+  Do NOT add a <footer> element here — it would not sit reliably at the bottom of the last page.
+-->
 
 </body>
 </html>

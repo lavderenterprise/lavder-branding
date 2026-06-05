@@ -31,9 +31,43 @@ Every preventivo follows this section order. Sections may be omitted only when t
 8. **Garanzie** — `ul.tight`, "Cosa garantiamo."
 9. **Esclusioni** — `ul.tight`, "Cosa non è compreso."
 10. **Tempi e SAL** — definition list (`dl.def`) grid 28% / 1fr
-11. **Footer** — border-top neutral-200, flex space-between:
-    - Left: `LAVDER ENTERPRISE · Documento riservato a [Cliente] Srl · Tutti gli importi sono IVA esente`
-    - Right: LVDR monogram SVG, ~14px tall
+11. **Footer** — rendered via CSS `@page @bottom-center` so it appears at the **bottom of every page** automatically (not as a body element):
+    - Text: `LAVDER ENTERPRISE SRL  ·  Documento riservato a [Cliente]  ·  Tutti gli importi sono IVA esente`
+    - Font: Inter 8pt, color `--lvdr-n500`, letter-spacing 0.02em
+    - Implementation example:
+
+    ```css
+    @page {
+      size: A4;
+      margin: 18mm 16mm 22mm 16mm; /* extra bottom margin to host the footer */
+      @bottom-center {
+        content: "LAVDER ENTERPRISE SRL  ·  Documento riservato a [Cliente]  ·  Tutti gli importi sono IVA esente";
+        font-family: "Inter", sans-serif;
+        font-size: 8pt;
+        color: #71717A;
+        letter-spacing: 0.02em;
+        padding-top: 6mm;
+      }
+    }
+    ```
+
+    Do **not** put the footer in the body as a `<footer>` element — it would not sit at the bottom of the last page reliably.
+
+## Cover page layout — bottom strip positioning
+
+The cover must use a **grid layout with explicit height** to push the bottom strip (Destinatario · Riferimento · Validità) to the actual bottom of page 1. Flex with `justify-content: space-between` is unreliable for print rendering.
+
+```css
+.cover {
+  page-break-after: always;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 257mm; /* A4 height (297mm) minus top margin (18mm) minus bottom margin (22mm) */
+  height: 257mm;
+}
+```
+
+The middle row (`1fr`) absorbs all remaining vertical space, pushing `cover-bottom` (last row, `auto`) to the actual bottom of the cover.
 
 ## Voice and language
 
