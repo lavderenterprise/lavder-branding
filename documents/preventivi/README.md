@@ -38,13 +38,27 @@ Every preventivo follows this section order. Sections may be omitted only when t
     - **Positioning to actual page bottom**: see "Bottom positioning" section below
     - **Legal entity**: always "LAVDER ENTERPRISE SRL" (with "SRL"), never just "LAVDER ENTERPRISE"
 
-## Bottom positioning (footer + cover-bottom)
+## Bottom positioning (cover-bottom + footer)
 
-Chrome's print rendering does **not** reliably honor `flex`/`grid` with explicit heights to push elements to the bottom of their respective pages. After many experiments, two practical patterns that work:
+Chrome's print rendering is hostile to "place this element at the bottom of its page". Neither `flex space-between`, `grid 1fr`, `min-height` alone, `@page :last`, `position: fixed`, nor `position: running()` work reliably on their own. The combination below — **flex on .cover + flex-grow on cover-middle for vertical centering + position: absolute on cover-bottom + fixed-height spacer before footer** — is what works.
 
-### Cover-bottom strip on page 1 — `position: absolute`
+### Cover (page 1)
 
 ```css
+.cover {
+  page-break-after: always;
+  display: flex;
+  flex-direction: column;
+  min-height: 261mm;
+}
+
+.cover-middle {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .cover-bottom {
   /* Normal visual styles (flex layout for the 3 fields, border-top, padding-top, etc.) */
   position: absolute;
@@ -54,9 +68,12 @@ Chrome's print rendering does **not** reliably honor `flex`/`grid` with explicit
 }
 ```
 
-Without a `position: relative` ancestor, the absolute element is positioned relative to the page (initial containing block). Chrome shows it only on page 1 because the `.cover` has `page-break-after: always` and does not extend past page 1. The `bottom: 18mm` anchors it just above the page's bottom margin; `left`/`right: 16mm` respect horizontal margins.
+Why this works:
+- `.cover` with `flex column + min-height: 261mm` aims to fill the full page (Chrome doesn't always respect min-height fully, but it helps).
+- `.cover-middle` with `flex-grow: 1 + justify-content: center` **vertically centers** H1 + lede in the available space between cover-top and cover-bottom. Without this, the H1+lede would stack at the very top of the page (which the brand designer will call "rotta").
+- `.cover-bottom` with `position: absolute; bottom: 18mm` is removed from flow and anchored to the initial containing block (the page). Chrome shows it **only on page 1** because `.cover` has `page-break-after: always` and the containing block lifecycle is tied to the parent.
 
-### Footer at bottom of last page — fixed-height spacer before the footer
+### Footer (last page)
 
 ```html
 <main>
@@ -73,7 +90,7 @@ Without a `position: relative` ancestor, the absolute element is positioned rela
 
 ```css
 .footer-spacer {
-  height: 135mm; /* tune per document — see calibration below */
+  height: 170mm; /* tune per document — see calibration below */
 }
 
 footer {
@@ -88,21 +105,23 @@ footer {
 ```
 
 Spacer calibration:
-1. Render the PDF without the spacer (or with a guess like 100mm).
-2. Open page N (the last page) and observe how far the footer sits above the bottom margin.
-3. Measure the gap in mm.
-4. Set `.footer-spacer { height: <gap>mm }`.
-5. Re-render and adjust by ±5mm if needed.
+1. Render the PDF with a guess (e.g., 120mm).
+2. Open the last page, observe how many mm the footer sits above the bottom margin.
+3. Add that gap to the spacer height.
+4. Re-render. Adjust ±5mm if needed.
 
-For most preventivi documents, the spacer ends up between 100mm and 160mm depending on how much content runs onto the last page.
+For a typical preventivo of 3–5 pages, the spacer ends up between 100mm and 200mm depending on how much content runs onto the last page.
 
 ### What does NOT work in Chrome print
 
-- `display: flex; justify-content: space-between` on a parent with explicit height: ignored.
-- `min-height: 100vh` on body, with `flex-grow: 1` on a middle wrapper: works for single-page docs only.
-- `@page :last { @bottom-center { ... } }`: Chrome does not support `:last`.
-- `position: running()` + `element()`: limited support in Chrome.
-- `position: fixed; bottom: 0`: shows the element on **every** page, not just the last.
+- `flex space-between` on `.cover` with `min-height: 261mm` alone (Chrome doesn't respect min-height for flex-grow purposes).
+- `grid-template-rows: auto 1fr auto` on `.cover` with explicit `height: 261mm` (same issue).
+- `display: table` + `display: table-row` (same).
+- `min-height: 100vh` on `body` with flex column (works for single-page docs only).
+- `@page :last { @bottom-center { content: ... } }` (Chrome doesn't support `:last`).
+- `position: running()` + `content: element(name)` (Chrome doesn't support it).
+- `position: fixed; bottom: 0` on footer (shows on **every** page).
+- `margin-top: auto` or large `margin-top: <Xmm>` on footer (often creates a phantom extra page).
 
 ## Voice and language
 

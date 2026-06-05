@@ -85,10 +85,13 @@ html, body {
 /* ============ Cover ============ */
 .cover {
   page-break-after: always;
+  display: flex;
+  flex-direction: column;
+  min-height: 261mm;
 }
 
 .footer-spacer {
-  height: 135mm; /* tune-me per documento: spinge il footer al fondo dell'ultima pagina */
+  height: 170mm; /* tune-me per documento: spinge il footer al fondo dell'ultima pagina */
 }
 
 .cover-top {
@@ -127,6 +130,13 @@ html, body {
 }
 
 .meta-top div { line-height: 1.6; }
+
+.cover-middle {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 .cover-middle h1 {
   font-family: "TWK Lausanne", sans-serif;
