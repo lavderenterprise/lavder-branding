@@ -10,6 +10,8 @@ This folder defines the structure, voice, and visual conventions every Lavder pr
 |---|---|
 | [`preventivo-template.html`](./preventivo-template.html) | Reference template with placeholders. Copy, fill, render. |
 | [`_styles.md`](./_styles.md) | CSS conventions and token usage specific to preventivi |
+| [`render-with-overlays.sh`](./render-with-overlays.sh) | Pipeline script: renders main + 2 overlay HTMLs and merges via pypdf |
+| [`add-overlays.py`](./add-overlays.py) | Helper invoked by the pipeline. Stamps cover-bottom on page 1 and footer on the last page |
 
 ## Document structure
 
@@ -109,6 +111,10 @@ Quando il preventivo è destinato a un'agenzia partner (white-label):
 
 ## Rendering a PDF
 
+### Simple case — single HTML to PDF
+
+If you don't need a footer or cover-bottom strip at the actual bottom of the page (or you accept Chrome's flex-space-between behavior, which often lands them mid-page on shorter documents), render directly:
+
 ```bash
 "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
   --headless --disable-gpu --no-pdf-header-footer \
@@ -116,7 +122,33 @@ Quando il preventivo è destinato a un'agenzia partner (white-label):
   "file://$(pwd)/lavder-preventivo-<cliente>-YYYY-MM-DD.html"
 ```
 
-Convenzione di naming: `lavder-preventivo-<slug-cliente>-YYYY-MM-DD.{html,pdf}`.
+### Real "pie di pagina" placement — overlay pipeline
+
+Chrome's print engine cannot reliably anchor an element to the bottom of page 1 only or to the bottom of the last page only. Pure CSS approaches (flex space-between with min-height, `@page :last`, `position: running()`, etc.) either fail in print or apply to every page. The reliable workaround is the overlay pipeline.
+
+**Approach**: render the document as 3 separate HTML files, then merge with pypdf:
+
+1. **Main HTML** (`<basename>.html`) — the document content, but with the cover-bottom strip and the body `<footer>` element **removed**. The cover-middle uses `margin-top: 60mm` so the H1+lede sit visually in the upper-middle of page 1 (mimicking the De Planet rhythm).
+2. **Cover-bottom overlay HTML** (`<basename>-overlay-cover.html`) — single-page A4 with the Destinatario · Riferimento · Validità strip anchored at the bottom via `position: absolute; bottom: 0`.
+3. **Footer overlay HTML** (`<basename>-overlay-footer.html`) — single-page A4 with the LAVDER ENTERPRISE legal text + LVDR monogram anchored at the bottom via `position: absolute; bottom: 0`.
+
+The pipeline renders all three via Chrome headless, then `pypdf` stamps the cover overlay onto page 1 and the footer overlay onto the last page of the main PDF. Middle pages pass through clean.
+
+**Run**:
+
+```bash
+# Once: install pypdf
+pip3 install --user --break-system-packages pypdf
+
+# Per preventivo
+./render-with-overlays.sh /path/to/lavder-preventivo-<cliente>-YYYY-MM-DD
+```
+
+The script expects the three HTML inputs at `<basename>.html`, `<basename>-overlay-cover.html`, `<basename>-overlay-footer.html`, and produces `<basename>.pdf`.
+
+**Why it works**: the overlay HTMLs are independent single-page A4 documents. `position: absolute; bottom: 0` in those documents anchors the content to the bottom of the page area (just above the @page bottom margin). When pypdf merges the overlay's single page onto a target page of the main PDF, the overlay's content keeps the same coordinates — so the stamped strip lands at the bottom of the target page regardless of the main PDF's content length.
+
+**File naming convention**: `lavder-preventivo-<slug-cliente>-YYYY-MM-DD.{html,pdf}` for the main; overlay HTMLs share the same prefix with `-overlay-cover.html` and `-overlay-footer.html`.
 
 ## Gotcha — modifiche batch via sed
 
