@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contatti · REGES</title>
+<meta name="description" content="Scrivi alla bottega REGES per ordini, su misura e consigli. Acciaio, cuoio e fuoco dal 2009." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:opsz,wght@10..72,500;10..72,700;10..72,800&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .c-head{ padding:160px 0 0; }
+  .contact{ display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:start; margin-top:50px; }
+  @media(max-width:900px){ .contact{ grid-template-columns:1fr; gap:40px; } }
+  .field{ margin-bottom:24px; }
+  .field label{ font-family:var(--mono); font-size:15px; letter-spacing:.06em; text-transform:uppercase; color:var(--ash-2); display:block; margin-bottom:10px; }
+  .field input, .field textarea, .field select{ width:100%; background:#0E0F11; border:1px solid var(--line-2); color:var(--ash); font-family:var(--body); font-size:17px; padding:15px 16px; transition:border-color .3s, box-shadow .3s; }
+  .field input::placeholder, .field textarea::placeholder{ color:var(--ash-dim); }
+  .field input:focus, .field textarea:focus, .field select:focus{ outline:none; border-color:var(--ember); box-shadow:0 0 22px -8px rgba(217,83,30,.7); }
+  .frow{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  @media(max-width:520px){ .frow{ grid-template-columns:1fr; } }
+  .info .line{ padding:22px 0; box-shadow:0 1px 0 var(--line); }
+  .info .k{ font-family:var(--mono); font-size:14px; letter-spacing:.12em; text-transform:uppercase; color:var(--brass-2); }
+  .info .v{ font-family:var(--disp); font-weight:700; text-transform:uppercase; font-size:1.7rem; margin-top:6px; }
+  .info .v.sm{ font-family:var(--mono); font-weight:400; text-transform:none; font-size:1.15rem; color:var(--ash); }
+  .map{ position:relative; height:340px; overflow:hidden; box-shadow:var(--shadow); margin-top:26px;
+        background:linear-gradient(160deg, var(--iron), var(--soot-2)); }
+  .map::before{ content:""; position:absolute; inset:0; opacity:.5; background:
+        repeating-linear-gradient(0deg, transparent 0 38px, rgba(236,230,219,.05) 38px 39px),
+        repeating-linear-gradient(90deg, transparent 0 38px, rgba(236,230,219,.05) 38px 39px); }
+  .map .pin{ position:absolute; top:46%; left:52%; transform:translate(-50%,-50%); width:18px; height:18px; border-radius:50%; background:var(--ember-2); box-shadow:0 0 0 8px rgba(240,129,59,.25), 0 0 24px 4px rgba(240,129,59,.7); }
+  .map .lbl{ position:absolute; bottom:18px; left:20px; font-family:var(--mono); font-size:14px; color:var(--ash); }
+  /* FAQ accordion (animated; CSS-drawn + that rotates to x) */
+  .acc details{ box-shadow:0 1px 0 var(--line); }
+  .acc summary{ list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:28px 0; font-family:var(--disp); font-weight:700; text-transform:uppercase; font-size:1.55rem; }
+  .acc summary::-webkit-details-marker{ display:none; }
+  .acc .ic{ position:relative; width:32px; height:32px; flex:none; transition:transform .3s var(--ease); }
+  .acc .ic::before, .acc .ic::after{ content:""; position:absolute; top:50%; left:50%; width:15px; height:2px; background:var(--ember-2); border-radius:1px; transform:translate(-50%,-50%); }
+  .acc .ic::after{ transform:translate(-50%,-50%) rotate(90deg); }
+  .acc details[open] .ic{ transform:rotate(45deg); }
+  .acc .body{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .35s var(--ease); }
+  .acc details[open] .body{ grid-template-rows:1fr; }
+  .acc .body > div{ overflow:hidden; }
+  .acc .body p{ color:var(--ash-2); font-size:1.15rem; margin:0 0 28px; max-width:72ch; }
+</style>
+</head>
+<body>
+
+  <header class="nav solid" id="nav">
+    <a class="brand" href="index.html" aria-label="REGES home"><b class="disp">REGES</b><span class="tag">Bottega del Larp<br/>e rievocazione</span></a>
+    <nav class="nav__l"><a href="negozio.html">Negozio</a><a href="index.html#metodo">La forgia</a><a href="index.html#collezioni">Mondi</a><a href="chi-siamo.html">La bottega</a><a href="contatti.html" class="on">Contatti</a></nav>
+    <div class="nav__r"><span class="lang">IT / <a href="#" style="color:var(--ash-dim)">EN</a></span><a class="cart" href="carrello.html">Carrello <b>(0)</b></a></div>
+    <button class="menu-btn" aria-label="Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  </header>
+
+  <main>
+    <section class="c-head">
+      <div class="wrap wide">
+        <div class="reveal"><h1 class="h2" style="margin-top:14px">Parla con<br/>la <span class="ember">bottega</span></h1></div>
+        <div class="contact">
+          <!-- FORM -->
+          <form class="reveal" onsubmit="return false">
+            <div class="frow">
+              <div class="field"><label>Nome</label><input type="text" placeholder="Come ti chiami" /></div>
+              <div class="field"><label>Email o telefono</label><input type="text" placeholder="Come ti raggiungiamo" /></div>
+            </div>
+            <div class="field"><label>Di cosa hai bisogno</label>
+              <select><option>Un consiglio sul prodotto</option><option>Un pezzo su misura</option><option>Stato di un ordine</option><option>Reso o assistenza</option><option>Altro</option></select>
+            </div>
+            <div class="field"><label>Raccontaci</label><textarea rows="5" placeholder="Il personaggio, l'evento, il pezzo che hai in mente..."></textarea></div>
+            <button class="btn-forge" type="submit"><span>Manda il messaggio</span></button>
+          </form>
+          <!-- INFO -->
+          <div class="info reveal">
+            <div class="line"><div class="k">La bottega</div><div class="v">Via della Forgia 12<br/>27100 Pavia (PV)</div></div>
+            <div class="line"><div class="k">Banco aperto</div><div class="v sm">Mar&minus;Sab · 10:00&minus;19:00<br/>Lun e Dom su appuntamento</div></div>
+            <div class="line"><div class="k">Telefono</div><div class="v sm">+39 0382 000 000</div></div>
+            <div class="line"><div class="k">Email</div><div class="v sm">ciao@reges.store</div></div>
+            <div class="map"><span class="pin"></span><span class="lbl">Via della Forgia 12 · Pavia</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="sec">
+      <div class="wrap wide">
+        <div class="sec-head reveal"><div><h2 class="h2">Domande<br/>dal campo</h2></div></div>
+        <div class="acc reveal">
+          <details open><summary>Le armi sono battle-ready? <span class="ic" aria-hidden="true"></span></summary><div class="body"><div><p>Le lame da combattimento sono in acciaio EN45 temprato, non affilate, pensate per il contatto. Le armi LARP sono in schiuma/lattice testate e marcate per il colpo. Ogni scheda prodotto indica l'uso previsto.</p></div></div></details>
+          <details><summary>Fate pezzi su misura? <span class="ic" aria-hidden="true"></span></summary><div class="body"><div><p>Sì: lame, foderi, armature e abiti su commissione. Scrivici con il riferimento o il personaggio, ti rispondiamo entro due giorni con bozza e preventivo.</p></div></div></details>
+          <details><summary>Quanto serve per la spedizione? <span class="ic" aria-hidden="true"></span></summary><div class="body"><div><p>I pezzi a magazzino partono in 48-72 ore con corriere tracciato in tutta Europa. Per i su misura i tempi dipendono dal lavoro e te li confermiamo prima.</p></div></div></details>
+          <details><summary>Come funziona il reso? <span class="ic" aria-hidden="true"></span></summary><div class="body"><div><p>Hai 30 giorni per il reso sui prodotti a catalogo, integri e non personalizzati. La garanzia bottega copre due anni la tenuta strutturale di lame e armature da combattimento.</p></div></div></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- BAND -->
+    <section class="band" style="min-height:56vh">
+      <div class="embers" aria-hidden="true"></div>
+      <div class="wrap wide band__in reveal">
+                <h2 class="disp">Portacela,<br/>la <em>forgiamo</em>.</h2>
+        <p>Dal disegno appena accennato al personaggio già vissuto: trasformiamo l'idea in acciaio, cuoio e tela.</p>
+        <div style="margin-top:32px"><a class="btn-forge" href="negozio.html"><span>Intanto guarda il banco</span></a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap wide">
+      <div class="foot__grid">
+        <div><a class="brand" href="index.html"><b class="disp">REGES</b></a><p style="color:var(--ash-2); max-width:34ch; margin-top:18px">La bottega del LARP e della rievocazione. Acciaio, cuoio e fuoco dal 2009, sul campo come in scena.</p></div>
+        <div><h5>Negozio</h5><ul><li><a href="negozio.html">Armi LARP</a></li><li><a href="negozio.html">Spade da combattimento</a></li><li><a href="negozio.html">Armature & maglia</a></li><li><a href="negozio.html">Abiti storici</a></li><li><a href="negozio.html">Arceria</a></li></ul></div>
+        <div><h5>La bottega</h5><ul><li><a href="chi-siamo.html">Chi siamo</a></li><li><a href="index.html#metodo">La forgia</a></li><li><a href="contatti.html">Su misura</a></li><li><a href="contatti.html">Contatti</a></li></ul></div>
+        <div><h5>Aiuto</h5><ul><li><a href="contatti.html">Spedizioni & resi</a></li><li><a href="contatti.html">Guida alle taglie</a></li><li><a href="contatti.html">Sicurezza LARP</a></li><li><a href="carrello.html">Pagamenti</a></li></ul></div>
+      </div>
+      <div class="foot__bar"><span>&copy; 2026 REGES di Reges S.r.l. &middot; P.IVA 0000000000</span><span>Acciaio · Cuoio · Fuoco</span></div>
+    </div>
+  </footer>
+
+<script src="app.js" defer></script>
+</body>
+</html>

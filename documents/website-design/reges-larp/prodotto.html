@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Spada lunga "Aldaren" · REGES</title>
+<meta name="description" content="Spada lunga Aldaren, battle-ready, acciaio EN45 forgiato e temprato a mano. Per LARP da torneo e rievocazione." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:opsz,wght@10..72,500;10..72,700;10..72,800&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .pdp{ display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:start; padding-top:150px; }
+  @media(max-width:960px){ .pdp{ grid-template-columns:1fr; gap:38px; } }
+  .gallery .main{ position:relative; aspect-ratio:4/5; overflow:hidden; box-shadow:var(--shadow); background:radial-gradient(80% 60% at 50% 26%, rgba(240,129,59,.24), transparent 60%), linear-gradient(160deg, var(--iron) 0%, var(--anvil) 55%, var(--soot-2) 100%); }
+  .gallery .main .blade{ position:absolute; top:7%; left:50%; transform:translateX(-50%); width:30%; height:80%; opacity:.55; background:linear-gradient(180deg, rgba(236,230,219,.6), rgba(236,230,219,.05)); clip-path:polygon(50% 0,62% 9%,58% 90%,50% 100%,42% 90%,38% 9%); filter:drop-shadow(0 0 18px rgba(240,129,59,.45)); }
+  .thumbs{ display:flex; gap:14px; margin-top:14px; }
+  .thumbs span{ flex:1; aspect-ratio:1; background:linear-gradient(160deg, var(--iron), var(--soot-2)); box-shadow:var(--shadow); cursor:pointer; transition:transform .3s var(--heat); }
+  .thumbs span:hover{ transform:translateY(-3px); }
+  .crumb{ font-family:var(--mono); font-size:14px; letter-spacing:.1em; text-transform:uppercase; color:var(--ash-dim); margin-bottom:18px; }
+  .crumb a:hover{ color:var(--brass-2); }
+  .buy .cat{ font-family:var(--mono); font-size:14px; letter-spacing:.12em; text-transform:uppercase; color:var(--brass-2); }
+  .buy h1{ font-family:var(--disp); font-weight:800; text-transform:uppercase; font-size:clamp(2.6rem,5vw,4.2rem); line-height:.9; margin:10px 0 0; }
+  .buy .price{ font-family:var(--mono); font-size:1.9rem; color:var(--ash); margin:20px 0 0; }
+  .buy .price s{ color:var(--ash-dim); font-size:1.2rem; margin-right:12px; }
+  .buy .price .save{ color:var(--ember-2); font-size:1.1rem; margin-left:12px; }
+  .buy .desc{ color:var(--ash-2); font-size:1.12rem; margin:22px 0 0; max-width:46ch; }
+  .opts{ margin-top:30px; }
+  .opts .lbl{ font-family:var(--mono); font-size:14px; letter-spacing:.1em; text-transform:uppercase; color:var(--ash-2); display:block; margin-bottom:12px; }
+  .opt-row{ display:flex; gap:10px; flex-wrap:wrap; }
+  .opt{ font-family:var(--mono); font-size:14px; color:var(--ash); background:var(--panel); border:0; padding:12px 20px; cursor:pointer; transition:.3s var(--heat); }
+  .opt[aria-pressed="true"]{ background:linear-gradient(180deg,var(--ember-2),var(--ember)); color:#160B05; }
+  .opt:hover{ transform:translateY(-2px); }
+  .buyrow{ display:flex; gap:16px; align-items:stretch; margin-top:32px; flex-wrap:wrap; }
+  .qty{ display:inline-flex; align-items:center; background:var(--panel); font-family:var(--mono); }
+  .qty button{ background:none; border:0; color:var(--ash); font-size:20px; width:48px; height:100%; cursor:pointer; }
+  .qty span{ min-width:40px; text-align:center; font-size:17px; }
+  .micro{ display:flex; gap:26px; flex-wrap:wrap; margin-top:26px; font-family:var(--mono); font-size:14px; color:var(--ash-2); }
+  .micro b{ color:var(--ember-2); }
+  /* spec sheet : large mono, no tiny */
+  .specsheet{ display:grid; grid-template-columns:repeat(2,1fr); gap:0 60px; }
+  @media(max-width:720px){ .specsheet{ grid-template-columns:1fr; } }
+  .spec{ display:flex; justify-content:space-between; gap:20px; padding:18px 0; box-shadow:0 1px 0 var(--line); font-family:var(--mono); font-size:16px; }
+  .spec .k{ color:var(--ash-dim); letter-spacing:.06em; } .spec .v{ color:var(--ash); text-align:right; }
+  .prose{ max-width:62ch; font-size:1.18rem; color:var(--ash-2); }
+  .prose p{ margin:0 0 1.1em; }
+  .craft{ display:grid; grid-template-columns:1fr 1fr; gap:44px; align-items:center; }
+  @media(max-width:860px){ .craft{ grid-template-columns:1fr; gap:30px; } }
+  .craft .plate{ aspect-ratio:5/4; }
+</style>
+</head>
+<body>
+
+  <header class="nav solid" id="nav">
+    <a class="brand" href="index.html" aria-label="REGES home"><b class="disp">REGES</b><span class="tag">Bottega del Larp<br/>e rievocazione</span></a>
+    <nav class="nav__l"><a href="negozio.html" class="on">Negozio</a><a href="index.html#metodo">La forgia</a><a href="index.html#collezioni">Mondi</a><a href="chi-siamo.html">La bottega</a><a href="contatti.html">Contatti</a></nav>
+    <div class="nav__r"><span class="lang">IT / <a href="#" style="color:var(--ash-dim)">EN</a></span><a class="cart" href="carrello.html">Carrello <b>(0)</b></a></div>
+    <button class="menu-btn" aria-label="Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  </header>
+
+  <main>
+    <!-- PDP -->
+    <section>
+      <div class="wrap wide pdp">
+        <div class="gallery reveal">
+          <div class="main" data-img="img/prod-aldaren.jpg"><span class="blade"></span></div>
+          <div class="thumbs"><span data-img="img/prod-aldaren.jpg"></span><span data-img="img/atelier-anvil.jpg"></span><span data-img="img/band-forge.jpg"></span><span data-img="img/prod-sicario.jpg"></span></div>
+        </div>
+        <div class="buy reveal">
+          <div class="crumb"><a href="index.html">Home</a> / <a href="negozio.html">Negozio</a> / Spade lunghe</div>
+          <span class="cat">Spade da combattimento</span>
+          <h1>Spada lunga<br/>"Aldaren"</h1>
+          <div class="price"><s>229&euro;</s>189&euro;<span class="save">risparmi 40&euro;</span></div>
+          <p class="desc">Lama in acciaio EN45 temprato, guardia forgiata e impugnatura in cuoio cucito. Bilanciata per il torneo, robusta per la rievocazione.</p>
+          <div class="opts">
+            <span class="lbl">Lunghezza lama</span>
+            <div class="opt-row" data-opt><button class="opt" aria-pressed="true">95 cm</button><button class="opt" aria-pressed="false">102 cm</button><button class="opt" aria-pressed="false">110 cm</button></div>
+          </div>
+          <div class="opts">
+            <span class="lbl">Finitura</span>
+            <div class="opt-row" data-opt><button class="opt" aria-pressed="true">Acciaio lucido</button><button class="opt" aria-pressed="false">Brunita</button></div>
+          </div>
+          <div class="buyrow">
+            <div class="qty"><button type="button" data-q="-1" aria-label="Meno">&minus;</button><span data-qv>1</span><button type="button" data-q="1" aria-label="Più">+</button></div>
+            <button class="btn-forge" type="button"><span>Aggiungi al carrello</span></button>
+          </div>
+          <div style="margin-top:18px"><button class="lk-line" type="button">Salva tra i preferiti</button></div>
+          <div class="micro"><span><b>Pronta</b> in 48-72h</span><span><b>Reso</b> 30 giorni</span><span><b>Garanzia</b> 2 anni</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPEC SHEET -->
+    <section class="sec">
+      <div class="wrap wide">
+        <div class="sec-head reveal"><div><h2 class="h2">I numeri<br/>della lama</h2></div></div>
+        <div class="specsheet reveal">
+          <div class="spec"><span class="k">Acciaio</span><span class="v">EN45 temprato</span></div>
+          <div class="spec"><span class="k">Lunghezza totale</span><span class="v">121 cm</span></div>
+          <div class="spec"><span class="k">Lunghezza lama</span><span class="v">95 cm</span></div>
+          <div class="spec"><span class="k">Peso</span><span class="v">1,45 kg</span></div>
+          <div class="spec"><span class="k">Punto di bilanciamento</span><span class="v">9 cm dalla guardia</span></div>
+          <div class="spec"><span class="k">Impugnatura</span><span class="v">Cuoio cucito a mano</span></div>
+          <div class="spec"><span class="k">Filo</span><span class="v">Non affilato (da combattimento)</span></div>
+          <div class="spec"><span class="k">Fodero</span><span class="v">Incluso, cuoio e legno</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DESCRIZIONE + CRAFT -->
+    <section class="sec" style="padding-top:0">
+      <div class="wrap wide craft reveal">
+        <div>
+                    <h2 class="h2" style="margin:14px 0 24px">Nata per<br/>reggere</h2>
+          <div class="prose">
+            <p>La "Aldaren" nasce da una barra di EN45 scaldata in forgia e battuta fino a trovare il profilo. Non è una replica da parete: è pensata per il contatto, stagione dopo stagione.</p>
+            <p>La tempra le dà nervo senza fragilità, la guardia forgiata in un pezzo unico assorbe il colpo, l'impugnatura in cuoio cucito tiene la presa anche con il guanto. Ogni esemplare porta il punzone della bottega e il numero di lotto.</p>
+          </div>
+        </div>
+        <div class="plate" data-img="img/atelier-anvil.jpg" style="position:relative"><span class="blade" style="position:absolute;top:10%;left:50%;transform:translateX(-50%);width:24%;height:70%;opacity:.5;background:linear-gradient(180deg,rgba(236,230,219,.55),rgba(236,230,219,.05));clip-path:polygon(50% 0,62% 10%,58% 88%,50% 100%,42% 88%,38% 10%);filter:drop-shadow(0 0 12px rgba(240,129,59,.4))"></span><div class="wm"><div class="k">Punzone bottega</div><div class="n disp">Lotto<br/>AL&middot;26&middot;019</div></div></div>
+      </div>
+    </section>
+
+    <!-- BAND -->
+    <section class="band" style="min-height:56vh">
+      <div class="embers" aria-hidden="true"></div>
+      <div class="wrap wide band__in reveal">
+                <h2 class="disp">Provata<br/>prima di <em>partire</em>.</h2>
+        <p>Ogni "Aldaren" passa la prova di flessione e il controllo del filo prima di lasciare la bottega. Se non reggesse, non la spediremmo.</p>
+      </div>
+    </section>
+
+    <!-- RELATED -->
+    <section class="sec">
+      <div class="wrap wide">
+        <div class="sec-head reveal"><div><h2 class="h2">Va bene<br/>con</h2></div><a class="lk-line" href="negozio.html">Tutte le spade</a></div>
+        <div class="grid-p">
+          <a class="pcard reveal" href="prodotto.html"><div class="pcard__img"><span class="blade" style="width:46%;clip-path:none;border-radius:6px"></span><span class="edge"></span></div><span class="tagline muted">Pieno fiore</span><div class="pcard__b"><span class="cat">Cuoio</span><h3 class="disp">Cintura con fodero</h3><div class="row"><span class="pr">64&euro;</span><span class="sku">SKU 6022</span></div></div></a>
+          <a class="pcard reveal" href="prodotto.html"><div class="pcard__img"><span class="blade" style="width:50%;clip-path:none;border-radius:46% 46% 50% 50%/60% 60% 40% 40%"></span><span class="edge"></span></div><span class="tagline muted">Acciaio</span><div class="pcard__b"><span class="cat">Scudi</span><h3 class="disp">Brocchiero d'acciaio</h3><div class="row"><span class="pr">59&euro;</span><span class="sku">SKU 5003</span></div></div></a>
+          <a class="pcard reveal" href="prodotto.html"><div class="pcard__img"><span class="blade" style="width:38%"></span><span class="edge"></span></div><span class="tagline">Novità</span><div class="pcard__b"><span class="cat">Protezioni</span><h3 class="disp">Gambeson "Custode"</h3><div class="row"><span class="pr">139&euro;</span><span class="sku">SKU 4101</span></div></div></a>
+          <a class="pcard reveal" href="prodotto.html"><div class="pcard__img"><span class="blade" style="width:16%"></span><span class="edge"></span></div><span class="tagline muted">Da cintura</span><div class="pcard__b"><span class="cat">Lame corte</span><h3 class="disp">Pugnale "Sicario"</h3><div class="row"><span class="pr">54&euro;</span><span class="sku">SKU 1133</span></div></div></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="sec" style="padding-top:0">
+      <div class="wrap wide">
+        <div class="sec-head reveal"><div><h2 class="h2">Dal<br/>campo</h2></div></div>
+        <div class="revs reveal">
+          <div class="rev"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><p>"Tre stagioni di tornei, zero crepe. Bilanciamento perfetto."</p><div class="by">Marco D. &middot; Compagnia del Corvo</div></div>
+          <div class="rev"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><p>"L'impugnatura tiene anche con il guanto bagnato. Solida."</p><div class="by">Luca F. &middot; Rievocazione Pavia</div></div>
+          <div class="rev"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span><p>"Arrivata in due giorni, fodero incluso bellissimo. Pesa il giusto."</p><div class="by">Sara V. &middot; LARP Toscana</div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap wide">
+      <div class="foot__grid">
+        <div><a class="brand" href="index.html"><b class="disp">REGES</b></a><p style="color:var(--ash-2); max-width:34ch; margin-top:18px">La bottega del LARP e della rievocazione. Acciaio, cuoio e fuoco dal 2009, sul campo come in scena.</p></div>
+        <div><h5>Negozio</h5><ul><li><a href="negozio.html">Armi LARP</a></li><li><a href="negozio.html">Spade da combattimento</a></li><li><a href="negozio.html">Armature & maglia</a></li><li><a href="negozio.html">Abiti storici</a></li><li><a href="negozio.html">Arceria</a></li></ul></div>
+        <div><h5>La bottega</h5><ul><li><a href="chi-siamo.html">Chi siamo</a></li><li><a href="index.html#metodo">La forgia</a></li><li><a href="contatti.html">Su misura</a></li><li><a href="contatti.html">Contatti</a></li></ul></div>
+        <div><h5>Aiuto</h5><ul><li><a href="contatti.html">Spedizioni & resi</a></li><li><a href="contatti.html">Guida alle taglie</a></li><li><a href="contatti.html">Sicurezza LARP</a></li><li><a href="carrello.html">Pagamenti</a></li></ul></div>
+      </div>
+      <div class="foot__bar"><span>&copy; 2026 REGES di Reges S.r.l. &middot; P.IVA 0000000000</span><span>Acciaio · Cuoio · Fuoco</span></div>
+    </div>
+  </footer>
+
+<script src="app.js" defer></script>
+<script>
+  document.querySelectorAll('[data-opt]').forEach(function(row){ row.querySelectorAll('.opt').forEach(function(o){ o.addEventListener('click',function(){ row.querySelectorAll('.opt').forEach(function(x){ x.setAttribute('aria-pressed', String(x===o)); }); }); }); });
+  (function(){ var v=document.querySelector('[data-qv]'); document.querySelectorAll('[data-q]').forEach(function(b){ b.addEventListener('click',function(){ var n=Math.max(1, (+v.textContent)+(+b.dataset.q)); v.textContent=n; }); }); })();
+</script>
+</body>
+</html>

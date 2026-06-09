@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>La bottega · REGES</title>
+<meta name="description" content="REGES: una bottega di LARP e rievocazione fatta da chi gioca. Acciaio, cuoio e fuoco dal 2009." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:opsz,wght@10..72,500;10..72,700;10..72,800&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .about-hero{ position:relative; min-height:78svh; display:flex; align-items:flex-end; padding:160px 0 70px; overflow:hidden; }
+  .about-hero .hero__glow{ left:-10%; right:auto; top:30%; }
+  .about-hero h1{ font-family:var(--disp); font-weight:800; text-transform:uppercase; font-size:clamp(3.4rem,10vw,8rem); line-height:.84; margin:18px 0 0; }
+  .about-hero h1 em{ font-style:normal; color:var(--ember-2); }
+  .story{ display:grid; grid-template-columns:1fr 1fr; gap:54px; align-items:start; }
+  @media(max-width:860px){ .story{ grid-template-columns:1fr; gap:30px; } }
+  .prose{ max-width:60ch; font-size:1.2rem; color:var(--ash-2); }
+  .prose p{ margin:0 0 1.1em; } .prose p:first-child{ font-size:1.45rem; color:var(--ash); line-height:1.45; }
+  .makers{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+  @media(max-width:860px){ .makers{ grid-template-columns:1fr; } }
+  .maker .plate{ aspect-ratio:4/5; }
+  .maker .nm{ font-family:var(--disp); font-weight:700; text-transform:uppercase; font-size:1.8rem; margin:18px 0 4px; }
+  .maker .role{ font-family:var(--mono); font-size:14px; letter-spacing:.1em; text-transform:uppercase; color:var(--brass-2); }
+  .maker p{ color:var(--ash-2); font-size:15.5px; margin:12px 0 0; max-width:34ch; }
+  .timeline{ display:grid; gap:0; }
+  .tl{ display:grid; grid-template-columns:170px 1fr; gap:30px; padding:26px 0; box-shadow:0 1px 0 var(--line); align-items:baseline; }
+  @media(max-width:680px){ .tl{ grid-template-columns:1fr; gap:8px; } }
+  .tl .yr{ font-family:var(--disp); font-weight:800; font-size:2.4rem; color:var(--ember); line-height:1; }
+  .tl .ev h4{ font-family:var(--disp); font-weight:700; text-transform:uppercase; font-size:1.5rem; margin:0 0 6px; }
+  .tl .ev p{ color:var(--ash-2); font-size:16px; margin:0; max-width:60ch; }
+  .gal{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+  @media(max-width:860px){ .gal{ grid-template-columns:repeat(2,1fr); } }
+  .gal span{ aspect-ratio:1; background:linear-gradient(160deg, var(--iron), var(--soot-2)); box-shadow:var(--shadow); position:relative; overflow:hidden; }
+  .gal span::after{ content:""; position:absolute; inset:0; background:radial-gradient(60% 50% at 50% 120%, rgba(217,83,30,.28), transparent 60%); }
+</style>
+</head>
+<body>
+
+  <header class="nav solid" id="nav">
+    <a class="brand" href="index.html" aria-label="REGES home"><b class="disp">REGES</b><span class="tag">Bottega del Larp<br/>e rievocazione</span></a>
+    <nav class="nav__l"><a href="negozio.html">Negozio</a><a href="index.html#metodo">La forgia</a><a href="index.html#collezioni">Mondi</a><a href="chi-siamo.html" class="on">La bottega</a><a href="contatti.html">Contatti</a></nav>
+    <div class="nav__r"><span class="lang">IT / <a href="#" style="color:var(--ash-dim)">EN</a></span><a class="cart" href="carrello.html">Carrello <b>(0)</b></a></div>
+    <button class="menu-btn" aria-label="Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="about-hero">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="embers" aria-hidden="true"></div>
+      <div class="wrap wide" style="position:relative;z-index:2">
+                <h1 class="reveal">Fatta da<br/>chi <em>gioca</em>.</h1>
+      </div>
+    </section>
+
+    <!-- STORY -->
+    <section class="sec">
+      <div class="wrap wide story reveal">
+        <div>
+                    <h2 class="h2" style="margin:14px 0 0">Da un<br/>campo fangoso</h2>
+        </div>
+        <div class="prose">
+          <p>REGES è nata in un campo, non in un ufficio: da un gruppo di LARPer stanchi di armi che si piegavano al secondo torneo.</p>
+          <p>Abbiamo cominciato forgiando per noi, poi per la nostra compagnia, poi per chiunque cercasse roba seria. Oggi la bottega lavora acciaio, cuoio e tela in piccoli lotti, ma la regola è ancora quella della prima sera attorno al fuoco: se non lo porteremmo noi in campo, non lo vendiamo.</p>
+          <p>Non siamo un magazzino che rivende cataloghi altrui. Siamo fabbri, sarti e giocatori che costruiscono ciò che vorrebbero impugnare.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAKERS -->
+    <section class="sec" style="padding-top:0">
+      <div class="wrap wide">
+        <div class="sec-head reveal"><div><h2 class="h2">Chi sta<br/>all'incudine</h2></div></div>
+        <div class="makers reveal">
+          <div class="maker"><div class="plate" data-img="img/atelier-anvil.jpg"><span class="blade" style="position:absolute;top:12%;left:50%;transform:translateX(-50%);width:22%;height:64%;opacity:.45;background:linear-gradient(180deg,rgba(236,230,219,.5),rgba(236,230,219,.04));clip-path:polygon(50% 0,62% 10%,58% 88%,50% 100%,42% 88%,38% 10%)"></span></div><div class="nm disp">Mastro Elia</div><div class="role">Forgia & lame</div><p>Vent'anni di martello. Tempra ogni lama a mano e ne risponde col punzone.</p></div>
+          <div class="maker"><div class="plate" data-img="img/atelier-leather.jpg"><span class="blade" style="position:absolute;top:14%;left:50%;transform:translateX(-50%);width:40%;height:60%;opacity:.4;background:linear-gradient(180deg,rgba(236,230,219,.45),rgba(236,230,219,.04));border-radius:8px"></span></div><div class="nm disp">Greta</div><div class="role">Cuoio & sartoria</div><p>Cuce gambeson e foderi in pieno fiore. Se una cucitura cede, la rifà lei.</p></div>
+          <div class="maker"><div class="plate" data-img="img/atelier-camp.jpg"><span class="blade" style="position:absolute;top:10%;left:50%;transform:translateX(-50%);width:14%;height:72%;opacity:.5;background:linear-gradient(180deg,rgba(236,230,219,.5),rgba(236,230,219,.04))"></span></div><div class="nm disp">Tomas</div><div class="role">Arceria & campo</div><p>Arciere e capo-campo. Prova ogni arco e consiglia chi inizia.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUES -->
+    <section class="sec" style="padding-top:0">
+      <div class="wrap wide">
+        <div class="promesse reveal">
+          <div class="pro big"><div><span class="k">Il principio</span><h4 class="disp">Roba che<br/>regge, gente<br/>che gioca.</h4></div><p>Due cose non le tocchiamo: la qualità dell'acciaio e l'onestà del consiglio. Tutto il resto si può discutere davanti a una birra dopo il torneo.</p></div>
+          <div class="pro"><span class="k">Piccoli lotti</span><h4 class="disp">Mai serie infinite</h4><p>Produzione limitata, punzone e numero su ogni pezzo.</p></div>
+          <div class="pro"><span class="k">Materia</span><h4 class="disp">Solo prima scelta</h4><p>Acciaio EN, cuoio pieno fiore, lana e lino veri.</p></div>
+          <div class="pro"><span class="k">Comunità</span><h4 class="disp">Si torna in campo</h4><p>Parte del ricavato sostiene eventi LARP e gruppi di rievocazione.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="sec" style="padding-top:0">
+      <div class="wrap wide">
+        <div class="sec-head reveal"><div><h2 class="h2">Diciassette<br/>anni di forgia</h2></div></div>
+        <div class="timeline reveal">
+          <div class="tl"><div class="yr disp">2009</div><div class="ev"><h4>La prima incudine</h4><p>Nasce la bottega in un garage a Pavia, forgiando armi per la propria compagnia.</p></div></div>
+          <div class="tl"><div class="yr disp">2013</div><div class="ev"><h4>Il primo banco al campo</h4><p>REGES porta il suo stand ai grandi raduni del nord Italia. Si passa dal "per noi" al "per voi".</p></div></div>
+          <div class="tl"><div class="yr disp">2017</div><div class="ev"><h4>Sartoria e cuoio</h4><p>Entra Greta: gambeson, foderi e abiti storici diventano parte del catalogo.</p></div></div>
+          <div class="tl"><div class="yr disp">2021</div><div class="ev"><h4>Su misura</h4><p>Apre il laboratorio su commissione: lame e armature progettate sul personaggio.</p></div></div>
+          <div class="tl"><div class="yr disp">2026</div><div class="ev"><h4>La bottega online</h4><p>Stesso acciaio, stessa mano, ora a un clic. Senza perdere il banco e il fuoco.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY BAND -->
+    <section class="band" style="min-height:auto; padding:clamp(60px,8vw,110px) 0">
+      <div class="embers" aria-hidden="true"></div>
+      <div class="wrap wide band__in reveal">
+                <h2 class="disp" style="margin:14px 0 36px">Dove nasce<br/>tutto.</h2>
+        <div class="gal"><span data-img="img/hero-forge.jpg"></span><span data-img="img/atelier-anvil.jpg"></span><span data-img="img/band-forge.jpg"></span><span data-img="img/atelier-leather.jpg"></span><span data-img="img/prod-fenrir.jpg"></span><span data-img="img/atelier-camp.jpg"></span><span data-img="img/prod-cotta.jpg"></span><span data-img="img/prod-aldaren.jpg"></span></div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="sec">
+      <div class="wrap wide">
+        <div class="gilda reveal" style="text-align:left">
+                    <h2 class="h2">Banco aperto,<br/>fuoco acceso</h2>
+          <p class="lead" style="margin-top:20px">Passa in bottega, scrivici per un su misura o entra nella gilda. La porta è sempre socchiusa.</p>
+          <div style="margin-top:30px; display:flex; gap:24px; flex-wrap:wrap; align-items:center"><a class="btn-forge" href="contatti.html"><span>Scrivici</span></a><a class="lk-line" href="negozio.html">Vai al negozio</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap wide">
+      <div class="foot__grid">
+        <div><a class="brand" href="index.html"><b class="disp">REGES</b></a><p style="color:var(--ash-2); max-width:34ch; margin-top:18px">La bottega del LARP e della rievocazione. Acciaio, cuoio e fuoco dal 2009, sul campo come in scena.</p></div>
+        <div><h5>Negozio</h5><ul><li><a href="negozio.html">Armi LARP</a></li><li><a href="negozio.html">Spade da combattimento</a></li><li><a href="negozio.html">Armature & maglia</a></li><li><a href="negozio.html">Abiti storici</a></li><li><a href="negozio.html">Arceria</a></li></ul></div>
+        <div><h5>La bottega</h5><ul><li><a href="chi-siamo.html">Chi siamo</a></li><li><a href="index.html#metodo">La forgia</a></li><li><a href="contatti.html">Su misura</a></li><li><a href="contatti.html">Contatti</a></li></ul></div>
+        <div><h5>Aiuto</h5><ul><li><a href="contatti.html">Spedizioni & resi</a></li><li><a href="contatti.html">Guida alle taglie</a></li><li><a href="contatti.html">Sicurezza LARP</a></li><li><a href="carrello.html">Pagamenti</a></li></ul></div>
+      </div>
+      <div class="foot__bar"><span>&copy; 2026 REGES di Reges S.r.l. &middot; P.IVA 0000000000</span><span>Acciaio · Cuoio · Fuoco</span></div>
+    </div>
+  </footer>
+
+<script src="app.js" defer></script>
+</body>
+</html>

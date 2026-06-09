@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="it">
+<!-- REGES (redesign) · SITEMAP / architettura informativa e-commerce (LARP/storico), stile wireframe low-fi. -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sitemap · REGES</title>
+  <style>
+    :root { --g:#9aa0a6; --d:#5f6368; --l:#e3e5e8; --bg:#f4f5f6; --ink:#3a3c40; }
+    * { box-sizing:border-box; margin:0; }
+    body { font-family: ui-monospace, "SF Mono", Menlo, monospace; background:var(--bg); color:var(--d); line-height:1.5; }
+    .wfbar { position:sticky; top:0; z-index:10; background:#fff; border-bottom:1px solid var(--l); display:flex; align-items:center; gap:16px; padding:12px 20px; flex-wrap:wrap; }
+    .wfbar h1 { font-size:14px; color:var(--ink); }
+    .wfbar a { font-size:12px; color:var(--d); border:1px solid var(--g); border-radius:5px; padding:6px 12px; text-decoration:none; }
+    .tabnote { font-size:11px; color:var(--g); margin-left:auto; }
+    .sheet { max-width:1080px; margin:28px auto 60px; padding:0 16px; }
+    .home { display:flex; justify-content:center; }
+    .node { background:#fff; border:1.5px dashed var(--g); border-radius:6px; padding:14px 18px; }
+    .node.root { border-style:solid; border-color:var(--ink); min-width:360px; max-width:760px; text-align:center; }
+    .node .k { font-size:13px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink); font-weight:700; }
+    .node .secs { font-size:11px; color:var(--g); margin-top:8px; }
+    .connector { width:2px; height:26px; background:var(--l); margin:0 auto; }
+    .cols { display:grid; grid-template-columns:repeat(5,1fr); gap:14px; }
+    @media (max-width:880px){ .cols{ grid-template-columns:repeat(2,1fr);} }
+    .page { background:#fff; border:1.5px dashed var(--g); border-radius:6px; overflow:hidden; }
+    .page .hd { background:#fff; border-bottom:1px dashed var(--l); padding:12px 14px; font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink); font-weight:700; display:flex; align-items:center; justify-content:space-between; }
+    .page ul { list-style:none; padding:12px 14px; display:flex; flex-direction:column; gap:7px; }
+    .page li { font-size:11px; color:var(--d); }
+    .page li::before { content:"· "; color:var(--g); font-weight:700; }
+    .sub { padding:0 14px 14px; }
+    .sub .lbl { font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:6px; }
+    .sub .sp { font-size:11px; border:1px dashed var(--l); border-radius:4px; padding:6px 9px; margin-bottom:6px; color:var(--d); }
+    .star { color:var(--ink); font-weight:700; }
+    .util { margin-top:26px; }
+    .util .lbl { font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:8px; }
+    .util .row { display:flex; gap:10px; flex-wrap:wrap; }
+    .util .sp { font-size:11px; border:1px dashed var(--g); border-radius:4px; padding:6px 12px; color:var(--d); }
+    .legend { margin-top:26px; border-top:1px solid var(--l); padding-top:18px; display:flex; flex-wrap:wrap; gap:18px; font-size:11px; }
+    .legend b { color:var(--ink); }
+  </style>
+</head>
+<body>
+  <div class="wfbar">
+    <h1>SITEMAP · REGES</h1>
+    <a href="wireframe.html">&rarr; Wireframe</a>
+    <span class="tabnote">architettura informativa · e-commerce (LARP / storico) · &#9733; = azione primaria</span>
+  </div>
+
+  <div class="sheet">
+    <div class="home">
+      <div class="node root">
+        <div class="k">Home</div>
+        <div class="secs">hero (split + forge-plate) · category rail (full-bleed) · manifesto · bestseller (4) · forge band (full-bleed) · metodo (4 step) · garanzie · collezioni (3) · recensioni · newsletter</div>
+      </div>
+    </div>
+    <div class="connector"></div>
+
+    <div class="cols">
+      <div class="page">
+        <div class="hd">Negozio <span class="star">&#9733;</span></div>
+        <ul><li>Tutto il banco</li><li>Filtri (chip) / ordina</li></ul>
+        <div class="sub">
+          <div class="lbl">Categorie</div>
+          <div class="sp">Armi</div><div class="sp">Armature</div><div class="sp">Abiti</div><div class="sp">Cuoio</div><div class="sp">Arceria</div><div class="sp">Accampamento</div>
+          <div class="lbl" style="margin-top:8px">&rarr; Prodotto (PDP)</div>
+          <div class="sp" style="border-style:solid;border-color:var(--l)">galleria · prezzo · varianti · &#9733; aggiungi · scheda · correlati</div>
+        </div>
+      </div>
+      <div class="page">
+        <div class="hd">Prodotto</div>
+        <ul><li>Galleria + acquisto</li><li>Scheda tecnica</li><li>Descrizione + craft</li><li>Correlati (4)</li><li>Recensioni</li></ul>
+        <div class="sub"><div class="lbl">accesso</div><div class="sp" style="border-style:solid;border-color:var(--l)">da Negozio (PDP)</div></div>
+      </div>
+      <div class="page">
+        <div class="hd">Chi siamo</div>
+        <ul><li>Storia</li><li>I maestri (3)</li><li>Valori</li><li>Timeline</li><li>Gallery (band)</li></ul>
+        <div class="sub"><div class="lbl">a.k.a.</div><div class="sp" style="border-style:solid;border-color:var(--l)">La bottega</div></div>
+      </div>
+      <div class="page">
+        <div class="hd">Contatti</div>
+        <ul><li>Form + info</li><li>FAQ (accordion)</li><li>Mappa / orari</li></ul>
+        <div class="sub"><div class="lbl">include</div><div class="sp" style="border-style:solid;border-color:var(--l)">richiesta su misura</div></div>
+      </div>
+      <div class="page">
+        <div class="hd">Carrello <span class="star">&#9733;</span></div>
+        <ul><li>Articoli ordine</li><li>Riepilogo</li><li>Cross-sell (4)</li></ul>
+        <div class="sub"><div class="lbl">&rarr; Checkout</div><div class="sp" style="border-style:solid;border-color:var(--ink)">&#9733; spedizione · pagamento · conferma</div></div>
+      </div>
+    </div>
+
+    <div class="util">
+      <div class="lbl">Pagine utility / legali</div>
+      <div class="row"><span class="sp">Login / Registrati</span><span class="sp">Area cliente</span><span class="sp">Privacy policy</span><span class="sp">Cookie policy</span><span class="sp">Termini di vendita</span><span class="sp">Reso / garanzia</span><span class="sp">404</span></div>
+    </div>
+
+    <div class="legend">
+      <span><b>Nav primaria:</b> Negozio · La forgia · Mondi · La bottega · Contatti · (cerca / account / carrello)</span>
+      <span><b class="star">&#9733;</b> Azione primaria: acquisto (negozio &rarr; prodotto &rarr; carrello &rarr; checkout)</span>
+      <span><b>Lingua:</b> IT (predisposto EN)</span>
+      <span><b>Build:</b> Track B · Next.js</span>
+    </div>
+  </div>
+</body>
+</html>

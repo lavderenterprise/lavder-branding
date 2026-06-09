@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>REGES · La bottega del LARP e della rievocazione</title>
+<meta name="description" content="Armi, armature e abiti per LARP e rievocazione storica. Battle-ready, fatti a mano nella bottega, pronti per il campo." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:opsz,wght@10..72,500;10..72,700;10..72,800&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <a class="brand" href="index.html" aria-label="REGES home">
+      <b class="disp">REGES</b>
+      <span class="tag">Bottega del Larp<br/>e rievocazione</span>
+    </a>
+    <nav class="nav__l">
+      <a href="negozio.html" class="on">Negozio</a>
+      <a href="index.html#metodo">La forgia</a>
+      <a href="index.html#collezioni">Mondi</a>
+      <a href="chi-siamo.html">La bottega</a>
+      <a href="contatti.html">Contatti</a>
+    </nav>
+    <div class="nav__r">
+      <span class="lang">IT / <a href="#" style="color:var(--ash-dim)">EN</a></span>
+      <a class="cart" href="carrello.html">Carrello <b>(0)</b></a>
+    </div>
+    <button class="menu-btn" aria-label="Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="embers" aria-hidden="true"></div>
+      <div class="wrap wide hero__grid">
+        <div>
+                    <h1 class="reveal">Forgiato<br/>per chi <em>vive</em><br/>la storia.</h1>
+          <p class="hero__sub reveal">Armi, armature e abiti per LARP e rievocazione. Battle-ready, fatti a mano nella bottega, pronti per il campo: non per la teca.</p>
+          <div class="hero__cta reveal">
+            <a class="btn-forge" href="negozio.html"><span>Esplora la bottega</span></a>
+            <button class="lk-line" type="button" onclick="document.getElementById('metodo').scrollIntoView()">Come forgiamo</button>
+          </div>
+        </div>
+        <div class="reveal">
+          <article class="plate" data-img="img/prod-aldaren.jpg">
+            <span class="blade" aria-hidden="true"></span>
+            <div class="wm">
+              <div class="k">Forgiato di recente</div>
+              <div class="n disp">Spada lunga<br/>"Aldaren"</div>
+              <div class="p">Battle-ready · acciaio EN45 · 189&euro;</div>
+            </div>
+          </article>
+        </div>
+      </div>
+      <span class="hero__scroll">Scendi nella bottega</span>
+    </section>
+
+    <!-- CATEGORY RAIL (breaks the container) -->
+    <section class="sec" id="negozio" style="padding-bottom:clamp(40px,6vw,70px)">
+      <div class="wrap wide">
+        <div class="sec-head reveal">
+          <div>
+                        <h2 class="h2">Scegli<br/>la tua arte</h2>
+          </div>
+          <p class="lead">Dieci reparti, un solo standard: roba che regge il colpo. Trascina di lato per girare il banco.</p>
+        </div>
+      </div>
+      <div class="rail-wrap reveal">
+        <div class="rail" data-rail>
+          <a class="cat" href="negozio.html"><span class="num">/01</span><div class="b"><span>148 pezzi</span><h3 class="disp">Armi<br/>LARP</h3></div></a>
+          <a class="cat" href="negozio.html"><span class="num">/02</span><div class="b"><span>96 pezzi</span><h3 class="disp">Spade da<br/>combattimento</h3></div></a>
+          <a class="cat" href="negozio.html"><span class="num">/03</span><div class="b"><span>72 pezzi</span><h3 class="disp">Armature<br/>& maglia</h3></div></a>
+          <a class="cat" href="negozio.html"><span class="num">/04</span><div class="b"><span>110 pezzi</span><h3 class="disp">Abiti<br/>storici</h3></div></a>
+          <a class="cat" href="negozio.html"><span class="num">/05</span><div class="b"><span>83 pezzi</span><h3 class="disp">Cuoio<br/>& accessori</h3></div></a>
+          <a class="cat" href="negozio.html"><span class="num">/06</span><div class="b"><span>54 pezzi</span><h3 class="disp">Arceria</h3></div></a>
+          <a class="cat" href="negozio.html"><span class="num">/07</span><div class="b"><span>39 pezzi</span><h3 class="disp">Tende &<br/>accampamento</h3></div></a>
+          <a class="cat" href="negozio.html"><span class="num">/08</span><div class="b"><span>61 pezzi</span><h3 class="disp">Fantasy<br/>& saghe</h3></div></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MANIFESTO -->
+    <section class="sec" style="padding-block:clamp(50px,7vw,96px)">
+      <div class="wrap mani reveal">
+        <q class="disp">L'acciaio non mente: o <b>regge</b>, o si piega. Noi forgiamo solo il primo.</q>
+        <p class="by">Ogni lama nasce sull'incudine e finisce sotto le mani di chi la userà davvero. Niente repliche da vetrina: pezzi pensati per il campo, il torneo, la sera attorno al fuoco.</p>
+      </div>
+    </section>
+
+    <div class="wrap"><div class="spark reveal"><i></i><b></b><i class="r"></i></div></div>
+
+    <!-- BESTSELLER (heat-hover cards) -->
+    <section class="sec">
+      <div class="wrap wide">
+        <div class="sec-head reveal">
+          <div>
+                        <h2 class="h2">I più<br/>portati in campo</h2>
+          </div>
+          <a class="lk-line" href="negozio.html">Tutto il catalogo</a>
+        </div>
+        <div class="grid-p">
+          <a class="pcard reveal" href="prodotto.html">
+            <div class="pcard__img"><span class="blade"></span><span class="edge"></span></div>
+            <span class="tagline">In offerta</span>
+            <div class="pcard__b"><span class="cat">Spade a una mano</span><h3 class="disp">Spada alto-medievale "Tinker"</h3><div class="row"><span class="pr"><s>395&euro;</s>345&euro;</span><span class="sku">SKU 1004</span></div></div>
+          </a>
+          <a class="pcard reveal" href="prodotto.html">
+            <div class="pcard__img"><span class="blade"></span><span class="edge"></span></div>
+            <span class="tagline muted">Battle-ready</span>
+            <div class="pcard__b"><span class="cat">Asce & mazze</span><h3 class="disp">Ascia da incursore "Fenrir"</h3><div class="row"><span class="pr">74&euro;</span><span class="sku">SKU 2218</span></div></div>
+          </a>
+          <a class="pcard reveal" href="prodotto.html">
+            <div class="pcard__img"><span class="blade" style="width:42%;clip-path:none;border-radius:50%/40%"></span><span class="edge"></span></div>
+            <span class="tagline muted">Fatto a mano</span>
+            <div class="pcard__b"><span class="cat">Cotte di maglia</span><h3 class="disp">Cotta, anelli rivettati</h3><div class="row"><span class="pr">289&euro;</span><span class="sku">SKU 3007</span></div></div>
+          </a>
+          <a class="pcard reveal" href="prodotto.html">
+            <div class="pcard__img"><span class="blade" style="width:38%"></span><span class="edge"></span></div>
+            <span class="tagline">Novità</span>
+            <div class="pcard__b"><span class="cat">Protezioni</span><h3 class="disp">Gambeson "Custode"</h3><div class="row"><span class="pr">139&euro;</span><span class="sku">SKU 4101</span></div></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FULL-BLEED FORGE BAND (breaks container) -->
+    <section class="band">
+      <div class="embers" aria-hidden="true"></div>
+      <div class="wrap wide band__in reveal">
+                <h2 class="disp">Nasce nel <em>fuoco</em>,<br/>vive sul campo.</h2>
+        <p>Temperiamo, battiamo e proviamo ogni pezzo prima che parta. Se non lo porteremmo noi a una battaglia, non lo vendiamo. Punto.</p>
+        <div style="margin-top:32px"><a class="btn-forge ghost" href="index.html#metodo"><span>La nostra forgia</span></a></div>
+      </div>
+    </section>
+
+    <!-- METODO : forge steps -->
+    <section class="sec" id="metodo">
+      <div class="wrap wide">
+        <div class="sec-head reveal">
+          <div><h2 class="h2">Quattro<br/>passaggi di fuoco</h2></div>
+          <p class="lead">Nessuna serie infinita: piccoli lotti, punzone della bottega su ogni pezzo, tracciabilità dall'acciaio alla consegna.</p>
+        </div>
+        <div class="steps reveal">
+          <div class="step"><div class="n disp">01</div><h4>Acciaio</h4><p>Barre EN45 e cuoio pieno fiore, scelti uno a uno. Mai lamierino, mai scarti.</p></div>
+          <div class="step"><div class="n disp">02</div><h4>Fuoco</h4><p>In forgia a 1200&deg;: la barra diventa lama, l'idea diventa forma.</p></div>
+          <div class="step"><div class="n disp">03</div><h4>Incudine</h4><p>Battuta, profilata, molata a mano. Ogni colpo lascia un segno che resta.</p></div>
+          <div class="step"><div class="n disp">04</div><h4>Tempra</h4><p>Tempra e prova sul campo. Punzone, numero di lotto, e via verso di te.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GARANZIE : varied grid -->
+    <section class="sec" style="padding-top:0">
+      <div class="wrap wide">
+        <div class="promesse reveal">
+          <div class="pro big">
+            <div><span class="k">La promessa</span><h4 class="disp">Se si rompe<br/>in campo, lo<br/>rifacciamo.</h4></div>
+            <p>Garanzia bottega di due anni sulla tenuta strutturale di lame e armature da combattimento. Perché un'arma che cede a metà torneo non è un'arma.</p>
+          </div>
+          <div class="pro"><span class="k">Spedizione</span><h4 class="disp">In 48&minus;72h</h4><p>Spedizione tracciata in tutta Europa. Reso semplice entro 30 giorni.</p></div>
+          <div class="pro"><span class="k">Su misura</span><h4 class="disp">Anche per te</h4><p>Lame, foderi e armature su misura. Raccontaci il personaggio.</p></div>
+          <div class="pro"><span class="k">Sicurezza LARP</span><h4 class="disp">Normato</h4><p>Schiuma e lattice testati per il colpo, marcati e a norma di campo.</p></div>
+          <div class="pro"><span class="k">Consiglio</span><h4 class="disp">Da chi gioca</h4><p>In bottega ci sono LARPer e rievocatori. Scrivici: ti orientiamo davvero.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLLEZIONI / MONDI -->
+    <section class="sec" id="collezioni" style="padding-top:0">
+      <div class="wrap wide">
+        <div class="sec-head reveal"><div><h2 class="h2">Scegli il tuo<br/>campo di gioco</h2></div></div>
+        <div class="tiles reveal">
+          <a class="tile" data-img="img/world-larp.jpg" href="negozio.html"><div class="b"><span class="k">/ LARP</span><h3 class="disp">Vivi il<br/>personaggio</h3><p>Armi sicure, costumi, trucco ed effetti. Tutto per entrare in scena.</p></div></a>
+          <a class="tile" data-img="img/world-riev.jpg" href="negozio.html"><div class="b"><span class="k">/ Rievocazione</span><h3 class="disp">Onora<br/>la storia</h3><p>Acciaio funzionale e abiti filologici, dall'alto medioevo al rinascimento.</p></div></a>
+          <a class="tile" data-img="img/world-fantasy.jpg" href="negozio.html"><div class="b"><span class="k">/ Fantasy</span><h3 class="disp">Oltre il<br/>verosimile</h3><p>Pezzi unici e scenografie per saghe, set e collezione.</p></div></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECENSIONI -->
+    <section class="sec" style="padding-top:0">
+      <div class="wrap wide">
+        <div class="sec-head reveal"><div><h2 class="h2">Chi le<br/>impugna</h2></div></div>
+        <div class="revs reveal">
+          <div class="rev"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><p>"Tre stagioni di tornei, zero crepe. La mia 'Aldaren' regge ancora come il primo giorno."</p><div class="by">Marco D. &middot; Compagnia del Corvo</div></div>
+          <div class="rev"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><p>"Gambeson cucito come si deve. Si vede e si sente la mano della bottega."</p><div class="by">Elisa T. &middot; Rievocazione Verona</div></div>
+          <div class="rev"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><p>"Mi hanno consigliato la lama giusta per il mio stile. Gente che gioca, non che vende e basta."</p><div class="by">Davide R. &middot; LARP Lombardia</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER : la gilda -->
+    <section class="sec" style="padding-top:0">
+      <div class="wrap wide">
+        <div class="gilda reveal">
+                    <h2 class="h2">Entra<br/>nella gilda</h2>
+          <p class="lead" style="margin-top:20px">Pezzi appena forgiati, lotti limitati e date dei tornei. Una lettera al mese, niente di più.</p>
+          <form class="nl" onsubmit="return false">
+            <span class="slot"><input type="email" placeholder="la-tua@email.it" aria-label="Email" /></span>
+            <button class="btn-forge" type="submit"><span>Arruolati</span></button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div class="wrap wide">
+      <div class="foot__grid">
+        <div>
+          <a class="brand" href="index.html"><b class="disp">REGES</b></a>
+          <p style="color:var(--ash-2); max-width:34ch; margin-top:18px">La bottega del LARP e della rievocazione. Acciaio, cuoio e fuoco dal 2009, sul campo come in scena.</p>
+        </div>
+        <div><h5>Negozio</h5><ul><li><a href="negozio.html">Armi LARP</a></li><li><a href="negozio.html">Spade da combattimento</a></li><li><a href="negozio.html">Armature & maglia</a></li><li><a href="negozio.html">Abiti storici</a></li><li><a href="negozio.html">Arceria</a></li></ul></div>
+        <div><h5>La bottega</h5><ul><li><a href="chi-siamo.html">Chi siamo</a></li><li><a href="index.html#metodo">La forgia</a></li><li><a href="contatti.html">Su misura</a></li><li><a href="contatti.html">Contatti</a></li></ul></div>
+        <div><h5>Aiuto</h5><ul><li><a href="contatti.html">Spedizioni & resi</a></li><li><a href="contatti.html">Guida alle taglie</a></li><li><a href="contatti.html">Sicurezza LARP</a></li><li><a href="carrello.html">Pagamenti</a></li></ul></div>
+      </div>
+      <div class="foot__bar">
+        <span>&copy; 2026 REGES di Reges S.r.l. &middot; P.IVA 0000000000</span>
+        <span>Acciaio · Cuoio · Fuoco</span>
+      </div>
+    </div>
+  </footer>
+
+<script src="app.js" defer></script>
+</body>
+</html>

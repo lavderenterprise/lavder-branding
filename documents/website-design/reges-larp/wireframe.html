@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="it">
+<!-- REGES (redesign) · WIREFRAME · low-fi, navigable across all 6 pages. Mirrors the built sections. -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wireframe · REGES</title>
+  <style>
+    :root{ --g:#9aa0a6; --d:#5f6368; --l:#e3e5e8; --bg:#f4f5f6; --ink:#3a3c40; --dark:#33312e; }
+    *{ box-sizing:border-box; margin:0; }
+    body{ font-family:ui-monospace,"SF Mono",Menlo,monospace; background:var(--bg); color:var(--d); line-height:1.5; }
+    .wfbar{ position:sticky; top:0; z-index:10; background:#fff; border-bottom:1px solid var(--l); display:flex; align-items:center; gap:10px; padding:12px 18px; flex-wrap:wrap; }
+    .wfbar h1{ font-size:14px; color:var(--ink); margin-right:6px; }
+    .tab{ font-size:12px; color:var(--d); border:1px solid var(--g); border-radius:6px; padding:6px 12px; background:#fff; cursor:pointer; }
+    .tab[aria-selected=true]{ background:var(--ink); color:#fff; border-color:var(--ink); }
+    .wfbar a{ font-size:12px; color:var(--d); border:1px solid var(--g); border-radius:6px; padding:6px 12px; text-decoration:none; margin-left:auto; }
+    .note{ font-size:11px; color:var(--g); width:100%; }
+    .sheet{ max-width:1080px; margin:24px auto 70px; padding:0 16px; }
+    .meta{ font-size:11px; color:var(--g); margin-bottom:14px; }
+    .meta b{ color:var(--ink); }
+    .blk{ position:relative; background:#fff; border:1.5px dashed var(--g); border-radius:7px; padding:14px; margin-bottom:12px; }
+    .blk--soft{ background:#fbfaf8; }
+    .blk--dark{ background:var(--dark); border-color:#5b574f; }
+    .lab{ position:relative; z-index:3; display:block; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink); font-weight:700; margin-bottom:10px; }
+    .blk--dark .lab{ color:#f0eee9; }
+    .bar{ height:9px; background:var(--l); border-radius:3px; margin:6px 0; }
+    .blk--dark .bar{ background:#56524b; }
+    .bar.w70{ width:70%; } .bar.w50{ width:50%; } .bar.w40{ width:40%; } .bar.w30{ width:30%; } .bar.w85{ width:85%; }
+    .ph{ background:repeating-linear-gradient(45deg,#eceef0,#eceef0 7px,#f6f7f8 7px,#f6f7f8 14px); border:1px solid var(--l); border-radius:5px; display:grid; place-items:center; font-size:10px; color:var(--g); min-height:60px; text-align:center; padding:4px; }
+    .ph.tall{ min-height:150px; }
+    .blk--dark .ph{ background:repeating-linear-gradient(45deg,#46433d,#46433d 7px,#3c3935 7px,#3c3935 14px); border-color:#5b574f; color:#cccac4; }
+    .row{ display:grid; gap:10px; }
+    .r2{ grid-template-columns:1fr 1fr; } .r3{ grid-template-columns:repeat(3,1fr); } .r4{ grid-template-columns:repeat(4,1fr); } .r5{ grid-template-columns:repeat(5,1fr); }
+    .split{ display:grid; grid-template-columns:1fr 1fr; gap:12px; align-items:center; }
+    .split.rev .ph{ order:2; }
+    .pill{ display:inline-block; font-size:10px; border:1px solid var(--g); border-radius:99px; padding:2px 9px; margin:2px 3px 2px 0; color:var(--d); }
+    .scrollmark{ font-size:10px; color:var(--g); text-align:right; }
+    @media(max-width:720px){ .r4,.r5{ grid-template-columns:repeat(2,1fr);} .split{ grid-template-columns:1fr;} .split.rev .ph{ order:0;} }
+    .page{ display:none; } .page.on{ display:block; }
+    .legend{ margin-top:22px; border-top:1px solid var(--l); padding-top:16px; font-size:11px; }
+    .legend b{ color:var(--ink); }
+  </style>
+</head>
+<body>
+  <div class="wfbar">
+    <h1>WIREFRAME · REGES</h1>
+    <button class="tab" data-tab="home" aria-selected="true">Home</button>
+    <button class="tab" data-tab="negozio" aria-selected="false">Negozio</button>
+    <button class="tab" data-tab="prodotto" aria-selected="false">Prodotto</button>
+    <button class="tab" data-tab="chisiamo" aria-selected="false">Chi siamo</button>
+    <button class="tab" data-tab="contatti" aria-selected="false">Contatti</button>
+    <button class="tab" data-tab="carrello" aria-selected="false">Carrello</button>
+    <a href="sitemap.html">&rarr; Sitemap</a>
+    <span class="note">low-fi · e-commerce (LARP / storico) · ogni pagina rispecchia le sezioni reali · hi-fi: index.html</span>
+  </div>
+
+  <div class="sheet">
+
+    <!-- HOME -->
+    <section class="page on" data-page="home">
+      <div class="meta"><b>Pagina:</b> Home · <b>Archetipo:</b> e-commerce · <b>Tier:</b> 3 · 10 sezioni + footer</div>
+      <div class="blk"><span class="lab">Nav sticky</span><div class="row" style="grid-template-columns:auto 1fr auto;align-items:center"><span class="pill">logo REGES</span><div style="text-align:center"><span class="pill">Negozio</span><span class="pill">La forgia</span><span class="pill">Mondi</span><span class="pill">La bottega</span><span class="pill">Contatti</span></div><span class="pill">IT/EN · cerca · carrello · Prenota</span></div></div>
+      <div class="blk"><span class="lab">Hero · split (testo SINISTRA + forge-plate DESTRA)</span><div class="split"><div><div class="bar w40"></div><div class="bar w85" style="height:20px"></div><div class="bar w70"></div><span class="pill">Esplora il banco</span><span class="pill">Su misura</span></div><div class="ph tall">forge-plate (prodotto in evidenza)</div></div></div>
+      <div class="blk--dark blk"><span class="lab">Category rail · full-bleed · h-scroll [device]</span><div class="row r5"><div class="ph">Armi</div><div class="ph">Armature</div><div class="ph">Abiti</div><div class="ph">Cuoio</div><div class="ph">Arceria &rarr;</div></div><div class="scrollmark" style="color:#aaa">&larr; trascina · frecce &rarr;</div></div>
+      <div class="blk--soft blk"><span class="lab">Manifesto · pull-quote</span><div class="bar w85"></div><div class="bar w70"></div><div class="bar w50"></div></div>
+      <div class="blk"><span class="lab">Bestseller · grid 4</span><div class="row r4"><div class="ph tall">card+badge</div><div class="ph tall">card</div><div class="ph tall">card</div><div class="ph tall">card</div></div></div>
+      <div class="blk--dark blk"><span class="lab">Forge band · full-bleed (titolo + claim + CTA su immagine)</span><div style="max-width:55%"><div class="bar w70"></div><div class="bar w50"></div><span class="pill" style="color:#eee;border-color:#777">Il metodo</span></div></div>
+      <div class="blk"><span class="lab">Metodo · 4 step</span><div class="row r4"><div class="ph">01 disegno</div><div class="ph">02 forgia</div><div class="ph">03 tempra</div><div class="ph">04 finitura</div></div></div>
+      <div class="blk"><span class="lab">Garanzie · grid variata (feature completa la riga)</span><div class="row" style="grid-template-columns:1.4fr 1fr 1fr"><div class="ph" style="grid-row:span 2;min-height:130px">feature</div><div class="ph">·</div><div class="ph">·</div><div class="ph">·</div><div class="ph">·</div></div></div>
+      <div class="blk--soft blk"><span class="lab">Collezioni · 3 tile (mondi)</span><div class="row r3"><div class="ph tall">LARP</div><div class="ph tall">Rievocazione</div><div class="ph tall">Fantasy</div></div></div>
+      <div class="blk"><span class="lab">Recensioni · 3</span><div class="row r3"><div class="ph">&#9733; quote</div><div class="ph">&#9733; quote</div><div class="ph">&#9733; quote</div></div></div>
+      <div class="blk--dark blk"><span class="lab">Newsletter</span><div class="row" style="grid-template-columns:1fr auto"><div class="bar w70"></div><span class="pill" style="color:#eee;border-color:#777">Iscriviti</span></div></div>
+      <div class="blk"><span class="lab">Footer</span><div class="row" style="grid-template-columns:1.6fr 1fr 1fr 1fr"><div class="ph">brand</div><div class="ph">col</div><div class="ph">col</div><div class="ph">col</div></div></div>
+    </section>
+
+    <!-- NEGOZIO -->
+    <section class="page" data-page="negozio">
+      <div class="meta"><b>Pagina:</b> Negozio (shop / categoria) · <b>Tier:</b> 3 · 6 sezioni + footer</div>
+      <div class="blk"><span class="lab">Nav sticky</span><div class="bar w40"></div></div>
+      <div class="blk"><span class="lab">Shop head</span><div class="note" style="width:auto">breadcrumb · titolo &laquo;Tutto il banco&raquo; · conteggio (743 pezzi)</div><div class="bar w50"></div></div>
+      <div class="blk--soft blk"><span class="lab">Toolbar · filter chips + sort</span><span class="pill">Tutto</span><span class="pill">Armi</span><span class="pill">Armature</span><span class="pill">Abiti</span><span class="pill">Cuoio</span><span class="pill">Arceria</span><span class="pill">Accampamento</span><span class="pill" style="margin-left:auto">ordina &#9662;</span></div>
+      <div class="blk"><span class="lab">Product grid · 12 (4 col, tile pulito)</span><div class="row r4"><div class="ph tall">·</div><div class="ph tall">·</div><div class="ph tall">·</div><div class="ph tall">·</div><div class="ph tall">·</div><div class="ph tall">·</div><div class="ph tall">·</div><div class="ph tall">·</div><div class="ph tall">·</div><div class="ph tall">·</div><div class="ph tall">·</div><div class="ph tall">·</div></div></div>
+      <div class="blk"><span class="lab">Pager · carica altri pezzi</span><div style="text-align:center"><span class="pill">Carica altri</span></div></div>
+      <div class="blk--dark blk"><span class="lab">Su misura · band full-bleed</span><div class="bar w50"></div><span class="pill" style="color:#eee;border-color:#777">Richiedi</span></div>
+      <div class="blk"><span class="lab">Garanzie · grid variata</span><div class="row" style="grid-template-columns:1.4fr 1fr 1fr"><div class="ph" style="grid-row:span 2;min-height:120px">feature</div><div class="ph">·</div><div class="ph">·</div><div class="ph">·</div><div class="ph">·</div></div></div>
+      <div class="blk"><span class="lab">Footer</span><div class="bar w85"></div></div>
+    </section>
+
+    <!-- PRODOTTO -->
+    <section class="page" data-page="prodotto">
+      <div class="meta"><b>Pagina:</b> Prodotto (PDP) · accesso da Negozio · <b>Tier:</b> 3 · 6 sezioni + footer</div>
+      <div class="blk"><span class="lab">Nav sticky</span><div class="bar w40"></div></div>
+      <div class="blk"><span class="lab">PDP · gallery (SINISTRA) + colonna acquisto (DESTRA)</span><div class="split"><div><div class="ph tall">gallery</div><div class="row r4" style="margin-top:8px"><div class="ph" style="min-height:46px">·</div><div class="ph" style="min-height:46px">·</div><div class="ph" style="min-height:46px">·</div><div class="ph" style="min-height:46px">·</div></div></div><div><div class="bar w50"></div><div class="bar w85" style="height:18px"></div><div class="bar w30"></div><span class="pill">var. A</span><span class="pill">var. B</span><div class="row" style="grid-template-columns:auto 1fr;margin-top:8px"><span class="pill">qty</span><span class="pill" style="background:#eee">&#9733; Aggiungi al carrello</span></div><div class="note" style="width:auto">micro-reassurance</div></div></div></div>
+      <div class="blk--soft blk"><span class="lab">Scheda tecnica · coppie chiave/valore</span><div class="row r2"><div class="ph" style="min-height:40px">·</div><div class="ph" style="min-height:40px">·</div><div class="ph" style="min-height:40px">·</div><div class="ph" style="min-height:40px">·</div></div></div>
+      <div class="blk"><span class="lab">Descrizione + craft · split (testo + plate)</span><div class="split rev"><div class="ph tall">plate</div><div><div class="bar w85"></div><div class="bar w70"></div><div class="bar w50"></div></div></div></div>
+      <div class="blk--dark blk"><span class="lab">Band · battle-ready · full-bleed</span><div class="bar w50"></div></div>
+      <div class="blk"><span class="lab">Correlati · 4</span><div class="row r4"><div class="ph tall">·</div><div class="ph tall">·</div><div class="ph tall">·</div><div class="ph tall">·</div></div></div>
+      <div class="blk"><span class="lab">Recensioni · 3</span><div class="row r3"><div class="ph">&#9733;</div><div class="ph">&#9733;</div><div class="ph">&#9733;</div></div></div>
+      <div class="blk"><span class="lab">Footer</span><div class="bar w85"></div></div>
+    </section>
+
+    <!-- CHI SIAMO -->
+    <section class="page" data-page="chisiamo">
+      <div class="meta"><b>Pagina:</b> Chi siamo (La bottega) · <b>Tier:</b> 3 · 7 sezioni + footer</div>
+      <div class="blk"><span class="lab">Nav sticky</span><div class="bar w40"></div></div>
+      <div class="blk--dark blk"><span class="lab">Hero · titolo grande + glow/embers</span><div class="bar w70" style="height:22px"></div><div class="bar w40"></div></div>
+      <div class="blk"><span class="lab">Storia · split prosa (testo + immagine)</span><div class="split"><div><div class="bar w85"></div><div class="bar w70"></div><div class="bar w50"></div></div><div class="ph tall">officina</div></div></div>
+      <div class="blk--soft blk"><span class="lab">I maestri · 3</span><div class="row r3"><div class="ph tall">ritratto scena</div><div class="ph tall">ritratto scena</div><div class="ph tall">ritratto scena</div></div></div>
+      <div class="blk"><span class="lab">Valori · grid variata</span><div class="row" style="grid-template-columns:1.4fr 1fr 1fr"><div class="ph" style="grid-row:span 2;min-height:120px">feature</div><div class="ph">·</div><div class="ph">·</div><div class="ph">·</div><div class="ph">·</div></div></div>
+      <div class="blk"><span class="lab">Timeline</span><div class="bar w85"></div><div class="bar w70"></div><div class="bar w50"></div></div>
+      <div class="blk--dark blk"><span class="lab">Gallery · band full-bleed (8)</span><div class="row r4"><div class="ph">·</div><div class="ph">·</div><div class="ph">·</div><div class="ph">·</div></div></div>
+      <div class="blk"><span class="lab">CTA</span><div style="text-align:center"><span class="pill">Visita la bottega</span></div></div>
+      <div class="blk"><span class="lab">Footer</span><div class="bar w85"></div></div>
+    </section>
+
+    <!-- CONTATTI -->
+    <section class="page" data-page="contatti">
+      <div class="meta"><b>Pagina:</b> Contatti (+ su misura) · <b>Tier:</b> 3 · 5 sezioni + footer</div>
+      <div class="blk"><span class="lab">Nav sticky</span><div class="bar w40"></div></div>
+      <div class="blk"><span class="lab">Head · titolo</span><div class="bar w50" style="height:20px"></div></div>
+      <div class="blk"><span class="lab">Form (SINISTRA) + info (DESTRA) · split</span><div class="split"><div><div class="bar w85"></div><div class="bar w85"></div><div class="ph" style="min-height:80px">messaggio</div><span class="pill" style="background:#eee">Invia richiesta</span></div><div><div class="note" style="width:auto">indirizzo · orari · telefono · email</div><div class="ph" style="min-height:120px">mappa</div></div></div></div>
+      <div class="blk--soft blk"><span class="lab">FAQ · accordion (+/&times;)</span><div class="bar w85"></div><div class="bar w70"></div><div class="bar w85"></div></div>
+      <div class="blk--dark blk"><span class="lab">Band · su misura · full-bleed</span><div class="bar w50"></div></div>
+      <div class="blk"><span class="lab">Footer</span><div class="bar w85"></div></div>
+    </section>
+
+    <!-- CARRELLO -->
+    <section class="page" data-page="carrello">
+      <div class="meta"><b>Pagina:</b> Carrello (checkout step 1/3) · <b>Tier:</b> 3 · 4 sezioni + footer</div>
+      <div class="blk"><span class="lab">Nav sticky</span><div class="bar w40"></div></div>
+      <div class="blk"><span class="lab">Head + step bar</span><span class="pill">1 Carrello</span><span class="pill">2 Spedizione</span><span class="pill">3 Pagamento</span></div>
+      <div class="blk"><span class="lab">Articoli (SINISTRA) + riepilogo sticky (DESTRA) · split</span><div class="split" style="grid-template-columns:1.6fr .9fr;align-items:start"><div><div class="row" style="grid-template-columns:90px 1fr auto"><div class="ph" style="min-height:80px">img</div><div class="ph" style="min-height:80px">nome + opzioni</div><div class="ph" style="min-height:80px">qty + prezzo</div></div><div class="row" style="grid-template-columns:90px 1fr auto;margin-top:8px"><div class="ph" style="min-height:80px">img</div><div class="ph" style="min-height:80px">nome + opzioni</div><div class="ph" style="min-height:80px">qty + prezzo</div></div></div><div class="ph" style="min-height:200px">riepilogo + &#9733; checkout</div></div></div>
+      <div class="blk"><span class="lab">Garanzie · grid variata</span><div class="row" style="grid-template-columns:1.4fr 1fr 1fr"><div class="ph" style="grid-row:span 2;min-height:120px">feature</div><div class="ph">·</div><div class="ph">·</div><div class="ph">·</div><div class="ph">·</div></div></div>
+      <div class="blk--soft blk"><span class="lab">Cross-sell · 4</span><div class="row r4"><div class="ph tall">·</div><div class="ph tall">·</div><div class="ph tall">·</div><div class="ph tall">·</div></div></div>
+      <div class="blk"><span class="lab">Footer</span><div class="bar w85"></div></div>
+    </section>
+
+    <div class="legend">
+      <span><b>Legenda:</b> blocco tratteggiato = sezione · barre = testo · &#9633; tratteggiato = immagine · pill = controllo/etichetta · fondo scuro = banda full-bleed</span>
+      <span><b>Nota:</b> low-fi volutamente senza colori, font o immagini del progetto: questo &egrave; il gate strutturale, l'hi-fi &egrave; in index.html.</span>
+    </div>
+
+  </div>
+
+  <script>
+    var bar = document.querySelector('.wfbar');
+    bar.addEventListener('click', function(e){
+      var t = e.target.closest('.tab'); if(!t) return;
+      bar.querySelectorAll('.tab').forEach(function(x){ x.setAttribute('aria-selected', x===t ? 'true':'false'); });
+      document.querySelectorAll('.page').forEach(function(p){ p.classList.toggle('on', p.dataset.page===t.dataset.tab); });
+      scrollTo(0,0);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Negozio · REGES</title>
+<meta name="description" content="Il catalogo REGES: armi, armature, abiti e accessori per LARP e rievocazione. Battle-ready, fatti a mano." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:opsz,wght@10..72,500;10..72,700;10..72,800&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .shop-head{ padding:150px 0 0; }
+  .crumb{ font-family:var(--mono); font-size:14px; letter-spacing:.1em; text-transform:uppercase; color:var(--ash-dim); }
+  .crumb a:hover{ color:var(--brass-2); }
+  .shop-title{ display:flex; align-items:flex-end; justify-content:space-between; gap:30px; flex-wrap:wrap; margin-top:22px; }
+  .pcount{ font-family:var(--mono); font-size:16px; color:var(--ash-2); }
+  .pcount b{ color:var(--ember-2); }
+  .toolbar{ display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; margin:40px 0 34px; }
+  .chips{ display:flex; gap:10px; flex-wrap:wrap; }
+  .chip{ font-family:var(--mono); font-size:14px; letter-spacing:.06em; text-transform:uppercase; color:var(--ash-2); background:var(--panel); border:0; padding:13px 22px; cursor:pointer; transition:transform .3s var(--heat), color .3s, background .3s; }
+  .chip:hover{ color:var(--ash); transform:translateY(-2px); }
+  .chip[aria-pressed="true"]{ background:linear-gradient(180deg,var(--ember-2),var(--ember)); color:#160B05; }
+  .sort{ font-family:var(--mono); font-size:14px; color:var(--ash); background:var(--panel); border:0; padding:13px 18px; cursor:pointer; }
+  .sort:focus-visible{ outline:2px solid var(--ember); outline-offset:2px; }
+  .grid-shop{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; }
+  @media(max-width:1080px){ .grid-shop{ grid-template-columns:repeat(2,1fr); } }
+  @media(max-width:520px){ .grid-shop{ grid-template-columns:1fr; } }
+  .pager{ display:flex; justify-content:center; margin-top:54px; }
+</style>
+</head>
+<body>
+
+  <header class="nav solid" id="nav">
+    <a class="brand" href="index.html" aria-label="REGES home"><b class="disp">REGES</b><span class="tag">Bottega del Larp<br/>e rievocazione</span></a>
+    <nav class="nav__l">
+      <a href="negozio.html" class="on">Negozio</a>
+      <a href="index.html#metodo">La forgia</a>
+      <a href="index.html#collezioni">Mondi</a>
+      <a href="chi-siamo.html">La bottega</a>
+      <a href="contatti.html">Contatti</a>
+    </nav>
+    <div class="nav__r"><span class="lang">IT / <a href="#" style="color:var(--ash-dim)">EN</a></span><a class="cart" href="carrello.html">Carrello <b>(0)</b></a></div>
+    <button class="menu-btn" aria-label="Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  </header>
+
+  <main>
+    <!-- SHOP HEAD -->
+    <section class="shop-head">
+      <div class="wrap wide">
+        <div class="crumb reveal"><a href="index.html">Home</a> / Negozio</div>
+        <div class="shop-title reveal">
+          <div><h1 class="h2" style="margin-top:14px">Tutto<br/>il banco</h1></div>
+          <p class="lead">Acciaio, cuoio e tela per chi scende davvero in campo. <b class="pcount"><b>743</b> pezzi forgiati e selezionati.</b></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOOLBAR : filter chips (new control) + sort -->
+    <section style="padding-top:30px">
+      <div class="wrap wide">
+        <div class="toolbar reveal" data-filter>
+          <div class="chips" role="group" aria-label="Filtra per reparto">
+            <button class="chip" aria-pressed="true" data-cat="all">Tutto</button>
+            <button class="chip" aria-pressed="false" data-cat="armi">Armi</button>
+            <button class="chip" aria-pressed="false" data-cat="armature">Armature</button>
+            <button class="chip" aria-pressed="false" data-cat="abiti">Abiti</button>
+            <button class="chip" aria-pressed="false" data-cat="cuoio">Cuoio</button>
+            <button class="chip" aria-pressed="false" data-cat="arceria">Arceria</button>
+            <button class="chip" aria-pressed="false" data-cat="accampamento">Accampamento</button>
+          </div>
+          <select class="sort" aria-label="Ordina">
+            <option>Ordina: rilevanza</option><option>Prezzo crescente</option><option>Prezzo decrescente</option><option>Novità</option>
+          </select>
+        </div>
+
+        <!-- PRODUCT GRID -->
+        <div class="grid-shop" data-grid>
+          <a class="pcard reveal" href="prodotto.html" data-cat="armi"><div class="pcard__img"><span class="blade"></span><span class="edge"></span></div><span class="tagline">In offerta</span><div class="pcard__b"><span class="cat">Spade a una mano</span><h3 class="disp">Spada "Tinker"</h3><div class="row"><span class="pr"><s>395&euro;</s>345&euro;</span><span class="sku">SKU 1004</span></div></div></a>
+          <a class="pcard reveal" href="prodotto.html" data-cat="armi"><div class="pcard__img"><span class="blade"></span><span class="edge"></span></div><span class="tagline muted">Battle-ready</span><div class="pcard__b"><span class="cat">Asce & mazze</span><h3 class="disp">Ascia "Fenrir"</h3><div class="row"><span class="pr">74&euro;</span><span class="sku">SKU 2218</span></div></div></a>
+          <a class="pcard reveal" href="prodotto.html" data-cat="armature"><div class="pcard__img"><span class="blade" style="width:42%;clip-path:none;border-radius:50%/40%"></span><span class="edge"></span></div><span class="tagline muted">Fatto a mano</span><div class="pcard__b"><span class="cat">Cotte di maglia</span><h3 class="disp">Cotta rivettata</h3><div class="row"><span class="pr">289&euro;</span><span class="sku">SKU 3007</span></div></div></a>
+          <a class="pcard reveal" href="prodotto.html" data-cat="armature"><div class="pcard__img"><span class="blade" style="width:38%"></span><span class="edge"></span></div><span class="tagline">Novità</span><div class="pcard__b"><span class="cat">Protezioni</span><h3 class="disp">Gambeson "Custode"</h3><div class="row"><span class="pr">139&euro;</span><span class="sku">SKU 4101</span></div></div></a>
+          <a class="pcard reveal" href="prodotto.html" data-cat="armi"><div class="pcard__img"><span class="blade"></span><span class="edge"></span></div><span class="tagline muted">Battle-ready</span><div class="pcard__b"><span class="cat">Spade lunghe</span><h3 class="disp">Spada "Aldaren"</h3><div class="row"><span class="pr">189&euro;</span><span class="sku">SKU 1019</span></div></div></a>
+          <a class="pcard reveal" href="prodotto.html" data-cat="armature"><div class="pcard__img"><span class="blade" style="width:50%;clip-path:none;border-radius:46% 46% 50% 50%/60% 60% 40% 40%"></span><span class="edge"></span></div><span class="tagline muted">Acciaio</span><div class="pcard__b"><span class="cat">Scudi</span><h3 class="disp">Brocchiero d'acciaio</h3><div class="row"><span class="pr">59&euro;</span><span class="sku">SKU 5003</span></div></div></a>
+          <a class="pcard reveal" href="prodotto.html" data-cat="armature"><div class="pcard__img"><span class="blade" style="width:40%;clip-path:none;border-radius:50% 50% 44% 44%/70% 70% 30% 30%"></span><span class="edge"></span></div><span class="tagline muted">Storico</span><div class="pcard__b"><span class="cat">Elmi</span><h3 class="disp">Elmo a calotta</h3><div class="row"><span class="pr">165&euro;</span><span class="sku">SKU 5210</span></div></div></a>
+          <a class="pcard reveal" href="prodotto.html" data-cat="cuoio"><div class="pcard__img"><span class="blade" style="width:46%;clip-path:none;border-radius:6px"></span><span class="edge"></span></div><span class="tagline muted">Pieno fiore</span><div class="pcard__b"><span class="cat">Cuoio</span><h3 class="disp">Bracciali in cuoio</h3><div class="row"><span class="pr">49&euro;</span><span class="sku">SKU 6011</span></div></div></a>
+          <a class="pcard reveal" href="prodotto.html" data-cat="arceria"><div class="pcard__img"><span class="blade" style="width:14%;height:74%"></span><span class="edge"></span></div><span class="tagline">In offerta</span><div class="pcard__b"><span class="cat">Arceria</span><h3 class="disp">Arco lungo storico</h3><div class="row"><span class="pr"><s>159&euro;</s>128&euro;</span><span class="sku">SKU 7002</span></div></div></a>
+          <a class="pcard reveal" href="prodotto.html" data-cat="abiti"><div class="pcard__img"><span class="blade" style="width:54%;clip-path:none;border-radius:8px 8px 40% 40%"></span><span class="edge"></span></div><span class="tagline muted">Lana</span><div class="pcard__b"><span class="cat">Abiti storici</span><h3 class="disp">Mantello "Corvo"</h3><div class="row"><span class="pr">95&euro;</span><span class="sku">SKU 8040</span></div></div></a>
+          <a class="pcard reveal" href="prodotto.html" data-cat="armi"><div class="pcard__img"><span class="blade" style="width:16%"></span><span class="edge"></span></div><span class="tagline muted">Da cintura</span><div class="pcard__b"><span class="cat">Lame corte</span><h3 class="disp">Pugnale "Sicario"</h3><div class="row"><span class="pr">54&euro;</span><span class="sku">SKU 1133</span></div></div></a>
+          <a class="pcard reveal" href="prodotto.html" data-cat="accampamento"><div class="pcard__img"><span class="blade" style="width:62%;height:50%;top:24%;clip-path:polygon(50% 0,100% 100%,0 100%)"></span><span class="edge"></span></div><span class="tagline">Novità</span><div class="pcard__b"><span class="cat">Accampamento</span><h3 class="disp">Tenda 3x3 "Herold"</h3><div class="row"><span class="pr">420&euro;</span><span class="sku">SKU 9001</span></div></div></a>
+        </div>
+
+        <div class="pager reveal"><button class="btn-forge ghost" type="button"><span>Carica altri pezzi</span></button></div>
+      </div>
+    </section>
+
+    <!-- SU MISURA BAND (break container) -->
+    <section class="band" style="min-height:60vh; margin-top:clamp(70px,9vw,120px)">
+      <div class="embers" aria-hidden="true"></div>
+      <div class="wrap wide band__in reveal">
+                <h2 class="disp">Lo <em>forgiamo</em><br/>per te.</h2>
+        <p>Lame, foderi, armature e abiti su misura. Mandaci il riferimento o il personaggio: ti rispondiamo entro due giorni con bozza e preventivo.</p>
+        <div style="margin-top:32px"><a class="btn-forge" href="contatti.html"><span>Chiedi un su misura</span></a></div>
+      </div>
+    </section>
+
+    <!-- REASSURANCE -->
+    <section class="sec">
+      <div class="wrap wide">
+        <div class="promesse reveal">
+          <div class="pro big"><div><span class="k">La promessa</span><h4 class="disp">Se cede in<br/>campo, lo<br/>rifacciamo.</h4></div><p>Due anni di garanzia bottega sulla tenuta strutturale di lame e armature da combattimento.</p></div>
+          <div class="pro"><span class="k">Spedizione</span><h4 class="disp">In 48&minus;72h</h4><p>Tracciata in tutta Europa, reso entro 30 giorni.</p></div>
+          <div class="pro"><span class="k">Pagamenti</span><h4 class="disp">Sicuri</h4><p>Carte, PayPal e bonifico. Rate disponibili sopra 150&euro;.</p></div>
+          <div class="pro"><span class="k">Sicurezza</span><h4 class="disp">A norma</h4><p>Armi LARP testate e marcate per il colpo.</p></div>
+          <div class="pro"><span class="k">Consiglio</span><h4 class="disp">Da chi gioca</h4><p>Scrivici: in bottega ci sono LARPer e rievocatori.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap wide">
+      <div class="foot__grid">
+        <div><a class="brand" href="index.html"><b class="disp">REGES</b></a><p style="color:var(--ash-2); max-width:34ch; margin-top:18px">La bottega del LARP e della rievocazione. Acciaio, cuoio e fuoco dal 2009, sul campo come in scena.</p></div>
+        <div><h5>Negozio</h5><ul><li><a href="negozio.html">Armi LARP</a></li><li><a href="negozio.html">Spade da combattimento</a></li><li><a href="negozio.html">Armature & maglia</a></li><li><a href="negozio.html">Abiti storici</a></li><li><a href="negozio.html">Arceria</a></li></ul></div>
+        <div><h5>La bottega</h5><ul><li><a href="chi-siamo.html">Chi siamo</a></li><li><a href="index.html#metodo">La forgia</a></li><li><a href="contatti.html">Su misura</a></li><li><a href="contatti.html">Contatti</a></li></ul></div>
+        <div><h5>Aiuto</h5><ul><li><a href="contatti.html">Spedizioni & resi</a></li><li><a href="contatti.html">Guida alle taglie</a></li><li><a href="contatti.html">Sicurezza LARP</a></li><li><a href="carrello.html">Pagamenti</a></li></ul></div>
+      </div>
+      <div class="foot__bar"><span>&copy; 2026 REGES di Reges S.r.l. &middot; P.IVA 0000000000</span><span>Acciaio · Cuoio · Fuoco</span></div>
+    </div>
+  </footer>
+
+<script src="app.js" defer></script>
+<script>
+  // filter chips
+  document.querySelectorAll('[data-filter]').forEach(function(bar){
+    var grid=document.querySelector('[data-grid]');
+    bar.querySelectorAll('.chip').forEach(function(c){ c.addEventListener('click',function(){
+      bar.querySelectorAll('.chip').forEach(function(x){ x.setAttribute('aria-pressed', String(x===c)); });
+      var cat=c.dataset.cat;
+      grid.querySelectorAll('.pcard').forEach(function(p){ p.style.display=(cat==='all'||p.dataset.cat===cat)?'':'none'; });
+    }); });
+  });
+</script>
+</body>
+</html>
