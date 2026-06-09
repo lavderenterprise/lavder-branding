@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="it">
+<!-- ETRURIA RETAIL (redesign) · WIREFRAME · low-fi, navigable across all 7 pages. Mirrors the built sections. -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wireframe · Etruria Retail</title>
+  <style>
+    :root{ --g:#9aa0a6; --d:#5f6368; --l:#e3e5e8; --bg:#f4f5f6; --ink:#3a3c40; --dark:#33312e; }
+    *{ box-sizing:border-box; margin:0; }
+    body{ font-family:ui-monospace,"SF Mono",Menlo,monospace; background:var(--bg); color:var(--d); line-height:1.5; }
+    .wfbar{ position:sticky; top:0; z-index:10; background:#fff; border-bottom:1px solid var(--l); display:flex; align-items:center; gap:10px; padding:12px 18px; flex-wrap:wrap; }
+    .wfbar h1{ font-size:14px; color:var(--ink); margin-right:6px; }
+    .tab{ font-size:12px; color:var(--d); border:1px solid var(--g); border-radius:6px; padding:6px 12px; background:#fff; cursor:pointer; }
+    .tab[aria-selected=true]{ background:var(--ink); color:#fff; border-color:var(--ink); }
+    .wfbar a{ font-size:12px; color:var(--d); border:1px solid var(--g); border-radius:6px; padding:6px 12px; text-decoration:none; margin-left:auto; }
+    .note{ font-size:11px; color:var(--g); width:100%; }
+    .sheet{ max-width:1080px; margin:24px auto 70px; padding:0 16px; }
+    .meta{ font-size:11px; color:var(--g); margin-bottom:14px; }
+    .meta b{ color:var(--ink); }
+    .blk{ position:relative; background:#fff; border:1.5px dashed var(--g); border-radius:7px; padding:14px; margin-bottom:12px; }
+    .blk--soft{ background:#fbfaf8; }
+    .blk--dark{ background:var(--dark); border-color:#5b574f; }
+    .lab{ position:relative; z-index:3; display:block; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink); font-weight:700; margin-bottom:10px; }
+    .blk--dark .lab{ color:#f0eee9; }
+    .bar{ height:9px; background:var(--l); border-radius:3px; margin:6px 0; }
+    .blk--dark .bar{ background:#56524b; }
+    .bar.w70{ width:70%; } .bar.w50{ width:50%; } .bar.w40{ width:40%; } .bar.w30{ width:30%; } .bar.w85{ width:85%; }
+    .ph{ background:repeating-linear-gradient(45deg,#eceef0,#eceef0 7px,#f6f7f8 7px,#f6f7f8 14px); border:1px solid var(--l); border-radius:5px; display:grid; place-items:center; font-size:10px; color:var(--g); min-height:60px; text-align:center; padding:4px; }
+    .ph.tall{ min-height:150px; }
+    .blk--dark .ph{ background:repeating-linear-gradient(45deg,#46433d,#46433d 7px,#3c3935 7px,#3c3935 14px); border-color:#5b574f; color:#cccac4; }
+    .row{ display:grid; gap:10px; }
+    .r2{ grid-template-columns:1fr 1fr; } .r3{ grid-template-columns:repeat(3,1fr); } .r4{ grid-template-columns:repeat(4,1fr); } .r6{ grid-template-columns:repeat(6,1fr); }
+    .split{ display:grid; grid-template-columns:1fr 1fr; gap:12px; align-items:center; }
+    .split.rev .ph{ order:2; }
+    .pill{ display:inline-block; font-size:10px; border:1px solid var(--g); border-radius:99px; padding:2px 9px; margin:2px 3px 2px 0; color:var(--d); }
+    .scrollmark{ font-size:10px; color:var(--g); text-align:right; }
+    @media(max-width:720px){ .r4,.r6{ grid-template-columns:repeat(2,1fr);} .split{ grid-template-columns:1fr;} .split.rev .ph{ order:0;} }
+    .page{ display:none; } .page.on{ display:block; }
+    .legend{ margin-top:22px; border-top:1px solid var(--l); padding-top:16px; font-size:11px; }
+    .legend b{ color:var(--ink); }
+  </style>
+</head>
+<body>
+  <div class="wfbar">
+    <h1>WIREFRAME · Etruria Retail</h1>
+    <button class="tab" data-tab="home" aria-selected="true">Home</button>
+    <button class="tab" data-tab="chisiamo" aria-selected="false">Chi siamo</button>
+    <button class="tab" data-tab="insegne" aria-selected="false">Insegne</button>
+    <button class="tab" data-tab="punti" aria-selected="false">Punti vendita</button>
+    <button class="tab" data-tab="sempre" aria-selected="false">Sempre con te</button>
+    <button class="tab" data-tab="franchising" aria-selected="false">Franchising</button>
+    <button class="tab" data-tab="contatti" aria-selected="false">Contatti</button>
+    <a href="sitemap.html">&rarr; Sitemap</a>
+    <span class="note">low-fi · corporate / gruppo retail · ogni pagina rispecchia le sezioni reali · hi-fi: index.html</span>
+  </div>
+
+  <div class="sheet">
+
+    <!-- HOME -->
+    <section class="page on" data-page="home">
+      <div class="meta"><b>Pagina:</b> Home · <b>Archetipo:</b> corporate · <b>Tier:</b> 3 · 9 sezioni + footer</div>
+      <div class="blk"><span class="lab">Utility bar + nav sticky</span><div class="row" style="grid-template-columns:1fr auto;align-items:center"><span class="note" style="width:auto">utility: trova negozio · carta fedeltà · lavora con noi · IT/EN</span><div><span class="pill">logo</span><span class="pill">Chi siamo</span><span class="pill">Insegne</span><span class="pill">Punti vendita</span><span class="pill">Sempre con te</span><span class="pill">Franchising</span></div></div></div>
+      <div class="blk"><span class="lab">Hero · split-shot (testo SINISTRA + immagine DESTRA)</span><div class="split"><div><div class="bar w40"></div><div class="bar w85" style="height:22px"></div><div class="bar w70"></div><span class="pill">Scopri il gruppo</span><span class="pill">Trova un negozio</span></div><div class="ph tall">campagna / territorio</div></div></div>
+      <div class="blk"><span class="lab">Manifesto + numeri</span><div class="bar w85"></div><div class="bar w70"></div><div class="row r4" style="margin-top:10px"><div class="ph">132 negozi</div><div class="ph">6 insegne</div><div class="ph">60 anni</div><div class="ph">N soci</div></div></div>
+      <div class="blk--soft blk"><span class="lab">Le nostre insegne · grid 6 (tile pulito)</span><div class="row r6"><div class="ph">Super</div><div class="ph">Store</div><div class="ph">Prox.</div><div class="ph">C&amp;C</div><div class="ph">Mercato</div><div class="ph">Marca</div></div></div>
+      <div class="blk"><span class="lab">Sapori di Etruria · mosaico (signature, griglia variata che tila)</span><div class="row" style="grid-template-columns:2fr 1fr 1fr"><div class="ph" style="grid-row:span 2;min-height:150px">feature territorio</div><div class="ph">prodotto</div><div class="ph">prodotto</div><div class="ph">prodotto</div><div class="ph">prodotto</div></div></div>
+      <div class="blk--dark blk"><span class="lab">Sole d'Etruria · land band · full-bleed</span><div style="max-width:55%"><div class="bar w70"></div><div class="bar w50"></div><span class="pill" style="color:#eee;border-color:#777">La filiera</span></div></div>
+      <div class="blk"><span class="lab">Punti vendita · locator (mappa + lista)</span><div class="split"><div class="ph tall">mappa</div><div><span class="pill" style="width:100%">cerca per città / CAP</span><div class="bar w85"></div><div class="bar w70"></div><div class="bar w85"></div></div></div></div>
+      <div class="blk--soft blk"><span class="lab">Sempre con te · loyalty (carta 3D + vantaggi)</span><div class="split rev"><div class="ph tall">carta fedeltà 3D</div><div><div class="bar w50"></div><div class="row r2"><div class="ph">vantaggio</div><div class="ph">vantaggio</div></div><span class="pill">Richiedi la carta</span></div></div></div>
+      <div class="blk"><span class="lab">Valori · grid variata</span><div class="row" style="grid-template-columns:1.4fr 1fr 1fr"><div class="ph" style="grid-row:span 2;min-height:120px">feature</div><div class="ph">·</div><div class="ph">·</div><div class="ph">·</div><div class="ph">·</div></div></div>
+      <div class="blk--dark blk"><span class="lab">Franchising · CTA band · full-bleed</span><div class="bar w50"></div><span class="pill" style="color:#eee;border-color:#777">Porta Etruria nella tua città</span></div>
+      <div class="blk"><span class="lab">Footer (robusto · istituzionale)</span><div class="row" style="grid-template-columns:1.6fr 1fr 1fr 1fr"><div class="ph">brand + P.IVA</div><div class="ph">gruppo</div><div class="ph">servizi</div><div class="ph">legali</div></div></div>
+    </section>
+
+    <!-- CHI SIAMO -->
+    <section class="page" data-page="chisiamo">
+      <div class="meta"><b>Pagina:</b> Chi siamo · <b>Tier:</b> 3 · 7 sezioni + footer</div>
+      <div class="blk"><span class="lab">Utility bar + nav</span><div class="bar w40"></div></div>
+      <div class="blk"><span class="lab">Hero · &laquo;Sessant'anni di terra e di persone&raquo;</span><div class="bar w70" style="height:22px"></div><div class="bar w40"></div></div>
+      <div class="blk"><span class="lab">La nostra storia · timeline</span><div class="row r4"><div class="ph">196x</div><div class="ph">198x</div><div class="ph">200x</div><div class="ph">oggi</div></div></div>
+      <div class="blk--soft blk"><span class="lab">Numeri</span><div class="row r4"><div class="ph">132</div><div class="ph">6</div><div class="ph">60</div><div class="ph">N</div></div></div>
+      <div class="blk"><span class="lab">Non un logo, un modo di stare · le insegne</span><div class="split"><div><div class="bar w85"></div><div class="bar w70"></div></div><div class="ph tall">insegne</div></div></div>
+      <div class="blk"><span class="lab">Quello in cui crediamo · valori (grid variata)</span><div class="row" style="grid-template-columns:1.4fr 1fr 1fr"><div class="ph" style="grid-row:span 2;min-height:120px">feature</div><div class="ph">·</div><div class="ph">·</div><div class="ph">·</div><div class="ph">·</div></div></div>
+      <div class="blk--dark blk"><span class="lab">Sostenibili perché vicini · band full-bleed</span><div class="bar w50"></div></div>
+      <div class="blk"><span class="lab">CTA · &laquo;Vuoi far parte della squadra?&raquo;</span><div style="text-align:center"><span class="pill">Lavora con noi</span><span class="pill">Franchising</span></div></div>
+      <div class="blk"><span class="lab">Footer</span><div class="bar w85"></div></div>
+    </section>
+
+    <!-- INSEGNE -->
+    <section class="page" data-page="insegne">
+      <div class="meta"><b>Pagina:</b> Insegne · <b>Tier:</b> 3 · 5 sezioni + footer</div>
+      <div class="blk"><span class="lab">Utility bar + nav</span><div class="bar w40"></div></div>
+      <div class="blk"><span class="lab">Hero · &laquo;Un formato per ogni territorio&raquo;</span><div class="bar w70" style="height:22px"></div><div class="bar w50"></div></div>
+      <div class="blk"><span class="lab">Le insegne · grid 6 (un formato ciascuna)</span><div class="row r6"><div class="ph tall">Super</div><div class="ph tall">Store</div><div class="ph tall">Prox.</div><div class="ph tall">C&amp;C</div><div class="ph tall">Mercato</div><div class="ph tall">Marca</div></div></div>
+      <div class="blk--soft blk"><span class="lab">Sapori di Etruria · marca propria (split)</span><div class="split"><div class="ph tall">prodotti MDD</div><div><div class="bar w85"></div><div class="bar w70"></div><div class="bar w50"></div></div></div></div>
+      <div class="blk"><span class="lab">Perché un'insegna del gruppo · vantaggi</span><div class="row r3"><div class="ph">·</div><div class="ph">·</div><div class="ph">·</div></div></div>
+      <div class="blk--dark blk"><span class="lab">CTA · &laquo;La tua insegna, la nostra forza&raquo; · band</span><div class="bar w50"></div><span class="pill" style="color:#eee;border-color:#777">Affiliati</span></div>
+      <div class="blk"><span class="lab">Footer</span><div class="bar w85"></div></div>
+    </section>
+
+    <!-- PUNTI VENDITA -->
+    <section class="page" data-page="punti">
+      <div class="meta"><b>Pagina:</b> Punti vendita · <b>Tier:</b> 3 · 4 sezioni + footer</div>
+      <div class="blk"><span class="lab">Utility bar + nav</span><div class="bar w40"></div></div>
+      <div class="blk"><span class="lab">Hero + locator · &laquo;132 negozi, sempre vicino&raquo;</span><div class="split"><div><div class="bar w70" style="height:22px"></div><span class="pill" style="width:100%">cerca per città / CAP</span><div class="bar w85"></div><div class="bar w70"></div></div><div class="ph tall">mappa</div></div></div>
+      <div class="blk--soft blk"><span class="lab">Negozi in evidenza · grid</span><div class="row r3"><div class="ph tall">negozio</div><div class="ph tall">negozio</div><div class="ph tall">negozio</div></div></div>
+      <div class="blk"><span class="lab">Nei nostri negozi · servizi in-store</span><div class="row r4"><div class="ph">ico</div><div class="ph">ico</div><div class="ph">ico</div><div class="ph">ico</div></div></div>
+      <div class="blk--dark blk"><span class="lab">&laquo;La spesa, anche dal divano&raquo; · online / app · band</span><div class="bar w50"></div><span class="pill" style="color:#eee;border-color:#777">Spesa online</span></div>
+      <div class="blk"><span class="lab">Footer</span><div class="bar w85"></div></div>
+    </section>
+
+    <!-- SEMPRE CON TE -->
+    <section class="page" data-page="sempre">
+      <div class="meta"><b>Pagina:</b> Sempre con te (loyalty) · <b>Tier:</b> 3 · 5 sezioni + footer</div>
+      <div class="blk"><span class="lab">Utility bar + nav</span><div class="bar w40"></div></div>
+      <div class="blk"><span class="lab">Hero · loyalty (carta 3D + claim)</span><div class="split"><div><div class="bar w70" style="height:22px"></div><div class="bar w50"></div><span class="pill">Richiedi la carta</span></div><div class="ph tall">carta fedeltà 3D</div></div></div>
+      <div class="blk--soft blk"><span class="lab">Come funziona · step</span><div class="row r3"><div class="ph">01</div><div class="ph">02</div><div class="ph">03</div></div></div>
+      <div class="blk"><span class="lab">I tuoi vantaggi · grid</span><div class="row r4"><div class="ph">·</div><div class="ph">·</div><div class="ph">·</div><div class="ph">·</div></div></div>
+      <div class="blk"><span class="lab">Tutto in tasca · app Etruria (split)</span><div class="split rev"><div class="ph tall">mockup app</div><div><div class="bar w85"></div><div class="bar w70"></div><span class="pill">App Store</span><span class="pill">Google Play</span></div></div></div>
+      <div class="blk--dark blk"><span class="lab">CTA · &laquo;Richiedi la carta&raquo; · band</span><div class="bar w50"></div><span class="pill" style="color:#eee;border-color:#777">Richiedi ora</span></div>
+      <div class="blk"><span class="lab">Footer</span><div class="bar w85"></div></div>
+    </section>
+
+    <!-- FRANCHISING -->
+    <section class="page" data-page="franchising">
+      <div class="meta"><b>Pagina:</b> Franchising &#9733; · <b>Tier:</b> 3 · 5 sezioni + footer</div>
+      <div class="blk"><span class="lab">Utility bar + nav</span><div class="bar w40"></div></div>
+      <div class="blk"><span class="lab">Hero · &laquo;Porta Etruria nella tua città&raquo;</span><div class="bar w70" style="height:22px"></div><div class="bar w50"></div><span class="pill">Candidati</span></div>
+      <div class="blk--soft blk"><span class="lab">Perché Etruria · motivi</span><div class="row r3"><div class="ph">·</div><div class="ph">·</div><div class="ph">·</div></div></div>
+      <div class="blk"><span class="lab">Cosa ti diamo · supporto (grid variata)</span><div class="row" style="grid-template-columns:1.4fr 1fr 1fr"><div class="ph" style="grid-row:span 2;min-height:120px">feature</div><div class="ph">·</div><div class="ph">·</div><div class="ph">·</div><div class="ph">·</div></div></div>
+      <div class="blk"><span class="lab">Il percorso · step / timeline</span><div class="row r4"><div class="ph">01</div><div class="ph">02</div><div class="ph">03</div><div class="ph">04</div></div></div>
+      <div class="blk"><span class="lab">Parliamone &#9733; · form candidatura (split)</span><div class="split"><div><span class="pill" style="width:100%">nome</span><span class="pill" style="width:100%">email · telefono</span><span class="pill" style="width:100%">città</span><div class="ph" style="min-height:70px">messaggio</div><span class="pill" style="background:#eee">&#9733; Invia candidatura</span></div><div class="note" style="width:auto">cosa serve · tempi di risposta · referente</div></div></div>
+      <div class="blk"><span class="lab">Footer</span><div class="bar w85"></div></div>
+    </section>
+
+    <!-- CONTATTI -->
+    <section class="page" data-page="contatti">
+      <div class="meta"><b>Pagina:</b> Contatti · <b>Tier:</b> 3 · 3 sezioni + footer</div>
+      <div class="blk"><span class="lab">Utility bar + nav</span><div class="bar w40"></div></div>
+      <div class="blk"><span class="lab">Hero · &laquo;Scrivici. Siamo gente di paese&raquo;</span><div class="bar w50" style="height:20px"></div></div>
+      <div class="blk"><span class="lab">Form (SINISTRA) + info (DESTRA) · split</span><div class="split"><div><span class="pill" style="width:100%">nome</span><span class="pill" style="width:100%">email</span><div class="ph" style="min-height:80px">messaggio</div><span class="pill" style="background:#eee">Invia</span></div><div><div class="note" style="width:auto">sede · email · telefono · orari</div><div class="ph" style="min-height:120px">mappa</div></div></div></div>
+      <div class="blk--soft blk"><span class="lab">Domande frequenti · FAQ (accordion +/&times;)</span><div class="bar w85"></div><div class="bar w70"></div><div class="bar w85"></div></div>
+      <div class="blk"><span class="lab">Footer</span><div class="bar w85"></div></div>
+    </section>
+
+    <div class="legend">
+      <span><b>Legenda:</b> blocco tratteggiato = sezione · barre = testo · &#9633; tratteggiato = immagine · pill = controllo/etichetta · fondo scuro = banda full-bleed</span>
+      <span><b>Nota:</b> low-fi volutamente senza colori, font o immagini del progetto: questo &egrave; il gate strutturale, l'hi-fi &egrave; in index.html.</span>
+    </div>
+
+  </div>
+
+  <script>
+    var bar = document.querySelector('.wfbar');
+    bar.addEventListener('click', function(e){
+      var t = e.target.closest('.tab'); if(!t) return;
+      bar.querySelectorAll('.tab').forEach(function(x){ x.setAttribute('aria-selected', x===t ? 'true':'false'); });
+      document.querySelectorAll('.page').forEach(function(p){ p.classList.toggle('on', p.dataset.page===t.dataset.tab); });
+      scrollTo(0,0);
+    });
+  </script>
+</body>
+</html>

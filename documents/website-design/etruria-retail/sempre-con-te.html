@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sempre con te · Etruria Retail</title>
+<meta name="description" content="La carta fedeltà Sempre con te: una sola carta per tutte le insegne Etruria. Punti, offerte dedicate e Sapori di Etruria che valgono doppio." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .chero{ padding:150px 0 70px; min-height:86svh; display:flex; align-items:center; }
+  .steps3{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  @media(max-width:760px){ .steps3{ grid-template-columns:1fr; } }
+  .step3{ background:var(--card); border-radius:var(--radius); padding:30px 28px; box-shadow:var(--shadow); }
+  .step3 .seal{ width:50px; height:50px; font-size:24px; } .step3 h4{ font-family:var(--disp); font-weight:400; font-size:1.5rem; margin:18px 0 8px; } .step3 p{ color:var(--ink-2); font-size:16px; margin:0; }
+</style>
+</head>
+<body>
+  <header class="nav" id="nav">
+    <a class="brand" href="index.html"><span class="e">e</span> etruria retail</a>
+    <nav class="nav__l"><a href="chi-siamo.html">Chi siamo</a><a href="insegne.html">Le nostre insegne</a><a href="punti-vendita.html">Punti vendita</a><a href="sempre-con-te.html" class="on">Sempre con te</a><a href="franchising.html">Diventa franchisee</a></nav>
+    <div class="nav__r"><a class="btn-out" href="punti-vendita.html" style="padding:.7em 1.3em;font-size:15px">Trova il negozio</a></div>
+    <button class="menu-btn" aria-label="Menu"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  </header>
+
+  <main>
+    <section class="chero">
+      <div class="wrap wide fido reveal">
+        <div>
+          <h1 class="h2" style="font-size:clamp(2.8rem,6.4vw,5rem)"><span class="it">Sempre con te</span>.<br/>La spesa ti premia.</h1>
+          <p class="lead" style="max-width:48ch">Una carta sola per tutte le insegne del gruppo. Accumuli punti su ogni euro, ricevi offerte su misura e con i prodotti Sapori di Etruria vai il doppio pi&ugrave; veloce.</p>
+          <div style="margin-top:32px; display:flex; gap:22px; flex-wrap:wrap; align-items:center"><a class="btn" href="#richiedi">Richiedi la carta <span class="arr">&#8594;</span></a><a class="lk" href="#come">Come funziona</a></div>
+        </div>
+        <div style="display:grid; place-items:center"><div class="card-3d"><div class="in"><div class="no">SEMPRE CON TE</div><div><div class="nm disp">e</div><div style="font-weight:600; letter-spacing:.1em; margin-top:6px">CARTA FEDELT&Agrave;</div></div></div></div></div>
+      </div>
+    </section>
+
+    <section class="sec" id="come" style="padding-top:0">
+      <div class="wrap wide">
+        <div class="sec-head reveal"><h2 class="h2">Come <span class="it">funziona</span></h2></div>
+        <div class="steps3 reveal">
+          <div class="step3"><span class="seal sm">1</span><h4>Richiedi la carta</h4><p>Gratis in cassa o dall'app, in due minuti. Nessun costo, nessun vincolo.</p></div>
+          <div class="step3"><span class="seal sm">2</span><h4>Fai la spesa</h4><p>Mostra la carta o l'app: 1 punto ogni euro, il doppio su Sapori di Etruria.</p></div>
+          <div class="step3"><span class="seal sm">3</span><h4>Scegli il premio</h4><p>Converti i punti in buoni spesa, sconti o prodotti del catalogo.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" style="padding-top:0">
+      <div class="wrap wide">
+        <div class="sec-head reveal"><h2 class="h2">I tuoi <span class="it">vantaggi</span></h2></div>
+        <div class="vals reveal">
+          <div class="val big"><div><div class="n disp">x2</div><h4>Sapori di Etruria<br/>vale doppio.</h4></div><p>Ogni euro speso sui prodotti della nostra marca ti d&agrave; due punti. Premiamo chi sceglie il territorio.</p></div>
+          <div class="val"><div class="n disp">&#9873;</div><h4>Offerte su misura</h4><p>Sconti pensati su ci&ograve; che compri davvero, non promo a caso.</p></div>
+          <div class="val"><div class="n disp">&#9851;</div><h4>Buoni spesa</h4><p>Converti i punti in buoni da usare in tutte le insegne.</p></div>
+          <div class="val"><div class="n disp">&#9993;</div><h4>Gift Card</h4><p>Regala la spesa: la card Etruria si ricarica e non scade.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" style="padding-top:0">
+      <div class="wrap wide"><div class="cta-band reveal" style="background:radial-gradient(80% 120% at 100% 0%, rgba(198,138,51,.3), transparent 55%), linear-gradient(135deg, var(--olive), var(--olive-2))"><h2>Tutto in tasca,<br/>con l'app Etruria.</h2><p>Carta digitale, volantino, lista della spesa, punti e premi. E trovi sempre il negozio pi&ugrave; vicino.</p><div style="margin-top:30px; display:flex; gap:18px; flex-wrap:wrap"><a class="btn btn-cream" href="#">App Store</a><a class="btn btn-cream" href="#">Google Play</a></div></div></div>
+    </section>
+
+    <section class="sec" id="richiedi" style="padding-top:0">
+      <div class="wrap wide split reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start">
+        <div><h2 class="h2">Richiedi la <span class="it">carta</span></h2><p class="lead">Compila e ritira la tua Sempre con te al primo acquisto. &Egrave; gratis e i punti partono subito.</p></div>
+        <form class="reveal" onsubmit="return false">
+          <div class="frow"><div class="field"><label>Nome</label><input type="text" placeholder="Il tuo nome" /></div><div class="field"><label>Cognome</label><input type="text" placeholder="Il tuo cognome" /></div></div>
+          <div class="field"><label>Email</label><input type="email" placeholder="la-tua@email.it" /></div>
+          <div class="field"><label>Negozio abituale</label><select><option>Scegli il punto vendita</option><option>Etruria Maxi,Grosseto</option><option>Etruria Mercato,Siena</option><option>Etruria Local,Livorno</option></select></div>
+          <button class="btn" type="submit">Attiva la carta <span class="arr">&#8594;</span></button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap wide">
+      <div class="foot__grid">
+        <div><a class="brand" href="index.html"><span class="e">e</span> etruria retail</a><p style="max-width:36ch; margin-top:16px">Il gusto dell'identit&agrave;. Un gruppo della distribuzione radicato nel centro Italia, dal 1962.</p></div>
+        <div><h5>Il gruppo</h5><ul><li><a href="chi-siamo.html">Chi siamo</a></li><li><a href="insegne.html">Le nostre insegne</a></li><li><a href="chi-siamo.html">Sostenibilit&agrave;</a></li><li><a href="franchising.html">Lavora con noi</a></li></ul></div>
+        <div><h5>Per te</h5><ul><li><a href="punti-vendita.html">Punti vendita</a></li><li><a href="sempre-con-te.html">Carta Sempre con te</a></li><li><a href="sempre-con-te.html">Gift Card</a></li><li><a href="insegne.html">Sapori di Etruria</a></li></ul></div>
+        <div><h5>Contatti</h5><ul><li><a href="contatti.html">Scrivici</a></li><li><a href="franchising.html">Diventa franchisee</a></li><li><a href="#">App Etruria</a></li><li><a href="#">Area riservata</a></li></ul></div>
+      </div>
+      <div class="foot__bar"><span>&copy; 2026 Etruria Retail S.p.A. &middot; P.IVA 00000000000</span><span>Terra &middot; Identit&agrave; &middot; Persone</span></div>
+    </div>
+  </footer>
+<script src="app.js" defer></script>
+</body>
+</html>

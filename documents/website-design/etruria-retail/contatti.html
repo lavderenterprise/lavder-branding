@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contatti · Etruria Retail</title>
+<meta name="description" content="Contatta il gruppo Etruria Retail: assistenza clienti, ufficio sviluppo rete, fornitori e produttori del territorio." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .chero{ padding:160px 0 0; }
+  .contact{ display:grid; grid-template-columns:1.1fr .9fr; gap:54px; align-items:start; margin-top:48px; }
+  @media(max-width:900px){ .contact{ grid-template-columns:1fr; gap:38px; } }
+  .info .line{ padding:22px 0; border-bottom:1px solid var(--line); }
+  .info .k{ font-family:var(--body); font-weight:600; font-size:15px; color:var(--terra); }
+  .info .v{ font-family:var(--disp); font-weight:400; font-size:1.5rem; margin-top:6px; }
+  .info .v.sm{ font-family:var(--body); font-size:1.1rem; color:var(--ink); }
+  .acc details{ border-bottom:1px solid var(--line); }
+  .acc summary{ list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:26px 0; font-family:var(--disp); font-weight:400; font-size:1.45rem; }
+  .acc summary::-webkit-details-marker{ display:none; }
+  .acc .ic{ position:relative; width:30px; height:30px; flex:none; transition:transform .3s var(--ease); }
+  .acc .ic::before, .acc .ic::after{ content:""; position:absolute; top:50%; left:50%; width:14px; height:2px; background:var(--terra); border-radius:1px; transform:translate(-50%,-50%); }
+  .acc .ic::after{ transform:translate(-50%,-50%) rotate(90deg); }
+  .acc details[open] .ic{ transform:rotate(45deg); }
+  .acc .body{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .35s var(--ease); }
+  .acc details[open] .body{ grid-template-rows:1fr; }
+  .acc .body>div{ overflow:hidden; } .acc .body p{ color:var(--ink-2); font-size:1.1rem; margin:0 0 26px; max-width:70ch; }
+</style>
+</head>
+<body>
+  <header class="nav" id="nav">
+    <a class="brand" href="index.html"><span class="e">e</span> etruria retail</a>
+    <nav class="nav__l"><a href="chi-siamo.html">Chi siamo</a><a href="insegne.html">Le nostre insegne</a><a href="punti-vendita.html">Punti vendita</a><a href="sempre-con-te.html">Sempre con te</a><a href="franchising.html">Diventa franchisee</a></nav>
+    <div class="nav__r"><a class="btn-out" href="punti-vendita.html" style="padding:.7em 1.3em;font-size:15px">Trova il negozio</a></div>
+    <button class="menu-btn" aria-label="Menu"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  </header>
+
+  <main>
+    <section class="chero">
+      <div class="wrap wide">
+        <div class="reveal"><h1 class="h2" style="font-size:clamp(2.8rem,6.4vw,5rem)">Scrivici. Siamo<br/>gente <span class="it">di paese</span>.</h1></div>
+        <div class="contact">
+          <form class="reveal" onsubmit="return false">
+            <div class="frow"><div class="field"><label>Nome</label><input type="text" placeholder="Come ti chiami" /></div><div class="field"><label>Email</label><input type="email" placeholder="la-tua@email.it" /></div></div>
+            <div class="field"><label>Di cosa hai bisogno</label><select><option>Assistenza clienti</option><option>Carta Sempre con te</option><option>Diventare franchisee</option><option>Proporre un prodotto (fornitori)</option><option>Stampa e comunicazione</option><option>Altro</option></select></div>
+            <div class="field"><label>Messaggio</label><textarea rows="5" placeholder="Raccontaci..."></textarea></div>
+            <button class="btn" type="submit">Invia il messaggio <span class="arr">&#8594;</span></button>
+          </form>
+          <div class="info reveal">
+            <div class="line"><div class="k">Sede del gruppo</div><div class="v">Via dell'Etruria 1<br/>58100 Grosseto (GR)</div></div>
+            <div class="line"><div class="k">Assistenza clienti</div><div class="v sm">800 000 000 &middot; numero verde</div></div>
+            <div class="line"><div class="k">Sviluppo rete (franchising)</div><div class="v sm">sviluppo@etruriaretail.it</div></div>
+            <div class="line"><div class="k">Fornitori del territorio</div><div class="v sm">acquisti@etruriaretail.it</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap wide">
+        <div class="sec-head reveal"><h2 class="h2">Domande <span class="it">frequenti</span></h2></div>
+        <div class="acc reveal">
+          <details open><summary>Come richiedo la carta Sempre con te? <span class="ic" aria-hidden="true"></span></summary><div class="body"><div><p>La attivi gratis in cassa in qualsiasi negozio Etruria o dall'app in due minuti. I punti partono dalla prima spesa, senza costi n&eacute; vincoli.</p></div></div></details>
+          <details><summary>I prezzi sono uguali in tutte le insegne? <span class="ic" aria-hidden="true"></span></summary><div class="body"><div><p>Il volantino del gruppo &egrave; comune, ma ogni insegna ha un assortimento e alcune offerte locali. La convenienza e la carta fedelt&agrave; valgono ovunque.</p></div></div></details>
+          <details><summary>Sono un produttore: come vi propongo i miei prodotti? <span class="ic" aria-hidden="true"></span></summary><div class="body"><div><p>Scrivi ad acquisti@etruriaretail.it con scheda prodotto e zona. Diamo precedenza alle filiere del centro Italia per la linea Sapori di Etruria.</p></div></div></details>
+          <details><summary>Vorrei aprire un negozio con la vostra insegna. <span class="ic" aria-hidden="true"></span></summary><div class="body"><div><p>Ottimo: vai alla pagina Diventa franchisee e lascia i tuoi dati. Il team sviluppo rete ti ricontatta entro due giorni per valutare insieme spazio e insegna.</p></div></div></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap wide">
+      <div class="foot__grid">
+        <div><a class="brand" href="index.html"><span class="e">e</span> etruria retail</a><p style="max-width:36ch; margin-top:16px">Il gusto dell'identit&agrave;. Un gruppo della distribuzione radicato nel centro Italia, dal 1962.</p></div>
+        <div><h5>Il gruppo</h5><ul><li><a href="chi-siamo.html">Chi siamo</a></li><li><a href="insegne.html">Le nostre insegne</a></li><li><a href="chi-siamo.html">Sostenibilit&agrave;</a></li><li><a href="franchising.html">Lavora con noi</a></li></ul></div>
+        <div><h5>Per te</h5><ul><li><a href="punti-vendita.html">Punti vendita</a></li><li><a href="sempre-con-te.html">Carta Sempre con te</a></li><li><a href="sempre-con-te.html">Gift Card</a></li><li><a href="insegne.html">Sapori di Etruria</a></li></ul></div>
+        <div><h5>Contatti</h5><ul><li><a href="contatti.html">Scrivici</a></li><li><a href="franchising.html">Diventa franchisee</a></li><li><a href="#">App Etruria</a></li><li><a href="#">Area riservata</a></li></ul></div>
+      </div>
+      <div class="foot__bar"><span>&copy; 2026 Etruria Retail S.p.A. &middot; P.IVA 00000000000</span><span>Terra &middot; Identit&agrave; &middot; Persone</span></div>
+    </div>
+  </footer>
+<script src="app.js" defer></script>
+</body>
+</html>

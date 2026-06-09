@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="it">
+<!-- ETRURIA RETAIL (redesign) · SITEMAP / architettura informativa corporate (gruppo retail), stile wireframe low-fi. -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sitemap · Etruria Retail</title>
+  <style>
+    :root { --g:#9aa0a6; --d:#5f6368; --l:#e3e5e8; --bg:#f4f5f6; --ink:#3a3c40; }
+    * { box-sizing:border-box; margin:0; }
+    body { font-family: ui-monospace, "SF Mono", Menlo, monospace; background:var(--bg); color:var(--d); line-height:1.5; }
+    .wfbar { position:sticky; top:0; z-index:10; background:#fff; border-bottom:1px solid var(--l); display:flex; align-items:center; gap:16px; padding:12px 20px; flex-wrap:wrap; }
+    .wfbar h1 { font-size:14px; color:var(--ink); }
+    .wfbar a { font-size:12px; color:var(--d); border:1px solid var(--g); border-radius:5px; padding:6px 12px; text-decoration:none; }
+    .tabnote { font-size:11px; color:var(--g); margin-left:auto; }
+    .sheet { max-width:1080px; margin:28px auto 60px; padding:0 16px; }
+    .home { display:flex; justify-content:center; }
+    .node { background:#fff; border:1.5px dashed var(--g); border-radius:6px; padding:14px 18px; }
+    .node.root { border-style:solid; border-color:var(--ink); min-width:360px; max-width:780px; text-align:center; }
+    .node .k { font-size:13px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink); font-weight:700; }
+    .node .secs { font-size:11px; color:var(--g); margin-top:8px; }
+    .connector { width:2px; height:26px; background:var(--l); margin:0 auto; }
+    .cols { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    @media (max-width:880px){ .cols{ grid-template-columns:repeat(2,1fr);} }
+    @media (max-width:560px){ .cols{ grid-template-columns:1fr;} }
+    .page { background:#fff; border:1.5px dashed var(--g); border-radius:6px; overflow:hidden; }
+    .page .hd { background:#fff; border-bottom:1px dashed var(--l); padding:12px 14px; font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink); font-weight:700; display:flex; align-items:center; justify-content:space-between; }
+    .page ul { list-style:none; padding:12px 14px; display:flex; flex-direction:column; gap:7px; }
+    .page li { font-size:11px; color:var(--d); }
+    .page li::before { content:"· "; color:var(--g); font-weight:700; }
+    .sub { padding:0 14px 14px; }
+    .sub .lbl { font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:6px; }
+    .sub .sp { font-size:11px; border:1px dashed var(--l); border-radius:4px; padding:6px 9px; margin-bottom:6px; color:var(--d); }
+    .star { color:var(--ink); font-weight:700; }
+    .util { margin-top:26px; }
+    .util .lbl { font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--g); margin-bottom:8px; }
+    .util .row { display:flex; gap:10px; flex-wrap:wrap; }
+    .util .sp { font-size:11px; border:1px dashed var(--g); border-radius:4px; padding:6px 12px; color:var(--d); }
+    .legend { margin-top:26px; border-top:1px solid var(--l); padding-top:18px; display:flex; flex-wrap:wrap; gap:18px; font-size:11px; }
+    .legend b { color:var(--ink); }
+  </style>
+</head>
+<body>
+  <div class="wfbar">
+    <h1>SITEMAP · Etruria Retail</h1>
+    <a href="wireframe.html">&rarr; Wireframe</a>
+    <span class="tabnote">architettura informativa · corporate / gruppo retail · &#9733; = azione primaria</span>
+  </div>
+
+  <div class="sheet">
+    <div class="home">
+      <div class="node root">
+        <div class="k">Home</div>
+        <div class="secs">hero · manifesto + numeri · le insegne (6) · sapori di Etruria (mosaico) · sole d'Etruria (land band full-bleed) · punti vendita (locator) · sempre con te (loyalty) · valori · franchising CTA</div>
+      </div>
+    </div>
+    <div class="connector"></div>
+
+    <div class="cols">
+      <div class="page">
+        <div class="hd">Chi siamo</div>
+        <ul><li>Hero (sessant'anni)</li><li>La nostra storia (timeline)</li><li>Numeri</li><li>Non un logo (le insegne)</li><li>Quello in cui crediamo</li><li>Sostenibilità</li><li>CTA squadra</li></ul>
+      </div>
+      <div class="page">
+        <div class="hd">Insegne</div>
+        <ul><li>Hero (i formati)</li><li>Le insegne (grid 6)</li><li>Sapori di Etruria (marca propria)</li><li>Perché un'insegna del gruppo</li><li>CTA (la tua insegna)</li></ul>
+        <div class="sub">
+          <div class="lbl">Formati</div>
+          <div class="sp">Supermercato</div><div class="sp">Superstore</div><div class="sp">Prossimità</div><div class="sp">Cash &amp; Carry</div><div class="sp">Mercato</div><div class="sp">Marca propria</div>
+        </div>
+      </div>
+      <div class="page">
+        <div class="hd">Punti vendita</div>
+        <ul><li>Hero + locator (132 negozi)</li><li>Negozi in evidenza</li><li>Servizi in negozio</li><li>Spesa online / app</li></ul>
+        <div class="sub"><div class="lbl">Azione secondaria</div><div class="sp" style="border-style:solid;border-color:var(--l)">trova negozio (mappa)</div></div>
+      </div>
+      <div class="page">
+        <div class="hd">Sempre con te</div>
+        <ul><li>Hero (loyalty)</li><li>Come funziona</li><li>I tuoi vantaggi</li><li>App Etruria</li><li>CTA richiedi carta</li></ul>
+        <div class="sub"><div class="lbl">Azione secondaria</div><div class="sp" style="border-style:solid;border-color:var(--l)">richiedi carta fedeltà</div></div>
+      </div>
+      <div class="page">
+        <div class="hd">Franchising <span class="star">&#9733;</span></div>
+        <ul><li>Hero (porta Etruria)</li><li>Perché Etruria</li><li>Cosa ti diamo</li><li>Il percorso</li></ul>
+        <div class="sub"><div class="lbl">&rarr; Conversione</div><div class="sp" style="border-style:solid;border-color:var(--ink)">&#9733; Parliamone (form candidatura)</div></div>
+      </div>
+      <div class="page">
+        <div class="hd">Contatti</div>
+        <ul><li>Hero</li><li>Form + info (split)</li><li>FAQ (accordion +/&times;)</li></ul>
+        <div class="sub"><div class="lbl">Info</div><div class="sp" style="border-style:solid;border-color:var(--l)">sede · email · telefono · mappa</div></div>
+      </div>
+    </div>
+
+    <div class="util">
+      <div class="lbl">Pagine utility / legali</div>
+      <div class="row"><span class="sp">Privacy policy</span><span class="sp">Cookie policy</span><span class="sp">Note legali</span><span class="sp">Lavora con noi</span><span class="sp">404</span></div>
+    </div>
+
+    <div class="legend">
+      <span><b>Nav primaria:</b> Chi siamo · Insegne · Punti vendita · Sempre con te · Franchising · Contatti</span>
+      <span><b class="star">&#9733;</b> Azione primaria: candidatura franchising (lead). Secondarie: trova negozio · richiedi carta fedeltà</span>
+      <span><b>Lingua:</b> IT (predisposto EN)</span>
+      <span><b>Build:</b> Track B · Next.js</span>
+    </div>
+  </div>
+</body>
+</html>

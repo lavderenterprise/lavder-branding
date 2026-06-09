@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Punti vendita · Etruria Retail</title>
+<meta name="description" content="Trova il punto vendita Etruria più vicino: orari, reparti e servizi dei negozi del gruppo nel centro Italia." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .ahero{ padding:160px 0 0; }
+  .search{ display:flex; gap:12px; flex-wrap:wrap; max-width:620px; margin-top:30px; }
+  .search input{ flex:1; min-width:240px; background:var(--card); border:1.5px solid var(--line-2); border-radius:99px; padding:15px 22px; font-family:var(--body); font-size:17px; color:var(--ink); }
+  .search input:focus{ outline:none; border-color:var(--terra); box-shadow:0 0 0 4px rgba(187,84,48,.12); }
+  .stores{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+  @media(max-width:900px){ .stores{ grid-template-columns:repeat(2,1fr); } } @media(max-width:560px){ .stores{ grid-template-columns:1fr; } }
+  .store{ background:var(--card); border-radius:var(--radius); padding:26px 26px 28px; box-shadow:var(--shadow); transition:transform .4s var(--ease), box-shadow .4s var(--ease); }
+  .store:hover{ transform:translateY(-5px); box-shadow:var(--shadow-lift); }
+  .store .ins{ font-family:var(--body); font-weight:600; font-size:14px; color:var(--terra); }
+  .store h3{ font-family:var(--disp); font-weight:400; font-size:1.6rem; margin:8px 0 14px; }
+  .store .row{ display:flex; gap:10px; font-size:16px; color:var(--ink-2); margin-bottom:8px; }
+  .store .open{ display:inline-block; margin-top:12px; font-family:var(--body); font-weight:600; font-size:14px; color:var(--olive); }
+  .serv{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; }
+  @media(max-width:760px){ .serv{ grid-template-columns:repeat(2,1fr); } }
+  .serv .s .ic{ width:50px; height:50px; border-radius:50%; background:var(--terra-soft); display:grid; place-items:center; color:var(--terra-2); font-family:var(--disp); font-size:22px; }
+  .serv .s h4{ font-family:var(--disp); font-weight:400; font-size:1.3rem; margin:16px 0 6px; } .serv .s p{ color:var(--ink-2); font-size:15.5px; margin:0; }
+</style>
+</head>
+<body>
+  <header class="nav" id="nav">
+    <a class="brand" href="index.html"><span class="e">e</span> etruria retail</a>
+    <nav class="nav__l"><a href="chi-siamo.html">Chi siamo</a><a href="insegne.html">Le nostre insegne</a><a href="punti-vendita.html" class="on">Punti vendita</a><a href="sempre-con-te.html">Sempre con te</a><a href="franchising.html">Diventa franchisee</a></nav>
+    <div class="nav__r"><a class="btn-out" href="punti-vendita.html" style="padding:.7em 1.3em;font-size:15px">Trova il negozio</a></div>
+    <button class="menu-btn" aria-label="Menu"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  </header>
+
+  <main>
+    <section class="ahero">
+      <div class="wrap wide reveal">
+        <h1 class="h2" style="font-size:clamp(2.8rem,6.4vw,5rem)">132 negozi, sempre<br/><span class="it">vicino a te</span>.</h1>
+        <p class="lead" style="max-width:56ch">Cerca per citt&agrave; o cap e scopri orari, reparti e servizi del punto vendita Etruria pi&ugrave; comodo.</p>
+        <form class="search" onsubmit="return false"><input type="text" placeholder="Citt&agrave;, indirizzo o CAP" aria-label="Cerca negozio" /><button class="btn" type="submit">Cerca <span class="arr">&#8594;</span></button></form>
+      </div>
+    </section>
+
+    <section class="sec" style="padding-top:clamp(40px,5vw,70px)">
+      <div class="wrap wide">
+        <div class="locator reveal" style="margin-bottom:46px">
+          <div class="panel"><h3>Tutta la rete<br/>su una mappa.</h3><p>Dai borghi dell'entroterra alla costa: usa la mappa per filtrare per insegna, servizi e orari di apertura.</p><div style="margin-top:28px"><a class="btn btn-cream" href="#">Apri mappa interattiva <span class="arr">&#8594;</span></a></div></div>
+          <div class="map"><span class="pin" style="top:30%;left:40%"></span><span class="pin" style="top:48%;left:56%"></span><span class="pin" style="top:40%;left:28%"></span><span class="pin" style="top:62%;left:46%"></span><span class="pin" style="top:24%;left:60%"></span><span class="pin" style="top:56%;left:22%"></span><span class="pin" style="top:70%;left:62%"></span><span class="pin" style="top:36%;left:72%"></span></div>
+        </div>
+
+        <div class="sec-head row reveal"><h2 class="h2">Negozi <span class="it">in evidenza</span></h2><a class="lk" href="#">Vedi tutti i 132</a></div>
+        <div class="stores reveal">
+          <div class="store"><div class="ins">Etruria Maxi</div><h3 class="disp">Grosseto centro</h3><div class="row">Via Aurelia 120, Grosseto</div><div class="row">Lun&#8211;Dom &middot; 8:00&#8211;21:00</div><span class="open">Aperto ora</span></div>
+          <div class="store"><div class="ins">Etruria Mercato</div><h3 class="disp">Siena Porta Camollia</h3><div class="row">Viale Toselli 44, Siena</div><div class="row">Lun&#8211;Sab &middot; 8:00&#8211;20:00</div><span class="open">Aperto ora</span></div>
+          <div class="store"><div class="ins">Etruria Local</div><h3 class="disp">Livorno Venezia</h3><div class="row">Via Borra 18, Livorno</div><div class="row">Tutti i giorni &middot; 7:30&#8211;21:30</div><span class="open">Aperto ora</span></div>
+          <div class="store"><div class="ins">Etruria Maxi</div><h3 class="disp">Arezzo Pescaiola</h3><div class="row">Via Calamandrei 2, Arezzo</div><div class="row">Lun&#8211;Dom &middot; 8:30&#8211;20:30</div><span class="open">Aperto ora</span></div>
+          <div class="store"><div class="ins">Bottega Etruria</div><h3 class="disp">Pitigliano</h3><div class="row">Piazza della Repubblica 5</div><div class="row">Mar&#8211;Dom &middot; 8:00&#8211;13:00, 17:00&#8211;20:00</div><span class="open">Aperto ora</span></div>
+          <div class="store"><div class="ins">Etruria Pro</div><h3 class="disp">Cash &amp; Carry Follonica</h3><div class="row">Zona ind. Le Fontanelle</div><div class="row">Lun&#8211;Sab &middot; 6:30&#8211;18:00</div><span class="open">Aperto ora</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" style="padding-top:0">
+      <div class="wrap wide">
+        <div class="sec-head reveal"><h2 class="h2">Nei nostri <span class="it">negozi</span></h2></div>
+        <div class="serv reveal">
+          <div class="s"><div class="ic">&#9737;</div><h4>Banchi freschi</h4><p>Macelleria, pescheria e gastronomia servite.</p></div>
+          <div class="s"><div class="ic">&#9733;</div><h4>Sapori di Etruria</h4><p>Lo spazio dedicato ai prodotti del territorio.</p></div>
+          <div class="s"><div class="ic">&#9873;</div><h4>Sempre con te</h4><p>Accumula punti e usa le offerte dedicate.</p></div>
+          <div class="s"><div class="ic">&#8599;</div><h4>Spesa &amp; ritiro</h4><p>Ordina dall'app e ritira quando vuoi.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" style="padding-top:0">
+      <div class="wrap wide"><div class="cta-band reveal"><h2>La spesa, anche<br/>dal divano.</h2><p>Con l'app Etruria trovi il volantino, la lista e il punto vendita. E con Sempre con te i punti si accumulano da soli.</p><div style="margin-top:30px"><a class="btn btn-cream" href="sempre-con-te.html">Scarica l'app <span class="arr">&#8594;</span></a></div></div></div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap wide">
+      <div class="foot__grid">
+        <div><a class="brand" href="index.html"><span class="e">e</span> etruria retail</a><p style="max-width:36ch; margin-top:16px">Il gusto dell'identit&agrave;. Un gruppo della distribuzione radicato nel centro Italia, dal 1962.</p></div>
+        <div><h5>Il gruppo</h5><ul><li><a href="chi-siamo.html">Chi siamo</a></li><li><a href="insegne.html">Le nostre insegne</a></li><li><a href="chi-siamo.html">Sostenibilit&agrave;</a></li><li><a href="franchising.html">Lavora con noi</a></li></ul></div>
+        <div><h5>Per te</h5><ul><li><a href="punti-vendita.html">Punti vendita</a></li><li><a href="sempre-con-te.html">Carta Sempre con te</a></li><li><a href="sempre-con-te.html">Gift Card</a></li><li><a href="insegne.html">Sapori di Etruria</a></li></ul></div>
+        <div><h5>Contatti</h5><ul><li><a href="contatti.html">Scrivici</a></li><li><a href="franchising.html">Diventa franchisee</a></li><li><a href="#">App Etruria</a></li><li><a href="#">Area riservata</a></li></ul></div>
+      </div>
+      <div class="foot__bar"><span>&copy; 2026 Etruria Retail S.p.A. &middot; P.IVA 00000000000</span><span>Terra &middot; Identit&agrave; &middot; Persone</span></div>
+    </div>
+  </footer>
+<script src="app.js" defer></script>
+</body>
+</html>
