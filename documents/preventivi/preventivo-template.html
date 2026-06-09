@@ -82,13 +82,13 @@ html, body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ============ Cover ============ */
+/* ============ Cover ============
+   The cover here holds ONLY the cover-top (logo + date). The centered
+   title block (.cover-middle) and the bottom strip (.cover-bottom) are
+   supplied by the cover overlay HTML, where 100vh is reliable and the
+   positioning works deterministically. See README "Overlay pipeline". */
 .cover {
   page-break-after: always;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: calc(297mm - 36mm);
 }
 
 .cover-top {
@@ -128,70 +128,8 @@ html, body {
 
 .meta-top div { line-height: 1.6; }
 
-.cover-middle h1 {
-  font-family: "TWK Lausanne", sans-serif;
-  font-weight: 700;
-  font-size: 38pt;
-  line-height: 1.04;
-  letter-spacing: -0.025em;
-  margin: 0;
-  color: var(--lvdr-ink);
-}
-
-.cover-middle h1 .brand-word {
-  color: var(--lvdr-brand);
-}
-
-.cover-middle .lede {
-  font-family: "Inter";
-  font-size: 12pt;
-  line-height: 1.5;
-  color: var(--lvdr-n600);
-  max-width: 64ch;
-  margin: 28px 0 0 0;
-}
-
-.cover-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 24px;
-  border-top: 1px solid var(--lvdr-n200);
-  padding-top: 18px;
-}
-
-.cover-bottom .field {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  flex: 1 1 0;
-}
-
-.cover-bottom .field:nth-child(2) {
-  text-align: center;
-  align-items: center;
-}
-
-.cover-bottom .field:last-child {
-  text-align: right;
-  align-items: flex-end;
-}
-
-.cover-bottom .label {
-  font-family: "Inter";
-  font-size: 8pt;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--lvdr-n500);
-  font-weight: 500;
-}
-
-.cover-bottom .value {
-  font-family: "TWK Lausanne", sans-serif;
-  font-weight: 500;
-  font-size: 12pt;
-  color: var(--lvdr-ink);
-}
+/* cover-middle and cover-bottom styles live in the overlay-cover template,
+   not here — they're rendered by a separate single-page A4 document. */
 
 /* ============ Sections ============ */
 section {
@@ -413,33 +351,7 @@ ul.tight li {
   line-height: 1.5;
 }
 
-/* ============ Footer ============ */
-footer {
-  margin-top: 40px;
-  padding-top: 16px;
-  border-top: 1px solid var(--lvdr-n200);
-  font-size: 8.5pt;
-  color: var(--lvdr-n500);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-footer .legal {
-  font-family: "Inter";
-}
-
-footer .lvdr-tag {
-  display: flex;
-  align-items: center;
-}
-
-footer .lvdr-tag svg {
-  width: 14px;
-  height: auto;
-  display: block;
-  fill: var(--lvdr-ink);
-}
+/* footer styles live in the overlay-footer template. */
 
 /* ============ Inline marker ============ */
 .marker-asterisk {
@@ -474,26 +386,11 @@ footer .lvdr-tag svg {
     </div>
   </div>
 
-  <div class="cover-middle">
-    <p class="eyebrow">Preventivo tecnico-economico</p>
-    <h1>[Headline progetto]<br><span class="brand-word">[parola accento]</span><br>[seconda riga].</h1>
-    <p class="lede">[Lede di 1-2 frasi che riassume il progetto: scope, vincoli tecnici principali, eventuali integrazioni.]</p>
-  </div>
-
-  <div class="cover-bottom">
-    <div class="field">
-      <span class="label">Destinatario</span>
-      <span class="value">[Cliente Destinatario Srl]</span>
-    </div>
-    <div class="field">
-      <span class="label">Riferimento</span>
-      <span class="value">[Capitolato / RFP / progetto]</span>
-    </div>
-    <div class="field">
-      <span class="label">Validità</span>
-      <span class="value">30 giorni</span>
-    </div>
-  </div>
+  <!-- cover-middle (eyebrow + h1 + lede) and cover-bottom (Destinatario ·
+       Riferimento · Validità) are supplied by preventivo-template-overlay-cover.html.
+       They are positioned absolutely there and pypdf stamps that overlay onto
+       this page. Keeping them out of the main HTML lets the overlay center the
+       title block vertically with deterministic 100vh. -->
 
 </div>
 
@@ -787,15 +684,8 @@ footer .lvdr-tag svg {
   </dl>
 </section>
 
-<!-- ============ FOOTER ============ -->
-<footer>
-  <div class="legal">LAVDER ENTERPRISE · Documento riservato a [Cliente Destinatario Srl] · Tutti gli importi sono IVA esente</div>
-  <div class="lvdr-tag">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 241.77 397.51">
-      <path d="M442,341.25V636H558.19l47.35,102.8h78.22L627,623.94s60.62-23.19,50.56-94.42-56.29-82-119.56-84.78v56.43s42.74,0,46.37,38.55c0,0,2.51,40.78-39.53,38.55H507.21v-237Z" transform="translate(-441.98 -341.25)"/>
-    </svg>
-  </div>
-</footer>
+<!-- Footer is supplied by preventivo-template-overlay-footer.html and
+     stamped onto the last page by the overlay pipeline. -->
 
 </body>
 </html>

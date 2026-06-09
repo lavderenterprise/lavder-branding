@@ -8,22 +8,20 @@ This folder defines the structure, voice, and visual conventions every Lavder pr
 
 | File | Purpose |
 |---|---|
-| [`preventivo-template.html`](./preventivo-template.html) | Reference template with placeholders. Copy, fill, render. |
-| [`_styles.md`](./_styles.md) | CSS conventions and token usage specific to preventivi |
+| [`preventivo-template.html`](./preventivo-template.html) | Main HTML reference template with placeholders. Cover holds **only** the logo + date — the centered title block and the bottom strip are supplied by the cover overlay. |
+| [`preventivo-template-overlay-cover.html`](./preventivo-template-overlay-cover.html) | Single-page A4 overlay template: vertically-centered eyebrow + H1 + lede block, and the Destinatario · Riferimento · Validità strip anchored at the bottom. |
+| [`preventivo-template-overlay-footer.html`](./preventivo-template-overlay-footer.html) | Single-page A4 overlay template: LAVDER ENTERPRISE legal text + LVDR monogram anchored at the bottom of the last page. |
 | [`render-with-overlays.sh`](./render-with-overlays.sh) | Pipeline script: renders main + 2 overlay HTMLs and merges via pypdf |
-| [`add-overlays.py`](./add-overlays.py) | Helper invoked by the pipeline. Stamps cover-bottom on page 1 and footer on the last page |
+| [`add-overlays.py`](./add-overlays.py) | Helper invoked by the pipeline. Stamps the cover overlay on page 1 and the footer overlay on the last page |
 
 ## Document structure
 
 Every preventivo follows this section order. Sections may be omitted only when they would be empty (e.g. "Infrastruttura" if the project has none).
 
-1. **Cover page** — full A4, page-break after
-   - Logo monogram top-left, no wordmark
-   - Date + "Documento riservato" top-right, neutral-500
-   - Eyebrow: `PREVENTIVO TECNICO-ECONOMICO`
-   - H1 in TWK 700, 38pt, with **one** word in `--lvdr-brand`
-   - Lede paragraph in Inter, max ~280 characters
-   - Bottom strip: Destinatario · Riferimento · Validità — flex `space-between`, full width, aligned left / center / right
+1. **Cover page** — full A4, page-break after. Split between the main HTML (top only) and the cover overlay (middle + bottom):
+   - **Top** (main HTML): Logo monogram top-left (no wordmark); date + "Documento riservato" top-right in neutral-500
+   - **Middle** (cover overlay, vertically centered at 50% of the page): Eyebrow `PREVENTIVO TECNICO-ECONOMICO` → H1 in TWK 700 at **52-72pt** with one word in `--lvdr-brand` (bias bigger for short titles; 72pt is the default) → lede paragraph in Inter, max ~280 characters
+   - **Bottom** (cover overlay, anchored to the page bottom): Destinatario · Riferimento · Validità strip — flex `space-between`, full width, aligned left / center / right
 2. **Sintesi esecutiva** — what's included, what's not, in one paragraph
 3. **One section per project / site / deliverable** — eyebrow + h2 + price table
 4. **Infrastruttura condivisa** — voci che servono più progetti contemporaneamente
@@ -122,14 +120,21 @@ If you don't need a footer or cover-bottom strip at the actual bottom of the pag
   "file://$(pwd)/lavder-preventivo-<cliente>-YYYY-MM-DD.html"
 ```
 
-### Real "pie di pagina" placement — overlay pipeline
+### Real "pie di pagina" placement and systematic cover centering — overlay pipeline
 
-Chrome's print engine cannot reliably anchor an element to the bottom of page 1 only or to the bottom of the last page only. Pure CSS approaches (flex space-between with min-height, `@page :last`, `position: running()`, etc.) either fail in print or apply to every page. The reliable workaround is the overlay pipeline.
+Chrome's print engine has two hard limits in multi-page documents:
+
+1. It cannot reliably anchor an element to the bottom of page 1 only or to the bottom of the last page only — pure CSS approaches (`@page :last`, `position: running()`, flex space-between with `min-height`, etc.) either fail or apply to every page.
+2. It ignores `min-height` / `height: 100vh` on a `.cover` div, sizing it to its natural content instead of one full page. That means flex/grid vertical centering of the title block silently degrades to "stuck near the top" with empty space below.
+
+The overlay pipeline fixes **both** by moving the cover middle block and the bottom strips into single-page A4 overlay documents where `100vh` reliably equals one A4 page. In those overlays, `position: absolute; top: 50%; transform: translateY(-50%)` truly centers vertically, and `position: absolute; bottom: 0` truly anchors to the page bottom.
 
 **Approach**: render the document as 3 separate HTML files, then merge with pypdf:
 
-1. **Main HTML** (`<basename>.html`) — the document content, but with the cover-bottom strip and the body `<footer>` element **removed**. The cover-middle uses `margin-top: 60mm` so the H1+lede sit visually in the upper-middle of page 1 (mimicking the De Planet rhythm).
-2. **Cover-bottom overlay HTML** (`<basename>-overlay-cover.html`) — single-page A4 with the Destinatario · Riferimento · Validità strip anchored at the bottom via `position: absolute; bottom: 0`.
+1. **Main HTML** (`<basename>.html`) — the document content. The cover holds **only** the cover-top (logo + date); the centered title block and the bottom strip are NOT here. The body `<footer>` element is also removed.
+2. **Cover overlay HTML** (`<basename>-overlay-cover.html`) — single-page A4 containing two absolutely-positioned blocks:
+   - `.cover-middle` (eyebrow + H1 + lede) at `top: 50%; transform: translateY(-50%)` — dynamically centers the block on the page, regardless of how tall the eyebrow + H1 + lede stack ends up. Works the same whether the H1 is 1 line or 4, whether the lede is 1 paragraph or 3.
+   - `.cover-bottom` (Destinatario · Riferimento · Validità) at `bottom: 0` — anchored to the page bottom.
 3. **Footer overlay HTML** (`<basename>-overlay-footer.html`) — single-page A4 with the LAVDER ENTERPRISE legal text + LVDR monogram anchored at the bottom via `position: absolute; bottom: 0`.
 
 The pipeline renders all three via Chrome headless, then `pypdf` stamps the cover overlay onto page 1 and the footer overlay onto the last page of the main PDF. Middle pages pass through clean.
@@ -146,7 +151,7 @@ pip3 install --user --break-system-packages pypdf
 
 The script expects the three HTML inputs at `<basename>.html`, `<basename>-overlay-cover.html`, `<basename>-overlay-footer.html`, and produces `<basename>.pdf`.
 
-**Why it works**: the overlay HTMLs are independent single-page A4 documents. `position: absolute; bottom: 0` in those documents anchors the content to the bottom of the page area (just above the @page bottom margin). When pypdf merges the overlay's single page onto a target page of the main PDF, the overlay's content keeps the same coordinates — so the stamped strip lands at the bottom of the target page regardless of the main PDF's content length.
+**Why it works**: the overlay HTMLs are independent single-page A4 documents. In a single-page document `100vh` deterministically equals one A4 page (~297mm minus @page margins), so `position: absolute; bottom: 0` reliably anchors to the bottom and `position: absolute; top: 50%; transform: translateY(-50%)` reliably centers vertically. When pypdf stamps the overlay's single page onto a target page of the main PDF, the overlay's content keeps the same coordinates — so the centered block and the bottom strip land in the same place regardless of the main PDF's content length.
 
 **File naming convention**: `lavder-preventivo-<slug-cliente>-YYYY-MM-DD.{html,pdf}` for the main; overlay HTMLs share the same prefix with `-overlay-cover.html` and `-overlay-footer.html`.
 

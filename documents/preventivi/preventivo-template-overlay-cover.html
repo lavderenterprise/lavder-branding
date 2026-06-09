@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Cover overlay — preventivo template</title>
+<style>
+/*
+  Cover overlay — Lavder preventivo template
+  ------------------------------------------
+  Single-page A4 document. Contains the two cover blocks that the multi-page
+  main HTML cannot position reliably:
+    1. .cover-middle — eyebrow + H1 + lede, vertically centered at 50% of the
+       page via absolute positioning + translateY(-50%). Works deterministically
+       because this is a single-page document where 100vh = one A4 page.
+    2. .cover-bottom — Destinatario / Riferimento / Validità strip anchored
+       at the page bottom via position: absolute; bottom: 0.
+  pypdf stamps this single page onto page 1 of the main PDF.
+*/
+
+@font-face {
+  font-family: "TWK Lausanne";
+  font-weight: 500;
+  font-display: swap;
+  src: url("file:///Users/giacomo/Claude/Lavder%20Branding/lavder-branding/assets/fonts/TWKLausanne/Web/TWKLausanne-500.woff2") format("woff2");
+}
+@font-face {
+  font-family: "TWK Lausanne";
+  font-weight: 700;
+  font-display: swap;
+  src: url("file:///Users/giacomo/Claude/Lavder%20Branding/lavder-branding/assets/fonts/TWKLausanne/Web/TWKLausanne-700.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("file:///Users/giacomo/Claude/Lavder%20Branding/lavder-branding/assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf") format("truetype-variations");
+}
+
+:root {
+  --lvdr-ink: #111113;
+  --lvdr-brand: #F87016;
+  --lvdr-n200: #E4E4E7;
+  --lvdr-n500: #71717A;
+  --lvdr-n600: #52525B;
+}
+
+@page {
+  size: A4;
+  margin: 18mm 16mm 18mm 16mm;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  position: relative;
+  font-family: "Inter", sans-serif;
+}
+
+/* ============ Cover-middle (vertically centered) ============ */
+.cover-middle {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.cover-middle .eyebrow {
+  font-family: "Inter", sans-serif;
+  font-size: 8.5pt;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lvdr-n500);
+  margin: 0 0 4px 0;
+}
+
+.cover-middle h1 {
+  font-family: "TWK Lausanne", sans-serif;
+  font-weight: 700;
+  /* Range: 52-72pt. Default 72pt for short 1-2-word-per-line titles.
+     Drop to 60pt for 3-word lines, 52pt for very long titles. */
+  font-size: 72pt;
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  margin: 0;
+  color: var(--lvdr-ink);
+}
+
+.cover-middle h1 .brand-word { color: var(--lvdr-brand); }
+
+.cover-middle .lede {
+  font-family: "Inter", sans-serif;
+  font-size: 12pt;
+  line-height: 1.5;
+  color: var(--lvdr-n600);
+  max-width: 64ch;
+  margin: 28px 0 0 0;
+}
+
+/* ============ Cover-bottom (anchored to page bottom) ============ */
+.cover-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  border-top: 1px solid var(--lvdr-n200);
+  padding-top: 18px;
+}
+
+.cover-bottom .field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1 1 0;
+}
+
+.cover-bottom .field:nth-child(2) {
+  text-align: center;
+  align-items: center;
+}
+
+.cover-bottom .field:last-child {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.cover-bottom .label {
+  font-family: "Inter";
+  font-size: 8pt;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--lvdr-n500);
+  font-weight: 500;
+}
+
+.cover-bottom .value {
+  font-family: "TWK Lausanne", sans-serif;
+  font-weight: 500;
+  font-size: 12pt;
+  color: var(--lvdr-ink);
+}
+</style>
+</head>
+<body>
+
+<div class="cover-middle">
+  <p class="eyebrow">Preventivo tecnico-economico</p>
+  <h1>[Headline progetto]<br><span class="brand-word">[parola accento]</span><br>[seconda riga].</h1>
+  <p class="lede">[Lede di 1-2 frasi che riassume il progetto: scope, vincoli tecnici principali, eventuali integrazioni.]</p>
+</div>
+
+<div class="cover-bottom">
+  <div class="field">
+    <span class="label">Destinatario</span>
+    <span class="value">[Cliente Destinatario Srl]</span>
+  </div>
+  <div class="field">
+    <span class="label">Riferimento</span>
+    <span class="value">[Capitolato / RFP / progetto]</span>
+  </div>
+  <div class="field">
+    <span class="label">Validità</span>
+    <span class="value">30 giorni</span>
+  </div>
+</div>
+
+</body>
+</html>
