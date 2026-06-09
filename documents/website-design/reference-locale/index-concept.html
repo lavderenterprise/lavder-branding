@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="it">
+<!-- Osteria del Borgo · CONCEPT remake via frontend-design skill. "Cucina a lume di candela":
+     candlelit editorial, warm near-black, Bodoni Moda + Hanken Grotesk, arch hero, editorial menu.
+     Self-contained. Reuses ./img/ photos. Does NOT replace the committed archetype index.html. -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Osteria del Borgo · Cucina a lume di candela</title>
+  <meta name="description" content="Osteria del Borgo, dal 1958. Cucina del territorio sul lago di Como, a lume di candela." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;0,6..96,900;1,6..96,400;1,6..96,500&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --ink:#150E07; --bg:#1C140C; --panel:#241A10; --panel-2:#2C2013;
+      --cream:#F5EBD8; --dim:#BCA988; --faint:#8C7B60;
+      --amber:#E6AB4C; --amber-2:#C9812F; --ox:#7E2626; --ox-2:#9A3232;
+      --line:rgba(245,235,216,.14); --line-2:rgba(245,235,216,.28);
+      --disp:"Bodoni Moda", Georgia, serif; --body:"Hanken Grotesk", system-ui, sans-serif;
+      --ease:cubic-bezier(.16,.84,.34,1);
+    }
+    *,*::before,*::after{ box-sizing:border-box; }
+    *{ margin:0; }
+    html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+    body{ font-family:var(--body); background:var(--bg); color:var(--cream); line-height:1.6; overflow-x:clip;
+      -webkit-font-smoothing:antialiased; font-weight:400; }
+    img{ max-width:100%; display:block; }
+    a{ color:inherit; text-decoration:none; }
+    button{ font:inherit; color:inherit; cursor:pointer; }
+    ::selection{ background:var(--amber); color:var(--ink); }
+
+    /* grain + base atmosphere */
+    body::before{ content:""; position:fixed; inset:0; z-index:1; pointer-events:none; opacity:.06; mix-blend-mode:overlay;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+    body::after{ content:""; position:fixed; inset:0; z-index:1; pointer-events:none;
+      background:radial-gradient(120% 80% at 50% 0%, transparent 55%, rgba(8,5,2,.55) 100%); } /* vignette */
+
+    .wrap{ width:100%; max-width:1240px; min-width:0; margin-inline:auto; padding-inline:26px; }
+    @media(min-width:900px){ .wrap{ padding-inline:40px; } }
+    .eyebrow{ font-family:var(--body); font-size:12px; font-weight:600; letter-spacing:.34em; text-transform:uppercase; color:var(--amber);
+      display:inline-flex; align-items:center; gap:14px; }
+    .eyebrow::before{ content:""; width:34px; height:1px; background:var(--amber); opacity:.7; }
+    .serif-it{ font-family:var(--disp); font-style:italic; font-weight:400; }
+
+    /* ornamental rule */
+    .rule{ display:flex; align-items:center; gap:18px; color:var(--line-2); }
+    .rule::before,.rule::after{ content:""; height:1px; background:linear-gradient(90deg,transparent,var(--line-2),transparent); flex:1; }
+    .rule span{ color:var(--amber); font-size:13px; }
+
+    /* ---------- nav ---------- */
+    .nav{ position:fixed; top:0; left:0; right:0; z-index:30; display:flex; align-items:center; justify-content:space-between;
+      padding:22px 26px; transition:background .4s var(--ease), padding .4s var(--ease), border-color .4s; border-bottom:1px solid transparent; }
+    @media(min-width:900px){ .nav{ padding:26px 40px; } }
+    .nav.scrolled{ background:rgba(21,14,7,.86); backdrop-filter:blur(12px); border-color:var(--line); padding-block:16px; }
+    .logo{ font-family:var(--disp); font-weight:700; font-size:23px; letter-spacing:.01em; display:flex; align-items:baseline; gap:9px; }
+    .logo b{ color:var(--amber); font-weight:700; }
+    .logo small{ font-family:var(--body); font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:var(--faint); font-weight:600; }
+    .nav__links{ display:none; gap:34px; list-style:none; }
+    @media(min-width:900px){ .nav__links{ display:flex; } }
+    .nav__links a{ font-size:13px; letter-spacing:.12em; text-transform:uppercase; font-weight:500; color:var(--dim); position:relative; padding-block:4px; }
+    .nav__links a::after{ content:""; position:absolute; left:0; right:100%; bottom:0; height:1px; background:var(--amber); transition:right .35s var(--ease); }
+    .nav__links a:hover{ color:var(--cream); } .nav__links a:hover::after{ right:0; }
+    .nav .book{ border:1px solid var(--line-2); border-radius:999px; padding:10px 20px; font-size:12px; letter-spacing:.14em; text-transform:uppercase; font-weight:600;
+      color:var(--cream); transition:.3s var(--ease); }
+    .nav .book:hover{ background:var(--amber); border-color:var(--amber); color:var(--ink); }
+
+    /* ---------- hero ---------- */
+    .hero{ position:relative; min-height:100svh; display:flex; align-items:center; overflow:hidden; isolation:isolate; }
+    .glow{ position:absolute; z-index:-1; border-radius:50%; filter:blur(60px); pointer-events:none; }
+    .glow.a{ width:min(70vw,760px); aspect-ratio:1; top:-18%; left:50%; transform:translateX(-50%);
+      background:radial-gradient(circle, rgba(230,171,76,.42), rgba(201,129,47,.16) 45%, transparent 70%); animation:flick 7s ease-in-out infinite; }
+    .glow.b{ width:min(55vw,560px); aspect-ratio:1; bottom:-22%; right:-8%;
+      background:radial-gradient(circle, rgba(126,38,38,.34), transparent 70%); animation:flick 9s ease-in-out infinite .8s; }
+    @keyframes flick{ 0%,100%{ opacity:.85; transform:translateX(-50%) scale(1);} 45%{ opacity:1; transform:translateX(-50%) scale(1.05);} 70%{ opacity:.78; } }
+    .glow.b{ animation-name:flickb; } @keyframes flickb{ 0%,100%{opacity:.7;transform:scale(1);} 50%{opacity:.92;transform:scale(1.06);} }
+
+    .hero__grid{ display:grid; grid-template-columns:1fr; gap:48px; align-items:center; padding-top:120px; padding-bottom:60px; width:100%; }
+    @media(min-width:980px){ .hero__grid{ grid-template-columns:1.05fr .95fr; gap:30px; padding-top:90px; padding-bottom:0; } }
+    .hero__copy{ position:relative; z-index:2; }
+    .hero h1{ font-family:var(--disp); font-weight:900; line-height:.92; letter-spacing:-.02em; font-size:clamp(3.4rem,11vw,8.2rem);
+      margin:22px 0 0; }
+    .hero h1 .l1{ display:block; } .hero h1 .l2{ display:block; padding-left:.6em; }
+    .hero h1 em{ font-weight:400; font-style:italic; color:var(--amber); }
+    .hero__claim{ font-family:var(--disp); font-style:italic; font-weight:400; font-size:clamp(1.15rem,2.2vw,1.6rem); color:var(--dim);
+      max-width:30ch; margin-top:30px; line-height:1.45; }
+    .hero__cta{ display:flex; gap:16px; flex-wrap:wrap; margin-top:38px; }
+    .btn{ display:inline-flex; align-items:center; gap:10px; border-radius:999px; padding:15px 30px; font-size:13px; letter-spacing:.14em;
+      text-transform:uppercase; font-weight:600; transition:.32s var(--ease); border:1px solid transparent; }
+    .btn--fill{ background:var(--amber); color:var(--ink); }
+    .btn--fill:hover{ background:var(--cream); transform:translateY(-2px); }
+    .btn--line{ border-color:var(--line-2); color:var(--cream); }
+    .btn--line:hover{ border-color:var(--amber); color:var(--amber); }
+
+    /* arch image */
+    .hero__art{ position:relative; z-index:1; justify-self:center; }
+    .arch{ position:relative; width:min(86vw,440px); aspect-ratio:7/9; border-radius:50% 50% 18px 18px / 38% 38% 4% 4%;
+      overflow:hidden; box-shadow:0 40px 120px rgba(0,0,0,.6), inset 0 0 0 1px rgba(245,235,216,.18); }
+    .arch::after{ content:""; position:absolute; inset:0; background:radial-gradient(80% 60% at 50% 30%, transparent, rgba(21,14,7,.5) 100%); }
+    .arch img{ width:100%; height:100%; object-fit:cover; filter:saturate(1.05) contrast(1.03); transform:scale(1.02); }
+    .seal{ position:absolute; z-index:3; right:-14px; bottom:34px; width:104px; height:104px; border-radius:50%;
+      background:radial-gradient(circle at 50% 38%, var(--ox-2), var(--ox)); color:var(--cream); display:grid; place-items:center; text-align:center;
+      box-shadow:0 14px 34px rgba(0,0,0,.5), inset 0 0 0 2px rgba(245,235,216,.3); font-family:var(--disp); }
+    .seal b{ font-size:25px; line-height:1; display:block; } .seal small{ font-size:8.5px; letter-spacing:.22em; text-transform:uppercase; display:block; margin-top:3px; opacity:.85; }
+    .seal::before{ content:""; position:absolute; inset:7px; border-radius:50%; border:1px dashed rgba(245,235,216,.4); }
+    .scrolldown{ position:absolute; left:50%; bottom:26px; transform:translateX(-50%); z-index:2; color:var(--faint); font-size:10px;
+      letter-spacing:.3em; text-transform:uppercase; display:flex; flex-direction:column; align-items:center; gap:10px; }
+    .scrolldown i{ width:1px; height:42px; background:linear-gradient(var(--amber),transparent); animation:drip 2.4s ease-in-out infinite; transform-origin:top; }
+    @keyframes drip{ 0%,100%{ transform:scaleY(.4); opacity:.5;} 50%{ transform:scaleY(1); opacity:1; } }
+    @media(max-width:980px){ .scrolldown{ display:none; } }
+
+    /* ---------- marquee ---------- */
+    .marq{ border-block:1px solid var(--line); overflow:hidden; background:var(--ink); padding-block:2px; }
+    .marq__t{ display:flex; width:max-content; animation:scroll 38s linear infinite; }
+    .marq__t span{ font-family:var(--disp); font-style:italic; font-size:clamp(1.4rem,3vw,2.1rem); color:var(--dim); padding:18px 0; white-space:nowrap;
+      display:inline-flex; align-items:center; }
+    .marq__t span::after{ content:"✦"; color:var(--amber); font-style:normal; font-size:.7em; margin:0 1.1em; }
+    @keyframes scroll{ to{ transform:translateX(-50%); } }
+
+    /* ---------- sections ---------- */
+    section{ position:relative; }
+    .pad{ padding-block:clamp(80px,12vw,150px); }
+    .kicker{ font-family:var(--body); font-size:12px; font-weight:600; letter-spacing:.3em; text-transform:uppercase; color:var(--amber); }
+    .h2{ font-family:var(--disp); font-weight:500; line-height:1.04; letter-spacing:-.01em; font-size:clamp(2.3rem,5.2vw,4.2rem); }
+    .h2 em{ font-style:italic; color:var(--amber); font-weight:400; }
+    .lead{ color:var(--dim); font-size:clamp(1.05rem,1.5vw,1.2rem); max-width:54ch; line-height:1.75; }
+
+    /* intro */
+    .intro{ display:grid; gap:40px; grid-template-columns:1fr; align-items:start; }
+    @media(min-width:900px){ .intro{ grid-template-columns:auto 1fr; gap:70px; } }
+    .intro .year{ font-family:var(--disp); font-weight:900; font-size:clamp(3rem,7vw,6rem); color:var(--panel-2);
+      -webkit-text-stroke:1px var(--line-2); line-height:.8; }
+    @supports(-webkit-text-stroke:1px){ .intro .year{ color:transparent; -webkit-text-stroke:1px rgba(230,171,76,.5); } }
+
+    /* signature dishes */
+    .dishes{ display:grid; gap:26px; grid-template-columns:1fr; margin-top:54px; }
+    @media(min-width:760px){ .dishes{ grid-template-columns:repeat(3,1fr); gap:24px; } }
+    .dish{ position:relative; }
+    .dish__img{ position:relative; overflow:hidden; border-radius:8px; aspect-ratio:4/5; box-shadow:0 24px 60px rgba(0,0,0,.45); }
+    .dish__img::after{ content:""; position:absolute; inset:0; background:linear-gradient(0deg, rgba(21,14,7,.6), transparent 55%); transition:opacity .5s; }
+    .dish__img img{ width:100%; height:100%; object-fit:cover; transition:transform .9s var(--ease), filter .5s; filter:saturate(.96) brightness(.92); }
+    .dish:hover .dish__img img{ transform:scale(1.07); filter:saturate(1.08) brightness(1.02); }
+    .dish:nth-child(2){ transform:translateY(0); } @media(min-width:760px){ .dish:nth-child(2){ transform:translateY(34px); } }
+    .dish__no{ position:absolute; top:14px; left:16px; z-index:2; font-family:var(--disp); font-style:italic; font-size:1.1rem; color:var(--cream); opacity:.85; }
+    .dish__b{ display:flex; justify-content:space-between; align-items:baseline; gap:14px; margin-top:18px; padding-bottom:12px; border-bottom:1px solid var(--line); }
+    .dish__b h3{ font-family:var(--disp); font-weight:500; font-size:1.5rem; }
+    .dish__b .pr{ font-family:var(--disp); color:var(--amber); font-size:1.3rem; }
+    .dish p{ color:var(--faint); font-size:14px; margin-top:10px; }
+
+    /* menu (editorial leader-dots) */
+    .menu{ background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:clamp(28px,5vw,64px);
+      box-shadow:0 40px 120px rgba(0,0,0,.4); position:relative; }
+    .menu::before{ content:""; position:absolute; inset:10px; border:1px solid var(--line); border-radius:8px; pointer-events:none; }
+    .menu__cols{ display:grid; gap:46px; grid-template-columns:1fr; margin-top:8px; }
+    @media(min-width:820px){ .menu__cols{ grid-template-columns:1fr 1fr; gap:64px; } }
+    .course h4{ font-family:var(--disp); font-style:italic; font-weight:500; font-size:1.7rem; color:var(--amber); margin-bottom:6px; }
+    .course .ck{ font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:var(--faint); }
+    .course ul{ list-style:none; padding:0; margin-top:20px; display:flex; flex-direction:column; gap:18px; }
+    .mi{ display:flex; align-items:baseline; gap:8px; }
+    .mi .nm{ font-family:var(--disp); font-size:1.18rem; font-weight:500; color:var(--cream); white-space:nowrap; }
+    .mi .dots{ flex:1; border-bottom:1.5px dotted var(--line-2); transform:translateY(-4px); }
+    .mi .pr{ font-family:var(--disp); color:var(--amber); font-size:1.1rem; }
+    .mi small{ display:block; color:var(--faint); font-family:var(--body); font-size:12.5px; font-weight:400; margin-top:3px; white-space:normal; }
+    .mi__row{ display:flex; align-items:baseline; gap:8px; width:100%; }
+    .mi__txt{ flex:1; min-width:0; }
+
+    /* storia split */
+    .split{ display:grid; gap:50px; grid-template-columns:1fr; align-items:center; }
+    @media(min-width:900px){ .split{ grid-template-columns:1fr 1fr; gap:70px; } }
+    .frame{ position:relative; border-radius:10px; overflow:hidden; aspect-ratio:4/5; box-shadow:0 30px 80px rgba(0,0,0,.5); }
+    .frame img{ width:100%; height:100%; object-fit:cover; filter:brightness(.92) saturate(1.02); }
+    .frame::after{ content:""; position:absolute; inset:0; box-shadow:inset 0 0 0 1px var(--line-2), inset 0 0 90px rgba(21,14,7,.6); border-radius:10px; }
+    .stats{ display:flex; gap:38px; flex-wrap:wrap; margin-top:36px; }
+    .stat b{ font-family:var(--disp); font-weight:500; font-size:clamp(2.2rem,4vw,3rem); color:var(--amber); display:block; line-height:1; }
+    .stat span{ font-size:12.5px; letter-spacing:.06em; color:var(--faint); margin-top:8px; display:block; text-transform:uppercase; }
+
+    /* gallery */
+    .gal{ display:grid; gap:16px; grid-template-columns:repeat(2,1fr); margin-top:50px; }
+    @media(min-width:760px){ .gal{ grid-template-columns:repeat(12,1fr); grid-auto-rows:140px; } }
+    .gal figure{ overflow:hidden; border-radius:8px; position:relative; box-shadow:0 18px 50px rgba(0,0,0,.4); }
+    .gal img{ width:100%; height:100%; object-fit:cover; transition:transform 1s var(--ease); filter:brightness(.9); }
+    .gal figure:hover img{ transform:scale(1.08); filter:brightness(1); }
+    @media(min-width:760px){
+      .gal .g1{ grid-column:span 5; grid-row:span 2; } .gal .g2{ grid-column:span 4; grid-row:span 2; }
+      .gal .g3{ grid-column:span 3; grid-row:span 1; } .gal .g4{ grid-column:span 3; grid-row:span 1; }
+    }
+    @media(max-width:759px){ .gal .g1{ grid-column:span 2; } }
+
+    /* prenota */
+    .book-band{ position:relative; overflow:hidden; border-radius:16px; padding:clamp(34px,5vw,72px);
+      background:linear-gradient(135deg, var(--ox) 0%, #531818 55%, var(--ink) 130%); box-shadow:0 40px 120px rgba(0,0,0,.5); isolation:isolate; }
+    .book-band::before{ content:""; position:absolute; z-index:-1; width:60%; aspect-ratio:1; border-radius:50%; top:-30%; right:-10%; filter:blur(70px);
+      background:radial-gradient(circle, rgba(230,171,76,.5), transparent 70%); }
+    .book-grid{ display:grid; gap:40px; grid-template-columns:1fr; align-items:end; }
+    @media(min-width:880px){ .book-grid{ grid-template-columns:1fr 1fr; gap:60px; } }
+    .resv{ display:grid; gap:16px; grid-template-columns:1fr 1fr; }
+    .field{ display:flex; flex-direction:column; gap:8px; }
+    .field.full{ grid-column:1 / -1; }
+    .field label{ font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:rgba(245,235,216,.7); }
+    .field input,.field select{ background:rgba(21,14,7,.4); border:1px solid rgba(245,235,216,.26); border-radius:8px; padding:13px 14px;
+      color:var(--cream); font:inherit; font-size:15px; }
+    .field input::placeholder{ color:rgba(245,235,216,.4); }
+    .field input:focus,.field select:focus{ outline:none; border-color:var(--amber); box-shadow:0 0 0 3px rgba(230,171,76,.2); }
+    .field select{ appearance:none; }
+
+    /* footer */
+    .foot{ border-top:1px solid var(--line); padding-block:64px 40px; }
+    .foot__grid{ display:grid; gap:36px; grid-template-columns:1fr; }
+    @media(min-width:760px){ .foot__grid{ grid-template-columns:1.4fr 1fr 1fr; } }
+    .foot h5{ font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--amber); margin-bottom:16px; font-weight:600; }
+    .foot p,.foot li{ color:var(--dim); font-size:14.5px; }
+    .foot ul{ list-style:none; padding:0; display:flex; flex-direction:column; gap:9px; }
+    .foot .big{ font-family:var(--disp); font-size:2rem; font-weight:500; color:var(--cream); }
+    .foot__bar{ margin-top:54px; padding-top:22px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between;
+      font-size:12px; color:var(--faint); letter-spacing:.04em; }
+
+    /* reveal */
+    .reveal{ opacity:1; }
+    html.anim .reveal{ opacity:0; transform:translateY(28px); transition:opacity 1s var(--ease), transform 1s var(--ease); }
+    html.anim .reveal.in{ opacity:1; transform:none; }
+    html.anim .stagger>*{ opacity:0; transform:translateY(28px); transition:opacity .9s var(--ease), transform .9s var(--ease); }
+    html.anim .stagger.in>*{ opacity:1; transform:none; }
+    html.anim .stagger.in>*:nth-child(2){ transition-delay:.1s; } html.anim .stagger.in>*:nth-child(3){ transition-delay:.2s; }
+    html.anim .stagger.in>*:nth-child(4){ transition-delay:.3s; }
+
+    /* hero load orchestration */
+    html.anim .hero__copy>*{ opacity:0; transform:translateY(26px); animation:rise 1s var(--ease) forwards; }
+    html.anim .hero__copy>*:nth-child(1){ animation-delay:.15s; } html.anim .hero__copy>*:nth-child(2){ animation-delay:.3s; }
+    html.anim .hero__copy>*:nth-child(3){ animation-delay:.45s; } html.anim .hero__copy>*:nth-child(4){ animation-delay:.6s; }
+    html.anim .hero__art{ opacity:0; transform:translateY(40px) scale(.97); animation:rise 1.3s var(--ease) .35s forwards; }
+    @keyframes rise{ to{ opacity:1; transform:none; } }
+
+    @media(prefers-reduced-motion:reduce){
+      *{ animation-duration:.01ms !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }
+      .glow,.marq__t,.scrolldown i{ animation:none !important; }
+      .reveal,.stagger>*,.hero__copy>*,.hero__art{ opacity:1 !important; transform:none !important; }
+    }
+    .skip{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
+    .skip:focus{ position:fixed; top:10px; left:10px; width:auto; height:auto; clip:auto; z-index:99; background:var(--amber); color:var(--ink); padding:10px 16px; border-radius:8px; }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Salta al contenuto</a>
+
+  <nav class="nav" id="nav">
+    <a class="logo" href="#"><b>Osteria</b> <span class="serif-it">del Borgo</span> <small>dal 1958</small></a>
+    <ul class="nav__links">
+      <li><a href="#menu">Il men&ugrave;</a></li>
+      <li><a href="#storia">La storia</a></li>
+      <li><a href="#galleria">Galleria</a></li>
+      <li><a href="#prenota">Dove siamo</a></li>
+    </ul>
+    <a class="book" href="#prenota">Prenota</a>
+  </nav>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <header class="hero">
+      <span class="glow a"></span><span class="glow b"></span>
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <span class="eyebrow">Cucina del territorio &middot; Lago di Como</span>
+          <h1><span class="l1">Una cena</span><span class="l2"><em>a lume</em> di candela</span></h1>
+          <p class="hero__claim">Paste tirate a mano, brace e vino del contadino. Dal 1958, nello stesso borgo, le stesse mani.</p>
+          <div class="hero__cta">
+            <a class="btn btn--fill" href="#prenota">Prenota un tavolo</a>
+            <a class="btn btn--line" href="#menu">Sfoglia il men&ugrave;</a>
+          </div>
+        </div>
+        <div class="hero__art">
+          <div class="arch">
+            <img src="img/hero1.jpg" alt="Tagliatelle al rag&ugrave; servite a lume di candela" />
+          </div>
+          <div class="seal"><span><b>58</b><small>Est. 1958</small></span></div>
+        </div>
+      </div>
+      <div class="scrolldown">Scendi<i></i></div>
+    </header>
+
+    <!-- MARQUEE -->
+    <div class="marq" aria-hidden="true">
+      <div class="marq__t">
+        <span>Tagliatelle al rag&ugrave;</span><span>Risotto allo zafferano</span><span>Tagliata di manzo</span><span>Tiramis&ugrave;</span><span>Pane &amp; vino</span><span>Forno a legna</span>
+        <span>Tagliatelle al rag&ugrave;</span><span>Risotto allo zafferano</span><span>Tagliata di manzo</span><span>Tiramis&ugrave;</span><span>Pane &amp; vino</span><span>Forno a legna</span>
+      </div>
+    </div>
+
+    <!-- INTRO -->
+    <section class="pad">
+      <div class="wrap intro reveal">
+        <div class="year">1958</div>
+        <div>
+          <span class="kicker">Chi siamo</span>
+          <h2 class="h2" style="margin-top:18px">Una cucina che parte <em>dall&apos;orto</em>,<br />non dal bidone.</h2>
+          <p class="lead" style="margin-top:26px">Tre generazioni, una sola sala. Compriamo da chi conosciamo per nome, cuciniamo quello che cresce in stagione e lo serviamo come a casa: senza fretta, alla luce delle candele. Niente carte chilometriche, solo quello che oggi vale la pena mangiare.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIGNATURE DISHES -->
+    <section class="pad" style="padding-top:0">
+      <div class="wrap">
+        <div class="rule reveal"><span>&#10086;</span></div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:20px; flex-wrap:wrap; margin-top:40px" class="reveal">
+          <div><span class="kicker">Dalla lavagna</span><h2 class="h2" style="margin-top:14px">I piatti <em>di stasera</em></h2></div>
+          <a class="btn btn--line" href="#menu">Tutto il men&ugrave;</a>
+        </div>
+        <div class="dishes stagger reveal">
+          <article class="dish">
+            <div class="dish__img"><span class="dish__no">01</span><img src="img/dish-a.jpg" alt="Risotto allo zafferano" /></div>
+            <div class="dish__b"><h3>Risotto allo zafferano</h3><span class="pr">16&euro;</span></div>
+            <p>Carnaroli mantecato, midollo arrostito, zafferano in pistilli.</p>
+          </article>
+          <article class="dish">
+            <div class="dish__img"><span class="dish__no">02</span><img src="img/dish-b.jpg" alt="Tagliata di manzo" /></div>
+            <div class="dish__b"><h3>Tagliata di manzo</h3><span class="pr">22&euro;</span></div>
+            <p>Controfiletto alla brace, rucola, scaglie di Grana, olio nuovo.</p>
+          </article>
+          <article class="dish">
+            <div class="dish__img"><span class="dish__no">03</span><img src="img/dish-c.jpg" alt="Tiramis&ugrave; della casa" /></div>
+            <div class="dish__b"><h3>Tiramis&ugrave; della casa</h3><span class="pr">7&euro;</span></div>
+            <p>Savoiardi inzuppati al momento, mascarpone, cacao amaro.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU -->
+    <section class="pad" id="menu" style="padding-top:0">
+      <div class="wrap">
+        <div class="reveal" style="text-align:center; max-width:60ch; margin-inline:auto">
+          <span class="kicker">Il men&ugrave;</span>
+          <h2 class="h2" style="margin-top:14px">Scritto a mano, <em>ogni giorno</em></h2>
+          <p class="lead" style="margin:20px auto 0">Cambia con il mercato e con le stagioni. Quello che trovi qui &egrave; il cuore fisso della casa.</p>
+        </div>
+        <div class="menu reveal" style="margin-top:50px">
+          <div class="menu__cols">
+            <div class="course">
+              <h4>Antipasti</h4><div class="ck">Per cominciare</div>
+              <ul>
+                <li class="mi"><div class="mi__row"><span class="nm">Tagliere del borgo</span><span class="dots"></span><span class="pr">14&euro;</span></div></li>
+                <li class="mi"><div class="mi__row"><span class="nm">Vitello tonnato</span><span class="dots"></span><span class="pr">12&euro;</span></div></li>
+                <li class="mi"><div class="mi__row"><span class="nm">Flan di zucca e fonduta</span><span class="dots"></span><span class="pr">11&euro;</span></div></li>
+              </ul>
+              <h4 style="margin-top:38px">Primi</h4><div class="ck">Paste tirate a mano</div>
+              <ul>
+                <li class="mi"><div class="mi__row"><span class="mi__txt"><span class="nm">Tagliatelle al rag&ugrave;</span><small>Rag&ugrave; di manzo cotto otto ore</small></span><span class="dots"></span><span class="pr">14&euro;</span></div></li>
+                <li class="mi"><div class="mi__row"><span class="nm">Risotto allo zafferano</span><span class="dots"></span><span class="pr">16&euro;</span></div></li>
+                <li class="mi"><div class="mi__row"><span class="nm">Tortelli di zucca</span><span class="dots"></span><span class="pr">15&euro;</span></div></li>
+              </ul>
+            </div>
+            <div class="course">
+              <h4>Secondi</h4><div class="ck">Dalla brace</div>
+              <ul>
+                <li class="mi"><div class="mi__row"><span class="nm">Tagliata di manzo</span><span class="dots"></span><span class="pr">22&euro;</span></div></li>
+                <li class="mi"><div class="mi__row"><span class="mi__txt"><span class="nm">Brasato al Nebbiolo</span><small>Con polenta del molino</small></span><span class="dots"></span><span class="pr">19&euro;</span></div></li>
+                <li class="mi"><div class="mi__row"><span class="nm">Lavarello del lago</span><span class="dots"></span><span class="pr">18&euro;</span></div></li>
+              </ul>
+              <h4 style="margin-top:38px">Dolci &amp; vini</h4><div class="ck">Per finire</div>
+              <ul>
+                <li class="mi"><div class="mi__row"><span class="nm">Tiramis&ugrave; della casa</span><span class="dots"></span><span class="pr">7&euro;</span></div></li>
+                <li class="mi"><div class="mi__row"><span class="nm">Torta di nocciole</span><span class="dots"></span><span class="pr">6&euro;</span></div></li>
+                <li class="mi"><div class="mi__row"><span class="mi__txt"><span class="nm">Vino della casa</span><small>Rosso o bianco, al calice</small></span><span class="dots"></span><span class="pr">5&euro;</span></div></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORIA -->
+    <section class="pad" id="storia" style="padding-top:0">
+      <div class="wrap split">
+        <div class="frame reveal"><img src="img/interior.jpg" alt="La sala dell&apos;osteria a lume di candela" /></div>
+        <div class="reveal">
+          <span class="kicker">La storia</span>
+          <h2 class="h2" style="margin-top:16px">Quasi settant&apos;anni <em>nella stessa sala</em></h2>
+          <p class="lead" style="margin-top:24px">Nel 1958 il nonno apr&igrave; con sei tavoli e una stufa a legna. La stufa c&apos;&egrave; ancora, i tavoli sono diventati dodici, e le candele non le abbiamo mai spente. Ci trovi nel cuore del borgo, a due passi dal lago.</p>
+          <div class="stats">
+            <div class="stat"><b data-count="67">67</b><span>anni di cucina</span></div>
+            <div class="stat"><b data-count="12">12</b><span>tavoli, non uno di pi&ugrave;</span></div>
+            <div class="stat"><b data-count="9">9</b><span>fornitori del borgo</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="pad" id="galleria" style="padding-top:0">
+      <div class="wrap">
+        <div class="rule reveal"><span>&#10086;</span></div>
+        <h2 class="h2 reveal" style="margin-top:36px; text-align:center">Uno sguardo <em>da noi</em></h2>
+        <div class="gal reveal">
+          <figure class="g1"><img src="img/ingredients.jpg" alt="Ingredienti freschi sul tagliere" /></figure>
+          <figure class="g2"><img src="img/wine.jpg" alt="Vino rosso e pane sul tavolo" /></figure>
+          <figure class="g3"><img src="img/dish-b.jpg" alt="Tagliata alla brace" /></figure>
+          <figure class="g4"><img src="img/hero1.jpg" alt="Tagliatelle al rag&ugrave;" /></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRENOTA -->
+    <section class="pad" id="prenota" style="padding-top:0">
+      <div class="wrap">
+        <div class="book-band reveal">
+          <div class="book-grid">
+            <div>
+              <span class="kicker" style="color:rgba(245,235,216,.8)">Prenota</span>
+              <h2 class="h2" style="margin-top:14px; color:var(--cream)">Tieni un tavolo <em style="color:var(--amber)">a lume di candela</em></h2>
+              <p class="lead" style="color:rgba(245,235,216,.78); margin-top:20px">Aperti a cena da marted&igrave; a domenica, dalle 19:00. Per i gruppi sopra le otto persone, scrivici e ti richiamiamo.</p>
+              <p style="font-family:var(--disp); font-style:italic; font-size:1.3rem; margin-top:28px; color:var(--cream)">Via del Borgo 12 &middot; Lago di Como</p>
+            </div>
+            <form class="resv" onsubmit="return false">
+              <div class="field"><label>Data</label><input type="date" aria-label="Data" /></div>
+              <div class="field"><label>Ora</label><select aria-label="Ora"><option>19:00</option><option>19:30</option><option>20:00</option><option>20:30</option><option>21:00</option></select></div>
+              <div class="field"><label>Persone</label><select aria-label="Persone"><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
+              <div class="field"><label>Telefono</label><input type="tel" placeholder="333 000 0000" aria-label="Telefono" /></div>
+              <div class="field full"><label>Nome</label><input type="text" placeholder="A nome di..." aria-label="Nome" /></div>
+              <div class="field full"><button class="btn btn--fill" style="width:100%; justify-content:center" type="submit">Richiedi il tavolo</button></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot__grid">
+        <div>
+          <div class="big serif-it">Osteria del Borgo</div>
+          <p style="margin-top:14px; max-width:32ch">Cucina del territorio a lume di candela, dal 1958. Nel cuore del borgo, sul lago di Como.</p>
+        </div>
+        <div><h5>Orari</h5><ul><li>Marted&igrave; : Domenica</li><li>Cena dalle 19:00</li><li>Luned&igrave; chiuso</li></ul></div>
+        <div><h5>Contatti</h5><ul><li>Via del Borgo 12</li><li>+39 031 000 000</li><li>ciao@osteriadelborgo.it</li></ul></div>
+      </div>
+      <div class="foot__bar"><span>&copy; 2026 Osteria del Borgo &middot; Demo Lavder</span><span>Concept &middot; frontend-design</span></div>
+    </div>
+  </footer>
+
+  <script>
+    // nav scroll state
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+    onScroll(); addEventListener('scroll', onScroll, { passive:true });
+
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce) {
+      document.documentElement.classList.add('anim');
+      const io = new IntersectionObserver((es) => {
+        es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold:.12, rootMargin:'0px 0px -8% 0px' });
+      document.querySelectorAll('.reveal, .stagger').forEach(el => io.observe(el));
+      setTimeout(() => document.querySelectorAll('.reveal, .stagger').forEach(el => el.classList.add('in')), 2600);
+    }
+
+    // counters
+    if (!reduce) document.querySelectorAll('[data-count]').forEach(el => {
+      const io = new IntersectionObserver((es) => es.forEach(e => {
+        if (!e.isIntersecting) return; io.unobserve(el);
+        const end = +el.dataset.count, t0 = performance.now();
+        const step = (t) => { const p = Math.min(1,(t-t0)/1300); el.textContent = Math.round(end*(1-Math.pow(1-p,3))); if (p<1) requestAnimationFrame(step); };
+        requestAnimationFrame(step);
+      }), { threshold:.6 });
+      io.observe(el);
+    });
+
+    // smooth anchor with offset
+    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', (e) => {
+      const t = document.querySelector(a.getAttribute('href')); if (!t || a.getAttribute('href')==='#') return;
+      e.preventDefault(); t.scrollIntoView({ behavior: reduce ? 'auto':'smooth', block:'start' });
+    }));
+  </script>
+</body>
+</html>

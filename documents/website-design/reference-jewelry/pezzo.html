@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="it">
+<!-- Brace, atelier orafo. PEZZO (PDP) : long, content-rich, varied elements. Same midnight-luxe system
+     as index.html. Real UI-library elements (uiverse, MIT, re-skinned + credited): sliding-info related
+     card (after MuhammadHasann), sheen action button (after Creatlydev), and a switch (after uiverse /
+     switches). Plus sticky gallery, size pills, qty stepper, animated accordion, custom cursor. -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anello Notturno · Brace</title>
+  <meta name="description" content="Anello Notturno: oro 18kt riciclato e zaffiro blu, fatto a mano nell'atelier Brace sul lago di Como." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --night:#0B1A2E; --night-2:#0E2238; --night-deep:#06101C; --panel:#11253C; --panel-2:#15304C;
+      --pearl:#EFE8DA; --pearl-2:#C7CCD6; --dim:#8E98A8;
+      --gold:#C9A24B; --gold-2:#E7CB86; --silver:#C3CAD8; --sapphire:#3C6FA6;
+      --line:rgba(239,232,218,.13); --line-2:rgba(239,232,218,.26);
+      --disp:"Gilda Display", Georgia, serif; --body:"Schibsted Grotesk", system-ui, sans-serif;
+      --ease:cubic-bezier(.16,.84,.34,1);
+    }
+    *,*::before,*::after{ box-sizing:border-box; } *{ margin:0; }
+    html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+    body{ font-family:var(--body); font-weight:400; color:var(--pearl); line-height:1.7; -webkit-font-smoothing:antialiased; overflow-x:clip; background:var(--night-deep); }
+    img{ max-width:100%; display:block; } a{ color:inherit; text-decoration:none; } button{ font:inherit; color:inherit; cursor:pointer; }
+    ::selection{ background:var(--gold); color:var(--night-deep); }
+    .sky{ position:fixed; inset:0; z-index:-2; background:radial-gradient(78% 58% at 74% 8%, rgba(60,111,166,.26), transparent 60%),radial-gradient(66% 52% at 14% 96%, rgba(201,162,75,.13), transparent 60%),linear-gradient(160deg, var(--night-2) 0%, var(--night) 46%, var(--night-deep) 100%); }
+    .sky::before{ content:""; position:absolute; inset:0; opacity:.5; background-repeat:no-repeat; background-image:radial-gradient(1px 1px at 18% 24%, rgba(239,232,218,.6), transparent),radial-gradient(1px 1px at 62% 12%, rgba(239,232,218,.45), transparent),radial-gradient(1.3px 1.3px at 84% 42%, rgba(231,203,134,.55), transparent),radial-gradient(1px 1px at 34% 70%, rgba(239,232,218,.4), transparent); }
+    .grain{ position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:.05; mix-blend-mode:overlay; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+    .wrap{ width:100%; max-width:1280px; min-width:0; margin-inline:auto; padding-inline:26px; } .wide{ max-width:1480px; }
+    @media(min-width:900px){ .wrap{ padding-inline:48px; } }
+    .disp{ font-family:var(--disp); font-weight:400; line-height:1.06; }
+    .gold{ color:var(--gold-2); }
+    .h2{ font-family:var(--disp); font-weight:400; font-size:clamp(2rem,4.4vw,3.6rem); line-height:1.08; } .h2 .it{ font-style:italic; color:var(--gold-2); display:inline-block; transform:skewX(-8deg); }
+    .lead{ color:var(--pearl-2); font-size:clamp(1.02rem,1.3vw,1.16rem); max-width:56ch; }
+    .kdot{ font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold-2); }
+
+    .nav{ position:fixed; top:0; left:0; right:0; z-index:40; display:flex; align-items:center; justify-content:space-between; gap:20px; padding:22px 26px; transition:.45s var(--ease); }
+    @media(min-width:900px){ .nav{ padding:24px 48px; } }
+    .nav.solid{ background:rgba(6,16,28,.74); backdrop-filter:blur(14px); border-bottom:1px solid var(--line); }
+    .brand{ font-family:var(--disp); font-size:25px; letter-spacing:.14em; text-transform:uppercase; color:var(--pearl); }
+    .nav__l{ display:none; gap:38px; list-style:none; } @media(min-width:900px){ .nav__l{ display:flex; } }
+    .nav__l a{ font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--pearl-2); } .nav__l a:hover{ color:var(--gold-2); }
+    .nav__r{ display:flex; align-items:center; gap:16px; } .nav__cart{ font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--pearl-2); }
+    .menu-btn{ display:none; } @media(max-width:899px){ .menu-btn{ display:inline-grid;place-items:center;width:42px;height:42px;border:0;background:none;color:var(--pearl); } .nav__cart{ display:none; } }
+
+    .btn{ display:inline-flex; align-items:center; justify-content:center; gap:.7em; padding:1.05em 2em; font-family:var(--body); font-weight:500; font-size:12px; letter-spacing:.18em; text-transform:uppercase; border:1px solid var(--gold); color:var(--gold-2); border-radius:1px; background:transparent; position:relative; overflow:hidden; transition:.4s var(--ease); }
+    .btn::after{ content:""; position:absolute; inset:0; background:linear-gradient(100deg, transparent 35%, rgba(231,203,134,.45), transparent 65%); transform:translateX(-130%); transition:transform .7s var(--ease); }
+    .btn:hover{ background:var(--gold); color:var(--night-deep); } .btn:hover::after{ transform:translateX(130%); }
+    .btn--solid{ background:var(--gold); color:var(--night-deep); } .btn--solid:hover{ background:var(--gold-2); }
+    .btn--block{ width:100%; } .lk{ display:inline-flex; align-items:center; gap:9px; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold-2); transition:gap .3s; } .lk:hover{ gap:14px; }
+
+    .crumbs{ padding:108px 0 0; font-size:12px; letter-spacing:.08em; color:var(--dim); display:flex; gap:10px; }
+    .crumbs a:hover{ color:var(--pearl); }
+
+    /* PDP : sticky gallery + buy */
+    .pdp{ display:grid; gap:44px; grid-template-columns:1fr; padding-block:36px 30px; }
+    @media(min-width:980px){ .pdp{ grid-template-columns:1.08fr .92fr; gap:64px; } }
+    .gal{ display:grid; gap:16px; }
+    @media(min-width:980px){ .gal{ position:sticky; top:96px; align-self:start; } }
+    .gal__main{ position:relative; overflow:hidden; aspect-ratio:4/5; border-radius:2px; background:var(--panel); box-shadow:0 40px 100px rgba(0,0,0,.5); }
+    .gal__main img{ width:100%; height:100%; object-fit:cover; } .gal__main::after{ content:""; position:absolute; inset:0; box-shadow:inset 0 0 0 1px var(--line); }
+    .gal__thumbs{ display:flex; gap:12px; }
+    .gal__thumbs button{ width:76px; height:76px; border-radius:2px; overflow:hidden; border:1px solid var(--line); background:none; padding:0; opacity:.6; transition:.3s var(--ease); }
+    .gal__thumbs button[aria-current="true"]{ opacity:1; border-color:var(--gold); } .gal__thumbs button:hover{ opacity:1; } .gal__thumbs img{ width:100%; height:100%; object-fit:cover; }
+    .buy h1{ font-family:var(--disp); font-weight:400; font-size:clamp(2.4rem,4.6vw,3.6rem); line-height:1.04; }
+    .buy .stars{ display:flex; align-items:center; gap:10px; margin-top:14px; font-size:12.5px; color:var(--dim); letter-spacing:.04em; } .buy .stars b{ color:var(--gold-2); letter-spacing:.1em; }
+    .buy .price{ font-family:var(--disp); font-size:2rem; color:var(--gold-2); margin-top:22px; }
+    .buy .desc{ color:var(--pearl-2); margin-top:14px; max-width:46ch; }
+    .opt{ margin-top:28px; } .opt .lab{ font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--dim); margin-bottom:12px; display:flex; justify-content:space-between; }
+    .sizes{ display:flex; gap:10px; flex-wrap:wrap; }
+    .size{ min-width:48px; padding:11px 14px; border:1px solid var(--line-2); background:transparent; color:var(--pearl); font-family:var(--body); font-size:14px; border-radius:1px; transition:.25s var(--ease); }
+    .size[aria-pressed="true"]{ border-color:var(--gold); color:var(--gold-2); background:rgba(231,203,134,.08); } .size:hover{ border-color:var(--pearl-2); }
+    .qtyrow{ display:flex; gap:16px; align-items:stretch; margin-top:30px; flex-wrap:wrap; }
+    .qty{ display:inline-flex; align-items:center; border:1px solid var(--line-2); border-radius:1px; }
+    .qty button{ width:46px; height:100%; min-height:50px; border:0; background:none; color:var(--pearl); font-size:18px; } .qty span{ width:46px; text-align:center; font-weight:500; }
+    /* switch (after uiverse / switches, MIT), re-skinned gold */
+    .switchrow{ display:flex; align-items:center; justify-content:space-between; gap:16px; margin-top:24px; padding:16px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .switchrow .t{ font-size:14px; } .switchrow .t small{ display:block; color:var(--dim); font-size:12px; }
+    .sw{ position:relative; width:50px; height:28px; flex:none; }
+    .sw input{ position:absolute; opacity:0; width:100%; height:100%; margin:0; cursor:pointer; }
+    .sw .track{ position:absolute; inset:0; border-radius:99px; background:var(--panel-2); border:1px solid var(--line-2); transition:.3s var(--ease); }
+    .sw .knob{ position:absolute; top:3px; left:3px; width:22px; height:22px; border-radius:50%; background:var(--pearl-2); transition:.3s var(--ease); }
+    .sw input:checked ~ .track{ background:var(--gold); border-color:var(--gold); } .sw input:checked ~ .knob{ left:25px; background:var(--night-deep); }
+    .reassure{ margin-top:24px; display:flex; flex-direction:column; gap:10px; font-size:13px; color:var(--dim); }
+    .reassure span{ display:flex; gap:10px; align-items:center; } .reassure b{ color:var(--gold-2); font-weight:500; }
+
+    /* accordion (animated) */
+    .acc{ margin-top:30px; }
+    .acc details{ border-top:1px solid var(--line); } .acc details:last-child{ border-bottom:1px solid var(--line); }
+    .acc summary{ display:flex; justify-content:space-between; align-items:center; gap:14px; padding:18px 2px; cursor:pointer; list-style:none; font-family:var(--disp); font-size:1.2rem; }
+    .acc summary::-webkit-details-marker{ display:none; } .acc summary .ic{ width:26px; height:26px; border:1px solid var(--line-2); border-radius:50%; display:grid; place-items:center; flex:none; transition:.3s var(--ease); color:var(--gold-2); }
+    .acc details[open] summary .ic{ transform:rotate(45deg); border-color:var(--gold); }
+    .acc .body{ overflow:hidden; color:var(--pearl-2); font-size:14.5px; padding:0 2px; max-width:60ch; transition:height .35s var(--ease), opacity .35s var(--ease); }
+    .acc .body .in{ padding-bottom:20px; }
+
+    section{ position:relative; } .sec{ padding-block:clamp(80px,11vw,150px); }
+    /* la pietra : full-bleed editorial */
+    .stone{ position:relative; min-height:80svh; display:flex; align-items:center; overflow:hidden; isolation:isolate; }
+    .stone img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:-2; } .stone::after{ content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(90deg, rgba(6,16,28,.92), rgba(6,16,28,.45) 55%, transparent); }
+    .specs{ display:flex; gap:40px; margin-top:30px; flex-wrap:wrap; } .specs .n{ font-family:var(--disp); font-size:1.6rem; color:var(--gold-2); display:block; } .specs span{ font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--dim); }
+    /* come nasce : split + steps */
+    .split{ display:grid; gap:50px; grid-template-columns:1fr; align-items:center; } @media(min-width:900px){ .split{ grid-template-columns:1fr 1fr; gap:70px; } }
+    .frame{ position:relative; overflow:hidden; aspect-ratio:4/5; border-radius:2px; box-shadow:0 40px 100px rgba(0,0,0,.5); } .frame img{ width:100%;height:100%;object-fit:cover; } .frame::after{ content:""; position:absolute; inset:0; box-shadow:inset 0 0 0 1px var(--line-2); }
+    .steps{ display:grid; gap:22px; margin-top:30px; } .step{ display:grid; grid-template-columns:auto 1fr; gap:18px; align-items:baseline; } .step .nn{ font-family:var(--disp); font-size:1.4rem; color:var(--gold-2); } .step h4{ font-family:var(--disp); font-size:1.25rem; font-weight:400; } .step p{ color:var(--dim); font-size:13.5px; margin-top:4px; }
+    /* related : full-bleed edge-to-edge rail (breaking section), uiverse card */
+    .gallery__head{ display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; }
+    .rail{ display:grid; grid-auto-flow:column; grid-auto-columns:80%; gap:22px; overflow-x:auto; scroll-snap-type:x mandatory; padding:36px 48px 8px; cursor:grab; scrollbar-width:none; } .rail::-webkit-scrollbar{ display:none; } .rail.drag{ cursor:grabbing; }
+    @media(min-width:680px){ .rail{ grid-auto-columns:38%; } } @media(min-width:1100px){ .rail{ grid-auto-columns:26%; } }
+    .pc{ scroll-snap-align:start; position:relative; } .pc__img{ position:relative; overflow:hidden; aspect-ratio:4/5; background:var(--panel); border-radius:2px; } .pc__img::before{ content:""; position:absolute; z-index:1; inset:0; background:radial-gradient(60% 50% at 50% 36%, transparent, rgba(6,16,28,.55)); } .pc__img img{ width:100%;height:100%;object-fit:cover; transition:transform 1s var(--ease); } .pc:hover .pc__img img{ transform:scale(1.06); }
+    .pc__info{ position:absolute; z-index:2; inset:auto 0 0 0; transform:translateY(100%); transition:transform .5s var(--ease); background:linear-gradient(0deg, rgba(6,16,28,.97), rgba(6,16,28,.35)); padding:18px 20px; } .pc:hover .pc__info,.pc:focus-within .pc__info{ transform:translateY(0); } .pc__info p{ font-size:13px; color:var(--pearl-2); }
+    .pc__b{ display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-top:16px; } .pc__b .nm{ font-family:var(--disp); font-size:1.4rem; } .pc__b .pr{ font-size:12.5px; letter-spacing:.1em; color:var(--gold-2); } .pc .cat{ font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--dim); margin-top:7px; display:block; }
+    /* reviews : typographic, no avatars */
+    .revs{ display:grid; gap:30px; grid-template-columns:1fr; } @media(min-width:760px){ .revs{ grid-template-columns:repeat(3,1fr); gap:40px; } }
+    .rev p{ font-family:var(--disp); font-size:1.3rem; line-height:1.4; } .rev .by{ margin-top:16px; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold-2); }
+    /* bespoke */
+    .bespoke{ border:1px solid var(--line-2); background:linear-gradient(160deg, rgba(17,37,60,.7), rgba(6,16,28,.4)); border-radius:3px; padding:clamp(34px,5vw,68px); text-align:center; }
+    .foot{ border-top:1px solid var(--line); padding-block:60px 36px; } .foot__grid{ display:grid; gap:36px; grid-template-columns:1fr; } @media(min-width:760px){ .foot__grid{ grid-template-columns:1.7fr 1fr 1fr; } }
+    .foot h5{ font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold-2); margin-bottom:16px; } .foot ul{ list-style:none; padding:0; display:flex; flex-direction:column; gap:10px; font-size:14px; color:var(--pearl-2); } .foot a:hover{ color:var(--pearl); } .foot__bar{ margin-top:50px; padding-top:22px; border-top:1px solid var(--line); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:11px; letter-spacing:.1em; color:var(--dim); }
+
+    .reveal{ opacity:1; } html.anim .reveal{ opacity:0; transform:translateY(24px); transition:opacity 1s var(--ease), transform 1s var(--ease); } html.anim .reveal.in{ opacity:1; transform:none; }
+    @media(hover:hover) and (pointer:fine){ .cur{ position:fixed;top:0;left:0;width:30px;height:30px;border:1px solid var(--gold);border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:90;transition:width .25s,height .25s,background .25s; } .cur.hot{ width:54px;height:54px;background:rgba(231,203,134,.12);border-color:var(--gold-2); } }
+    @media(prefers-reduced-motion:reduce){ *{ animation-duration:.01ms!important; transition-duration:.01ms!important; scroll-behavior:auto!important; } .reveal{ opacity:1!important; transform:none!important; } .cur{ display:none!important; } }
+    .skip{ position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0); } .skip:focus{ position:fixed;top:8px;left:8px;width:auto;height:auto;clip:auto;z-index:99;background:var(--gold);color:var(--night-deep);padding:10px 14px; }
+  </style>
+</head>
+<body>
+  <div class="sky"></div><div class="grain"></div><div class="cur" aria-hidden="true"></div>
+  <a class="skip" href="#main">Salta al contenuto</a>
+
+  <nav class="nav" id="nav">
+    <a class="brand" href="index.html">Brace</a>
+    <ul class="nav__l"><li><a href="index.html#collezioni">Collezioni</a></li><li><a href="index.html#pietre">Le pietre</a></li><li><a href="index.html#atelier">Atelier</a></li><li><a href="index.html#misura">Su misura</a></li></ul>
+    <div class="nav__r"><span class="nav__cart">Carrello (0)</span><a class="btn" href="#misura" style="padding:.8em 1.4em">Prenota</a><button class="menu-btn" aria-label="Menu" onclick="document.getElementById('mnav').classList.toggle('show')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button></div>
+  </nav>
+  <div id="mnav" style="position:fixed;inset:0;z-index:39;background:rgba(6,16,28,.97);display:none;flex-direction:column;align-items:center;justify-content:center;gap:6px" onclick="this.classList.remove('show')"><a href="index.html#collezioni" class="disp" style="font-size:2rem;padding:10px">Collezioni</a><a href="index.html#pietre" class="disp" style="font-size:2rem;padding:10px">Le pietre</a><a href="index.html#atelier" class="disp" style="font-size:2rem;padding:10px">Atelier</a><a href="#misura" class="disp" style="font-size:2rem;padding:10px">Su misura</a></div>
+  <style>#mnav.show{ display:flex!important; }</style>
+
+  <main id="main">
+    <div class="wrap crumbs"><a href="index.html">Brace</a> / <a href="index.html#collezioni">Collezioni</a> / <span class="gold">Anello Notturno</span></div>
+
+    <!-- PDP -->
+    <section class="wrap pdp">
+      <div class="gal">
+        <div class="gal__main"><img id="galmain" src="img/nb-hero.jpg" alt="Anello Notturno in oro con zaffiro blu" /></div>
+        <div class="gal__thumbs" id="thumbs">
+          <button aria-current="true" data-src="img/nb-hero.jpg"><img src="img/nb-hero.jpg" alt="Vista frontale" /></button>
+          <button aria-current="false" data-src="img/nb-gem.jpg"><img src="img/nb-gem.jpg" alt="Lo zaffiro" /></button>
+          <button aria-current="false" data-src="img/nb-bench.jpg"><img src="img/nb-bench.jpg" alt="La lavorazione" /></button>
+          <button aria-current="false" data-src="img/nb-ring.jpg"><img src="img/nb-ring.jpg" alt="Dettaglio" /></button>
+        </div>
+      </div>
+      <div class="buy">
+        <span class="kdot">Pezzo unico &middot; n. 0241</span>
+        <h1 class="disp" style="margin-top:14px">Anello Notturno</h1>
+        <div class="stars"><b>&#9733;&#9733;&#9733;&#9733;&#9733;</b> 4,9 &middot; 23 recensioni</div>
+        <div class="price">520&euro;</div>
+        <p class="desc">Uno zaffiro blu taglio cuscino, castone fuso a mano intorno alla pietra, su una fascia in oro 18kt riciclato. Pensato per la sera, fatto per durare una vita.</p>
+
+        <div class="opt"><div class="lab"><span>Misura</span><a class="lk" href="#misura" style="font-size:11px">La tua misura?</a></div>
+          <div class="sizes" data-sizes><button class="size" aria-pressed="false">11</button><button class="size" aria-pressed="true">13</button><button class="size" aria-pressed="false">15</button><button class="size" aria-pressed="false">17</button><button class="size" aria-pressed="false">19</button></div>
+        </div>
+
+        <div class="switchrow">
+          <div class="t">Incisione interna<small>una data, un nome, un luogo</small></div>
+          <label class="sw"><input type="checkbox" aria-label="Aggiungi incisione interna" /><span class="track"></span><span class="knob"></span></label>
+        </div>
+
+        <div class="qtyrow">
+          <div class="qty" data-qty><button data-dec aria-label="Meno">&minus;</button><span>1</span><button data-inc aria-label="Pi&ugrave;">+</button></div>
+          <button class="btn btn--solid" style="flex:1; min-width:200px" data-add>Aggiungi : 520&euro;</button>
+        </div>
+
+        <div class="reassure">
+          <span><b>&#10003;</b> Spedizione assicurata in 3 giorni, gratuita</span>
+          <span><b>&#10003;</b> Reso e cambio misura entro 30 giorni</span>
+          <span><b>&#10003;</b> Certificato d&apos;autenticit&agrave; e punzone Brace</span>
+        </div>
+
+        <div class="acc">
+          <details open><summary>Dettagli <span class="ic">+</span></summary><div class="body"><div class="in">Zaffiro blu naturale taglio cuscino, circa 1,1 carati. Fascia in oro 18kt riciclato, larghezza 2,4 mm. Peso 4,2 g. Ogni pezzo riporta il numero del lotto.</div></div></details>
+          <details><summary>Materiali <span class="ic">+</span></summary><div class="body"><div class="in">Oro 18kt riciclato, fuso in atelier. Pietra tracciata e selezionata a mano per colore e limpidezza. Niente nichel.</div></div></details>
+          <details><summary>La cura <span class="ic">+</span></summary><div class="body"><div class="in">Togli l&apos;anello prima di dormire e sotto la doccia. Pulisci con panno morbido. Una lucidatura l&apos;anno è offerta dall&apos;atelier.</div></div></details>
+          <details><summary>Spedizione e resi <span class="ic">+</span></summary><div class="body"><div class="in">Spedizione assicurata e tracciata, gratuita in Italia. Reso o cambio misura entro 30 giorni, anche per i pezzi su misura non incisi.</div></div></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- LA PIETRA : full-bleed editorial -->
+    <section class="stone">
+      <img src="img/nb-gem.jpg" alt="Macro dello zaffiro blu" />
+      <div class="wrap reveal">
+        <span class="kdot">La pietra</span>
+        <h2 class="h2" style="margin-top:16px;max-width:16ch">Uno zaffiro<br /><span class="it">scelto a mano</span></h2>
+        <p class="lead" style="margin-top:20px">Lo abbiamo cercato per il blu profondo che ricorda il lago al tramonto. Tracciato, taglio cuscino, nessun trattamento al calore. Una pietra sola, irripetibile.</p>
+        <div class="specs"><div><span class="n disp">1,1</span><span>carati</span></div><div><span class="n disp">Cuscino</span><span>taglio</span></div><div><span class="n disp">Naturale</span><span>non trattato</span></div></div>
+      </div>
+    </section>
+
+    <!-- COME NASCE -->
+    <section class="wrap sec">
+      <div class="split">
+        <div class="reveal"><div class="frame"><img src="img/nb-bench.jpg" alt="Le mani che incastonano lo zaffiro al banco" /></div></div>
+        <div class="reveal">
+          <span class="kdot">Come nasce</span>
+          <h2 class="h2" style="margin-top:16px">Tre gesti,<br /><span class="it">una sera di lavoro</span></h2>
+          <div class="steps">
+            <div class="step"><span class="nn disp">01</span><div><h4 class="disp">Fusione</h4><p>L&apos;oro riciclato torna liquido nel crogiolo e prende la forma della fascia.</p></div></div>
+            <div class="step"><span class="nn disp">02</span><div><h4 class="disp">Incastonatura</h4><p>Il castone viene piegato a mano intorno allo zaffiro, una pressione alla volta.</p></div></div>
+            <div class="step"><span class="nn disp">03</span><div><h4 class="disp">Finitura</h4><p>Lucidatura, punzone, numero di lotto. Poi una notte di riposo prima di partire.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SI ABBINA A : full-bleed breaking rail -->
+    <section class="sec" style="padding-bottom:0">
+      <div class="wrap wide gallery__head reveal"><h2 class="h2">Si abbina <span class="it">a</span></h2><a class="lk" href="index.html#collezioni">Tutte le collezioni &rarr;</a></div>
+      <div class="rail reveal" data-rail>
+        <article class="pc"><div class="pc__img"><img src="img/nb-earrings.jpg" alt="Orecchini Luna" /><div class="pc__info"><p>Perle d&apos;acqua dolce, oro lucido.</p></div></div><div class="pc__b"><span class="nm disp">Luna</span><span class="pr">290&euro;</span></div><span class="cat">Orecchini</span></article>
+        <article class="pc"><div class="pc__img"><img src="img/nb-necklace.jpg" alt="Collana Notturno" /><div class="pc__info"><p>Catena fine con zaffiro pendente.</p></div></div><div class="pc__b"><span class="nm disp">Notturno</span><span class="pr">520&euro;</span></div><span class="cat">Collana</span></article>
+        <article class="pc"><div class="pc__img"><img src="img/nb-pearl.jpg" alt="Anello Goccia" /><div class="pc__info"><p>Una perla sola su oro sottile.</p></div></div><div class="pc__b"><span class="nm disp">Goccia</span><span class="pr">260&euro;</span></div><span class="cat">Anello</span></article>
+        <article class="pc"><div class="pc__img"><img src="img/nb-flatlay.jpg" alt="Set Pila" /><div class="pc__info"><p>Tre fedi sottili da impilare.</p></div></div><div class="pc__b"><span class="nm disp">Pila</span><span class="pr">300&euro;</span></div><span class="cat">Set</span></article>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="wrap sec">
+      <span class="kdot reveal">Dicono di noi</span>
+      <div class="revs reveal" style="margin-top:36px">
+        <div class="rev"><p class="disp">Il blu dello zaffiro è esattamente quello che speravo. Lo indosso ogni sera.</p><div class="by">Chiara M. &middot; acquisto verificato</div></div>
+        <div class="rev"><p class="disp">Ho fatto incidere la data dentro. Un dettaglio che vale tutto.</p><div class="by">Marco T. &middot; acquisto verificato</div></div>
+        <div class="rev"><p class="disp">Si sente che è fatto a mano: nessun anello in negozio era cos&igrave;.</p><div class="by">Sofia R. &middot; acquisto verificato</div></div>
+      </div>
+    </section>
+
+    <!-- BESPOKE -->
+    <section class="wrap sec" id="misura" style="padding-top:0">
+      <div class="bespoke reveal">
+        <span class="kdot">Su misura</span>
+        <h2 class="h2" style="margin-top:14px">Lo vuoi con <span class="it">la tua pietra</span>?</h2>
+        <p class="lead" style="margin:20px auto 28px">Portaci una pietra di famiglia o scegline una con noi: rifacciamo l&apos;Anello Notturno su misura per te. Ti ricontattiamo entro due giorni.</p>
+        <a class="btn btn--solid" href="index.html#misura">Parliamone</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot__grid">
+        <div><a class="brand" href="index.html" style="font-size:30px">Brace</a><p style="margin-top:16px;color:var(--pearl-2);max-width:32ch">Atelier orafo dal 1961. Gioielli che trattengono la luce, sul lago di Como.</p></div>
+        <div><h5>Collezioni</h5><ul><li><a href="index.html#collezioni">Anelli</a></li><li><a href="index.html#collezioni">Orecchini</a></li><li><a href="index.html#collezioni">Collane</a></li><li><a href="index.html#misura">Su misura</a></li></ul></div>
+        <div><h5>Atelier</h5><ul><li>Via del Lago 4, Como</li><li>+39 031 000 000</li><li>ciao@brace.atelier</li><li>Su appuntamento</li></ul></div>
+      </div>
+      <div class="foot__bar"><span>&copy; 2026 Brace &middot; Atelier orafo &middot; Demo Lavder</span><span>PDP &middot; elementi uiverse (MIT) &middot; Gilda + Schibsted</span></div>
+    </div>
+  </footer>
+
+  <script>
+    const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const nav=document.getElementById('nav'); const onScroll=()=>nav.classList.toggle('solid',scrollY>40); onScroll(); addEventListener('scroll',onScroll,{passive:true});
+    if(!reduce){ document.documentElement.classList.add('anim'); const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.12,rootMargin:'0px 0px -8% 0px'}); document.querySelectorAll('.reveal').forEach(el=>io.observe(el)); setTimeout(()=>document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in')),2600); }
+    // gallery thumbs
+    const main=document.getElementById('galmain');
+    document.querySelectorAll('#thumbs button').forEach(b=>b.addEventListener('click',()=>{ main.src=b.dataset.src; document.querySelectorAll('#thumbs button').forEach(x=>x.setAttribute('aria-current',String(x===b))); }));
+    // size pills
+    document.querySelectorAll('[data-sizes] .size').forEach(s=>s.addEventListener('click',()=>{ document.querySelectorAll('[data-sizes] .size').forEach(x=>x.setAttribute('aria-pressed',String(x===s))); }));
+    // qty
+    document.querySelectorAll('[data-qty]').forEach(q=>{ const out=q.querySelector('span'); let n=1; q.querySelector('[data-dec]').onclick=()=>{n=Math.max(1,n-1);out.textContent=n;}; q.querySelector('[data-inc]').onclick=()=>{n++;out.textContent=n;}; });
+    // add to cart (demo)
+    document.querySelectorAll('[data-add]').forEach(b=>b.addEventListener('click',()=>{ const o=b.textContent; b.textContent='Aggiunto'; setTimeout(()=>b.textContent=o,1200); const c=document.querySelector('.nav__cart'); if(c)c.textContent='Carrello (1)'; }));
+    // accordion animate open/close
+    if(!reduce) document.querySelectorAll('.acc details').forEach(d=>{ const body=d.querySelector('.body'), sum=d.querySelector('summary'); if(!body||!sum)return; sum.addEventListener('click',e=>{ e.preventDefault(); if(d.open){ body.style.height=body.scrollHeight+'px'; body.getBoundingClientRect(); body.style.height='0px'; body.style.opacity='0'; const done=()=>{ d.open=false; body.style.height=''; body.style.opacity=''; body.removeEventListener('transitionend',done); }; body.addEventListener('transitionend',done,{once:true}); } else { d.open=true; const h=body.scrollHeight; body.style.height='0px'; body.style.opacity='0'; body.getBoundingClientRect(); body.style.height=h+'px'; body.style.opacity='1'; const done=()=>{ body.style.height=''; body.removeEventListener('transitionend',done); }; body.addEventListener('transitionend',done,{once:true}); } }); });
+    // related rail drag
+    document.querySelectorAll('[data-rail]').forEach(rail=>{ let dn=false,x=0,l=0,m=0; rail.addEventListener('pointerdown',e=>{dn=true;m=0;x=e.clientX;l=rail.scrollLeft;rail.classList.add('drag');rail.setPointerCapture?.(e.pointerId);}); rail.addEventListener('pointermove',e=>{ if(!dn)return; const dx=e.clientX-x; m+=Math.abs(dx); rail.scrollLeft=l-dx; }); const end=()=>{dn=false;rail.classList.remove('drag');}; rail.addEventListener('pointerup',end); rail.addEventListener('pointercancel',end); rail.addEventListener('pointerleave',end); rail.addEventListener('click',e=>{ if(m>6)e.preventDefault(); },true); });
+    // cursor
+    if(matchMedia('(hover:hover) and (pointer:fine)').matches && !reduce){ const c=document.querySelector('.cur'); addEventListener('pointermove',e=>{ c.style.left=e.clientX+'px'; c.style.top=e.clientY+'px'; }); document.querySelectorAll('a,button,.pc__img,.size,.gal__thumbs button').forEach(el=>{ el.addEventListener('pointerenter',()=>c.classList.add('hot')); el.addEventListener('pointerleave',()=>c.classList.remove('hot')); }); }
+    document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{ const id=a.getAttribute('href'); if(id==='#')return; const t=document.querySelector(id); if(!t)return; e.preventDefault(); t.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'}); }));
+  </script>
+</body>
+</html>
