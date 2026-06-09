@@ -17,7 +17,8 @@ Everything here is Google Fonts (portable build). Updated 2026.
 3. **Prefer famous, but try niche.** Pick at least one face that is NOT the obvious default: pair a reliable famous body with a more characterful or niche display (or vice versa). The mix is what stops it looking generated.
 4. **Pair by contrast.** Display and body should differ clearly (serif vs sans, high-contrast vs low, condensed vs wide). Two near-identical faces read as a mistake.
 5. **Rotate (anti-repeat).** Check the ledger: do not reuse a display face from the last project in the same archetype, and never the exact pairing twice running. Log the pairing on the ledger row.
-6. **Load only what you use** (variable where possible, Latin subset, the 2 to 4 weights actually used).
+6. **Rotate the pairing *structure*, not only the families.** The lazy default everyone (and every AI) falls into is "one characterful display serif + one plain sans body", every time, just swapping the names. Break the shape itself: a **single sans superfamily** (weight + size contrast, no second family), a **serif body under a sans display** (inverted), an **all-grotesque** system, a **mono-led** pair, an **expressive sans display**. If recent projects were all elegant-serif-head + plain-sans-body, the next one must not be: the structure of the pairing is part of the fingerprint, and "elegant heading, normal body" on every site is a tell. (A clean single-sans system also reads more institutional / corporate.)
+7. **Load only what you use** (variable where possible, Latin subset, the 2 to 4 weights actually used).
 
 ## Banned as the primary faces
 

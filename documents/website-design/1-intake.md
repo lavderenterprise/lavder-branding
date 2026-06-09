@@ -26,6 +26,7 @@ Lift the brand **exactly**, do not "improve" it without saying so:
 - Type direction: their typefaces if licensed/Google-available; otherwise the nearest distinctive Google pairing (see `fonts.md`), flagged as a substitution.
 - Logo: get the real file (SVG preferred). If only a raster, note it.
 - Voice samples: pull two or three real sentences they already use, to match register.
+- **Redesign = refine, do not rebrand.** When the client already has a live identity (this is almost every redesign), the new design **extracts and elevates the REAL assets**: their actual colours, logo lock-up, name and sub-brands. Modernise the execution, keep the identity. Inventing a fresh palette or a new logo is a *rebrand*, a separate decision that must be explicitly proposed and approved, never a silent default. Real failure to avoid: redesigning a burgundy + dust-blue supermarket group as a terracotta + olive boutique, and swapping its cart wordmark for an invented seal.
 
 ## Brand-express (client has no identity)
 

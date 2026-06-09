@@ -1,0 +1,3 @@
+# Export archives are regenerable build artifacts (zip the source folders on demand). Keep them out of git.
+*.zip
+.DS_Store

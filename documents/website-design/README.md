@@ -55,6 +55,18 @@ If a later gate fails because of an earlier decision, go back to that step. The 
 
 ---
 
+### The opening prompt (fire this first, every project)
+
+Step 1 is not background reading: it is an interactive quiz the operator fires at the client (or at the account owner standing in) **before anything else**, via `AskUserQuestion`. Nothing downstream starts until these are answered and written to the brief. The full set is in [`1-intake.md`](./1-intake.md); the decisive ones, asked first:
+
+1. **Client + sector** : who they are, what they sell, who buys it.
+2. **Site type (archetype)** : ecommerce / corporate / servizi / locale / landing / portfolio.
+3. **Graphic-push dial** : 1 Sober / 2 Refined / 3 Expressive / 4 Extreme (the control that calibrates everything, Section 2).
+4. **Mood + voice** : the aesthetic direction, plus register (`voi` B2B / `tu` B2C) and two tone adjectives.
+5. **Brand + build** : brand is real (extract it) or express (we propose), plus tier and track (A WordPress / B Next.js).
+
+Then Step 2 (research) runs, and only after that does any code begin.
+
 ## 4. The non-negotiables (global hard rules)
 
 These hold on every project regardless of the dial. Each is detailed in its step; collected here so they are never "forgotten".
@@ -67,6 +79,7 @@ These hold on every project regardless of the dial. Each is detailed in its step
 6. **Distinctive fonts within Google Fonts.** Beautiful, characterful pairings, served from Google Fonts (so the build is portable), chosen from the rotating list, never the canonical ones. (`fonts.md`)
 7. **Atmosphere over flat color.** Backgrounds carry depth (layered light, grain, texture, gradient mesh) appropriate to the dial, not a single solid fill, unless restraint is the deliberate statement. (`3-art-direction.md`)
 8. **Client-brand fit and track-feasibility gate everything.** The boldness serves the client's brand; it is buildable on the chosen track or it does not ship. (`1-intake.md`, `7-quality.md`)
+9. **Build the whole site, every page long and rich.** Never deliver only the home, and never a thin inner page. Build every primary page in the sitemap; the tier sets the floor (Tier 2 : 6+ sections per page, Tier 3 : 7 to 12, footer excluded); no inner page thinner than the home. Producing just a homepage when the brief is a site, or short inner stubs, is the single most common failure. (`1-intake.md`, `5-build.md`, `7-quality.md`)
 
 ---
 

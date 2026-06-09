@@ -41,6 +41,64 @@ Treat this as the drawer index. The numbers are how many distinct options to kee
 
 That index is the 500+. It is a menu to pull from, not a checklist to use all of.
 
+## The identification method (find them, judge them, prove the code)
+
+The drawer is huge, but most of it is forgettable and a lot of it is generic. You do not "pick a nice button"; you run a method that ends with a defensible answer to "why this element, from here, with this code." Five steps.
+
+### 1. Know what you are hunting before you open a tab
+
+From Steps 1 to 3 you already have the archetype, mood, push-dial and palette. Turn that into a short hunt-list of the 2 to 4 surfaces that deserve a crafted part, written as a *sensation*, not a component name: "a primary CTA that catches light like polished gold," "a focus state that feels considered, not default," "a hover that rewards looking." Browsing blind is how you end up with the same button as everyone else. Hunt the sensation.
+
+**Include at least one element that reads as crafted *at rest*, not only on hover or focus.** Interaction-only parts (a ripple on hover, a line that draws on focus) are real craft, but they are invisible at a glance, so on their own the library never *shows*: the page looks unchanged until someone touches it. Always pair them with at least one visible-at-rest piece (a real control like a segmented filter, a card treatment, a divider/ornament) so the craft is felt the moment the page loads. "I added elements but nothing looks different" means you only picked interaction-triggered ones.
+
+### 2. Discovery protocol per source (with the real mechanics)
+
+**Match the element to the source, and exhaust the right source before you reconstruct.** Small parts (buttons, inputs, toggles, loaders) live on uiverse; controls (tabs, segmented, accordions) and signature interactions live on CodePen (technique) and HeroUI (accessible pattern); whole sections on the kits. A pool looking thin on **one** source is not a verdict on the part: open the source that is actually strong for that type before deciding to build it yourself. Real past failure to avoid: declaring uiverse's control pool "too playful" and hand-rolling a segmented control without first checking CodePen (where the radio + sliding-glider technique is canonical) or HeroUI's Tabs. Don't complain about a barren drawer you only half-opened.
+
+- **uiverse** is strongest for small crafted parts: buttons, inputs, toggles, checkboxes, loaders, tags, tooltips. It is weak for editorial composite cards and for multi-option controls (its card and "segmented/tabs" pools skew playful: 3D tickets, neobrutalist windows, toggle switches). For those, go to CodePen/HeroUI or reconstruct a known technique (image clip-reveal, caption mask, rule-draw).
+  - Search by a precise **visual** term ("border animation button", "input underline label", "shine sweep"), never a generic noun ("card", "button") alone.
+  - **Favorites / most-popular is a trap.** The same handful of all-time hits (a social-reveal card, three colored "Hover me" blocks, a GitHub button) surface on top of nearly every search; they are on a thousand sites already. Scroll two or three rows past the top, or sort by New.
+  - Listing thumbnails lazy-load and often render blank: wait a beat and scroll to trigger them before judging.
+  - The **detail page is the evaluation bench**: it renders the live preview *and* exposes the HTML and CSS tabs. Hover the preview to see the real motion; read the code before deciding.
+  - Investigate **top authors** for award-grade work (browse a strong profile, e.g. a multi-challenge winner), but still take only what fits the brief, never the flashiest thing on offer.
+- **CodePen** is the signature/experimental drawer: scroll effects, text animations, SVG line-draws, custom cursors, canvas backgrounds, and the canonical control techniques (e.g. radio + sliding-glider tabs). Higher ceiling, more vetting; licenses vary (see step 4). Mechanic: global search needs an account, so reach pens by web-searching the technique and opening the pen URL directly (pens render and show their HTML/CSS/JS panels without login).
+- **HeroUI** components are React + React-Aria (Track B): great as the accessible *pattern* reference (its Tabs is a sliding-cursor segmented control), but on Track A you adapt the markup + interaction to vanilla, you do not lift the React code. **Section kits** are scaffolds: take the structure, art-direct the skin.
+
+### 3. The beauty test (what earns a place)
+
+Research on premium interfaces is consistent: a premium micro-interaction combines **functional clarity + personality + brand expression**; a generic one is bare utilitarian feedback with no thought behind it. So an element earns its place only if it has:
+
+- **Personality with purpose** : the motion or treatment expresses something (light, craft, calm), it is not decoration bolted on.
+- **A technique you would not have defaulted to** : a layered structure, an unusual easing, a reveal you would not have written yourself in thirty seconds. If you would have, skip it: it adds nothing.
+- **Restraint** : it reads expensive, not busy. One considered move beats five gimmicks. Cap the borrow per surface.
+- **Re-skinnability** : its character lives in the **structure and the motion** (layers, timing, transforms), not in its demo colors, so it survives a token swap and still reads as itself.
+
+### 4. Evaluate the code (valuta il codice) before you take it
+
+Open the actual HTML and CSS and check, every time:
+
+- **License + credit** : uiverse is MIT, reuse with attribution (log author and slug). CodePen varies per pen: if there is no clear permissive license, do not lift it, take it only as direction. Never ship code you cannot license.
+- **Self-contained and portable** : pure CSS/HTML or minimal vanilla JS for Track A; no framework lock-in, no external CDN/asset you cannot vendor locally.
+- **Code health** : no `!important` thickets, no hardcoded pixel widths that break at our type scale, no baked-in colors that fight theming, a sane DOM (not forty nested wrappers for a button).
+- **Performance** : transitions on `transform` / `opacity` (compositor-friendly), not mass-animating `width` / `top` / `box-shadow`; no perpetual idle animation; it must survive our global `prefers-reduced-motion` rule.
+- **Accessibility** : a real semantic element (`<button>`, `<input>`), a visible focus state, keyboard-usable; never a div-with-onclick dressed as a control.
+- **Fit** : maps cleanly onto our tokens, radius and spacing.
+
+Score the shortlist against these. The winner passes every gate *and* best fits the surface from step 1. Most candidates fail here; that is the point.
+
+### 5. Re-skin, integrate, log
+
+Map it to the brand tokens, keep the distinctive structure and motion intact, place it on the surface you were hunting for, and append the element-ledger row (category : source : author/slug). A part that still looks like its demo is a defect.
+
+### Worked record : Brace (atelier jewelry, midnight + gold, dial 4)
+
+- **CTA button** : uiverse `OliverZeros / bitter-parrot-97` (MIT). Chosen for the "catches light like gold" sensation: three staggered circular layers scale open under a clipped pill while a two-line label rolls, all on `cubic-bezier(.19,1,.22,1)`. Evaluated: pure CSS, semantic, transform/opacity only, ~130 clean lines. Re-skinned the playful purple/turquoise/yellow ripple to a tonal gold sequence (deep gold, champagne, pale gold) on Brace tokens; sharp 1px radius and uppercase tracking to match the system. Applied to the three primary CTAs.
+- **Form input** : uiverse `adamgiebl / hot-cat-14` (MIT). Chosen for "a focus state that feels considered": a sibling `<span>` whose width animates 0 to 100% on `:focus`, ease-in-back. Evaluated: real `<input>`, one tiny span, width transition only, trivially themeable. Re-skinned the line to a gold gradient over the resting hairline; applied to the newsletter and the bespoke fields.
+- **Filter control** (visible at rest) : segmented control built on the radio + sliding-glider technique from `havardob / ExVaELV` "Sliding tabs" (CodePen); HeroUI Tabs confirmed the same sliding-cursor pattern (React/Track B, adapted to vanilla). Active state is pure CSS (`input:checked + label`); a few lines of JS size the glider to the active label so the text stays centered at any label width, and run the card filter.
+- **Visible-at-rest support** : product cards with an auto CSS-counter index numeral + a gold inset frame that turns gold on hover, and a CSS-drawn gem divider. These exist because the button and input are interaction-only (ripple on hover, line on focus): without at-rest pieces the library was invisible at a glance (see step 1).
+- Rejected on purpose: uiverse's card and "shine" pools (too playful/skeuomorphic for luxe) and marcelodolza's glossy 3D buttons (clash with the flat editorial midnight). Fit beats quota: two parts that belong beat five that do not.
+- Process honesty: the control + at-rest pieces were a **second pass**. The first pass stopped at uiverse, judged its control/card pools too playful, and reconstructed from scratch without opening CodePen or HeroUI: wrong, and rightly called out. The fix is step 2's rule, route by element type and exhaust the right source first.
+
 ## The randomization protocol (so we never repeat ourselves)
 
 1. **Pick by fit, then by freshness.** First filter the drawer to what serves the POV (Step 3) and the dial. Among the fits, deliberately avoid the obvious / most-popular / first-result option: scroll past the top of the list. The most-liked uiverse button is on a thousand sites already.
