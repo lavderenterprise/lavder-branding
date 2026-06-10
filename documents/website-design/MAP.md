@@ -1,5 +1,7 @@
 # Lavder Website-Design System : Complete Map
 
+> **Scope + currency note.** This map covers the **upstream branding-repo system** (`documents/website-design/`) as audited on 2026-06-06: the 8-step canon, 73 files. The `lavder-website-design` **skill has since evolved past it**: a content-first 10-step order (see `SKILL.md`, which governs), a Brand/Product register, a copy/SEO layer (`references/copy-seo/`), `knowledge/`, `tools/` and detector gates, none of which are counted here. Read this map for the upstream system's anatomy; read `SKILL.md` + the skill-root `README.md` for what runs today.
+
 A full, file-by-file map of `documents/website-design/`. Every text file (12 guideline docs, the presentation wrapper, and the 9 sub-site folders) was read line 1 to last line and mapped here. Written in English to match the sibling guideline docs.
 
 - **Generated:** 2026-06-06 (read-only audit; no source files were modified to produce this map).

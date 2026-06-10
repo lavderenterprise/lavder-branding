@@ -18,6 +18,8 @@ Run this as an `AskUserQuestion`-style flow (multiple choice, always with an "ot
 8. **Pages.** Default: every primary page in the sitemap, each built in full (never thin stubs). The client may scope down, but each chosen page is complete.
 9. **Imagery strategy.** Real client assets, real category stock as placeholders, AI-generated (see `image-generation.md`), or a mix. Never fabricated AI people.
 10. **Hard constraints.** Deadlines, must-keep brand rules, accessibility level, languages (IT default, EN-ready), anything that limits the art direction.
+11. **Register per surface.** Brand (the design IS the product: marketing, vetrina, e-commerce, portfolio; the bar is distinctiveness) or Product (the design SERVES the product: dashboard, account, checkout internals, app UI; the bar is earned familiarity, dial capped 1 to 2). Default Brand; flag Product surfaces explicitly.
+12. **SEO / content targets.** Target keywords or themes, market, and the client's real proof points (the E-E-A-T material: certifications, years, real numbers, named makers). If unknown, they are discovered in the SEO research track; the copy/SEO layer turns them into the IA and the real copy before design.
 
 ## Brand extraction (client has identity)
 
@@ -45,14 +47,16 @@ A short block that the rest of the pipeline reads:
 CLIENT:        <name, sector, one-line offer>
 BRAND:         client | express        accent: <#hex>   neutrals: <...>
 VOICE:         voi | tu  +  <2 adjectives>
+REGISTER:      Brand | Product (per surface; default Brand)
 ARCHETYPE:     ecommerce | corporate | servizi | locale | landing | portfolio
 TIER / TRACK:  Tier <1|2|3>  /  Track <A|B>
 PUSH DIAL:     <1 Sober | 2 Refined | 3 Expressive | 4 Extreme>
 PAGES:         <list>
 IMAGERY:       <real | stock | AI | mix>
 FONTS:         <chosen display + body from fonts.md, with the rotation reason>
+SEO-KEYWORDS:  <target keywords/themes + market + the real proof points; volumes always Estimated>
 CONSTRAINTS:   <deadlines, brand rules, a11y, languages>
 DIVERGE FROM:  <filled in Step 2 from the concept-ledger>
 ```
 
-Gate to pass before Step 2: the dial is chosen and written, the archetype + tier + track are locked, and the brand layer is either extracted or expressed. If the dial and the track disagree (for example dial 4 on Track A with no feasible signature), resolve it now, not at handoff.
+Gate to pass before Step 2: the dial and the register are chosen and written, the archetype + tier + track are locked, and the brand layer is either extracted or expressed. If the dial and the track disagree (for example dial 4 on Track A with no feasible signature), resolve it now, not at handoff.

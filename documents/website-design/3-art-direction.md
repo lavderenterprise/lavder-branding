@@ -1,6 +1,8 @@
 # Step 3 : Art direction (the layer AI skips)
 
-This is where a project stops being "a correct website" and becomes "a designed thing." Everything here is the ceiling layer. The floor (Step 7) stays untouched; here we decide what the site *says* and how it *feels*. Calibrate every choice to the **push dial** from Step 1 and the **steal list** from Step 2.
+This is where a project stops being "a correct website" and becomes "a designed thing." Everything here is the ceiling layer. The floor (the quality pass) stays untouched; here we decide what the site *says* and how it *feels*. Calibrate every choice to the **push dial** from intake and the **steal list** from research.
+
+> **Content-first input (the skill runs this as Step 5).** Art-direct AROUND the real copy and the SXO page-type produced by the IA + Copy/SEO step: the actual H1s, the per-page section lists, the page TYPES and the above-fold answer lines, never placeholder text. Re-read the per-page SXO note (`references/copy-seo/sxo-bridge.md` in the skill) before committing the POV; the **register** (Brand pushes the dial, Product caps it at 1 to 2) sets how loud this layer goes.
 
 ## The mandate: one point of view, one thing they remember
 

@@ -1,5 +1,7 @@
 # Website design : the Lavder studio pipeline
 
+> **Running-order precedence (read first).** Inside the `lavder-website-design` skill, **`SKILL.md` governs the running order**: a content-first, 10-step pipeline (1 Quizzes, 2 Read knowledge, 3 Research dual-track, **4 IA + Copy/SEO**, 5 Art direction, 6 Elements, 7 Build, 8 Anti-AI, 9 Quality, 10 Deliver). Three deltas against the 8-step table below: (a) a real **copy/SEO step sits between research and design**, so code does NOT begin right after research; (b) the **`sitemap.html` IA is born at Step 4 with the real copy** (Build produces only `wireframe.html`); (c) the intake also captures the **Brand/Product register** and the **SEO/content targets**. These numbered docs remain the method canon: read them for the *how*; take the order and gates from `SKILL.md`.
+
 The job of this folder is one thing: produce client websites that look like they came out of a **design studio**, not out of an AI. Generic "AI slop" (the centered hero with an eyebrow and two buttons, the three equal feature cards, the animated counters, the purple gradient on white, Inter everywhere) is the failure mode. We beat it with a **staged pipeline**: a small set of base directions in, then a chain of layers and gates out, each one raising the result before the next begins.
 
 This README is the operating manual. The detail lives in the numbered steps. Read this once, then run the steps in order on every project.

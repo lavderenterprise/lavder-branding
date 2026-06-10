@@ -1,11 +1,11 @@
 # Step 5 : Build
 
-Now assemble the pages against the fixed targets from Steps 1 to 4 (the dial, the direction note, the art-direction note, the elements list). Build in a fixed order so the system holds together, and keep spacing and margins coherent throughout. The art direction is the *what*; this step is the disciplined *how*.
+Now assemble the pages against the fixed targets from the earlier steps (the dial, the direction note, **the real copy + per-page briefs from the IA + Copy/SEO step (assemble them, never lorem)**, the art-direction note, the elements list). Build in a fixed order so the system holds together, and keep spacing and margins coherent throughout. The art direction is the *what*; this step is the disciplined *how*.
 
 ## Build order (do not jump ahead)
 
 1. **Tokens first.** Define CSS variables before any markup: the palette (dominant, surfaces, one accent, neutrals), the type scale, the spacing scale, the radius set, the shadow, the motion easing/duration. Everything downstream references these. This is what keeps a page coherent.
-2. **Structure (sections, low-fi first).** For Tier 1 a quick low-fi pass is enough; for **Tier 2/3 produce the real `sitemap.html` + `wireframe.html`** (two cross-linked low-fi files in the `reference-*/` format, see [`8-deliverable.md`](./8-deliverable.md)) and pass that gate before hi-fi. Order the sections per archetype, place the signature moment, plan the composition rhythm (which side carries weight, where the grid breaks, light vs dark bands). One job per section, one primary action per fold.
+2. **Structure (sections, low-fi first).** For Tier 1 a quick low-fi pass is enough; for **Tier 2/3 the `sitemap.html` IA is already authored at the IA + Copy/SEO step (with the real copy): produce the matching `wireframe.html` here** (two cross-linked low-fi files in the `reference-*/` format, see [`8-deliverable.md`](./8-deliverable.md)) and pass that gate before hi-fi. Order the sections per archetype, place the signature moment, plan the composition rhythm (which side carries weight, where the grid breaks, light vs dark bands). One job per section, one primary action per fold.
 3. **Components.** Drop in the pulled, re-skinned elements from Step 4. Build interaction states with them: hover, focus-visible, active, disabled, loading, empty, error.
 4. **Motion.** Add the one orchestrated load moment, the scroll reveals (visible by default, never content stuck at opacity 0), and the hover language. Reduced-motion path for everything.
 5. **Imagery.** Place real or camera-real images (see [`image-generation.md`](./image-generation.md)), with real alt text. One subject per frame. Never fabricated people.

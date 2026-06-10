@@ -10,7 +10,7 @@ The output is a **navigable hi-fi prototype** wrapped in a **light Lavder presen
 
 ## The low-fi wireframe + sitemap (ships in the export, Tier 2/3)
 
-The wireframe is not a mental step you pass through on the way to hi-fi: on Tier 2 and Tier 3 it is a pair of **real files that ship inside the export**, `sitemap.html` + `wireframe.html`, next to the hi-fi pages. Recurring failure to avoid: building the rich hi-fi site and never producing them, so the export carries no structural artifact and the Tier-3 wireframe gate was effectively skipped.
+The wireframe is not a mental step you pass through on the way to hi-fi: on Tier 2 and Tier 3 it is a pair of **real files that ship inside the export**, `sitemap.html` + `wireframe.html`, next to the hi-fi pages. (In the content-first order, `sitemap.html` is authored at the IA + Copy/SEO step, with the real copy; `wireframe.html` at Build.) Recurring failure to avoid: building the rich hi-fi site and never producing them, so the export carries no structural artifact and the Tier-3 wireframe gate was effectively skipped.
 
 - **Two cross-linked files, not one.** `sitemap.html` (the IA) and `wireframe.html` (the page layouts), each with a top bar linking to the other (`→ Wireframe` / `→ Sitemap`). Both are monospace, greyscale, low-fi. **Copy the format of the existing `reference-*/` set** (e.g. `reference-ecommerce/`) so every project's structural artifacts look the same: do not improvise a one-off, and do not collapse the two into a single combined file with a "Sitemap" tab.
 - **`sitemap.html` (the IA tree).** A root Home node listing the home sections, a connector, then a grid of page cards (each card lists that page's sections), a utility / legal row (login, account, language, privacy, cookie, returns, 404), and a legend (primary nav, ★ = primary action, language, build track).
@@ -25,6 +25,8 @@ Frames the value and makes Lavder visibly the author. Cover, objectives recap, t
 ## Output and naming
 
 - Prototype source: `~/Downloads/lavder-design-<client>-YYYY-MM-DD/` (or hosted URL), with `sitemap.html` + `wireframe.html` at its root for Tier 2/3.
+- **The copy/SEO package ships inside the source** as `copy-seo/` (`keyword-map.md`, `briefs/<page>.md`, `meta-schema-plan.md`; worked example: `examples/etruria-retail/copy-seo/` in the skill), plus `sitemap.xml` for crawlers (distinct from the low-fi `sitemap.html`).
+- **Track A also ships `impreza-build.json`** in the source root (the porting manifest `lavder-impreza-harness` reads first).
 - Presentation: `~/Downloads/lavder-design-<client>-YYYY-MM-DD.{html,pdf}`.
 - When the source is zipped for handoff, **verify the archive actually contains `sitemap.html` and `wireframe.html`** (`unzip -l`): shipping a zip of only the hi-fi pages is the exact failure this guards against.
 
